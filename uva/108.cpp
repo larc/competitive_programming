@@ -6,7 +6,7 @@ int rec[101][101];
 int main()
 {
 	int n, i, j, k, max, d;
-	int dp[101];
+	int dp; 
 	while(scanf("%d", &n) != EOF)
 	{
 		for(i = 0; i < n; i++)
@@ -21,12 +21,12 @@ int main()
 		for(i = 0; i < n; i++)
 		for(j = i + 1; j <= n; j++)
 		{
-			dp[0] = 0;
+			dp = 0;
 			for(k = 1; k <= n; k++)
 			{
 				d = rec[k][j] - rec[k][i];
-				dp[k] = std::max(dp[k - 1] + d, d);
-				if(dp[k] > max) max = dp[k];
+				dp = std::max(dp + d, d);
+				if(dp > max) max = dp;
 			}
 		}
 		printf("%d\n", max);
