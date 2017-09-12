@@ -106,6 +106,24 @@ bool union_s(int x, int y)
 	return 1;
 }
 
+float kruskal(const int & p, std::priority_queue<edge_t> & q, int s)
+{
+	edge_t edge;
+	float d = 0;
+	while(!q.empty() && s)
+	{
+		edge = q.top();
+		q.pop();
+		if(union_s(edge.a, edge.b))
+		{
+			s--;
+			d = D[edge.a][edge.b];
+		}
+	}
+
+	return sqrt(d);
+}
+
 float kruskal(const int & p, int e, int s)
 {
 	std::sort(E, E + e);
@@ -125,7 +143,7 @@ float kruskal(const int & p, int e, int s)
 	return sqrt(d);
 }
 
-int main_kruskal() // 0.030 c++11
+int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue version
 {
 	int n, p, s, e;
 
@@ -136,18 +154,21 @@ int main_kruskal() // 0.030 c++11
 		for(int i = 0; i < p; i++)
 			scanf("%f %f", &C[i].x, &C[i].y);
 		
-		e = 0;
+		//e = 0;
+		std::priority_queue<edge_t> q;
 		for(int i = 0; i < p; i++)
 		for(int j = i + 1; j < p; j++)
 		{
 			D[i][j] = D[j][i] = C[i].norm(C[j]);
-			E[e++] = {i, j};
+			//E[e++] = {i, j};
+			q.push({i, j});
 		}
 
 		for(int i = 0; i < p; i++) // initialization union find
 			S[i] = i;
 		
-		printf("%.2f\n", kruskal(p, e, p - s));
+		//printf("%.2f\n", kruskal(p, e, p - s));
+		printf("%.2f\n", kruskal(p, q, p - s));
 	}
 
 	return 0;
