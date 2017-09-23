@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <sstream>
-#include <algorithm>
 
 #define N 100
 
@@ -11,6 +10,9 @@ int dfs_low[N];
 int dfs_num[N];
 int dfs_parent[N];
 int dfs_counter;
+int dfs_root;
+int root_children;
+bool articulation[N];
 
 void dfs_articulation(const int & u, int & count)
 {
@@ -21,15 +23,20 @@ void dfs_articulation(const int & u, int & count)
 		if(dfs_num[v] == -1)
 		{
 			dfs_parent[v] = u;
+			if(u == dfs_root) root_children++;
 			dfs_articulation(v, count);
 
-			if(dfs_low[v] >= dfs_num[u]) // articulation
-				count++;
+			if(u != dfs_root && dfs_low[v] >= dfs_num[u]) // articulation
+			{
+				count += !articulation[u];
+				articulation[u] = 1;
+			}
 
-			dfs_low[u] = std::min(dfs_low[u], dfs_low[v]);
+			if(dfs_low[u] > dfs_low[v])
+				dfs_low[u] = dfs_low[v];
 		}
-		else if(v != dfs_parent[u])
-			dfs_low[u] = std::min(dfs_low[u], dfs_num[v]);
+		else if(v != dfs_parent[u] && dfs_low[u] > dfs_num[v])
+			dfs_low[u] = dfs_num[v];
 	}
 }
 
@@ -42,10 +49,12 @@ int main()
 	while(scanf("%d", &n), n)
 	{
 		memset(size, 0, sizeof(size));
+		memset(articulation, 0, sizeof(articulation));
 
 		while(scanf("%d", &u), u)
 		{
 			fgets(line, sizeof(line), stdin);
+			ss.clear();
 			ss << line;
 			while(ss >> v)
 			{
@@ -60,9 +69,14 @@ int main()
 		memset(dfs_parent, 0, sizeof(dfs_parent));
 		
 		count = 0;
-		for(u = 0; u < n; u++)
+		for(u = 1; u <= n; u++)
 			if(dfs_num[u] == -1)
+			{
+				dfs_root = u;
+				root_children = 0;
 				dfs_articulation(u, count);
+				if(root_children > 1) count++;
+			}
 		
 		printf("%d\n", count);
 	}
