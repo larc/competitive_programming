@@ -119,29 +119,39 @@ struct big_int_t
 
 int main()
 {
-	big_int_t prod[N], max;
-	int num[N];
-	int n;
+	big_int_t aux, pos, neg, max;
+	int num;
 		
-	while(scanf("%d", &num[0]) != EOF)
+	while(scanf("%d", &num) != EOF)
 	{
-		n = 1;
-		max = prod[0] = num[0];
-		while(scanf("%d", &num[n]), num[n] != -999999)
+		max = num;
+		pos = neg = 1;
+
+		do
 		{
-			prod[n] = num[n];
-			if(prod[n] > max)
-				max = prod[n];
-			n++;
+			pos *= num;
+			neg *= num;
+				
+			if(pos.is_negative() && !neg.is_negative())
+			{
+				aux = pos;
+				pos = neg;
+				neg = aux;
+			}
+			
+			if(pos > max)
+				max = pos;
+			
+			if(pos.is_negative())
+				pos = 1;
+			
+			if(!num)
+			{
+				pos = 1;
+				neg = 1;
+			}
 		}
-		
-		for(int i = 1; i < n; i++)
-		for(int j = 0; j < n - i; j++)
-		{
-			prod[j] *= num[j + i];
-			if(prod[j] > max)
-				max = prod[j];
-		}
+		while(scanf("%d", &num), num != -999999);
 		
 		max.print();
 	}
