@@ -1,5 +1,5 @@
 // 481 - What Goes Up
-:wqi:wqiiii:wqi
+
 #include <cstdio>
 #include <cstring>
 
