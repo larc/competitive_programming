@@ -1,12 +1,13 @@
 // 481 - What Goes Up
 
 #include <cstdio>
-#include <cstring>
+#include <algorithm>
 
-#define N 100000
+#define N 1000000
 
 int seq[N];
 int lis[N];
+int lis_i[N];
 int parent[N];
 
 void print_lis(const int & i)
@@ -19,32 +20,28 @@ void print_lis(const int & i)
 
 int main()
 {	
-	int n = 0;
-	while(scanf("%d", seq + n++) != EOF);
-	n--;
-	
-	memset(parent, -1, sizeof(parent));
+	int low, l_size, l_end, n;
+	l_size = l_end = n = 0;
 
-	lis[0] = 1;
-	int k = 0;
-	for(int i = 1; i < n; i++)
+	while(scanf("%d", seq + n) != EOF)
 	{
-		lis[i] = 1;
-		for(int j = i - 1; j >= 0; j--)
+		low = std::lower_bound(lis, lis + l_size, seq[n]) - lis;
+		lis[low] = seq[n];
+		lis_i[low] = n;
+		parent[n] = low ? lis_i[low - 1] : -1;
+
+		if(low == l_size)
 		{
-			if(seq[j] < seq[i] && lis[j] + 1 > lis[i])
-			{
-				lis[i] = lis[j] + 1;
-				parent[i] = j;
-			}
+			l_size++;
+			l_end = n;
 		}
 
-		if(lis[i] >= lis[k]) k = i;
+		n++;
 	}
-
-	printf("%d\n", lis[k]);
+		
+	printf("%d\n", l_size);
 	printf("-\n");
-	print_lis(k);
+	print_lis(l_end);
 
 	return 0;
 }
