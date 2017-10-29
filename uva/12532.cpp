@@ -5,6 +5,7 @@
 #define N 100001
 #define left(i) (i << 1)
 #define right(i) (i << 1) + 1
+#define val(x) x ? (x > 0 ? 1 : -1) : 0
 
 int seq[N];
 int prod[N << 2];
@@ -22,14 +23,14 @@ void build_st(const int & n, const int & i, const int & j)
 	build_st(left(n), i, m);
 	build_st(right(n), m + 1, j);
 
-	prod[n] = (prod[left(n)] * prod[right(n)]) % 101;
+	prod[n] = (prod[left(n)] * prod[right(n)]);
 }
 
 void update_st(const int & n)
 {
 	if(!n) return;
 
-	prod[n] = (prod[left(n)] * prod[right(n)]) % 101;
+	prod[n] = (prod[left(n)] * prod[right(n)]);
 	update_st(n >> 1);
 }
 
@@ -45,7 +46,7 @@ int rmq(const int & n, const int & L, const int & R, const int & i, const int & 
 	if(L >= i && R <= j) return prod[n];
 
 	int m = (L + R) >> 1;
-	return (rmq(left(n), L, m, i, j) * rmq(right(n), m + 1, R, i, j)) % 101;
+	return (rmq(left(n), L, m, i, j) * rmq(right(n), m + 1, R, i, j));
 }
 
 char rmq(const int & a, const int & b, const int & n)
@@ -62,13 +63,16 @@ int main()
 	while(scanf("%d %d", &n, &k) != EOF)
 	{
 		for(int i = 1; i <= n; i++)
-			scanf("%d", &seq[i]);
+		{
+			scanf("%d", &b);
+			seq[i] = val(b);
+		}
 		
 		build_st(1, 1, n);
 		while(k--)
 		{
 			scanf(" %c %d %d", &c, &a, &b);
-			if(c == 'C') update_st(a, b);
+			if(c == 'C') update_st(a, val(b));
 			else putchar(rmq(a, b, n));
 		}
 
