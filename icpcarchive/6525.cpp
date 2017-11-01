@@ -1,4 +1,4 @@
-// 12668 - Attacking rooks
+// 6525 - Attacking rooks
 
 #include <cstdio>
 #include <cstring>
