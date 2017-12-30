@@ -22,7 +22,7 @@ bool jump(const int & k, const int & n, const int & s)
 
 bool jump(const int & k, const int & n)
 {
-	for(int i = 0; rooks[i] < k; i++)
+	for(int i = 0; i < n && rooks[i] < k; i++)
 		if(jump(k, n, rooks[i]))
 			return 1;
 	
