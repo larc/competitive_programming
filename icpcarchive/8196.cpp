@@ -13,11 +13,13 @@
 #define LG_M 15 // lg(M)
 #define LG_N 14 // lg(N)
 
+typedef std::pair<int, int> pii;
+
 struct union_find
 {
 	int parent[N];
 
-	void init(const int n)
+	void init(const int & n)
 	{
 		for(int i = 1; i <= n; i++)
 			parent[i] = i;
@@ -53,7 +55,7 @@ bool operator < (const edge_t & a, const edge_t & b)
 }
 
 std::map<int, int> G[N];		// graph
-std::vector<int> T[N];			// minimum spanning tree
+std::vector<pii> T[N];			// minimum spanning tree
 
 int kruskal(int n, const int & m)
 {
@@ -69,8 +71,8 @@ int kruskal(int n, const int & m)
 
 		if(uf.join(e.u, e.v))
 		{
-			T[e.u].push_back(e.v);
-			T[e.v].push_back(e.u);
+			T[e.u].push_back({e.v, e.w});
+			T[e.v].push_back({e.u, e.w});
 			cost += e.w;
 			n--;
 		}
@@ -123,8 +125,9 @@ bool dfs(const int & u, const int & level)
 	L[idx++] = level;
 	
 	heavy[u] = -1;
-	for(const int & v: T[u])
+	for(const pii & p: T[u])
 	{
+		const int & v = p.first;
 		if(dfs(v, level + 1))
 		{
 			if(heavy[u] == -1 || size_tree[heavy[u]] < size_tree[v])
@@ -188,20 +191,21 @@ void path_decomposition(const int & u)
 	{
 		pbase[h] = n_paths - 1;
 		pindex[h] = paths[n_paths - 1].size;
-		paths[n_paths - 1].add(G[u][h]);
+		paths[n_paths - 1].add(G[std::min(u, h)][std::max(u, h)]);
 
 		path_decomposition(h);
 	}
 
-	for(const int & v: T[u])
+	for(const pii & p: T[u])
 	{
+		const int & v = p.first;
 		if(v != h && size_tree[v] < size_tree[u]) // is not ancestor
 		{
 			paths[n_paths].init(paths[n_paths - 1].P + paths[n_paths - 1].size, u);
 
 			pbase[v] = n_paths;
 			pindex[v] = 0;
-			paths[n_paths].add(G[u][v]);
+			paths[n_paths].add(p.second);
 			n_paths++;
 
 			path_decomposition(v);
@@ -253,7 +257,6 @@ int max_edge_path(const int & v, const int & u)
 
 int main()
 {
-
 	int n, m, q, u, v, w;
 	int cost;
 	while(scanf("%d %d", &n, &m) != EOF)
@@ -268,7 +271,7 @@ int main()
 		{
 			scanf("%d %d %d", &u, &v, &w);
 			roads[i] = {u, v, w};
-			G[u][v] = G[v][u] = w;
+			G[u][v] = w;
 		}
 
 		cost = kruskal(n, m);
