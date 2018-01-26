@@ -116,10 +116,8 @@ int L[M], E[M], H[N], idx;
 int leaves[N], n_leaves;
 int heavy[N], size_tree[N];
 
-bool dfs(const int & u, const int & level)
+void dfs(const int & u, const int & level)
 {
-	if(H[u] > -1) return 0;
-	
 	H[u] = idx;
 	E[idx] = u;
 	L[idx++] = level;
@@ -128,8 +126,9 @@ bool dfs(const int & u, const int & level)
 	for(const pii & p: T[u])
 	{
 		const int & v = p.first;
-		if(dfs(v, level + 1))
+		if(H[v] == -1)
 		{
+			dfs(v, level + 1);
 			if(heavy[u] == -1 || size_tree[heavy[u]] < size_tree[v])
 				heavy[u] = v;
 		
@@ -140,8 +139,6 @@ bool dfs(const int & u, const int & level)
 
 	size_tree[u] = heavy[u] == -1 ? 1 : 1 + size_tree[heavy[u]];
 	if(heavy[u] == -1) leaves[n_leaves++] = u;
-
-	return 1;
 }
 
 void dfs(const int & u)
