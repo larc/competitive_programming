@@ -56,7 +56,6 @@ int main()
 		for(auto & p: popularity)
 			if(p.second == max) s += max;
 
-
 		printf("%d\n", s);
 	}
 
