@@ -1,46 +1,28 @@
 // 10298 - Power Strings
 
-#include <iostream>
-#include <string>
+#include <cstdio>
 
-using namespace std;
+#define N 1000001
 
 int main()
 {
-	bool is_pow;
-	int n, m, d;
-	int div[2001];
+	int i, j;
+	int b[N];
 
-	string str;
-	while(cin >> str, str[0] != '.')
+	char str[N];
+	while(scanf("%s", str), str[0] != '.')
 	{
-		n = 0;
-		for(d = 1; d * d < str.size(); d++)
-			if(!(str.size() % d))
-			{
-				div[n++] = d;
-				div[n++] = str.size() / d;
-			}
-
-		if(d * d ==  str.size()) div[n++] = d;
-		
-		m = 1;
-		for(int i = 0; i < n; i++)
+		// KMP algorithm
+		i = 0; j = -1; b[0] = -1;
+		while(str[i])
 		{
-			d = div[i];
-			is_pow = 1;
-			for(int j = d; j < str.size() && is_pow; j += d)
-			for(int k = 0; k < d; k++)
-				if(str[k] != str[j + k])
-				{
-					is_pow = 0;
-					break;
-				}
-
-			if(is_pow && str.size() / d > m) m = str.size() / d;
+			while(j >= 0 && str[i] != str[j]) j = b[j];
+			i++; j++;
+			b[i] = j;
 		}
-
-		printf("%d\n", m);
+		
+		if(i % (i - j)) printf("1\n");
+		else printf("%d\n", i / (i - j));
 	}
 
 	return 0;
