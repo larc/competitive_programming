@@ -7,8 +7,8 @@
 #define K 50000
 #define N 100001
 
-typedef std::pair<int, int> pii;
-typedef std::pair<pii, int> piii;
+#define ixy(x, y) (x * 1000 + y)
+#define ixyz(x, y, z) (ixy(x, y) * 1000 + z)
 
 struct edge_t
 {
@@ -46,14 +46,14 @@ struct union_find
 
 int main()
 {
-	std::map<piii, int> mxyz;
-	std::map<pii, int> mxy;
-	std::map<pii, bool> XY;
+	std::map<int, int> mxyz;
+	std::map<int, int> mxy;
+	std::map<std::pair<int, int>, bool> XY;
 
 	union_find ufxy, ufxyz;
 	edge_t exy[K], exyz[K];
 
-	int k, nxy, nxyz, x, y, z;
+	int k, nxy, nxyz, x, y, z, kxy, kxyz;
 
 	while(scanf("%d", &k) != EOF)
 	{
@@ -61,12 +61,16 @@ int main()
 		for(int i = 0; i < k; i++)
 		{
 			scanf("%d %d %d", &x, &y, &z);
-			exy[i].u = mxy[{x, y}] ? mxy[{x, y}] : mxy[{x, y}] = ++nxy;
-			exyz[i].u = mxyz[{{x, y}, z}] ? mxyz[{{x, y}, z}] : mxyz[{{x, y}, z}] = ++nxyz;
+			kxy = ixy(x, y);
+			kxyz = ixyz(x, y, z);
+			exy[i].u = mxy[kxy] ? mxy[kxy] : mxy[kxy] = ++nxy;
+			exyz[i].u = mxyz[kxyz] ? mxyz[kxyz] : mxyz[kxyz] = ++nxyz;
 			
 			scanf("%d %d %d", &x, &y, &z);
-			exy[i].v = mxy[{x, y}] ? mxy[{x, y}] : mxy[{x, y}] = ++nxy;
-			exyz[i].v = mxyz[{{x, y}, z}] ? mxyz[{{x, y}, z}] : mxyz[{{x, y}, z}] = ++nxyz;
+			kxy = ixy(x, y);
+			kxyz = ixyz(x, y, z);
+			exy[i].v = mxy[kxy] ? mxy[kxy] : mxy[kxy] = ++nxy;
+			exyz[i].v = mxyz[kxyz] ? mxyz[kxyz] : mxyz[kxyz] = ++nxyz;
 			
 			if(XY[{exy[i].u, exy[i].v}]) exy[i].u = exy[i].v = 0;
 			else XY[{exy[i].u, exy[i].v}] = XY[{exy[i].v, exy[i].u}] = 1;
