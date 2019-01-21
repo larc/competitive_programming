@@ -1,4 +1,4 @@
-// 12238 - Ants Colony
+// 12238 - Ants Colony (sparse table O(n lg(n) + n)
 
 #include <cstdio>
 #include <cmath>
