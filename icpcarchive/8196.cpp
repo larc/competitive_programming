@@ -2,6 +2,7 @@
 // ACM ICPC 2017 - South America
 
 #include <cstdio>
+#include <cassert>
 #include <cstring>
 #include <cmath>
 #include <algorithm>
@@ -9,65 +10,61 @@
 #include <map>
 
 #define N 100001
-#define M 200002
-#define LG_M 15 // lg(M)
-#define LG_N 14 // lg(N)
+#define M 17 // lg(N)
 
-typedef std::pair<int, int> pii;
+using namespace std;
+
+struct edge_t
+{
+	int u, v, w;
+};
+
+bool operator < (const edge_t & a, const edge_t & b)
+{
+	return a.w < b.w;
+}
+
+edge_t E[N << 1];					// edges array
+map<int, int> G[N];					// graph adj
+vector<pair<int, int> > T[N];		// mst
 
 struct union_find
 {
-	int parent[N];
-
+	int set[N];
+	
 	void init(const int & n)
 	{
 		for(int i = 1; i <= n; i++)
-			parent[i] = i;
+			set[i] = i;
 	}
 
-	const int & find(const int & x)
+	int find(const int & x)
 	{
-		if(x == parent[x]) return x;
-		return parent[x] = find(parent[x]);
+		if(set[x] == x) return x;
+		return set[x] = find(set[x]);
 	}
 
 	bool join(int x, int y)
 	{
 		x = find(x);
 		y = find(y);
+
 		if(x == y) return 0;
 
-		parent[x] = y;
+		set[y] = x;
 		return 1;
 	}
-
 } uf;
-
-struct edge_t
-{
-	int u, v, w;
-
-} roads[M];
-
-bool operator < (const edge_t & a, const edge_t & b)
-{
-	return a.w > b.w;
-}
-
-std::map<int, int> G[N];		// graph
-std::vector<pii> T[N];			// minimum spanning tree
 
 int kruskal(int n, const int & m)
 {
 	uf.init(n--);
-	std::priority_queue<edge_t> q(roads, roads + m);
-	
-	edge_t e;
+	sort(E, E + m);
+
 	int cost = 0;
-	while(!q.empty() && n)
+	for(int i = 0; i < m && n; i++)
 	{
-		e = q.top();
-		q.pop();
+		const edge_t & e = E[i];
 
 		if(uf.join(e.u, e.v))
 		{
@@ -81,226 +78,140 @@ int kruskal(int n, const int & m)
 	return cost;
 }
 
-struct RMQ_LCA
+int level[N], parent[N], road[N], heavy[N];
+int head[N], pos[N], ipos[N], current_pos;
+int st[M][N];
+
+int dfs(const int & u)
 {
-	const int * A;
-	int ST[M][LG_M];
+	heavy[u] = 0;
 
-	void init(const int * _A, const int & n)
-	{
-		A = _A;
-		for(int i = 0; i < n; i++)
-			ST[i][0] = i;
-
-		for(int j = 1; (1 << j) <= n; j++)
-		for(int i = 0; i + (1 << j) - 1 < n; i++)
-			if(A[ST[i][j - 1]] < A[ST[i + (1 << (j - 1))][j - 1]])
-				ST[i][j] = ST[i][j - 1];
-			else
-				ST[i][j] = ST[i + (1 << (j - 1))][j - 1];
-
-	}
-
-	int query(const int & i, const int & j)
-	{
-		int k = log2(j - i + 1);
-		if(A[ST[i][k]] < A[ST[j - (1 << k) + 1][k]])
-			return ST[i][k]; 
-
-		return ST[j - (1 << k) + 1][k];
-	}
-
-} rmq;
-
-int L[M], E[M], H[N], idx;
-int leaves[N], n_leaves;
-int heavy[N], size_tree[N];
-
-void dfs(const int & u, const int & level)
-{
-	H[u] = idx;
-	E[idx] = u;
-	L[idx++] = level;
-	
-	heavy[u] = -1;
-	for(const pii & p: T[u])
+	int max_size = 0, size = 0, v_size;
+	for(auto & p: T[u])
 	{
 		const int & v = p.first;
-		if(H[v] == -1)
+		const int & w = p.second;
+
+		if(v != parent[u])
 		{
-			dfs(v, level + 1);
-			if(heavy[u] == -1 || size_tree[heavy[u]] < size_tree[v])
+			level[v] = level[u] + 1;
+			parent[v] = u;
+			road[v] = w;
+
+			size += v_size = dfs(v);
+			if(v_size > max_size)
+			{
+				max_size = v_size;
 				heavy[u] = v;
-		
-			E[idx] = u;
-			L[idx++] = level;
+			}
 		}
 	}
 
-	size_tree[u] = heavy[u] == -1 ? 1 : 1 + size_tree[heavy[u]];
-	if(heavy[u] == -1) leaves[n_leaves++] = u;
+	return size + 1;
 }
 
-void dfs(const int & u)
+void hld(const int & u, const int & h)
 {
-	idx = 0;
-	n_leaves = 0;
-	memset(H, -1, sizeof(H));
-	dfs(u, 0);
-}
+	head[u] = h;
+	ipos[current_pos] = u;
+	pos[u] = current_pos++;
 
-int lca(const int & u, const int & v)
-{
-	return H[u] < H[v] ? E[rmq.query(H[u], H[v])] : E[rmq.query(H[v], H[u])]; 
-}
-
-struct path_t
-{
-	int * P;
-	int size;
-	int root;
+	if(heavy[u]) hld(heavy[u], h);
 	
-	void init(int * p, int r)
-	{
-		P = p;
-		root = r;
-		size = 0;
-	}
-
-	void add(const int & w)
-	{
-		P[size++] = w;
-	}
-
-} paths[N];
-
-int n_paths;
-int pedges[N];
-int pbase[N];
-int pindex[N];
-
-// Heavy Light Decomposition
-void path_decomposition(const int & u)
-{
-	int & h = heavy[u];
-
-	if(h != -1)
-	{
-		pbase[h] = n_paths - 1;
-		pindex[h] = paths[n_paths - 1].size;
-		paths[n_paths - 1].add(G[std::min(u, h)][std::max(u, h)]);
-
-		path_decomposition(h);
-	}
-
-	for(const pii & p: T[u])
+	for(auto & p: T[u])
 	{
 		const int & v = p.first;
-		if(v != h && size_tree[v] < size_tree[u]) // is not ancestor
+		const int & w = p.second;
+
+		if(v != parent[u] && v != heavy[u])
+			hld(v, v);
+	}
+}
+
+void init_st(const int & n)
+{
+	for(int i = 0; i < n; i++)
+		st[0][i] = i;
+	
+	int k, u, v;
+	for(int i = 1; (1 << i) <= n; i++)
+	{
+		k = 1 << (i - 1);
+		for(int j = 0; j + (1 << i) < n; j++)
 		{
-			paths[n_paths].init(paths[n_paths - 1].P + paths[n_paths - 1].size, u);
-
-			pbase[v] = n_paths;
-			pindex[v] = 0;
-			paths[n_paths].add(p.second);
-			n_paths++;
-
-			path_decomposition(v);
+			u = st[i - 1][j];
+			v = st[i - 1][j + k];
+			st[i][j] = road[ipos[u]] > road[ipos[v]] ? u : v;
 		}
 	}
 }
 
-struct RMQ
+int rmq(int a, int b)
 {
-	static const int * A;
-	int ST[N][LG_N];
+	if(b < a) return rmq(b, a);
+	
+	int k = log2(b - a + 1);
 
-	void init(const int & n, const int & d)
-	{
-		for(int i = 0; i < n; i++)
-			ST[i + d][0] = i;
+	a = st[k][a];
+	b = st[k][b - (1 << k) + 1];
+	return max(road[ipos[a]], road[ipos[b]]);
+}
 
-		for(int j = 1; (1 << j) <= n; j++)
-		for(int i = 0; i + (1 << j) - 1 < n; i++)
-			if(A[ST[i + d][j - 1] + d] > A[ST[i + d + (1 << (j - 1))][j - 1] + d])
-				ST[i + d][j] = ST[i + d][j - 1];
-			else
-				ST[i + d][j] = ST[i + d + (1 << (j - 1))][j - 1];
-
-	}
-
-	int query(const int & i, const int & j, const int & d)
-	{
-		int k = log2(j - i + 1);
-		if(A[ST[i + d][k] + d] > A[ST[j - (1 << k) + 1 + d][k] + d])
-			return A[ST[i + d][k] + d]; 
-
-		return A[ST[j - (1 << k) + 1 + d][k] + d];
-	}
-
-} prmq;
-
-const int * RMQ::A = pedges;
-
-int max_edge_path(const int & v, const int & u)
+int query(int a, int b)
 {
-	if(v == u) return 0;
+	int qmax, rmax = 0;
+	while(head[a] != head[b])
+	{
+		if(level[head[b]] < level[head[a]])
+			swap(a, b);
+
+		qmax = rmq(pos[head[b]], pos[b]);
+		rmax = max(rmax, qmax);
+		
+		b = parent[head[b]];
+	}
 	
-	int & p = pbase[v];
-	if(p == pbase[u]) return prmq.query(pindex[u] + 1, pindex[v], paths[p].P - pedges);
+	if(a == b) return rmax;
+
+	if(level[b] < level[a])
+		swap(a, b);
 	
-	return std::max(prmq.query(0, pindex[v], paths[p].P - pedges), max_edge_path(paths[p].root, u));
+	qmax = rmq(pos[a] + 1, pos[b]);
+	return max(rmax, qmax);
 }
 
 int main()
 {
 	int n, m, q, u, v, w;
 	int cost;
+	
+	level[1] = parent[1] = road[1] = 0;
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
-		for(int i = 1; i <= n; i++)
-		{
-			G[i].clear();
-			T[i].clear();
-		}
-
 		for(int i = 0; i < m; i++)
 		{
 			scanf("%d %d %d", &u, &v, &w);
-			roads[i] = {u, v, w};
+			E[i] = {u, v, w};
 			G[u][v] = w;
 		}
 
 		cost = kruskal(n, m);
-		
-		// find the longest path
-		dfs(1);
-		
-		u = 0;
-		for(int i = 1; i < n_leaves; i++)
-			if(L[H[leaves[u]]] < L[H[leaves[i]]]) u = i;
-		
-		u = leaves[u];
-		dfs(u);
-		
-		// init RMQ for LCA
-		rmq.init(L, idx);
 
-		// find path decomposition
-		n_paths = 1;
-		paths[0].init(pedges, u);
-		pbase[u] = pindex[u] = -1;
-		path_decomposition(u);
-
-		for(int i = 0; i < n_paths; i++)
-			prmq.init(paths[i].size, paths[i].P - pedges);
+		current_pos = 0;
+		dfs(1); hld(1, 1);
+		init_st(n + 1);
 
 		scanf("%d", &q);
 		while(q--)
 		{
 			scanf("%d %d", &u, &v);
-			w = lca(u, v);
-			printf("%d\n", cost + G[u][v] - std::max(max_edge_path(u, w), max_edge_path(v, w)));
+			printf("%d\n", cost + G[u][v] - query(u, v));
+		}
+
+		for(int i = 1; i <= n; i++)
+		{
+			T[i].clear();
+			G[i].clear();
 		}
 	}
 	
