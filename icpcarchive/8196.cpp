@@ -137,7 +137,7 @@ void init_st(const int & n)
 	for(int i = 1; (1 << i) <= n; i++)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) < n; j++)
+		for(int j = 0; j + (1 << i) - 1 < n; j++)
 		{
 			u = st[i - 1][j];
 			v = st[i - 1][j + k];

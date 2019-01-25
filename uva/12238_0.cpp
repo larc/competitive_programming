@@ -39,7 +39,7 @@ void init_st(const int & m)
 	for(int i = 1; (1 << i) <= m; i++)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) < m; j++)
+		for(int j = 0; j + (1 << i) - 1 < m; j++)
 		{
 			const int & u = st[i - 1][j];
 			const int & v = st[i - 1][j + k];
