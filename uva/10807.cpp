@@ -59,24 +59,27 @@ void dfs(const int & i, const int & na, const int & nb,
 		return;
 	}
 	
-	if(ca + cb + ((n << 1) - 2 - na - nb) * G[i].w >= max_cost) return;
+	if(((n << 1) - 2 - na - nb) * G[i].w >= max_cost - ca - cb) return;
 	if((n << 1) - 2 - na - nb > m - i) return;
 	
 	union_find uf;
-	if(na < n - 1)
+	bool select = 0;
+
+	uf = ufa;
+	if(uf.join(G[i].u, G[i].v))
 	{
-		uf = ufa;
-		if(uf.join(G[i].u, G[i].v))
-			dfs(i + 1, na + 1, nb, ca + G[i].w, cb, uf, ufb);
+		select = 1;
+		dfs(i + 1, na + 1, nb, ca + G[i].w, cb, uf, ufb);
 	}
 	
-	if(nb < n - 1)
+	uf = ufb;
+	if(uf.join(G[i].u, G[i].v))
 	{
-		uf = ufb;
-		if(uf.join(G[i].u, G[i].v))
-			dfs(i + 1, na, nb + 1, ca, cb + G[i].w, ufa, uf);
-		else dfs(i + 1, na, nb, ca, cb, ufa, ufb);
+		select = 1;
+		dfs(i + 1, na, nb + 1, ca, cb + G[i].w, ufa, uf);
 	}
+	
+	if(!select) dfs(i + 1, na, nb, ca, cb, ufa, ufb);
 }
 
 int main()
