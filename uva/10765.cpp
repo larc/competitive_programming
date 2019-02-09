@@ -18,29 +18,7 @@ bool operator < (const bomb_t & a, const bomb_t & b)
 std::vector<int> G[N];
 bomb_t bombs[N]; int nb;
 
-bool visited[N];
-void dfs(const int & u, const int & b)
-{
-	if(u == b) return;
-
-	visited[u] = 1;
-	for(int & v: G[u])
-		if(!visited[v]) dfs(v, b);
-}
-
-int count_components(const int & n, const int & b)
-{
-	memset(visited, 0, sizeof(visited));
-
-	int nc = 0;
-	for(int i = 0; i < n; i++)
-		if(!visited[i] && i != b)
-			nc++, dfs(i, b);
-
-	return nc;
-}
-
-bool marked[N];
+int n_comp[N];
 int parent[N], dfs_num[N], dfs_low[N], dfs_count; 
 void articulations(const int & u, const int & n)
 {
@@ -51,13 +29,11 @@ void articulations(const int & u, const int & n)
 		if(dfs_num[v] == -1)	// unvisited
 		{
 			parent[v] = u;
+			n_comp[v] = 1;
 			articulations(v, n);
 
-			if(dfs_low[v] >= dfs_num[u] && !marked[u])
-			{
-				bombs[nb++] = {u, count_components(n, u)};
-				marked[u] = 1;
-			}
+			if(dfs_low[v] >= dfs_num[u])
+				n_comp[u]++;	// counting the number of components
 
 			dfs_low[u] = std::min(dfs_low[u], dfs_low[v]);
 		}
@@ -65,11 +41,7 @@ void articulations(const int & u, const int & n)
 			dfs_low[u] = std::min(dfs_low[u], dfs_num[v]);
 	}
 
-	if(!marked[u])
-	{
-		bombs[nb++] = {u, 1};
-		marked[u] = 1;
-	}
+	bombs[nb++] = {u, n_comp[u]};
 }
 
 int main()
@@ -84,8 +56,8 @@ int main()
 		}
 			
 		memset(dfs_num, -1, sizeof(dfs_num));
-		memset(marked, 0, sizeof(marked));
 
+		n_comp[0] = 0;
 		nb = 0; dfs_count = 0;
 		articulations(0, n);
 		std::sort(bombs, bombs + nb);
