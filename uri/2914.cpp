@@ -1,6 +1,7 @@
-// 2014 - Looking for the Risk Factor
+// 2914 - Looking for the Risk Factor
 
 #include <cstdio>
+#include <vector>
 #include <algorithm>
 
 #define N 100001
@@ -25,35 +26,83 @@ void sieve()
 	}
 }
 
-int count(const int & n, const int & p, const int & i)
-{
-	int c = n / p;
-	int r = 0;
+int ft[N];	// Fenwick Tree (BIT)
 
-	for(int k = i; primes[k] < p && primes[k] <= c; k++)
-		r += count(c, primes[k], i);
-	
-	return c - r;
+void adjust(int i, const int & v)
+{
+	while(i < N)
+	{
+		ft[i] += v;
+		i += i & -i;
+	}
+}
+
+int rsq(int i)
+{
+	int sum = 0;
+
+	while(i)
+	{
+		sum += ft[i];
+		i -= i & - i;
+	}
+
+	return sum;
+}
+
+int rsq(const int & i, const int & j)
+{
+	return rsq(j) - rsq(i - 1);
 }
 
 int main()
 {
 	sieve();
+	bool removed[N] = {};
 
-	int q, n, k, c, i;
+	int q, k, ini;
+	int qn[N], qk[N];
 	
 	scanf("%d", &q);
-	while(q--)
-	{
-		scanf("%d %d", &n, &k);
-		
-		c = 0;
-		i = std::upper_bound(primes, primes + np, k) - primes;
-		for(int j = i; j < np && primes[j] <= n; j++)
-			c += count(n, primes[j], i);
+	std::vector<int> qi(q);
 
-		printf("%d\n", n - c - 1);
+	for(int i = 0; i < q; i++)
+	{
+		scanf("%d %d", qn + i, qk + i);
+		qi[i] = i;
 	}
+		
+	std::sort(qi.begin(), qi.end(), [&qk](const int & i, const int & j) { return qk[i] > qk[j]; });
+
+	ft[0] = 0;
+	for(int i = 1; i < N; i++)
+		adjust(i, 1);
+	
+	int stop = np;
+	for(int i = 0; i < q; i++)
+	{
+		int & n = qn[qi[i]];
+		k = qk[qi[i]];
+
+		ini = k = std::upper_bound(primes, primes + np, k) - primes;
+		while(k < stop)
+		{
+			for(int j = primes[k]; j < N; j += primes[k])
+				if(!removed[j])
+				{
+					removed[j] = 1;
+					adjust(j, -1);
+				}
+			
+			k++;
+		}
+		
+		stop = ini;
+		n = rsq(2, n);
+	}
+
+	for(int i = 0; i < q; i++)
+		printf("%d\n", qn[i]);
 
 	return 0;
 }
