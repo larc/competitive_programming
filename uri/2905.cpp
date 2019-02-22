@@ -27,7 +27,7 @@ bool operator < (const trip_t & a, const trip_t & b)
 
 float dijkstra(const int & t)
 {
-	bool visited[N * 6] = {};
+	bool visited[N] = {};
 
 	std::priority_queue<trip_t> q;
 	q.push({C[1], 1, 0, D[1]});
@@ -37,18 +37,20 @@ float dijkstra(const int & t)
 	{
 		u = q.top(); q.pop();
 
-		if(u == t) return u.c;
+		if(u == t) break;
 		
-		if(!visited[u  * 6 + u.i])
-		{
-			visited[u * 6 + u.i] = 1;
-			if(u.i < 5 && u.d < 120 && !visited[6 * u + 6 + u.i + 1])
-				q.push({u.c + C[u + 1] * dsc[u.i + 1], u + 1, u.i + 1, u.d + D[u + 1]});
+		if(!u.i && visited[u]) continue;
+
+		if(!u.i) visited[u] = 1;
+
+		if(u.i < 5 && u.d < 120)
+			q.push({u.c + C[u + 1] * dsc[u.i + 1], u + 1, u.i + 1, u.d + D[u + 1]});
 				
-			if(!visited[6 * u + 6])
-				q.push({u.c + C[u + 1], u + 1, 0, D[u + 1]});
-		}
+		if(!visited[u + 1])
+			q.push({u.c + C[u + 1], u + 1, 0, D[u + 1]});
 	}
+
+	return u.c;
 }
 
 int main()
