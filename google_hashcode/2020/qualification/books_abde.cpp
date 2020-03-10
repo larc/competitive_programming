@@ -13,7 +13,7 @@ bool vis_lib[MAX] = {};
 struct library_t
 {
 	int N, T, M;
-	int value;
+	float value;
 	int * books = nullptr;
 
 	~library_t()
@@ -26,10 +26,8 @@ struct library_t
 		return books[i];
 	}
 
-	void update(int t)
+	void update(const int & t)
 	{
-		value = 0;
-
 		int n = 0;
 		for(int i = 0; i < N; i++)
 			if(!send[books[i]])
@@ -37,27 +35,22 @@ struct library_t
 
 		N = n;
 
-		t += T;
-		
-		N = std::min(N, (D - t) * M);
+		// update val
+		n = std::min(N, (D - (T + t)) * M);
 
-		for(int i = 0; i < N; i++)
+		value = float(n + M - 1) / M;
+		
+		/*
+		value = 0;
+		for(int i = 0; i < n; i++)
 			value += S[books[i]];
+		*/
 	}
 
 } libraries[MAX];
 
-struct compare
-{
-	bool operator()(const int & i, const int & j)
-	{
-		if(libraries[i].value == libraries[j].value)
-			return libraries[i].N < libraries[j].N;
-		return libraries[i].value < libraries[j].value;
-	};
-};
 
-int select_lib(int t)
+int select_lib(const int & t)
 {
 	int l = -1, max = 0;
 	for(int i = 0; i < L; i++)
@@ -82,7 +75,7 @@ int main()
 	std::vector<int> signup;
 	signup.reserve(MAX);
 
-	int count, id, time = 0;
+	int id, time = 0;
 
 	scanf("%d %d %d", &B, &L, &D);
 
@@ -106,18 +99,16 @@ int main()
 												});
 		
 		for(int j = 0; j < lib.N; j++)
-			send[lib[j]] = !S[lib[j]];
-		
+			send[lib[j]] = !S[lib[j]];		
 	}
 
-	count = L;
-	while(count--)
+	while(true)
 	{
 		id = select_lib(time);
-
 		if(id < 0) break;
 
 		vis_lib[id] = true;
+		signup.push_back(id);
 
 		library_t & lib = libraries[id];
 
@@ -125,8 +116,6 @@ int main()
 			
 		for(int j = 0; j < lib.N; j++)
 			send[lib[j]] = true;
-		
-		if(lib.N > 0) signup.push_back(id);
 	}
 
 	printf("%lu\n", signup.size());
