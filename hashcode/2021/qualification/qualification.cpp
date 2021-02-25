@@ -58,11 +58,11 @@ int main()
 		time = 0;
 
 		vector<int> & vcar = cars[i];
-		for(const int & s: vcar)
+		for(int j = 0; j < vcar.size() - 1; j++)
 		{
-			street & st = streets[s];
+			street & st = streets[vcar[j]];
 			if(!st.traffic)
-				intersections[st.v].push_back(s);
+				intersections[st.v].push_back(vcar[j]);
 			st.traffic++;
 			time += st.L;
 		}
@@ -106,7 +106,7 @@ int main()
 				sum += streets[s].traffic;
 
 			for(const int & s: vint)
-				printf("%s %d\n", streets[s].name, max(streets[s].traffic * time / sum, 2));
+				printf("%s %d\n", streets[s].name, max(streets[s].traffic * time / sum, 1));
 		}
 	}
 
