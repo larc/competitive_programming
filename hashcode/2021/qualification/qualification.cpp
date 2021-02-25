@@ -81,7 +81,7 @@ int main()
 	fprintf(stderr, "D: %10d, max_path_time: %10d\n", D, max_path_time);
 	fprintf(stderr, "time: %10d, max_stops: %10lu\n", time, max_stops);
 
-	int sum, A = 0;
+	int mean, sum, A = 0;
 	for(int i = 0; i < I; i++)
 		A += intersections[i].size() > 0;
 	
@@ -94,19 +94,21 @@ int main()
 		if(vint.size())
 		{
 			printf("%d\n", i);
-			printf("%lu\n", vint.size());
+			printf("%lu\n", vint.size() * 3 / 4 + 1);
 
 			sort(vint.begin(), vint.end(), [](const int & i, const int & j)
 			{
 				return streets[i].traffic > streets[j].traffic;
 			});
 
+			/*
 			sum = 0;
 			for(const int & s: vint)
 				sum += streets[s].traffic;
-
-			for(const int & s: vint)
-				printf("%s %d\n", streets[s].name, max(streets[s].traffic * time / sum, 1));
+			*/
+			
+			for(int j = 0; j < vint.size() * 3 / 4 + 1; j++)
+				printf("%s %d\n", streets[vint[j]].name, 1);
 		}
 	}
 
