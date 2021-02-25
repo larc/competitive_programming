@@ -106,7 +106,7 @@ int main()
 				sum += streets[s].traffic;
 
 			for(const int & s: vint)
-				printf("%s %d\n", streets[s].name, max(streets[s].traffic * time / sum, 1));
+				printf("%s %d\n", streets[s].name, max(streets[s].traffic * time / sum, 2));
 		}
 	}
 
