@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cmath>
 #include <string>
 #include <vector>
 #include <map>
@@ -48,11 +49,12 @@ int main()
 			vcar.push_back(id_street[stname]);
 		}
 	}
-	
-	int time, max_path_time = 0;
-	size_t max_stops = 0;
 
-	// step 1:
+	size_t car_time[1000];
+	size_t sigma, sum, mean, time, max_path_time = 0;
+	size_t max_stops = 0;
+	
+	sum = 0;
 	for(int i = 0; i < V; i++)
 	{
 		time = 0;
@@ -68,20 +70,30 @@ int main()
 		}
 
 		time -= streets[vcar.front()].L + streets[vcar.back()].L;
-		max_path_time = max(max_path_time, time);
+		sum += time;
+		car_time[i] = time;
 
+		max_path_time = max(max_path_time, time);
 		max_stops = max(max_stops, vcar.size() - 1);
 	}
 	
+	mean = sum / V;
+
+	sigma = 0;
+	for(int i = 0; i < V; i++)
+		sigma += (car_time[i] - mean) * (car_time[i] - mean);
+	sigma /= V - 1;
+
+	max_path_time = mean + 2 * sqrt(sigma);
 	time = max((D - max_path_time) / max_stops, 1lu);		// max time per stop loop
 
 	fprintf(stderr, "streets: %d\n", S);
 	fprintf(stderr, "intersections: %d\n", I);
 	fprintf(stderr, "cars: %d\n", V);
-	fprintf(stderr, "D: %10d, max_path_time: %10d\n", D, max_path_time);
-	fprintf(stderr, "time: %10d, max_stops: %10lu\n", time, max_stops);
+	fprintf(stderr, "D: %10d, max_path_time: %1lu\n", D, max_path_time);
+	fprintf(stderr, "time: %10lu, max_stops: %10lu\n", time, max_stops);
 
-	int mean, sum, A = 0;
+	int A = 0;
 	for(int i = 0; i < I; i++)
 		A += intersections[i].size() > 0;
 	
@@ -94,7 +106,7 @@ int main()
 		if(vint.size())
 		{
 			printf("%d\n", i);
-			printf("%lu\n", vint.size() * 3 / 4 + 1);
+			printf("%lu\n", vint.size());
 
 			sort(vint.begin(), vint.end(), [](const int & i, const int & j)
 			{
@@ -107,8 +119,8 @@ int main()
 				sum += streets[s].traffic;
 			*/
 			
-			for(int j = 0; j < vint.size() * 3 / 4 + 1; j++)
-				printf("%s %d\n", streets[vint[j]].name, 1);
+			for(const int & s: vint)
+				printf("%s %lu\n", streets[s].name, max(streets[s].traffic * time / sum, 1lu));
 		}
 	}
 
