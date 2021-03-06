@@ -98,7 +98,7 @@ int main()
 	char str[51];
 
 	scanf("%d", &n_cases);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		n = 0;
 
@@ -110,7 +110,7 @@ int main()
 
 			while(q--)
 			{
-				for(int i = 0; str[i]; i++)
+				for(int i = 0; str[i]; ++i)
 					land[n++] = str[i] - '0';
 			}
 		}

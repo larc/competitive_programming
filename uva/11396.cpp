@@ -12,7 +12,7 @@ int visited[N];
 bool dfs(const int & u, const bool & b)
 {
 	visited[u] = b;
-	for(int i = 0; i < size[u]; i++)
+	for(int i = 0; i < size[u]; ++i)
 	{
 		const int & v = G[u][i];
 		if(visited[v] != -1 && visited[v] == b)
@@ -28,7 +28,7 @@ bool claw(const int & n)
 {
 	memset(visited, -1, sizeof(visited));
 
-	for(int u = 1; u <= n; u++)
+	for(int u = 1; u <= n; ++u)
 		if(visited[u] == -1 && !dfs(u, 0))
 			return 0;
 

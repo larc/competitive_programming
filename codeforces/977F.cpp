@@ -14,7 +14,7 @@ int main()
 	int n;
 	scanf("%d", &n);
 	
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		scanf("%d", seq + i);
 		
@@ -29,7 +29,7 @@ int main()
 	}
 
 	int m = 1;
-	for(int i = 2; i <= n; i++)
+	for(int i = 2; i <= n; ++i)
 		if(lenght[i] > lenght[m]) m = i;
 
 	printf("%d\n", lenght[m]);

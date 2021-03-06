@@ -20,7 +20,7 @@ int main()
 		else
 		{
 			b = c;
-			for(int i = 1; i * i <= c; i++)
+			for(int i = 1; i * i <= c; ++i)
 				if(c % i == 0)
 				{
 					if(i < b && (a / gcd(a, i)) * i == c)

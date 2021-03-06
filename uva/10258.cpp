@@ -52,7 +52,7 @@ int main()
 		}
 
 		c = 0;
-		for(int i = 1; i < 101; i++)
+		for(int i = 1; i < 101; ++i)
 		{
 			if(times[i][0]) // contestant have submissions
 			{
@@ -60,7 +60,7 @@ int main()
 				rank[c].p = 0;
 				rank[c].t = 0;
 
-				for(p = 1; p <= 9; p++)
+				for(p = 1; p <= 9; ++p)
 					if(solved[i][p])
 					{	
 						rank[c].p++;
@@ -72,7 +72,7 @@ int main()
 		}
 
 		std::sort(rank, rank + c);
-		for(int i = 0; i < c; i++)
+		for(int i = 0; i < c; ++i)
 			printf("%d %d %d\n", rank[i].c, rank[i].p, rank[i].t);
 
 		if(cases) printf("\n");

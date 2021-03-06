@@ -20,8 +20,8 @@ void sieve()
 		}
 	
 	primes[np] = N;
-	for(int i = 0; i < np; i++)
-	for(int j = primes[i]; j < primes[i + 1]; j++)
+	for(int i = 0; i < np; ++i)
+	for(int j = primes[i]; j < primes[i + 1]; ++j)
 		lower_prime[j] = i;
 }
 

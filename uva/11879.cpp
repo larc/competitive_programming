@@ -37,7 +37,7 @@ bool mult_17(char * num, int n)
 bool mult_17(char * num)
 {
 	int m = 0;
-	for(int i = 0; num[i]; i++)
+	for(int i = 0; num[i]; ++i)
 	{
 		m = m * 10 + num[i] - '0';
 		m %= 17;

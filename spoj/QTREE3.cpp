@@ -129,7 +129,7 @@ int main()
 	int n, m, u, v;
 
 	scanf("%d %d", &n, &m);
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d %d", &u, &v);
 		G[u].push_back(v);

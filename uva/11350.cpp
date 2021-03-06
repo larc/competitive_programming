@@ -27,7 +27,7 @@ int main()
 		C[1] = {1, 0};
 
 		scanf("%s", str);
-		for(int i = 0; str[i]; i++)
+		for(int i = 0; str[i]; ++i)
 		{
 			dir = str[i] == 'R';
 			C[!dir] = R;

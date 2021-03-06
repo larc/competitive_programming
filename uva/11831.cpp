@@ -38,10 +38,10 @@ int main()
 		memset(arena, 0, sizeof(arena));
 
 		d = -1;
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%s", arena[i] + 1);
-			for(int j = 1; d < 0 && j <= m; j++)
+			for(int j = 1; d < 0 && j <= m; ++j)
 			{
 				switch(arena[i][j])
 				{
@@ -57,7 +57,7 @@ int main()
 		scanf("%s", str);
 
 		s = 0;
-		for(int i = 0; str[i]; i++)
+		for(int i = 0; str[i]; ++i)
 			if(str[i] == 'F') s += forward(a, b, d);
 			else d = str[i] == 'D' ? (d + 1) % 4 : (d + 3) % 4;
 

@@ -10,7 +10,7 @@ int stack[N][N];
 
 int find(const int & s, const int & x)
 {
-	for(int i = 0; i < size[s]; i++)
+	for(int i = 0; i < size[s]; ++i)
 		if(stack[s][i] == x) return i;
 	
 	return -1;
@@ -34,7 +34,7 @@ int main()
 
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			size[i] = 1;
 			stack[i][0] = i;
@@ -66,7 +66,7 @@ int main()
 			}
 			
 
-			for(int j = ia; j < size[sa]; j++)
+			for(int j = ia; j < size[sa]; ++j)
 			{
 				a = stack[sa][j];
 				stack[sb][size[sb]++] = a;
@@ -76,10 +76,10 @@ int main()
 			size[sa] = ia;
 		}
 		
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			printf("%d:", i);
-			for(int j = 0; j < size[i]; j++)
+			for(int j = 0; j < size[i]; ++j)
 				printf(" %d", stack[i][j]);
 
 			putchar('\n');

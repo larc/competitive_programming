@@ -8,7 +8,7 @@ int main()
 	while(n_cases--)
 	{
 		first = second = 10000;
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 10; ++i)
 		{
 			scanf("%d", &val);
 			if(val < first)

@@ -12,7 +12,7 @@ void sieve()
 	memset(not_prime, 0, sizeof(not_prime));
 
 	not_prime[0] = not_prime[1] = 1;
-	for(long long i = 2; i < N; i++)
+	for(long long i = 2; i < N; ++i)
 		if(!not_prime[i])
 			for(long long j = i * i; j < N; j += i)
 				not_prime[j] = 1;

@@ -8,7 +8,7 @@ int main()
 	int n, k, seq[N];
 
 	scanf("%d %d", &n, &k);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", seq + i);
 	
 	std::sort(seq, seq + n);

@@ -8,14 +8,14 @@ int num[N], st[M][N];
 
 void init_st(const int & n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		st[0][i] = i;
 	
 	int k;
-	for(int i = 1; (1 << i) <= n; i++)
+	for(int i = 1; (1 << i) <= n; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < n; j++)
+		for(int j = 0; j + (1 << i) - 1 < n; ++j)
 		{
 			const int & a = st[i - 1][j];
 			const int & b = st[i - 1][j + k];
@@ -41,7 +41,7 @@ int main()
 
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
 		
 		init_st(n);

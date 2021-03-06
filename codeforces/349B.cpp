@@ -9,7 +9,7 @@ int main()
 
 	min = 0;
 	num[0] = 1000000;
-	for(int i = 1; i < 10; i++)
+	for(int i = 1; i < 10; ++i)
 	{
 		scanf("%d", num + i);
 		if(num[i] <= num[min]) min = i;
@@ -27,7 +27,7 @@ int main()
 	first = 0;
 	while(d && v && !first)
 	{
-		for(int i = 1; i < 10; i++)
+		for(int i = 1; i < 10; ++i)
 		{
 			if(v + num[min] >= num[i])
 				first = i;

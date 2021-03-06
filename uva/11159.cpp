@@ -20,7 +20,7 @@ bool augmenting_path(const int & a) // dfs: mcbm
 	visited[a] = 1;
 
 	int b;
-	for(int i = 0; i < size(a); i++)
+	for(int i = 0; i < size(a); ++i)
 	{
 		b = A[a][i];
 		if(match[b] == -1 || augmenting_path(match[b]))
@@ -43,27 +43,27 @@ int main()
 	while(t--)
 	{
 		scanf("%d", &n);
-		for(a = 0; a < n; a++)
+		for(a = 0; a < n; ++a)
 			scanf("%d", &S[a]);
 		
 		scanf("%d", &m);
 		m += n;
-		for(b = n; b < m; b++)
+		for(b = n; b < m; ++b)
 			scanf("%d", &S[b]);
 		
 		// graph: adjacent list A to B only
-		for(a = 0; a < m; a++)
+		for(a = 0; a < m; ++a)
 			size(a) = 0;
 
-		for(b = n; b < m; b++)
-		for(a = 0; a < n; a++)
+		for(b = n; b < m; ++b)
+		for(a = 0; a < n; ++a)
 			if(!S[b] || (S[a] && !(S[b] % S[a])))	
 				A[a][size(a)++] = b;
 		
 		memset(match, -1, sizeof(match));
 
 		mcbm = 0;
-		for(a = 0; a < n; a++)
+		for(a = 0; a < n; ++a)
 			if(match[a] == -1)
 			{
 				memset(visited, 0, sizeof(visited));

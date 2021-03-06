@@ -40,13 +40,13 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			ft[i] = 0;
 			scanf("%s", str[i]);
 		}
 		
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%s", *str);
 			M[*str] = i;

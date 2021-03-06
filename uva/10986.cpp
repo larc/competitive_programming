@@ -26,11 +26,11 @@ int main()
 	vector<cable_t> W[S];
 	
 	scanf("%u", &N);
-	for(int c = 1; c <= N; c++)
+	for(int c = 1; c <= N; ++c)
 	{
 		scanf("%u %u %u %u", &n, &m, &s, &t);
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			W[i].clear();
 
 		while(m--)

@@ -18,7 +18,7 @@ int main()
 		cargoes = 0;
 
 		scanf("%d %d %d", &n, &s, &q);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d", &m);
 			cargoes += m;

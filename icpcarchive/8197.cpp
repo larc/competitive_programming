@@ -22,7 +22,7 @@ bool jump(const int & k, const int & n, const int & s)
 
 bool jump(const int & k, const int & n)
 {
-	for(int i = 0; i < n && rooks[i] < k; i++)
+	for(int i = 0; i < n && rooks[i] < k; ++i)
 		if(jump(k, n, rooks[i]))
 			return 1;
 	
@@ -34,7 +34,7 @@ void divisors(const int & n)
 	n_div = 0;
 
 	int i;
-	for(i = 2; i * i < n; i++)
+	for(i = 2; i * i < n; ++i)
 		if(!(n % i))
 		{
 			D[n_div++] = i;
@@ -53,7 +53,7 @@ int main()
 	while(scanf("%s", str) != EOF)
 	{
 		m = n = 0;	
-		for(n = 0; str[n] != '\0'; n++)
+		for(n = 0; str[n] != '\0'; ++n)
 			if(str[n] == 'R')
 				rooks[m++] = n;
 		
@@ -61,13 +61,13 @@ int main()
 		else
 		{
 			memset(gcd, 0, sizeof(gcd));
-			for(int i = 2; i < n; i++)
+			for(int i = 2; i < n; ++i)
 				gcd[std::__gcd(i, n)]++;
 				
 			divisors(n);
 			
 			count = 0;
-			for(int i = 0; i < n_div; i++)
+			for(int i = 0; i < n_div; ++i)
 			{	
 				int & d = D[i];
 				if(jump(d, n))

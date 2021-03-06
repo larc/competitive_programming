@@ -8,8 +8,8 @@ void change()
 {
 	int coins[] = {1, 5, 10, 25, 50};
 	ways[0] = 1;
-	for(int c = 0; c < 5; c++)
-		for(int i = coins[c]; i < N; i++)
+	for(int c = 0; c < 5; ++c)
+		for(int i = coins[c]; i < N; ++i)
 			ways[i] += ways[i - coins[c]];
 }
 

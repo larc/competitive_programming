@@ -21,7 +21,7 @@ struct union_find
 
 	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			parent[i] = i;
 	}
 
@@ -89,11 +89,11 @@ struct RMQ_LCA
 	void init(const int * _A, const int & n)
 	{
 		A = _A;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			ST[i][0] = i;
 
-		for(int j = 1; (1 << j) <= n; j++)
-		for(int i = 0; i + (1 << j) - 1 < n; i++)
+		for(int j = 1; (1 << j) <= n; ++j)
+		for(int i = 0; i + (1 << j) - 1 < n; ++i)
 			if(A[ST[i][j - 1]] < A[ST[i + (1 << (j - 1))][j - 1]])
 				ST[i][j] = ST[i][j - 1];
 			else
@@ -217,11 +217,11 @@ struct RMQ
 
 	void init(const int & n, const int & d)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			ST[i + d][0] = i;
 
-		for(int j = 1; (1 << j) <= n; j++)
-		for(int i = 0; i + (1 << j) - 1 < n; i++)
+		for(int j = 1; (1 << j) <= n; ++j)
+		for(int i = 0; i + (1 << j) - 1 < n; ++i)
 			if(A[ST[i + d][j - 1] + d] > A[ST[i + d + (1 << (j - 1))][j - 1] + d])
 				ST[i + d][j] = ST[i + d][j - 1];
 			else
@@ -258,13 +258,13 @@ int main()
 	int cost;
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			G[i].clear();
 			T[i].clear();
 		}
 
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			scanf("%d %d %d", &u, &v, &w);
 			roads[i] = {u, v, w};
@@ -277,7 +277,7 @@ int main()
 		dfs(1);
 		
 		u = 0;
-		for(int i = 1; i < n_leaves; i++)
+		for(int i = 1; i < n_leaves; ++i)
 			if(L[H[leaves[u]]] < L[H[leaves[i]]]) u = i;
 		
 		u = leaves[u];
@@ -292,7 +292,7 @@ int main()
 		pbase[u] = pindex[u] = -1;
 		path_decomposition(u);
 
-		for(int i = 0; i < n_paths; i++)
+		for(int i = 0; i < n_paths; ++i)
 			prmq.init(paths[i].size, paths[i].P - pedges);
 
 		scanf("%d", &q);

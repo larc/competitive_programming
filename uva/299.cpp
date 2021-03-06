@@ -8,11 +8,11 @@ int main()
 	while(n--)
 	{
 		scanf("%d", &L);
-		for(i = 0; i < L; i++)
+		for(i = 0; i < L; ++i)
 			scanf("%d", T + i);
 		s = 0;
-		for(i = 0; i < L; i++)
-			for(j = 0; j < L - i - 1; j++)
+		for(i = 0; i < L; ++i)
+			for(j = 0; j < L - i - 1; ++j)
 				if(T[j] > T[j + 1])
 				{
 					aux = T[j];

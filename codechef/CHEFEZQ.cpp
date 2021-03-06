@@ -3,7 +3,7 @@
 long long first_day(const int * Q, const int & n, const int & k)
 {
 	long long r = 0;
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		r += Q[i];
 		
@@ -24,7 +24,7 @@ int main()
 	while(T--)
 	{
 		scanf("%d %d", &n, &k);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			scanf("%d", Q + i);
 
 		printf("%lld\n", first_day(Q, n, k));

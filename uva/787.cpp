@@ -42,7 +42,7 @@ struct big_int_t
 			x /= 10;
 
 			c = 0;
-			for(j = 0; j < n; j++)
+			for(j = 0; j < n; ++j)
 			{
 				k = j + i;
 				if(prod.n <= k) prod.n++;

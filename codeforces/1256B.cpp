@@ -18,7 +18,7 @@ int main()
 	while(q--)
 	{
 		scanf("%d", &n);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%d", P + i);
 			pos[P[i]] = i;
@@ -45,7 +45,7 @@ int main()
 			p = o;
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			printf("%d ", P[i]);
 		putchar('\n');
 	}

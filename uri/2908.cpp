@@ -50,15 +50,15 @@ int main()
 	llu_t t, tmax, x, y, a, b, ta, tb, d;
 	
 	scanf("%d %d", &n, &m);
-	for(int i = 0; i < n; i++)
-	for(int j = 0; j <= m; j++)
+	for(int i = 0; i < n; ++i)
+	for(int j = 0; j <= m; ++j)
 		scanf("%d", Z[i] + j);
 	
 	memset(T, -1, sizeof(T));
 	memset(loop, 0, sizeof(loop));
 
 	tmax = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		t = 0;
 		z = Z[i][0];
@@ -80,12 +80,12 @@ int main()
 	}
 
 	// if they will meet soon
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		current[i] = Z[i][0];
 
-	for(t = 0; t < tmax; t++)
+	for(t = 0; t < tmax; ++t)
 	{
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 			if(i == n - 1 && current[i] == current[i - 1])
 			{
 				printf("%d %lld\n", current[i], t);
@@ -94,20 +94,20 @@ int main()
 			else if(current[i] != current[i - 1])
 				break;
 		
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			current[i] = Z[i][current[i]];
 	}
 
 	// if they will never meet or will meet in a long time
 	z = 0; 
-	for(int j = 1; j <= m; j++)
+	for(int j = 1; j <= m; ++j)
 	{
 		if(!loop[0][j]) continue;
 		
 		ta = T[0][j];
 		a = C[0];
 
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			if(!loop[i][j])
 			{

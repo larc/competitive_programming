@@ -8,7 +8,7 @@ int main()
 	while(scanf("%s", str) != EOF)
 	{
 		x = y = 0;
-		for(i = 0; str[i]; i++)
+		for(i = 0; str[i]; ++i)
 		{
 			x <<= 1;
 			y <<= 1;

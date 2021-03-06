@@ -8,7 +8,7 @@
 void reverse(char * str, const int & n)
 {
 	char c;
-	for(int i = 0; i < (n >> 1); i++)
+	for(int i = 0; i < (n >> 1); ++i)
 	{
 		c = str[i];
 		str[i] = str[n - i - 1];
@@ -45,9 +45,9 @@ struct decimal_t
 		decpt -= neg;
 		reverse(integer, decpt);
 
-		for(int i = 0; i < decpt; i++)
+		for(int i = 0; i < decpt; ++i)
 			integer[i] -= '0';
-		for(int i = 0; decimal[i]; i++)
+		for(int i = 0; decimal[i]; ++i)
 			decimal[i] -= '0';
 	}
 
@@ -58,7 +58,7 @@ struct decimal_t
 		while(i >= 0) decimal[i--] += '0';
 
 		reverse(integer, decpt);
-		for(i = 0; i < decpt; i++)
+		for(i = 0; i < decpt; ++i)
 			integer[i] += '0';
 		
 		if(decpt == 1 && !decimal[0] && integer[0] == '0')
@@ -85,7 +85,7 @@ struct decimal_t
 		}
 		
 		decpt = decpt < in.decpt ? in.decpt : decpt;
-		for(int i = 0; i < decpt; i++)
+		for(int i = 0; i < decpt; ++i)
 		{
 			a += integer[i] + in.integer[i];
 			integer[i] = a % 10;
@@ -116,7 +116,7 @@ struct decimal_t
 		}
 		
 		if(m) decpt = in.decpt;
-		for(int i = 0; i < decpt; i++)
+		for(int i = 0; i < decpt; ++i)
 		{
 			// x - y
 			if(m) { x = in.integer[i]; y = integer[i]; }
@@ -140,7 +140,7 @@ struct decimal_t
 			if(integer[i] != in.integer[i])
 				return integer[i] < in.integer[i];
 
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 			if(decimal[i] != in.decimal[i])
 				return decimal[i] < in.decimal[i];
 

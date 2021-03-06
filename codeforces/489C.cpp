@@ -33,15 +33,15 @@ int main()
 	}
 
 	memset(dp, -1, sizeof(dp));
-	for(int k = 1; k < 10; k++)
+	for(int k = 1; k < 10; ++k)
 		if(s - k >= 0)
 			dp[0][s - k] = k;
 	
-	for(int i = 1; i < m; i++)
-	for(int j = 0; j <= s; j++)
+	for(int i = 1; i < m; ++i)
+	for(int j = 0; j <= s; ++j)
 		if(dp[i - 1][j] >= 0)
 		{
-			for(int k = 0; k < 10; k++)
+			for(int k = 0; k < 10; ++k)
 				if(j - k >= 0)
 					dp[i][j - k] = k;
 		}
@@ -49,15 +49,15 @@ int main()
 	printf("%s ", get_num(m));
 
 	memset(dp, -1, sizeof(dp));
-	for(int k = 1; k < 10; k++)
+	for(int k = 1; k < 10; ++k)
 		if(s - k >= 0)
 			dp[0][s - k] = k;
 	
-	for(int i = 1; i < m; i++)
+	for(int i = 1; i < m; ++i)
 	for(int j = s; j >= 0; j--)
 		if(dp[i - 1][j] >= 0)
 		{
-			for(int k = 0; k < 10; k++)
+			for(int k = 0; k < 10; ++k)
 				if(j - k >= 0)
 					dp[i][j - k] = k;
 		}

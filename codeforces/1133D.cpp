@@ -15,11 +15,11 @@ int main()
 	int a[N], b;
 	
 	scanf("%d", &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", a + i);
 		
 	count = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%d", &b);
 

@@ -28,7 +28,7 @@ int main()
 	}
 
 	count = 0;
-	for(d = 1; d * d < x; d++)
+	for(d = 1; d * d < x; ++d)
 		if(!(x % d))
 		{
 			if(common(d)) count++;

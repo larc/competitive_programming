@@ -31,7 +31,7 @@ void dijkstra(int u, const int & n)
 			m--;
 			visited[u] = 1;
 	
-			for(int v = 1; v <= n; v++)
+			for(int v = 1; v <= n; ++v)
 				if(G[u][v] >= 0 && !visited[v])
 					if(dist[v] > dist[u] + G[u][v])
 					{
@@ -61,7 +61,7 @@ int main()
 		dijkstra(e, n);
 
 		m = 0;
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 			if(dist[u] <= t) m++;
 		
 		printf("%u\n", m);

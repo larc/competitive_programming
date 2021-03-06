@@ -29,7 +29,7 @@ int main()
 		m = to_base(m, b, 10);
 		
 		r = 0;
-		for(int i = 0; p[i]; i++)
+		for(int i = 0; p[i]; ++i)
 		{
 			r = (r * b) % m;
 			r = (r + p[i] - '0') % m;

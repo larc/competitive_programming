@@ -28,7 +28,7 @@ int bfs(int u, const int & v)
 		q.pop();
 		
 		if(u == v) return level[v];
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			int & w = G[u][i];
 			if(level[w] < 0)
@@ -47,7 +47,7 @@ bool compare(const string & wa, const string & wb)
 	if(wa.size() != wb.size()) return 0;
 
 	int c = 0;
-	for(int i = 0; i < wa.size(); i++)
+	for(int i = 0; i < wa.size(); ++i)
 		if(wa[i] != wb[i]) c++;
 	
 	return c == 1;
@@ -74,7 +74,7 @@ int main()
 			msi[wa] = n;
 			words[n] = wa;
 
-			for(int i = 1; i < n; i++)
+			for(int i = 1; i < n; ++i)
 				if(compare(words[i], words[n]))
 				{
 					G[i][size[i]++] = n;

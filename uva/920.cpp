@@ -37,7 +37,7 @@ int main()
 	while(c--)
 	{
 		scanf("%d", &n);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%lf %lf", &points[i].x, &points[i].y);
 
 		std::sort(points, points + n);

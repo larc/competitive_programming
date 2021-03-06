@@ -14,7 +14,7 @@ int guards[2];
 bool dfs(const int & u, const bool & b)
 {
 	visited[u] = b; guards[b]++;
-	for(int i = 0; i < size[u]; i++)
+	for(int i = 0; i < size[u]; ++i)
 	{
 		const int & v = G[u][i];
 		if(visited[v] == b)
@@ -31,7 +31,7 @@ int check(const int & n)
 	int min = 0;
 	memset(visited, -1, sizeof(visited));
 
-	for(int u = 0; u < n; u++)
+	for(int u = 0; u < n; ++u)
 	{
 		guards[0] = guards[1] = 0;
 		if(visited[u] == -1 && !dfs(u, 0))

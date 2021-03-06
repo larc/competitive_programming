@@ -11,7 +11,7 @@ int main()
 	std::stack<int> order;
 
 	scanf("%d %d", &m, &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", S + i);
 
 	for(int i = n - 1; i >= 0; i--)

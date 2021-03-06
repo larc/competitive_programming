@@ -27,7 +27,7 @@ int main()
 		}
 		
 		cout << "Case #" << ++c << ":" << endl;
-		for(int i = 0; i < S[max]; i++)
+		for(int i = 0; i < S[max]; ++i)
 			cout << webs[max][i] << endl;
 		
 	}

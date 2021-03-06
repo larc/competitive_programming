@@ -41,7 +41,7 @@ void dijkstra(uint_t s, const uint_t & d)
 		if(!visited[u])
 		{
 			visited[u] = 1;
-			for(int i = 0; i < size[u]; i++)
+			for(int i = 0; i < size[u]; ++i)
 			{
 				const uint_t & v = G[u][i];
 				if(!visited[v] && W[u][v] > 0)
@@ -65,7 +65,7 @@ void delete_node(const uint_t & u)
 {
 	if(!spath[u]) return;
 	
-	for(int i = 0; i < spath[u]; i++)
+	for(int i = 0; i < spath[u]; ++i)
 	{
 		W[path[u][i]][u] = 0;
 		delete_node(path[u][i]);

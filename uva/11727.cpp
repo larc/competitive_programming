@@ -5,7 +5,7 @@ int main()
 	int t, x, y, z, r;
 	scanf("%d", &t);
 
-	for(int i = 1; i <= t; i++)
+	for(int i = 1; i <= t; ++i)
 	{
 		scanf("%d %d %d", &x, &y, &z);
 		if(y <= x && y <= z)

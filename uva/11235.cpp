@@ -65,11 +65,11 @@ int main()
 	while(scanf("%d", &n), n)
 	{
 		scanf("%d", &q);
-		for(int k = 1; k <= n; k++)
+		for(int k = 1; k <= n; ++k)
 			scanf("%d", &seq[k]);
 		
 		freq[1] = left[1] = 1;
-		for(int k = 2; k <= n; k++)
+		for(int k = 2; k <= n; ++k)
 			if(seq[k] == seq[k - 1])
 			{
 				left[k] = left[k - 1];

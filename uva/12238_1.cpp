@@ -56,7 +56,7 @@ int main()
 	dist[0] = length[0] = 0;
 	while(scanf("%d", &n) && n)
 	{
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d", &u);
 			scanf("%d", length + i);
@@ -65,7 +65,7 @@ int main()
 		}
 		
 		scanf("%d", &q);
-		for(int i = 0; i < q; i++)
+		for(int i = 0; i < q; ++i)
 		{
 			scanf("%d %d", &u, &v);
 			Q[u].push_back({v, i});
@@ -76,12 +76,12 @@ int main()
 		lca(0);		// compute all queries
 
 		printf("%lld", query[0]);
-		for(int i = 1; i < q; i++)
+		for(int i = 1; i < q; ++i)
 			printf(" %lld", query[i]);
 
 		putchar('\n');
 		
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			G[i].clear();
 			Q[i].clear();

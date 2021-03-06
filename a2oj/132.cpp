@@ -17,14 +17,14 @@ int main()
 	{
 		cin>>a>>b;
 		memset(letras, 0, sizeof(letras));
-		for(size_t i = 0; i < a.size(); i++)
+		for(size_t i = 0; i < a.size(); ++i)
 			letras[a[i] - 'a']++;
 
-		for(size_t i = 0; i < b.size(); i++)
+		for(size_t i = 0; i < b.size(); ++i)
 			letras[b[i] - 'a']--;
 
 		c = 0;
-		for(size_t i = 0; i < 27; i++)
+		for(size_t i = 0; i < 27; ++i)
 			c += (size_t) abs((float)letras[i]);
 	
 		cout<<c<<endl;

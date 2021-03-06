@@ -47,7 +47,7 @@ void update_factors(const int & u)
 	mii & fout = factors[u] = factors[parent[u]];
 
 	ll n = A[u];
-	for(int i = 0; i < np && primes[i] * primes[i] <= n; i++)
+	for(int i = 0; i < np && primes[i] * primes[i] <= n; ++i)
 	{
 		const ll & p = primes[i];
 		while(!(n % p))
@@ -80,14 +80,14 @@ void dfs(const int & u, int & i)
 
 void init_st(const int & m)
 {
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
 	
 	int k;
-	for(int i = 1; (1 << i) <= m; i++)
+	for(int i = 1; (1 << i) <= m; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < m; j++)
+		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
 			const int & u = st[i - 1][j];
 			const int & v = st[i - 1][j + k];
@@ -141,14 +141,14 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d %d", &u, &v);
 			G[u].push_back(v);
 			G[v].push_back(u);
 		}
 		
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			scanf("%lld", A + i);
 
 		memset(level, -1, sizeof(level));
@@ -164,7 +164,7 @@ int main()
 			printf("%lld\n", query(u, v));
 		}
 		
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}
 

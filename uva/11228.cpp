@@ -13,7 +13,7 @@ struct union_find
 	
 	void init(const int & n)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			comp[i] = i;
 	}
 
@@ -37,7 +37,7 @@ struct union_find
 	int n_comp(const int & n)
 	{
 		int count = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			if(comp[i] == i) count++;
 
 		return count;
@@ -76,15 +76,15 @@ int main()
 	edge e;
 
 	scanf("%d", &n_cases);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		scanf("%d %d", &n, &r);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d %d", &P[i].x, &P[i].y);
 		
 		m = 0;
-		for(int i = 0; i < n; i++)
-		for(int j = i + 1; j < n; j++)
+		for(int i = 0; i < n; ++i)
+		for(int j = i + 1; j < n; ++j)
 		{
 			G[m].w = dist(P[i], P[j]);
 			G[m].u = i;

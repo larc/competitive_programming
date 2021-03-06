@@ -15,7 +15,7 @@ unsigned long long fsize[N];
 void init_fsize()
 {
 	fsize[0] = fzero.size();
-	for(int i = 1; i < N; i++)
+	for(int i = 1; i < N; ++i)
 		fsize[i] = fia.size() + fsize[i - 1] + fib.size() + fsize[i - 1] + fic.size();	
 }
 

@@ -35,7 +35,7 @@ int main()
 			a = q.front();
 			q.pop();
 			
-			for(b = 0; b < size[a]; b++)
+			for(b = 0; b < size[a]; ++b)
 			{
 				if(color[g[a][b]] == -1)
 				{

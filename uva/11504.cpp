@@ -38,7 +38,7 @@ int main()
 		memset(visited, 0, sizeof(visited));
 
 		top_sort.reserve(n);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			if(!visited[i]) dfs(i, 1);
 		
 		memset(visited, 0, sizeof(visited));
@@ -51,7 +51,7 @@ int main()
 		
 		
 		top_sort.clear();
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}
 

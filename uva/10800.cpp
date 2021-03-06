@@ -10,13 +10,13 @@ int main()
 	int n, nx, x, maxy, miny, y;
 
 	scanf("%d", &n);
-	for(int c = 1; c <= n; c++)
+	for(int c = 1; c <= n; ++c)
 	{
 		memset(plot, ' ', sizeof(plot));
 		scanf("%s", str);
 
 		maxy = 0; miny = 107; y = 54;
-		for(nx = 0; str[nx]; nx++)
+		for(nx = 0; str[nx]; ++nx)
 		{
 			if(str[nx] == 'R')
 			{

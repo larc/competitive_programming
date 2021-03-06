@@ -39,7 +39,7 @@ int bfs(const int & s, const int & t)
 
 		if(u == t) break;
 
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			v = G[u][i];
 			if(W[u][v] > 0 && path[v] == -1)
@@ -87,7 +87,7 @@ int main()
 		memset(size, 0, sizeof(size));
 		memset(W, 0, sizeof(W));
 
-		for(int i = 2; i < m; i++)
+		for(int i = 2; i < m; ++i)
 		{
 			scanf("%d %d", &u, &c);
 			add_edge(u, u, c, m);

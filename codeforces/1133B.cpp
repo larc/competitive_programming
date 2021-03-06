@@ -14,7 +14,7 @@ int main()
 	}
 
 	max = 0;
-	for(int i = 0; i <= k >> 1; i++)
+	for(int i = 0; i <= k >> 1; ++i)
 	{
 		if(i == (k - i) % k)
 			max += mod[i] >> 1;

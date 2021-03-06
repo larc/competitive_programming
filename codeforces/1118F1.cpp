@@ -30,10 +30,10 @@ int main()
 	int n, u, v, count;
 
 	scanf("%d", &n);
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		scanf("%d", color + i);
 
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d %d", &u, &v);
 		G[u].push_back(v);
@@ -45,7 +45,7 @@ int main()
 	dfs(1);
 	
 	count = 0;
-	for(int i = 2; i <= n; i++)
+	for(int i = 2; i <= n; ++i)
 		count += (!(red[1] - red[i]) && !blue[i]) || (!(blue[1] - blue[i]) && !red[i]);
 	
 	printf("%d\n", count);

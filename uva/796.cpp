@@ -29,7 +29,7 @@ set<link_t> links; // critical links
 void dfs_bridge(const int & u)
 {
 	dfs_low[u] = dfs_num[u] = dfs_counter++;
-	for(int v, i = 0; i < size[u]; i++)
+	for(int v, i = 0; i < size[u]; ++i)
 	{
 		v = G[u][i];
 		if(dfs_num[v] == -1)
@@ -54,7 +54,7 @@ int main()
 	{
 		memset(size, 0, sizeof(size));
 
-		for(int i = 0; i < n; i++)	
+		for(int i = 0; i < n; ++i)	
 		{
 			scanf("%d (%d)", &s, &nc);
 			while(nc--)
@@ -70,7 +70,7 @@ int main()
 		memset(dfs_low, 0, sizeof(dfs_low));
 		memset(dfs_parent, 0, sizeof(dfs_parent));
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			if(dfs_num[i] == -1)
 				dfs_bridge(i);
 

@@ -56,7 +56,7 @@ int main()
 
 	int n;
 	scanf("%d", &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", array + i);
 	
 	printf("%llu\n", merge_sort(0, n - 1));

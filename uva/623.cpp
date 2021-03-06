@@ -28,7 +28,7 @@ void calc_all_fact()
 	char d, r;
 
 	fact[1][0] = 1;	size[1] = 1;
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		x = i; k = 0;
 		while(x)
@@ -36,7 +36,7 @@ void calc_all_fact()
 			d = x % 10;
 			x /= 10;
 
-			for(int j = 0; j < size[i - 1]; j++)
+			for(int j = 0; j < size[i - 1]; ++j)
 			{
 				r = fact[i - 1][j] * d;
 				fact[i][j + k] += r;

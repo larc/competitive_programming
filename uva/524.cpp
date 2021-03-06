@@ -14,7 +14,7 @@ void init_prime()
 {
 	memset(not_prime, 0, sizeof(not_prime));
 
-	for(int i = 2; i < M; i++)
+	for(int i = 2; i < M; ++i)
 		if(!not_prime[i])
 			for(int j = i * i; j < M; j += i)
 				not_prime[j] = 1;
@@ -25,7 +25,7 @@ void prime_ring(const int & n, const int & p)
 	if(n == p && !not_prime[ring[p - 1] + ring[0]])
 	{
 		printf("%d", ring[0]);
-		for(int i = 1; i < p; i++)
+		for(int i = 1; i < p; ++i)
 			printf(" %d", ring[i]);
 		putchar('\n');
 

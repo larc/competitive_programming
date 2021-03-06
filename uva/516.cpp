@@ -45,7 +45,7 @@ int main()
 		num--;
 
 		b = 0;
-		for(int i = 0; i < n_primes && primes[i] <= num; i++)
+		for(int i = 0; i < n_primes && primes[i] <= num; ++i)
 		{
 			n = 0;
 			while(num % primes[i] == 0)

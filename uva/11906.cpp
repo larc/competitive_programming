@@ -30,7 +30,7 @@ int main()
 	int n_cases, w, x, y;
 
 	scanf("%d", &n_cases);
-	for(int ic = 1; ic <= n_cases; ic++)
+	for(int ic = 1; ic <= n_cases; ++ic)
 	{
 		scanf("%d %d %d %d", &r, &c, &m, &n);
 		memset(grid, 0, sizeof(grid));
@@ -45,8 +45,8 @@ int main()
 		dfs(0, 0); grid[0][0]--;
 
 		x = y = 0;
-		for(int i = 0; i < r; i++)
-		for(int j = 0; j < c; j++)
+		for(int i = 0; i < r; ++i)
+		for(int j = 0; j < c; ++j)
 			if(grid[i][j] > 0)
 			{
 				if(!m || !n || m == n) grid[i][j] >>= 1;

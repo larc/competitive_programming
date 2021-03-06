@@ -25,7 +25,7 @@ int main()
 	int count[N] = {};
 	
 	not_prime[0] = not_prime[1] = 1;
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		count[i] = count[i - 1] + prime(i);
 		if(!not_prime[i])

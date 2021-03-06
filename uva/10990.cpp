@@ -7,10 +7,10 @@ int depth_phi[N];
 
 void sieve_phi()
 {
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; ++i)
 		phi[i] = i;
 
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		if(phi[i] == i)
 		for(int n = i; n < N; n += i)
@@ -18,10 +18,10 @@ void sieve_phi()
 	}
 
 	depth_phi[1] = 0;
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 		depth_phi[i] = 1 + depth_phi[phi[i]];
 	
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 		depth_phi[i] += depth_phi[i - 1];
 }
 

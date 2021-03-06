@@ -12,7 +12,7 @@ int main()
 		if(n < 4)
 		{
 			printf("1\n%d", n);
-			for(int i = 1; i <= n; i++)
+			for(int i = 1; i <= n; ++i)
 				printf(" %d", i);
 			putchar('\n');
 

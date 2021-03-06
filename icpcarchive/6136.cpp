@@ -11,14 +11,14 @@ struct union_find
 	
 	void init(const int & m)
 	{
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 			comp[i] = i;
 	}
 
 	int n_comp(const int & m)
 	{
 		int count = 0;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 			if(comp[i] == i) count++;
 
 		return count;
@@ -54,10 +54,10 @@ int main()
 		m = n + n * n;
 		uf.init(m);
 		
-		for(int i = 0; i + 1 < n; i++)
+		for(int i = 0; i + 1 < n; ++i)
 		{
 			scanf("%s", barriers);
-			for(int j = 0; barriers[j]; j++)
+			for(int j = 0; barriers[j]; ++j)
 			{
 				if(barriers[j] == 'H')
 				{

@@ -16,7 +16,7 @@ void dfs(const int & u, int & m)
 	idx[u] = m;
 	euler[m++] = u;
 
-	for(int i = 0; i < size[u]; i++)
+	for(int i = 0; i < size[u]; ++i)
 	{
 		level[G[u][i]] = level[u] + 1;
 
@@ -29,14 +29,14 @@ int st[M][N];	// sparse table
 
 void init_st(const int & m)
 {
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
 	
 	int k;
-	for(int i = 1; (1 << i) <= m; i++)
+	for(int i = 1; (1 << i) <= m; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < m; j++)
+		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
 			const int & u = st[i - 1][j];
 			const int & v = st[i - 1][j + k];
@@ -63,13 +63,13 @@ int main()
 	int n_cases, n, m, q, u, v, root;
 
 	scanf("%d", &n_cases);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		memset(size, 0, sizeof(size));
 		memset(level, 0, sizeof(level));
 
 		scanf("%d", &n);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%d", &m);
 			while(size[i] < m)

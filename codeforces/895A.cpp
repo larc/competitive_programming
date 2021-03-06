@@ -10,15 +10,15 @@ int main()
 	int n;
 	scanf("%d %d", &n, a);
 	sum[0] = a[0];
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d", a + i);
 		sum[i] = sum[i - 1] + a[i];
 	}
 
 	int s, min = 360;
-	for(int i = 0; i < n; i++)
-	for(int j = i; j < n; j++)
+	for(int i = 0; i < n; ++i)
+	for(int j = i; j < n; ++j)
 	{
 		s = sum[j] - sum[i] + a[i];
 		s = abs(s + s - 360);

@@ -11,9 +11,9 @@ struct union_find
 {
 	int comp[N];
 
-	int init(const int & n)
+	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			comp[i] = i;
 	}
 
@@ -37,7 +37,7 @@ struct union_find
 	int n_comp(const int & n)
 	{
 		int count = 0;
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			if(comp[i] == i) count++;
 
 		return count;
@@ -64,7 +64,7 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d %d", &n, &m);
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 			scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
 		
 		std::sort(G, G + m);
@@ -73,7 +73,7 @@ int main()
 		// kruskal
 		uf.init(n);
 		cost = 0;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 			if(uf.join(G[i].u, G[i].v))
 			{
 				mst[i] = 1;
@@ -83,11 +83,11 @@ int main()
 		printf("%d ", cost);
 
 		min_cost = cost * n;
-		for(int i = 0; i < m; i++) if(mst[i])
+		for(int i = 0; i < m; ++i) if(mst[i])
 		{
 			uf.init(n);
 			cost = 0;
-			for(int j = 0; j < m; j++)
+			for(int j = 0; j < m; ++j)
 				if(i != j && uf.join(G[j].u, G[j].v))
 					cost += G[j].w;
 

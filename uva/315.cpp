@@ -17,7 +17,7 @@ bool articulation[N];
 void dfs_articulation(const int & u, int & count)
 {
 	dfs_low[u] = dfs_num[u] = dfs_counter++;
-	for(int v, i = 0; i < size[u]; i++)
+	for(int v, i = 0; i < size[u]; ++i)
 	{
 		v = G[u][i];
 		if(dfs_num[v] == -1)
@@ -69,7 +69,7 @@ int main()
 		memset(dfs_parent, 0, sizeof(dfs_parent));
 		
 		count = 0;
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 			if(dfs_num[u] == -1)
 			{
 				dfs_root = u;

@@ -8,13 +8,13 @@ int main()
 	std::string y;
 
 	scanf("%d", &T);
-	for(int x = 1; x <= T; x++)
+	for(int x = 1; x <= T; ++x)
 	{
 		scanf("%s", S);
 		
 		y = "";
 		p = 0;
-		for(int i = 0; S[i]; i++)
+		for(int i = 0; S[i]; ++i)
 		{
 			n = S[i] - '0';
 			

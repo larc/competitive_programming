@@ -35,14 +35,14 @@ int main()
 	int s, n;
 	while(scanf("%d %d", &s, &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
 		
 		sum = s;
 		size = 0;
 
 		sum_it_up(n, s, 0, 0);
-		for(int i = 0; i < size; i++)
+		for(int i = 0; i < size; ++i)
 			printf("%d ", tracks[i]);
 		printf("sum:%d\n", s - sum);
 	}

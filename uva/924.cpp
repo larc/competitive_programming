@@ -25,7 +25,7 @@ int dfs(int u)
 		u = q.front();
 		q.pop();
 
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			const int & v = G[u][i];
 			if(level[v] < 0)
@@ -38,7 +38,7 @@ int dfs(int u)
 	}
 	
 	u = 0; // look for boom day
-	for(int i = 1; boom_size[i]; i++)
+	for(int i = 1; boom_size[i]; ++i)
 		if(boom_size[i] > boom_size[u])
 			u = i;
 	
@@ -52,10 +52,10 @@ int main()
 	int n, v;
 
 	scanf("%d", &n);
-	for(int u = 0; u < n; u++)
+	for(int u = 0; u < n; ++u)
 	{
 		scanf("%d", size + u);
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 			scanf("%d", G[u] + i);
 	}
 	

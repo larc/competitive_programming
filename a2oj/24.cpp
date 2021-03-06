@@ -15,13 +15,13 @@ int main()
 	{
 		cin>>N;
 		p = N;
-		for(i = 0; i < N; i++)
+		for(i = 0; i < N; ++i)
 		{
 			cin>>w[i];
 			if(w[i][0] != '#')
 				p = i;
 		}
-		for(i = p + 1; i < N; i++)
+		for(i = p + 1; i < N; ++i)
 			cout<<w[i]<<" ";
 		if(p && p < N)
 			cout<<w[p]<<" ";
@@ -30,7 +30,7 @@ int main()
 		if(p)
 		{
 			p--;
-			for(i = 0; i < p; i++)
+			for(i = 0; i < p; ++i)
 				cout<<w[i]<<" ";
 			cout<<w[i]<<endl;
 		}

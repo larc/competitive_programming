@@ -18,8 +18,8 @@ int main()
 	while(scanf("%d %d", &m, &n) != EOF)
 	{
 		memset(G, 0, sizeof(G));
-		for(i = 1; i <= m; i++)
-			for(j = 0; j <= n; j++)
+		for(i = 1; i <= m; ++i)
+			for(j = 0; j <= n; ++j)
 			{
 				scanf("%c", &c);
 				G[i][j] = c;
@@ -30,8 +30,8 @@ int main()
 		land = G[x][y];
 
 		max = 0;
-		for(i = 1; i <= m; i++)
-			for(j = 0; j <= n; j++)
+		for(i = 1; i <= m; ++i)
+			for(j = 0; j <= n; ++j)
 			{
 				aux = move(i, j);
 				if(aux > max) max = aux;

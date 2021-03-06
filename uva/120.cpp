@@ -18,7 +18,7 @@ void flip(int i, int j)
 int max(int i, const int & n)
 {
 	int m = i;
-	for(; i < n; i++)
+	for(; i < n; ++i)
 		if(flapjacks[i] > flapjacks[m])
 			m = i;
 	return m;
@@ -40,7 +40,7 @@ int main()
 		
 		flip(0, n - 1);
 
-		for(i = 0; i < n; i++)
+		for(i = 0; i < n; ++i)
 		{
 			j = max(i, n);
 			if(j > i)

@@ -47,13 +47,13 @@ int main()
 
 	int n;
 	scanf("%d", &n);
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		scanf("%d", array + i);
 	
 	merge_sort(1, n);
 	
 	printf("%d", array[1]);
-	for(int i = 2; i <= n; i++)
+	for(int i = 2; i <= n; ++i)
 		printf(" %d", array[i]);
 	
 	printf("\n");

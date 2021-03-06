@@ -11,7 +11,7 @@ void sieve()
 	bool not_prime[N] = { 0 };
 
 	primes[n_primes++] = 2;
-	for(int i = 3; i < N ; i++)
+	for(int i = 3; i < N ; ++i)
 		if(!not_prime[i])
 		{
 			primes[n_primes++] = i;
@@ -46,7 +46,7 @@ int prime_pow(int & n, const int & p)
 
 bool divide(int m, int n)
 {
-	for(int i = 0; i < n_primes && primes[i] <= m; i++)
+	for(int i = 0; i < n_primes && primes[i] <= m; ++i)
 	{
 		if(prime_pow(m, primes[i]) > factovisors(n, primes[i]))
 			return 0;

@@ -21,7 +21,7 @@ struct union_find
 	
 	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			comp[i] = i;
 	}
 
@@ -58,7 +58,7 @@ int main()
 	while(scanf("%d", &k) != EOF)
 	{
 		nxy = nxyz = 0;
-		for(int i = 0; i < k; i++)
+		for(int i = 0; i < k; ++i)
 		{
 			scanf("%d %d %d", &x, &y, &z);
 			kxy = ixy(x, y);
@@ -80,7 +80,7 @@ int main()
 		ufxy.init(nxy);
 
 		x = y = 0;
-		for(int i = 0; i < k; i++)
+		for(int i = 0; i < k; ++i)
 		{
 			if(!ufxyz.join(exyz[i].u, exyz[i].v)) x++;
 			if(exy[i].u != exy[i].v && !ufxy.join(exy[i].u, exy[i].v)) y++;

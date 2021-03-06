@@ -22,15 +22,15 @@ inline llu T(const llu & n, const llu & r)
 int main()
 {
 	p10[0] = 1; 
-	for(int i = 1; i < N; i++)
+	for(int i = 1; i < N; ++i)
 		p10[i] = p10[i - 1] * 10;
 	
 	S[0] = S[1] = 0;
-	for(int i = 2; i <= N; i++)
+	for(int i = 2; i <= N; ++i)
 		S[i] = S[i - 1] + 9 * (i - 1) * p10[i - 2];
 	
 	B[0] = 0;
-	for(int i = 1; i < N; i++)
+	for(int i = 1; i < N; ++i)
 		B[i] = B[i - 1] + T(i, 9 * p10[i - 1]);
 	
 	llu k, i, j, r, q, n;

@@ -13,13 +13,13 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", P + i);
 
 		std::sort(P, P + n, std::greater<int>());
 
 		sum = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			if(P[i] - i <= 0) break;
 			sum = mod(sum + P[i] - i);

@@ -26,7 +26,7 @@ struct combination
 
 bool operator < (const combination & a, const combination & b)
 {
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 5; ++i)
 		if(a[i] != b[i]) return a[i] < b[i];
 	
 	return 0;
@@ -44,7 +44,7 @@ int main()
 		max = 1;
 		while(n--)
 		{
-			for(int i = 0; i < 5; i++)
+			for(int i = 0; i < 5; ++i)
 				scanf("%d", &courses[i]);
 
 			courses.sort();

@@ -8,7 +8,7 @@ int main()
 	char op;
 
 	scanf("%d", &n);
-	for(int c = 1; c <= n; c++)
+	for(int c = 1; c <= n; ++c)
 	{
 		scanf("%d %c %d = %d", &x, &op, &y, &z);
 

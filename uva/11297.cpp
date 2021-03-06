@@ -56,7 +56,7 @@ void init(const int & m, const int & ri, const int & rj)
 	init(l, ri, rm);
 	init(r, rm + 1, rj);
 
-	for(int n = 0; n < size << 2; n++)
+	for(int n = 0; n < size << 2; ++n)
 	{
 		min_st[m][n] = std::min(min_st[l][n], min_st[r][n]);
 		max_st[m][n] = std::max(max_st[l][n], max_st[r][n]);
@@ -120,8 +120,8 @@ int main()
 {
 	scanf("%d", &size);
 
-	for(int i = 0; i < size; i++)
-	for(int j = 0; j < size; j++)
+	for(int i = 0; i < size; ++i)
+	for(int j = 0; j < size; ++j)
 		scanf("%d", &mat[i][j]);
 
 	init(0, 0, size - 1);

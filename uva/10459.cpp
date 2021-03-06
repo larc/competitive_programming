@@ -34,7 +34,7 @@ int bfs(int u)
 
 		sort[s++] = u;
 
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			v = G[u][i];
 			if(nivel[v] < 0)
@@ -52,7 +52,7 @@ void mark_center(int i, const int & n)
 {
 	int j = i >> 1;
 	if(i & 1) i = j; i++;
-	for(int u = 1; u <= n; u++)
+	for(int u = 1; u <= n; ++u)
 	{
 		if(nivel[u] == j) center[u]++;
 		if(nivel[u] == i) center[u]++;
@@ -67,7 +67,7 @@ int main()
 	while(scanf("%d", &n) != EOF)
 	{
 		i = 0;
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 		{
 			scanf("%d", &k);
 			size[u] = k;
@@ -91,12 +91,12 @@ int main()
 		while(k < n) center[sort[k++]] = -2;		
 		
 		printf("Best Roots  :");
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 			if(center[u] == 2) printf(" %d", u);
 		printf("\n");
 
 		printf("Worst Roots :");
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 			if(center[u] < 0) printf(" %d", u);
 		printf("\n");
 	}

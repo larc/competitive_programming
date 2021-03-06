@@ -16,25 +16,25 @@ void top_sort(const int & k, const int & n)
 		b = 1;
 
 		putchar(sort[0] + 'A');
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 			printf(" %c", sort[i] + 'A');
 		putchar('\n');
 		return;
 	}
 
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; ++i)
 	{
 		if(V[i] && !S[i] && !degree[i])
 		{
 			S[i] = 1;
-			for(int j = 0; j < N; j++)
+			for(int j = 0; j < N; ++j)
 				if(G[i][j]) degree[j]--;
 			
 			sort[k] = i;
 			top_sort(k + 1, n);
 			
 			S[i] = 0;
-			for(int j = 0; j < N; j++)
+			for(int j = 0; j < N; ++j)
 				if(G[i][j]) degree[j]++;
 		}
 	}
@@ -57,7 +57,7 @@ int main()
 
 		memset(V, 0, sizeof(V));
 		fgets(str, sizeof(str), stdin);
-		for(n = 0; str[n << 1]; n++)
+		for(n = 0; str[n << 1]; ++n)
 			V[str[n << 1] - 'A'] = 1;
 		
 		memset(str, 0, sizeof(str));

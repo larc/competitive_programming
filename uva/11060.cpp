@@ -21,7 +21,7 @@ int main()
 	std::priority_queue<int> q;
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%s", beverages[i]);
 			idx[beverages[i]] = i;
@@ -41,7 +41,7 @@ int main()
 			in_deg[v]++;
 		}
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			if(!in_deg[i]) q.push(-i);
 	
 		printf("Case #%d: Dilbert should drink beverages in this order:", n_case++);
@@ -50,7 +50,7 @@ int main()
 			u = -q.top(); q.pop();
 			printf(" %s", beverages[u]);
 
-			for(int i = 0; i < out_deg[u]; i++)
+			for(int i = 0; i < out_deg[u]; ++i)
 			{
 				v = G[u][i];
 				in_deg[v]--;

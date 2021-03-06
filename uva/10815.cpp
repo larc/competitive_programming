@@ -15,7 +15,7 @@ inline void word(string & s, set<string> & dic)
 {
 	string w = "";
 	char c;
-	for(int i = 0; i < s.size(); i++)
+	for(int i = 0; i < s.size(); ++i)
 		if(isletter(s[i], c)) w += c;
 		else if(w != "")
 		{
@@ -34,7 +34,7 @@ int main()
 		word(str, dic);
 	
 	set<string>::iterator i = dic.begin();
-	for(; i != dic.end(); i++)
+	for(; i != dic.end(); ++i)
 		cout<<*i<<endl;
 	return 0;
 }

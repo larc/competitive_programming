@@ -57,7 +57,7 @@ int main()
 {
 	int n;
 	scanf("%d", &n);
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		scanf("%d %f", D + i, C + i);
 
 	printf("%.2f\n", dijkstra(n));

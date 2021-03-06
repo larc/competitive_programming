@@ -13,7 +13,7 @@ int main()
 		scanf("%lld", &n);
 
 		r = n; m = 1; a = n;
-		for(int i = 2; m < n; i++)
+		for(int i = 2; m < n; ++i)
 		{
 			b = n / i;
 			r += (a - b) * (i - 1) + b;

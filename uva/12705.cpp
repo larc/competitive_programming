@@ -43,7 +43,7 @@ int main()
 			q.push({p.second, p.first});
 		
 		min_cost = 0;
-		for(int i = 0; !q.empty(); i++)
+		for(int i = 0; !q.empty(); ++i)
 		{
 			min_cost += q.top().first * cost[i];
 			q.pop();

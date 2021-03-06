@@ -27,7 +27,7 @@ bool aug(const int & i, const int & j)
 	if(visited[i][j]) return 0;
 	visited[i][j] = 1;
 
-	for(int k = 0; k < 4; k++)
+	for(int k = 0; k < 4; ++k)
 	{
 		const int x = i + N[k][0];
 		const int y = j + N[k][1];
@@ -54,7 +54,7 @@ int main()
 	while(n--)
 	{
 		scanf("%d %d", &h, &w);
-		for(int i = 1; i <= h; i++)
+		for(int i = 1; i <= h; ++i)
 			scanf("%s", A[i] + 1);
 		
 		memset(A[h + 1], 0, W);
@@ -62,16 +62,16 @@ int main()
 		mcbm = 0;
 		memset(match, -1, sizeof(match));
 
-		for(int i = 1; i <= h; i++)
-		for(int j = 1; j <= w; j++)
+		for(int i = 1; i <= h; ++i)
+		for(int j = 1; j <= w; ++j)
 		{
 			memset(visited, 0, sizeof(visited));
 			if(((i + j) & 1) && A[i][j] == '*' && aug(i, j))
 				mcbm++;
 		}
 
-		for(int i = 1; i <= h; i++)
-		for(int j = 1; j <= w; j++)
+		for(int i = 1; i <= h; ++i)
+		for(int j = 1; j <= w; ++j)
 			if(A[i][j] == '*' && !match[i][j])
 				mcbm++;
 

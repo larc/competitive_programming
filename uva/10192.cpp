@@ -19,8 +19,8 @@ int main()
 		
 		n = strlen(A) - 1;
 		m = strlen(B) - 1;
-		for(int i = 0; i < n; i++)
-		for(int j = 0; j < m; j++)
+		for(int i = 0; i < n; ++i)
+		for(int j = 0; j < m; ++j)
 		{
 			table[i + 1][j + 1] = table[i][j] + (A[i] == B[j]);
 			if(table[i + 1][j + 1] < table[i][j + 1])

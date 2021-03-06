@@ -19,7 +19,7 @@ void sieve()
 	n_primes = 0;
 	primes[n_primes++] = 2;
 
-	for(int_t i = 3; i < N; i++)
+	for(int_t i = 3; i < N; ++i)
 		if(!not_prime[i])
 		{
 			primes[n_primes++] = i;
@@ -40,7 +40,7 @@ int main()
 		if(n < 0) n = -n;
 
 		m = 0;
-		for(int_t i = 0; i < n_primes && primes[i] * primes[i] <= n; i++)
+		for(int_t i = 0; i < n_primes && primes[i] * primes[i] <= n; ++i)
 			if(n % primes[i] == 0)
 			{
 				p = primes[i];

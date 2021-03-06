@@ -27,7 +27,7 @@ int main()
 	int D, I, S, V, F, P;
 	scanf("%d %d %d %d %d", &D, &I, &S, &V, &F);
 
-	for(int i = 0; i < S; i++)
+	for(int i = 0; i < S; ++i)
 	{
 		street & st = streets[i];
 		scanf("%d %d %s %d", &st.u, &st.v, st.name, &st.L);
@@ -35,7 +35,7 @@ int main()
 		id_street[st.name] = i;
 	}
 
-	for(int i = 0; i < V; i++)
+	for(int i = 0; i < V; ++i)
 	{
 		scanf("%d", &P);
 
@@ -53,12 +53,12 @@ int main()
 	size_t max_stops = 0;
 
 	// step 1:
-	for(int i = 0; i < V; i++)
+	for(int i = 0; i < V; ++i)
 	{
 		time = 0;
 
 		vector<int> & vcar = cars[i];
-		for(int j = 0; j < vcar.size() - 1; j++)
+		for(int j = 0; j < vcar.size() - 1; ++j)
 		{
 			street & st = streets[vcar[j]];
 			if(!st.traffic)
@@ -82,13 +82,13 @@ int main()
 	fprintf(stderr, "time: %10d, max_stops: %10lu\n", time, max_stops);
 
 	int mean, sum, A = 0;
-	for(int i = 0; i < I; i++)
+	for(int i = 0; i < I; ++i)
 		A += intersections[i].size() > 0;
 	
 	printf("%d\n", A);
 
 	// adding traffic solution
-	for(int i = 0; i < I; i++)
+	for(int i = 0; i < I; ++i)
 	{
 		vector<int> & vint = intersections[i];
 		if(vint.size())
@@ -107,7 +107,7 @@ int main()
 				sum += streets[s].traffic;
 			*/
 			
-			for(int j = 0; j < vint.size() * 3 / 4 + 1; j++)
+			for(int j = 0; j < vint.size() * 3 / 4 + 1; ++j)
 				printf("%s %d\n", streets[vint[j]].name, 1);
 		}
 	}

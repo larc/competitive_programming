@@ -17,8 +17,8 @@ int main()
 	{
 		max_n = 0;
 		s = 0;
-		for(int i = 0; a[i] != '\0'; i++)		
-		for(int j = 0; b[j] != '\0'; j++)
+		for(int i = 0; a[i] != '\0'; ++i)		
+		for(int j = 0; b[j] != '\0'; ++j)
 			if(a[i] == b[j])
 			{
 				n = 0;
@@ -43,7 +43,7 @@ int main()
 		{
 			std::sort(str, str + s);
 			printf("%s\n", str[0].c_str());
-			for(int i = 1; i < s; i++)
+			for(int i = 1; i < s; ++i)
 				if(str[i] != str[i - 1])
 					printf("%s\n", str[i].c_str());
 		}

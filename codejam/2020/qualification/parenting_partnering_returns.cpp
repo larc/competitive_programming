@@ -18,10 +18,10 @@ int main()
 	char ans[1001];
 
 	scanf("%d", &T);
-	for(int x = 1; x <= T; x++)
+	for(int x = 1; x <= T; ++x)
 	{
 		scanf("%d", &N);
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 		{
 			A[i].i = i;
 			scanf("%d %d", &A[i].s, &A[i].e);
@@ -30,7 +30,7 @@ int main()
 		std::sort(A, A + N);
 
 		J = C = 0;
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 		{
 			if(C <= A[i].s)
 			{

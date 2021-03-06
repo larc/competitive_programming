@@ -30,8 +30,8 @@ int main()
 		while(sscanf(line + offset, "%d%n", &num[m], &o) != EOF) { offset += o; m++; }
 
 		max = 0;
-		for(int i = 0; i < m; i++)
-		for(int j = i + 1; j < m; j++)
+		for(int i = 0; i < m; ++i)
+		for(int j = i + 1; j < m; ++j)
 			max = std::max(max, gcd(num[i], num[j]));
 
 		printf("%d\n", max);

@@ -19,7 +19,7 @@ int main()
 		}
 		
 		s--;
-		for(int i = 0; i < s; i++)
+		for(int i = 0; i < s; ++i)
 			printf("%d ", seq[i]);
 
 		printf("%d\n", s < 0 ? 0 : seq[s]);

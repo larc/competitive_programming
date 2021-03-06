@@ -43,7 +43,7 @@ int main()
 			n = -n;
 		}
 
-		for(int i = 0; i < n_primes && primes[i] <= n; i++)
+		for(int i = 0; i < n_primes && primes[i] <= n; ++i)
 		{
 			const int & p = primes[i];
 			while(!(n % p))

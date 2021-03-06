@@ -17,7 +17,7 @@ void sieve()
 	n_primes[1] = 1;
 
 	size_t p = 0;
-	for(size_t i = 2; i < N; i++)
+	for(size_t i = 2; i < N; ++i)
 	{
 		if(!n_primes[i])
 		{
@@ -36,7 +36,7 @@ bool is_prime(const size_t & n)
 	
 	size_t sq = sqrt(n);
 
-	for(size_t i = 0; i < P && primes[i] < sq; i++)
+	for(size_t i = 0; i < P && primes[i] < sq; ++i)
 		if(!(n % primes[i])) return false;
 
 	return true;
@@ -54,7 +54,7 @@ int main()
 	while(scanf("%ld %ld", &L, &U) != EOF)
 	{
 		seg_primes.reset();
-		for(size_t i = 0; i < P && primes[i] * primes[i] <= U; i++)
+		for(size_t i = 0; i < P && primes[i] * primes[i] <= U; ++i)
 		{
 			p = primes[i];
 			for(size_t n = L % p ? L : L - p + L % p; n <= U; n += p)
@@ -65,7 +65,7 @@ int main()
 		c[0] = c[1] = -1;
 		d[0] = d[1] = -1;
 		p = 0;
-		for(size_t n = L; n <= U; n++)
+		for(size_t n = L; n <= U; ++n)
 		{
 			if(seg_primes[n - L])
 			{

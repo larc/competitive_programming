@@ -22,7 +22,7 @@ struct union_find
 
 	void init(const int & n)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			comp[i] = i;
 	}
 
@@ -53,7 +53,7 @@ int kruskal(int n, const int & m)
 	uf.init(n);
 
 	int cost = 0;
-	for(int i = 0; i < m && n; i++)
+	for(int i = 0; i < m && n; ++i)
 		if(uf.join(G[i].u, G[i].v))
 		{
 			cost += G[i].w;
@@ -73,7 +73,7 @@ int main()
 		scanf("%d %d", &n, &m);
 
 		km = 0;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
 			km += G[i].w;

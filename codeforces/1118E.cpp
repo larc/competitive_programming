@@ -12,8 +12,8 @@ int main()
 	}
 
 	printf("YES\n");
-	for(int i = 1; i <= m; i++)
-	for(int j = i + 1; j <= m; j++)
+	for(int i = 1; i <= m; ++i)
+	for(int j = i + 1; j <= m; ++j)
 	{
 		if(n--) printf("%d %d\n", i, j);
 		if(!n) return 0;

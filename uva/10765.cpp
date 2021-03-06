@@ -62,12 +62,12 @@ int main()
 		articulations(0, n);
 		std::sort(bombs, bombs + nb);
 
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 			printf("%d %d\n", bombs[i].s, bombs[i].p);
 		
 		putchar('\n');
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			G[i].clear();
 	}
 	

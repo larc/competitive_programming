@@ -24,7 +24,7 @@ int bfs(int u, const int & v, const int & n)
 
 		if(u == v) return level[v];
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			x = u + buttons[i];
 			if(x >= N) x -= N;
@@ -46,7 +46,7 @@ int main()
 	n_cases = 1;
 	while(scanf("%d %d %d", &u, &v, &n), u || v || n)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", buttons + i);
 
 		if(bfs(u, v, n) == -1) printf("Case %d: Permanently Locked\n", n_cases++);

@@ -14,7 +14,7 @@ int main()
 			scanf("%u", &x);
 
 			y = b = 0;
-			for(unsigned i = 0; i < 8; i++)
+			for(unsigned i = 0; i < 8; ++i)
 			{
 				b = (x & (1 << i)) ^ b;
 				y |= b;

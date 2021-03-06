@@ -19,7 +19,7 @@ void dfs(int m, int n, int k)
 		min = m;
 
 		size = k;
-		for(int i = 0; i < k; i++)
+		for(int i = 0; i < k; ++i)
 			ans[i] = rev[k - i - 1];
 	}
 	
@@ -40,11 +40,11 @@ int main()
 	int m, n;
 
 	scanf("%d %d", &m, &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", S + i);
 	
 	A[0] = S[0];
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 		A[i] = A[i - 1] + S[i];
 	
 	min = m + 1;
@@ -53,7 +53,7 @@ int main()
 	fprintf(stderr, "max: %d\n", m - min);
 
 	printf("%d\n", size);
-	for(int i = 0; i < size; i++)
+	for(int i = 0; i < size; ++i)
 		printf("%d ", ans[i]);
 	putchar('\n');
 

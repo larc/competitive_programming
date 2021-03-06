@@ -4,7 +4,7 @@
 
 int diff(const char * s, const char * t, int i)
 {
-	for(; s[i]; i++)
+	for(; s[i]; ++i)
 		if(s[i] != t[i])
 			break;
 	

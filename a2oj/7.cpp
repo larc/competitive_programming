@@ -15,7 +15,7 @@ int main()
 	{
 		cin>>singals;
 		min[0] = min[1] = max[0] = max[1] = 0;
-		for(size_t  i = 0; i < singals.size(); i++)
+		for(size_t  i = 0; i < singals.size(); ++i)
 			switch(singals[i])
 			{
 				case 'D': min[1]--; max[1]--; break;

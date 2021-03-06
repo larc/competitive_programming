@@ -10,24 +10,24 @@ int main()
 	char line[N];
 	
 	scanf("%d", &n);
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		scanf("%s", line + 1);
-		for(int j = 1; j <= n; j++)
+		for(int j = 1; j <= n; ++j)
 			d[i][j] = line[j] == '1' ? 1 : N;
 
 		d[i][i] = 0;
 	}
 
 	// Floyd-Warshall algorithm
-	for(int k = 1; k <= n; k++)
-	for(int i = 1; i <= n; i++)
-	for(int j = 1; j <= n; j++)
+	for(int k = 1; k <= n; ++k)
+	for(int i = 1; i <= n; ++i)
+	for(int j = 1; j <= n; ++j)
 		if(d[i][j] > d[i][k] + d[k][j])
 			d[i][j] = d[i][k] + d[k][j];
 	
 	scanf("%d", &m);
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < m; ++i)
 		scanf("%d", p + i);
 
 	n = 0;
@@ -51,7 +51,7 @@ int main()
 	}
 
 	printf("%d\n", n + 1);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		printf("%d ", v[i]);
 	printf("%d\n", p[m - 1]);
 

@@ -14,7 +14,7 @@ int main()
 		scanf("%d", &n);
 
 		memset(digits, 0, sizeof(digits));
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			x = i;
 			while(x)
@@ -25,7 +25,7 @@ int main()
 		}
 
 		printf("%d", digits[0]);
-		for(int i = 1; i < 10; i++)
+		for(int i = 1; i < 10; ++i)
 			printf(" %d", digits[i]);
 		printf("\n");
 	}

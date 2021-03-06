@@ -23,8 +23,8 @@ int main()
 	{
 		memset(G, 0, sizeof(G));
 
-		for(int i = 0; i < n; i++)
-		for(int j = 0; j < n; j++)
+		for(int i = 0; i < n; ++i)
+		for(int j = 0; j < n; ++j)
 		{
 			if(i != j && scanf("%lf", &G[i][j][0]));
 			else G[i][j][0] = 1;
@@ -32,10 +32,10 @@ int main()
 			P[i][j][0] = i;
 		}
 		
-		for(int s = 1; s < n; s++) // path length 
-		for(int k = 0; k < n; k++)
-		for(int i = 0; i < n; i++)
-		for(int j = 0; j < n; j++)
+		for(int s = 1; s < n; ++s) // path length 
+		for(int k = 0; k < n; ++k)
+		for(int i = 0; i < n; ++i)
+		for(int j = 0; j < n; ++j)
 		{
 			profit = G[i][k][s - 1] * G[k][j][0];
 			if(G[i][j][s] < profit)
@@ -46,8 +46,8 @@ int main()
 		}
 		
 		length = 0;
-		for(int s = 1; !length && s < n; s++) 
-		for(int i = 0; !length && i < n; i++)
+		for(int s = 1; !length && s < n; ++s) 
+		for(int i = 0; !length && i < n; ++i)
 			if(G[i][i][s] > 1.01)
 			{
 				length = s;

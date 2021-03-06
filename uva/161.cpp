@@ -15,10 +15,10 @@ int main()
 			n++;
 		}
 		
-		for(; t <= 18000; t++)
+		for(; t <= 18000; ++t)
 		{
 			g = 0;
-			for(int i = 0; i < n; i++)
+			for(int i = 0; i < n; ++i)
 				g += t % (C[i] << 1) < C[i] - 5;
 
 			if(g == n) break;

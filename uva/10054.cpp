@@ -8,7 +8,7 @@ int size[N];
 
 inline bool is_eulerian()
 {
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; ++i)
 		if(size[i] & 1) return 0;
 	
 	return 1;
@@ -16,7 +16,7 @@ inline bool is_eulerian()
 
 void dfs(const int & u)
 {
-	for(int v = 0; v < N; v++)
+	for(int v = 0; v < N; ++v)
 	{
 		if(G[u][v])
 		{

@@ -29,13 +29,13 @@ int main()
 	}
 
 	int c, na = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		if(!compare[i][26])
-		for(int j = i + 1; j < n; j++)
+		for(int j = i + 1; j < n; ++j)
 		{
 			c = 0;
-			for(int k = 0; k < 26; k++)
+			for(int k = 0; k < 26; ++k)
 				c += compare[i][k] == compare[j][k];
 			
 			if(c == 26)
@@ -50,7 +50,7 @@ int main()
 	
 	sort(words, words + na);
 
-	for(int i = 0; i < na; i++)
+	for(int i = 0; i < na; ++i)
 		cout << words[i] << endl;
 
 	return 0;

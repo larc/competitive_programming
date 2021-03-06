@@ -12,7 +12,7 @@ string braile[10] = {".***..", "*.....", "*.*...", "**....", "**.*..", "*..*..",
 void to_braile(const string & str)
 {
 	int j, k, n = str.size() * 3;
-	for(int i = 0; i < str.size(); i++)
+	for(int i = 0; i < str.size(); ++i)
 	{
 		j = str[i] - '0';
 		
@@ -41,7 +41,7 @@ void to_braile(const string & str)
 
 int find(const string & str)
 {
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 10; ++i)
 		if(str == braile[i]) return i;
 	
 	return -1;
@@ -53,7 +53,7 @@ void to_num(string & str, const int & s)
 	string num;
 
 	int k, n = s * 3;
-	for(int i = 0; i < s; i++)
+	for(int i = 0; i < s; ++i)
 	{
 		num = "";
 

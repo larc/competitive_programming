@@ -4,7 +4,7 @@ int main()
 {
 	int t, n, c, max;
 	scanf("%d", &t);
-	for(int i = 1; i <= t; i++)
+	for(int i = 1; i <= t; ++i)
 	{
 		scanf("%d", &n);
 		max = 0;

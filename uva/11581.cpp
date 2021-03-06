@@ -11,10 +11,10 @@ int main()
 	scanf("%d", &n);
 	while(n--)
 	{
-		for(int i = 1; i <= 3; i++)
+		for(int i = 1; i <= 3; ++i)
 		{
 			scanf("%s", g[i] + 1);
-			for(int j = 1; j <= 3; j++)
+			for(int j = 1; j <= 3; ++j)
 				g[i][j] -= '0';
 		}
 		
@@ -22,8 +22,8 @@ int main()
 		while(true)
 		{
 			c = 0;
-			for(int i = 1; i <= 3; i++)
-			for(int j = 1; j <= 3; j++)
+			for(int i = 1; i <= 3; ++i)
+			for(int j = 1; j <= 3; ++j)
 			{
 				c += g[i][j];
 				h[i][j] = (g[i - 1][j] + g[i + 1][j] + g[i][j + 1] + g[i][j - 1]) & 1;

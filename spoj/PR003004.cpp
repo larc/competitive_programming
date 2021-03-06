@@ -11,7 +11,7 @@ void init()
 	P[0] = 1;
 	A[0] = 0;
 	S[0] = 45;
-	for(int i = 1; i < 16; i++)
+	for(int i = 1; i < 16; ++i)
 	{
 		P[i] = P[i - 1] * 10;
 		A[i] = A[i - 1] + i;

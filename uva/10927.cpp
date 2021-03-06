@@ -51,7 +51,7 @@ int main()
 		nh = 0;
 		p_sort = 0;
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d %d %d", &x, &y, &z);
 			poles[i] = pole_t(x, y, z);
@@ -60,7 +60,7 @@ int main()
 		sort(poles, poles + n);
 			
 		height = poles[0].z;
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			if(poles[i - 1].a == poles[i].a && poles[i].z <= height)
 			{
@@ -77,7 +77,7 @@ int main()
 			sort(poles, poles + n);
 			nh--;
 			printf("Some lights are not visible:\n");
-			for(int i = 0; i < nh; i++)
+			for(int i = 0; i < nh; ++i)
 				printf("x = %d, y = %d;\n", poles[i].x, poles[i].y);
 			printf("x = %d, y = %d.\n", poles[nh].x, poles[nh].y);
 		}

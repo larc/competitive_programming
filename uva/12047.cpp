@@ -62,7 +62,7 @@ int main()
 		dijkstra(tG, td, t);
 
 		t = -1;
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 		for(conn_t & c: sG[u])
 		{
 			v = c.second;
@@ -72,7 +72,7 @@ int main()
 		
 		printf("%d\n", t);
 
-		for(u = 1; u <= n; u++)
+		for(u = 1; u <= n; ++u)
 		{
 			sG[u].clear();
 			tG[u].clear();

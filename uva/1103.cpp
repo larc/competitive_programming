@@ -61,10 +61,10 @@ int main()
 	int ncase = 1;
 	while(scanf("%d %d", &h, &w), h && w)
 	{
-		for(int i = 0; i < h; i++)
+		for(int i = 0; i < h; ++i)
 		{
 			scanf("%s", str);
-			for(int j = 0; j < w; j++)
+			for(int j = 0; j < w; ++j)
 			{
 				c = hexa_to_int(str[j]);
 				image[i][(j << 2)] = 8 & c ? -1 : 0;
@@ -77,20 +77,20 @@ int main()
 		w <<= 2;
 
 		n = 0;
-		for(int i = 0; i < h; i++)
-		for(int j = 0; j < w; j++)
+		for(int i = 0; i < h; ++i)
+		for(int j = 0; j < w; ++j)
 			if(image[i][j] < 0)
 			{
 				dfs_message(i, j, ++n);
 				messages[n] = 0;
 			}
 
-		for(int i = 0; i < h; i++)
-		for(int j = 0; j < w; j++)
+		for(int i = 0; i < h; ++i)
+		for(int j = 0; j < w; ++j)
 			if(!image[i][j])
 				messages[dfs_hieroglyphs(i, j)]++;
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			str[i - 1] = hieroglyphs[messages[i]];
 
 		str[n] = '\0';

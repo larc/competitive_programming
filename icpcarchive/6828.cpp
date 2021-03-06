@@ -19,19 +19,19 @@ int main()
 	{
 		memset(hr, 0, sizeof(hr));
 
-		for(i = 0; i < n; i++)
+		for(i = 0; i < n; ++i)
 		{
 			scanf("%d", &t);
 			hr[t + 11]++;
 		}
 		
 		t = 0;
-		for(i = 0; i < 24; i++)
+		for(i = 0; i < 24; ++i)
 			if(hr[i] & 1) T[t++] = i;
 
 		dif[0] = distant(T[0], T[t - 1]);
 
-		for(i = 1; i < t; i++)
+		for(i = 1; i < t; ++i)
 			dif[i] = distant(T[i], T[i - 1]);
 
 		a = b = 0;

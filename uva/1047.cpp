@@ -27,11 +27,11 @@ int main()
 	int n_cases = 1;
 	while(scanf("%d %d", &n, &b), n)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", &pow_set[1 << i]);
 
 		scanf("%d", &m);
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			idx = 0;
 
@@ -48,7 +48,7 @@ int main()
 
 		n = 1 << n;
 		k = (1 << b) - 1;
-		for(int i = k; i < n; i++)
+		for(int i = k; i < n; ++i)
 		{
 			if(ones(i) == b && b > 1)
 			{

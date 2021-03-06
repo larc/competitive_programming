@@ -6,14 +6,14 @@ int main()
 	int R[1001] = {};
 
 	scanf("%d %d %d", &n, &m, &d);
-	for(int i = 1; i <= m; i++)
+	for(int i = 1; i <= m; ++i)
 	{	
 		scanf("%d", C + i);
 		S += C[i];
 	}
 	
 	p = 0;
-	for(int i = 1; i <= m; i++)
+	for(int i = 1; i <= m; ++i)
 	{
 		int & c = C[i];
 	
@@ -35,7 +35,7 @@ int main()
 	}
 	
 	printf("YES\n");
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		printf("%d ", R[i]);
 	putchar('\n');
 	

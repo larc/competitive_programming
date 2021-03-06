@@ -14,11 +14,11 @@ int main()
 		scanf("%s", str);
 
 		memset(alph, 0, sizeof(alph));
-		for(int i = 0; str[i]; i++)
+		for(int i = 0; str[i]; ++i)
 			alph[str[i] - 'a']++;
 
 		m = 0;
-		for(int i = 1; i < 27; i++)
+		for(int i = 1; i < 27; ++i)
 			if(alph[m] < alph[i]) m = i;
 
 		printf("%d %c\n", alph[m], m + 'a');

@@ -53,7 +53,7 @@ unsigned int dijkstra(const int & k)
 	std::priority_queue<floor_t> q;
 	
 	int n, e, fe;
-	for(e = 0; e < E; e++)
+	for(e = 0; e < E; ++e)
 		if(stop(e, 0))
 		{
 			dist[e][0] = 0;
@@ -75,7 +75,7 @@ unsigned int dijkstra(const int & k)
 			relax(e, n, e, G[e][n][0], q);
 			relax(e, n, e, G[e][n][1], q);
 
-			for(int fe = 0; fe < E; fe++)
+			for(int fe = 0; fe < E; ++fe)
 				relax(e, n, fe, n, q);
 		}
 	}
@@ -94,11 +94,11 @@ int main()
 	{
 		memset(G, -1, sizeof(G));
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%u", T + i);
 		
 		getchar();
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			fgets(line, sizeof(line), stdin);
 			ss.clear();

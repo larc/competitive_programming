@@ -43,7 +43,7 @@ int main()
 	while(scanf("%u", &n), n)
 	{
 		memset(pfactors, 0, sizeof(pfactors));
-		for(unsigned i = 0; i < n_primes && primes[i] <= n; i++)
+		for(unsigned i = 0; i < n_primes && primes[i] <= n; ++i)
 		{
 			m = n;
 			while(m /= primes[i])
@@ -54,7 +54,7 @@ int main()
 		pfactors[2] -= pfactors[2];
 
 		m = 1;
-		for(unsigned i = 0; i < n_primes && primes[i] <= n; i++)
+		for(unsigned i = 0; i < n_primes && primes[i] <= n; ++i)
 		{
 			m *= pow(primes[i], pfactors[i]);
 			m %= 10;

@@ -10,22 +10,22 @@ int main()
 	bool rep[S];
 
 	scanf("%d", &T);
-	for(int x = 1; x <= T; x++)
+	for(int x = 1; x <= T; ++x)
 	{
 		scanf("%d", &N);
-		for(int i = 0; i < N; i++)
-		for(int j = 0; j < N; j++)
+		for(int i = 0; i < N; ++i)
+		for(int j = 0; j < N; ++j)
 			scanf("%d", &M[i][j]);
 		
 		k = 0;
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 			k += M[i][i];
 		
 		r = 0;
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 		{
 			memset(rep, 0, sizeof(rep));
-			for(int j = 0; j < N; j++)
+			for(int j = 0; j < N; ++j)
 				if(rep[M[i][j]])
 				{
 					r++;
@@ -35,10 +35,10 @@ int main()
 		}
 		
 		c = 0;
-		for(int j = 0; j < N; j++)
+		for(int j = 0; j < N; ++j)
 		{
 			memset(rep, 0, sizeof(rep));
-			for(int i = 0; i < N; i++)
+			for(int i = 0; i < N; ++i)
 				if(rep[M[i][j]])
 				{
 					c++;

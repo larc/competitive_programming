@@ -13,7 +13,7 @@ struct uf
 
 	void init()
 	{
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 		{
 			comp[i] = i;
 			nodes[i] = 1;
@@ -41,6 +41,8 @@ struct uf
 		comp[y] = x;
 		nodes[x] += nodes[y];
 		edges[x] += edges[y] + 1;
+
+		return 1;
 	}
 
 	int is_tree(const int & n)
@@ -69,12 +71,12 @@ int main()
 			forest.join(line[1] - 'A', line[3] - 'A');
 
 		scanf("%s", line);
-		for(int i = 0; line[i]; i++)
+		for(int i = 0; line[i]; ++i)
 			if(line[i] != ',')
 				nodes[line[i] - 'A'] = 1;
 
 		n_trees = n_acorns = 0;
-		for(int i = 0; i < N; i++) if(nodes[i])
+		for(int i = 0; i < N; ++i) if(nodes[i])
 			if(forest.is_tree(i) == 1) n_acorns++;
 			else if(forest.is_tree(i)) n_trees++;
 

@@ -15,30 +15,30 @@ int main()
 	int L[N], R[N];
 
 	scanf("%d %d", &n, &q);
-	for(int i = 0; i < q; i++)
+	for(int i = 0; i < q; ++i)
 	{
 		scanf("%d %d", L + i, R + i);
 		sec[L[i]]++;
 		sec[R[i] + 1]--;
 	}
 
-	for(int i = 2; i <= n; i++)
+	for(int i = 2; i <= n; ++i)
 		sec[i] += sec[i - 1];
 	
 	ac_1[0] = ac_2[0] = 0;
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		ac_1[i] = ac_1[i - 1] + (sec[i] == 1);
 		ac_2[i] = ac_2[i - 1] + (sec[i] == 2);
 	}
 	
 	total = 0;
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		if(sec[i] > 0) total++;
 
 	max = 0;
-	for(int i = 0; i < q; i++)
-	for(int j = i + 1; j < q; j++)
+	for(int i = 0; i < q; ++i)
+	for(int j = i + 1; j < q; ++j)
 	{
 		if(L[i] < L[j])
 		{

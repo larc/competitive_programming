@@ -5,7 +5,7 @@ using namespace std;
 
 bool preservation(string * a, string * b, int n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		if(a[i] != b[i]) return 0;
 	return 1;
 }
@@ -13,10 +13,10 @@ bool preservation(string * a, string * b, int n)
 string * rotate90(string * a, int n)
 {
 	string * s = new string[n];
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
-	for(int i = 0; i < n; i++)
-		for(int j = 0; j < n; j++)
+	for(int i = 0; i < n; ++i)
+		for(int j = 0; j < n; ++j)
 			s[j][n - i - 1] = a[i][j];
 	return s;
 }
@@ -24,10 +24,10 @@ string * rotate90(string * a, int n)
 string * rotate180(string * a, int n)
 {
 	string * s = new string[n];
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
-	for(int i = 0; i < n; i++)
-		for(int j = 0; j < n; j++)
+	for(int i = 0; i < n; ++i)
+		for(int j = 0; j < n; ++j)
 			s[n - i - 1][n - j - 1] = a[i][j];
 	return s;
 }
@@ -35,10 +35,10 @@ string * rotate180(string * a, int n)
 string * rotate270(string * a, int n)
 {
 	string * s = new string[n];
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
-	for(int i = 0; i < n; i++)
-		for(int j = 0; j < n; j++)
+	for(int i = 0; i < n; ++i)
+		for(int j = 0; j < n; ++j)
 			s[n - j - 1][i] = a[i][j];
 	return s;
 }
@@ -46,16 +46,16 @@ string * rotate270(string * a, int n)
 string * vreflection(string * a, int n)
 {
 	string * s = new string[n];
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		s[n - i - 1] = a[i];
 	return s;
 }
 
 void print(string * s, int n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		cout<<s[i]<<endl;
 	cout<<endl;
 }
@@ -67,7 +67,7 @@ int main()
 	p = 1;
 	while(cin>>n)
 	{
-		for(i = 0; i < n; i++)
+		for(i = 0; i < n; ++i)
 			cin>>a[i]>>b[i];
 
 //		print(a, n);

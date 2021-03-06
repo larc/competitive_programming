@@ -33,14 +33,14 @@ void dfs(const int & u, int & m)
 
 void init_st(const int & m)
 {
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
 	
 	int k;
-	for(int i = 1; (1 << i) <= m; i++)
+	for(int i = 1; (1 << i) <= m; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < m; j++)
+		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
 			const int & u = st[i - 1][j];
 			const int & v = st[i - 1][j + k];
@@ -68,7 +68,7 @@ int main()
 	level[1] = parent[1] = 0;
 	while(scanf("%d", &n) && n)
 	{
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d %d", &u, &v);
 
@@ -99,7 +99,7 @@ int main()
 			else printf("The fleas meet at %d.\n", u);
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}
 

@@ -103,7 +103,7 @@ int main()
 	dijkstra(1);
 
 	c = 0;
-	for(a = 1; a <= n; a++)
+	for(a = 1; a <= n; ++a)
 		c += cost[a];
 	
 	printf("%llu\n", c);

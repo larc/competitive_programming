@@ -6,7 +6,7 @@ int set[N];
 
 void init_set(const int & n)
 {
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		set[i] = i;
 }
 

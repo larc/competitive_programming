@@ -12,7 +12,7 @@ int main()
 
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", books + i);
 
 		scanf("%d", &m);

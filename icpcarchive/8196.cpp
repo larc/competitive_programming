@@ -34,7 +34,7 @@ struct union_find
 	
 	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			set[i] = i;
 	}
 
@@ -62,7 +62,7 @@ int kruskal(int n, const int & m)
 	sort(E, E + m);
 
 	int cost = 0;
-	for(int i = 0; i < m && n; i++)
+	for(int i = 0; i < m && n; ++i)
 	{
 		const edge_t & e = E[i];
 
@@ -130,14 +130,14 @@ void hld(const int & u, const int & h)
 
 void init_st(const int & n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		st[0][i] = i;
 	
 	int k, u, v;
-	for(int i = 1; (1 << i) <= n; i++)
+	for(int i = 1; (1 << i) <= n; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < n; j++)
+		for(int j = 0; j + (1 << i) - 1 < n; ++j)
 		{
 			u = st[i - 1][j];
 			v = st[i - 1][j + k];
@@ -188,7 +188,7 @@ int main()
 	level[1] = parent[1] = road[1] = 0;
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			scanf("%d %d %d", &u, &v, &w);
 			E[i] = {u, v, w};
@@ -208,7 +208,7 @@ int main()
 			printf("%d\n", cost + G[u][v] - query(u, v));
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			T[i].clear();
 			G[i].clear();

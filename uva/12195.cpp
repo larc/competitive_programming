@@ -20,7 +20,7 @@ int main()
 	while(scanf("%s", line) && line[0] != '*')
 	{
 		m = 0;
-		for(int i = 1; line[i]; i++)
+		for(int i = 1; line[i]; ++i)
 		{
 			d = 0;
 			while(line[i] != '/')

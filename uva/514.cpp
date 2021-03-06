@@ -14,12 +14,12 @@ int main()
 	{
 		while(scanf("%d", &order[1]), order[1])
 		{
-			for(int i = 2; i <= n; i++)
+			for(int i = 2; i <= n; ++i)
 				scanf("%d", &order[i]);
 			
 			c = 1;
 			stack<int> s;
-			for(int i = 1; i <= n; i++)
+			for(int i = 1; i <= n; ++i)
 			{
 				while((s.empty() || s.top() != order[i]) && c <= n)
 					s.push(c++);

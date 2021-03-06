@@ -15,7 +15,7 @@ void sieve()
 	not_prime[0] = not_prime[1] = 1;
 	
 	np = 0;
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		if(!not_prime[i])
 		{
@@ -30,7 +30,7 @@ bool is_prime(const int & p)
 {
 	if(p < N) return !not_prime[p];
 
-	for(int i = 0; i < np && primes[i] * primes[i] <= p; i++)
+	for(int i = 0; i < np && primes[i] * primes[i] <= p; ++i)
 		if(!(p % primes[i]))
 			return 0;
 	

@@ -14,7 +14,7 @@ int main()
 	int b, s, l, r;
 	while(scanf("%d %d", &s, &b), s || b)
 	{
-		for(int i = 1; i <= s; i++)
+		for(int i = 1; i <= s; ++i)
 		{
 			pred(i) = i - 1;
 			succ(i) = i + 1;

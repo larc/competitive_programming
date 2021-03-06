@@ -9,18 +9,18 @@ int main()
 	while(scanf("%d %d %d %d", &N, &R, &C, &K) && N)
 	{
 		a = 0;
-		for(i = 0; i < R; i++)
-			for(j = 0; j < C; j++)
+		for(i = 0; i < R; ++i)
+			for(j = 0; j < C; ++j)
 				scanf("%d", &land[i][j][a]);
 
 		while(K--)
 		{
-			for(i = 0; i < R; i++)
-				for(j = 0; j < C; j++)
+			for(i = 0; i < R; ++i)
+				for(j = 0; j < C; ++j)
 					land[i][j][!a] = land[i][j][a];
 
-			for(i = 0; i < R; i++)
-				for(j = 0; j < C; j++)
+			for(i = 0; i < R; ++i)
+				for(j = 0; j < C; ++j)
 				{
 					if(j < C - 1 && (land[i][j][a] + 1 ) % N == land[i][j + 1][a])
 						land[i][j + 1][!a] = land[i][j][a];
@@ -35,10 +35,10 @@ int main()
 		}
 
 
-		for(i = 0; i < R; i++)
+		for(i = 0; i < R; ++i)
 		{
 			printf("%d", land[i][0][a]);
-			for(j = 1; j < C; j++)
+			for(j = 1; j < C; ++j)
 				printf(" %d", land[i][j][a]);
 			printf("\n");
 		}

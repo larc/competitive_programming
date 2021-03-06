@@ -17,7 +17,7 @@ int comp[N];
 
 void init(const int & n)
 {
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		comp[i] = i;
 }
 
@@ -42,13 +42,13 @@ int main()
 	scanf("%d", &n);
 
 	init(n);
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d %d", &a, &b);
 		join(a, b);
 	}
 	
-	for(a = 1; a <= n; a++)
+	for(a = 1; a <= n; ++a)
 		if(comp[a] == a) break;
 
 	dfs(a); putchar('\n');

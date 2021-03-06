@@ -11,7 +11,7 @@ int main()
 
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
-		for(k = 1; k <= n; k++)
+		for(k = 1; k <= n; ++k)
 		{
 			scanf("%d", &v);
 			G[v].push_back(k);

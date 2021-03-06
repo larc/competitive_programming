@@ -19,7 +19,7 @@ void calc_all_fact()
 	char d, r;
 
 	fact[1][0] = 1;	size[1] = 1;
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		x = i; k = 0;
 		while(x)
@@ -27,7 +27,7 @@ void calc_all_fact()
 			d = x % 10;
 			x /= 10;
 
-			for(int j = 0; j < size[i - 1]; j++)
+			for(int j = 0; j < size[i - 1]; ++j)
 			{
 				r = fact[i - 1][j] * d;
 				fact[i][j + k] += r;
@@ -51,10 +51,10 @@ int main()
 		printf("%d! --\n", n);
 
 		memset(freq, 0, sizeof(freq));
-		for(int i = 0; i < size[n]; i++)
+		for(int i = 0; i < size[n]; ++i)
 			freq[fact[n][i]]++;
 
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < 10; ++i)
 			printf("   (%d)%4d%c", i, freq[i], i % 5 == 4 ? '\n' : ' ');
 	}
 

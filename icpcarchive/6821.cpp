@@ -9,7 +9,7 @@ bool b[5];
 
 inline char compatible()
 {
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < 5; ++i)
 		if(!(a[i] ^ b[i]))
 			return 'N';
 
@@ -20,9 +20,9 @@ int main()
 {
 	while(cin>>a[0])
 	{
-		for(int i = 1; i < 5; i++)
+		for(int i = 1; i < 5; ++i)
 			cin >> a[i];
-		for(int i = 0; i < 5; i++)
+		for(int i = 0; i < 5; ++i)
 			cin >> b[i];
 		
 		cout << compatible() <<endl;

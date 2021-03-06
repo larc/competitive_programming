@@ -11,7 +11,7 @@ int main()
 
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d %d", &res[i].first, &res[i].second);
 
 		std::sort(res, res + n);
@@ -19,7 +19,7 @@ int main()
 		unlcks = 0;
 		std::priority_queue<int> q;
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			std::pair<int, int> & p = res[i];
 		

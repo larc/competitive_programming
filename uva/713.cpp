@@ -19,7 +19,7 @@ int main()
 		scanf("%s %s", A, B);
 		
 		a = 0;
-		for(i = 0; A[i] || B[i]; i++)
+		for(i = 0; A[i] || B[i]; ++i)
 		{
 			a += A[i] ? A[i] - '0' : 0;
 			a += B[i] ? B[i] - '0' : 0;
@@ -32,7 +32,7 @@ int main()
 		C[i++] = a ? a + '0' : 0;
 		C[i] = 0;
 
-		for(i = 0; C[i] == '0'; i++);
+		for(i = 0; C[i] == '0'; ++i);
 		
 		printf("%s\n", C + i);
 	}

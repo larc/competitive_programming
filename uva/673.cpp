@@ -14,7 +14,7 @@ int main()
 	{
 		getline(cin, s);
 		stack<char> pila;
-		for(i = 0; i < s.size(); i++)
+		for(i = 0; i < s.size(); ++i)
 			if(s[i] == ')')
 				if(!pila.empty() && pila.top() == '(')
 					pila.pop();

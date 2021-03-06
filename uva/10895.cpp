@@ -13,13 +13,13 @@ int main()
 	int m, n, r, val;
 	while(scanf("%d %d", &m, &n) != EOF)
 	{
-		for(int j = 1; j <= m; j++)
+		for(int j = 1; j <= m; ++j)
 		{
 			scanf("%d", &r);
-			for(int i = 0; i < r; i++)
+			for(int i = 0; i < r; ++i)
 				scanf("%d", idx + i);
 			
-			for(int i = 0; i < r; i++)
+			for(int i = 0; i < r; ++i)
 			{
 				scanf("%d", &val);
 				matrix[idx[i]][j] = val;
@@ -27,7 +27,7 @@ int main()
 		}
 
 		printf("%d %d\n", n, m);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			printf("%d", r = matrix[i].size());
 			for(auto & p: matrix[i])
@@ -42,7 +42,7 @@ int main()
 			putchar('\n');
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			matrix[i].clear();
 	}
 

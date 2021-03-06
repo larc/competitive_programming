@@ -11,14 +11,14 @@ int main()
 	int n, m, a;
 	
 	scanf("%d", &n);
-	for(int i = 0; i < n * n; i++)
+	for(int i = 0; i < n * n; ++i)
 	{
 		scanf("%d", &a);
 		count[a]++;
 	}
 
 	m = n / 2;
-	for(int i = 1; i < 1001; i++)
+	for(int i = 1; i < 1001; ++i)
 	{
 		while(count[i] >= 4 && four.size() < m * m)
 		{
@@ -48,8 +48,8 @@ int main()
 	printf("YES\n");
 
 	a = 0;
-	for(int i = 0; i < m; i++)
-	for(int j = 0; j < m; j++)
+	for(int i = 0; i < m; ++i)
+	for(int j = 0; j < m; ++j)
 	{
 		M[i][j] = four[a];
 		M[i][n - j - 1] = four[a];
@@ -61,16 +61,16 @@ int main()
 	if(n & 1)
 	{
 		a = 0;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			M[m][i] = M[m][n - i - 1] = two[a++];
 			M[i][m] = M[n - i - 1][m] = two[a++];
 		}
 	}
 	
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
-		for(int j = 0; j < n; j++)
+		for(int j = 0; j < n; ++j)
 			printf("%d ", M[i][j]);
 		putchar('\n');
 	}

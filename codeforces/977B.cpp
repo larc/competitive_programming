@@ -8,13 +8,13 @@ int main()
 	
 	scanf("%d %s", &n, str);
 	n--;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		two_gram[str[i] - 'A'][str[i + 1] - 'A']++;
 	
 	int a, b;
 	a = b = 0;
-	for(int i = 0; i < 27; i++)
-	for(int j = 0; j < 27; j++)
+	for(int i = 0; i < 27; ++i)
+	for(int j = 0; j < 27; ++j)
 		if(two_gram[i][j] > two_gram[a][b])
 		{
 			a = i;

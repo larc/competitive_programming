@@ -8,7 +8,7 @@ using namespace std;
 inline int maxmin(string p)
 {
 	int i, m = 1000;
-	for(i = 0; i < p.size() - 1; i++)
+	for(i = 0; i < p.size() - 1; ++i)
 		m = min(m, abs(p[i] - p[i+1]));
 	return m;
 }

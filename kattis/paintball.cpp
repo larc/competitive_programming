@@ -16,7 +16,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 		
 		visited[u] = 1;
 
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			const int & v = G[u][i];
 			if(match[v] == -1 || augmenting_path(match[v]))
@@ -48,7 +48,7 @@ int main()
 	m = 0;
 	memset(match, -1, sizeof(match));
 
-	for(int u = 1; u <= n; u++)
+	for(int u = 1; u <= n; ++u)
 	{
 		memset(visited, 0, sizeof(visited));
 		m += augmenting_path(u);
@@ -56,7 +56,7 @@ int main()
 
 	if(m == n)
 	{
-		for(int u = 1; u <= n; u++)
+		for(int u = 1; u <= n; ++u)
 			printf("%d\n", match[u]);
 	}
 	else printf("Impossible\n");

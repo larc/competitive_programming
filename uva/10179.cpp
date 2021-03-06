@@ -11,7 +11,7 @@ int main()
 	int n_primes = 0;
 
 	primes[n_primes++] = 2;
-	for(int i = 3; i < N; i++)
+	for(int i = 3; i < N; ++i)
 		if(!not_prime[i])
 		{
 			primes[n_primes++] = i;
@@ -25,7 +25,7 @@ int main()
 	{
 		phi = n;	// Euler Phi
 		
-		for(int i = 0; i < n_primes && primes[i] <= n; i++)
+		for(int i = 0; i < n_primes && primes[i] <= n; ++i)
 			if(n % primes[i] == 0)
 			{
 				phi -= phi / primes[i];

@@ -41,7 +41,7 @@ void prim(const int & p)
 	
 	i = 0;
 	visited[i] = 1;
-	for(j = 1; j < p; j++)
+	for(j = 1; j < p; ++j)
 		q.push({i, j});
 	
 	int d = 0;
@@ -57,7 +57,7 @@ void prim(const int & p)
 			
 			dt[d++] = D[i][j];
 
-			for(i = 0; i < p; i++)
+			for(i = 0; i < p; ++i)
 				if(i != j && !visited[i])
 					q.push({j, i});
 		}
@@ -72,11 +72,11 @@ int main_prim() // 0.090 c++11
 	while(n--)
 	{
 		scanf("%d %d", &s, &p);
-		for(int i = 0; i < p; i++)
+		for(int i = 0; i < p; ++i)
 			scanf("%f %f", &C[i].x, &C[i].y);
 
-		for(int i = 0; i < p; i++)
-		for(int j = i + 1; j < p; j++)
+		for(int i = 0; i < p; ++i)
+		for(int j = i + 1; j < p; ++j)
 			D[i][j] = D[j][i] = C[i].norm(C[j]);
 		
 		prim(p);
@@ -151,20 +151,20 @@ int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue versi
 	while(n--)
 	{
 		scanf("%d %d", &s, &p);
-		for(int i = 0; i < p; i++)
+		for(int i = 0; i < p; ++i)
 			scanf("%f %f", &C[i].x, &C[i].y);
 		
 		//e = 0;
 		std::priority_queue<edge_t> q;
-		for(int i = 0; i < p; i++)
-		for(int j = i + 1; j < p; j++)
+		for(int i = 0; i < p; ++i)
+		for(int j = i + 1; j < p; ++j)
 		{
 			D[i][j] = D[j][i] = C[i].norm(C[j]);
 			//E[e++] = {i, j};
 			q.push({i, j});
 		}
 
-		for(int i = 0; i < p; i++) // initialization union find
+		for(int i = 0; i < p; ++i) // initialization union find
 			S[i] = i;
 		
 		//printf("%.2f\n", kruskal(p, e, p - s));

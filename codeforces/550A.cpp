@@ -12,7 +12,7 @@ int main()
 	char str[N];
 	scanf("%s", str);
 	
-	for(unsigned i = 1; str[i]; i++)
+	for(unsigned i = 1; str[i]; ++i)
 	{
 		if(str[i - 1] == 'A' && str[i] == 'B') ab.push_back(i);
 		if(str[i - 1] == 'B' && str[i] == 'A') ba.push_back(i);

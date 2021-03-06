@@ -30,24 +30,24 @@ int main()
 	unsigned long int n;
 
 	scanf("%u", &n_cases);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		memset(alpha, 0, sizeof(alpha));
 		memset(prime_factors, 0, sizeof(prime_factors));
 
 		scanf("%s", word);
-		for(n = 0; word[n]; n++)
+		for(n = 0; word[n]; ++n)
 			alpha[word[n] - 'A']++;
 
-		for(int i = 0; i < n_primes && primes[i] <= n; i++)
+		for(int i = 0; i < n_primes && primes[i] <= n; ++i)
 			prime_factors[i] = factors(n, primes[i]);
 		
-		for(int a = 0; a < 27; a++)
-		for(int i = 0; i < n_primes && primes[i] <= alpha[a]; i++)
+		for(int a = 0; a < 27; ++a)
+		for(int i = 0; i < n_primes && primes[i] <= alpha[a]; ++i)
 			prime_factors[i] -= factors(alpha[a], primes[i]);
 
 		n = 1;
-		for(int i = 0; i < n_primes; i++)
+		for(int i = 0; i < n_primes; ++i)
 			n *= pow(primes[i], prime_factors[i]);
 	
 		printf("Data set %d: %lu\n", c, n);

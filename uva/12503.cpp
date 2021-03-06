@@ -10,7 +10,7 @@ int main()
 	while(c--)
 	{
 		scanf("%d\n", &n);
-		for(i = 1; i <= n; i++)
+		for(i = 1; i <= n; ++i)
 		{
 			fgets(line, sizeof(line), stdin);
 			if(line[0] == 'L') I[i] = -1;
@@ -23,7 +23,7 @@ int main()
 		}
 
 		p = 0;
-		for(i = 1; i <= n; i++)
+		for(i = 1; i <= n; ++i)
 			p += I[i];
 	
 		printf("%d\n", p);	

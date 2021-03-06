@@ -19,7 +19,7 @@ int main()
 		std::queue<std::pair<int, int> > q[2];	// 0: left | 1: right
 		scanf("%d %d %d", &n, &t, &m);
 
-		for(i = 0; i < m; i++)
+		for(i = 0; i < m; ++i)
 		{
 			scanf("%d %s", &time, side);
 			q[side[0] == 'r'].push({time, i});
@@ -53,7 +53,7 @@ int main()
 			}
 		}	
 		
-		for(i = 0; i < m; i++)
+		for(i = 0; i < m; ++i)
 			printf("%d\n", unloaded[i]);
 		if(c) putchar('\n');
 	}

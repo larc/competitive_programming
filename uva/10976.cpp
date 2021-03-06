@@ -10,12 +10,12 @@ int main()
 	while(scanf("%d", &k) != EOF)
 	{
 		n = 0;
-		for(x = k + 1; x <= k << 1; x++)
+		for(x = k + 1; x <= k << 1; ++x)
 			if(!((k * x) % (x - k)))
 				y[n++] = x;
 				
 		printf("%d\n", n);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			x = k * y[i] / (y[i] - k);
 			printf("1/%d = 1/%d + 1/%d\n", k, x, y[i]);

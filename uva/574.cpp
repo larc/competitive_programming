@@ -16,7 +16,7 @@ int sum_it_up(const int & n, const int & s, const int & p, int i)
 	if(!s)
 	{
 		i = sprintf(sum, "%d", seq[0]);
-		for(int j = 1; j < p; j++)
+		for(int j = 1; j < p; ++j)
 			i += sprintf(sum + i, "+%d", seq[j]);
 		
 		if(sums.insert(sum).second) printf("%s\n", sum);
@@ -24,7 +24,7 @@ int sum_it_up(const int & n, const int & s, const int & p, int i)
 	}
 	
 	int count = 0;
-	for(; i < n; i++)
+	for(; i < n; ++i)
 		if(num[i] <= s)
 		{
 			seq[p] = num[i];
@@ -41,7 +41,7 @@ int main()
 	{
 		sums.clear();
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
 
 		printf("Sums of %d:\n", s);

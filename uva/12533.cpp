@@ -14,7 +14,7 @@ int level[N];
 
 void init_p(const int & n)
 {
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		parent[i] = i;
 }
 
@@ -59,7 +59,7 @@ int main()
 		init_p(n);
 		
 		m = 0;
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%d", flight + i);
 			if(!union_p(flight[i], i)) // loop;
@@ -67,7 +67,7 @@ int main()
 		}
 		
 		memset(level + 1, 0, sizeof(int) * n);
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			int & s = size[find_p(loop[i])]; // component's loop size
 			s = 0;
@@ -81,7 +81,7 @@ int main()
 			while(a != b);
 		}
 		
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			update_level(i);
 		
 		scanf("%d", &q);

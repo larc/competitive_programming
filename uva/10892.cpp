@@ -19,7 +19,7 @@ int main()
 	{
 		m = 1;
 		if(n > 1) div[m++] = n;
-		for(d = 2; d * d < n; d++)
+		for(d = 2; d * d < n; ++d)
 			if(!(n % d))
 			{
 				div[m++] = d;
@@ -29,8 +29,8 @@ int main()
 		if(d * d == n) div[m++] = d;
 
 		d = m;
-		for(int i = 2; i < m; i++)
-		for(int j = i + 1; j < m; j++)
+		for(int i = 2; i < m; ++i)
+		for(int j = i + 1; j < m; ++j)
 			if((div[i] / gcd(div[i], div[j])) * div[j] == n)
 				d++;
 

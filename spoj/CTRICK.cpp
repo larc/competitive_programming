@@ -45,13 +45,13 @@ int main()
 	{
 		scanf("%d", &n);
 		memset(ft, 0, sizeof(ft));
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			adjust(i, 1);
 
 		memset(card, 0, sizeof(card));
 
 		p = 0;
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			p = next_pos((rsq(p) + i) % (n - i + 1) + 1, 1, n);
 			card[p] = i;
@@ -59,7 +59,7 @@ int main()
 		}
 
 		printf("%d", card[1]);
-		for(int i = 2; i <= n; i++)
+		for(int i = 2; i <= n; ++i)
 			printf(" %d", card[i]);
 		putchar('\n');	
 	}

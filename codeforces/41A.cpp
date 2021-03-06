@@ -12,7 +12,7 @@ int main()
 
 	if(ok)
 	{
-		for(int i = 0; i < sword.size(); i++)
+		for(int i = 0; i < sword.size(); ++i)
 			if(sword[i] != tword[sword.size() - i - 1])
 			{
 				ok = 0;

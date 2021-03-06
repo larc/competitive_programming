@@ -41,7 +41,7 @@ int main()
 	std::stack<int> ans;
 
 	scanf("%d %d", &m, &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		scanf("%d", S + i);
 
 	n--;

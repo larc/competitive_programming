@@ -17,7 +17,7 @@ int main()
 		cin>>str;
 		s = 1;
 		c = str[0];
-		for(size_t i = 1; i < str.size(); i++)
+		for(size_t i = 1; i < str.size(); ++i)
 			if(str[i] != c)
 			{
 				cout<<c<<s;

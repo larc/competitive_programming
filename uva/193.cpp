@@ -26,7 +26,7 @@ void max_independent_set(const int & u, const int & idx)
 	
 	if(!color[u])
 	{
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			const int & v = G[u][i];
 			if(!color[v]) color[v] = u;
@@ -35,7 +35,7 @@ void max_independent_set(const int & u, const int & idx)
 		tmp_black[idx] = u;
 		max_independent_set(u - 1, idx + 1);
 		
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			const int & v = G[u][i];
 			if(color[v] == u) color[v] = 0;

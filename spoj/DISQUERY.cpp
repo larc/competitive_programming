@@ -61,17 +61,17 @@ void hld(const int & u, const int & h)
 
 void init_st(const int & n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		min_st[0][i] = i;
 		max_st[0][i] = i;
 	}
 	
 	int k, u, v;
-	for(int i = 1; (1 << i) <= n; i++)
+	for(int i = 1; (1 << i) <= n; ++i)
 	{
 		k = 1 << (i - 1);
-		for(int j = 0; j + (1 << i) - 1 < n; j++)
+		for(int j = 0; j + (1 << i) - 1 < n; ++j)
 		{
 			u = min_st[i - 1][j];
 			v = min_st[i - 1][j + k];
@@ -133,7 +133,7 @@ int main()
 	level[1] = parent[1] = road[1] = 0;
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d %d %d", &u, &v, &w);
 			G[u].push_back({v, w});
@@ -152,7 +152,7 @@ int main()
 			printf("%d %d\n", rmin, rmax);
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}
 

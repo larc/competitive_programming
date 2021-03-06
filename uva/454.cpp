@@ -11,7 +11,7 @@ int freq[N][128];
 
 bool is_anagram(const int & i, const int & j)
 {
-	for(int k = 0; k < 128; k++)
+	for(int k = 0; k < 128; ++k)
 		if(freq[i][k] != freq[j][k])
 			return 0;
 
@@ -32,12 +32,12 @@ int main()
 		std::sort(phrase, phrase + m);
 		memset(freq, 0, sizeof(freq));
 
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		for(char & c: phrase[i])
 			if(c != ' ') freq[i][c]++;
 		
-		for(int i = 0; i < m; i++)
-		for(int j = i + 1; j < m; j++)
+		for(int i = 0; i < m; ++i)
+		for(int j = i + 1; j < m; ++j)
 			if(is_anagram(i, j))
 				std::cout << phrase[i] << " = " << phrase[j] << '\n';
 		

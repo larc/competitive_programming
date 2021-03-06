@@ -36,7 +36,7 @@ int main()
 	while(n)
 	{
 		memset(ft, 0, sizeof(ft));
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%d", potmeter + i);
 			adjust(i, potmeter[i]);

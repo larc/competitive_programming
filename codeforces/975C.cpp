@@ -10,13 +10,13 @@ int main()
 
 	scanf("%llu %llu", &n, &q);
 
-	for(unsigned i = 1; i <= n; i++)
+	for(unsigned i = 1; i <= n; ++i)
 	{
 		scanf("%llu", A + i);
 		A[i] += A[i - 1];
 	}
 	
-	for(int i = 1; i <= q; i++)
+	for(int i = 1; i <= q; ++i)
 	{
 		scanf("%llu", K + i);
 		K[i] += K[i - 1] < A[n] ? K[i - 1] : 0;

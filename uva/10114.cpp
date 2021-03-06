@@ -15,7 +15,7 @@ int main()
 		while(--r)
 		{	
 			scanf("%d %lf", &m, &i);
-			for(j = ma; j < m; j++)
+			for(j = ma; j < m; ++j)
 			{
 				a *= (1 - ia);
 //				printf("%lf - %d %lf %lf\n", ia, j, a, pt);
@@ -26,7 +26,7 @@ int main()
 			ia = i;
 		}
 
-		for(j = ma; j <= d; j++)
+		for(j = ma; j <= d; ++j)
 		{
 			a *= (1 - ia);
 //			printf("%lf - %d %lf %lf\n", ia, j, a, pt);

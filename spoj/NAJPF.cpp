@@ -48,7 +48,7 @@ int main()
 		if(s = kmp())
 		{
 			printf("%d\n%d", s, idx[0]);
-			for(int i = 1; i < s; i++)
+			for(int i = 1; i < s; ++i)
 				printf(" %d", idx[i]);
 			putchar('\n');
 		}

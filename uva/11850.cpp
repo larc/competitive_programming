@@ -10,14 +10,14 @@ int main()
 	bool b;	
 	while(scanf("%d", &n) != EOF && n)
 	{
-		for(x = 0; x < n; x++)
+		for(x = 0; x < n; ++x)
 			scanf("%d", &vec[x]);
 		vec[n++] = 0;
 		sort(vec, vec + n);
 		vec[n] = 1422 + 1422 - vec[n - 1];
 
 		b = 1;
-		for(x = 0; x < n; x++)
+		for(x = 0; x < n; ++x)
 			if(vec[x + 1] - vec[x] > 200)
 			{
 				b = 0;

@@ -31,7 +31,7 @@ int main()
 			scanf("%d %d %d", &i, &j, &n);
 			while(!conflict && i < N)
 			{
-				for(int k = i; k < j && k < N; k++)
+				for(int k = i; k < j && k < N; ++k)
 					if(time[k])
 					{
 						conflict = 1;

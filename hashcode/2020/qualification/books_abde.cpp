@@ -29,7 +29,7 @@ struct library_t
 	void update(const int & t)
 	{
 		int n = 0;
-		for(int i = 0; i < N; i++)
+		for(int i = 0; i < N; ++i)
 			if(!send[books[i]])
 				books[n++] = books[i];
 
@@ -42,7 +42,7 @@ struct library_t
 		
 		/*
 		value = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			value += S[books[i]];
 		*/
 	}
@@ -53,7 +53,7 @@ struct library_t
 int select_lib(const int & t)
 {
 	int l = -1, max = 0;
-	for(int i = 0; i < L; i++)
+	for(int i = 0; i < L; ++i)
 	{
 		if(vis_lib[i]) continue;
 
@@ -79,10 +79,10 @@ int main()
 
 	scanf("%d %d %d", &B, &L, &D);
 
-	for(int i = 0; i < B; i++)
+	for(int i = 0; i < B; ++i)
 		scanf("%d", S + i);
 	
-	for(int i = 0; i < L; i++)
+	for(int i = 0; i < L; ++i)
 	{
 		library_t & lib = libraries[i];
 
@@ -90,7 +90,7 @@ int main()
 		
 		lib.books = new int[lib.N];
 
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 			scanf("%d", lib.books + j);
 
 		std::sort(lib.books, lib.books + lib.N, [&](const int & i, const int & j)
@@ -98,7 +98,7 @@ int main()
 													return S[i] > S[j];
 												});
 		
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 			send[lib[j]] = !S[lib[j]];		
 	}
 
@@ -114,7 +114,7 @@ int main()
 
 		time += lib.T;
 			
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 			send[lib[j]] = true;
 	}
 
@@ -124,7 +124,7 @@ int main()
 		library_t & lib = libraries[i];
 
 		printf("%d %d\n", i, lib.N);
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 			printf("%d ", lib[j]);
 		putchar('\n');
 	}

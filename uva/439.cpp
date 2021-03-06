@@ -59,6 +59,8 @@ int moves(char * x, char * y)
 		visit(1, -2);
 		visit(1, 2);
 	}
+
+	return 0;
 }
 
 int main()

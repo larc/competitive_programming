@@ -16,10 +16,10 @@ int main()
 	while(scanf("%d", &m) != EOF)
 	{
 		sa = sb = 0;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			scanf("%s", str);
-			for(int j = 0; j < m; j++)
+			for(int j = 0; j < m; ++j)
 				if(str[j] == '1')
 				{
 					A[sa][0] = i;
@@ -33,10 +33,10 @@ int main()
 		}
 		
 		max = 0;
-		for(int i = 0; i < sa; i++)
+		for(int i = 0; i < sa; ++i)
 		{
 			min = INF;
-			for(int j = 0; j < sb; j++)
+			for(int j = 0; j < sb; ++j)
 				min = std::min(min, abs(A[i][0] - B[j][0]) + abs(A[i][1] - B[j][1]));
 
 			max = std::max(max, min);

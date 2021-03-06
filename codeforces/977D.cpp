@@ -35,17 +35,17 @@ int main()
 	int n;
 	scanf("%d", &n);
 	
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		scanf("%llu", nodes + i);
 	
-	for(int u = 1; u <= n; u++)
-	for(int v = 1; v <= n; v++)
+	for(int u = 1; u <= n; ++u)
+	for(int v = 1; v <= n; ++v)
 		if(	nodes[u] != nodes[v] &&
 			(nodes[v] == nodes[u] << 1 || (!(nodes[u] % 3) && nodes[u] == nodes[v] * 3)) )
 			G[u].push_back(v);
 
 
-	for(int u = 1; u <= n; u++)
+	for(int u = 1; u <= n; ++u)
 	{
 		memset(visited, 0, sizeof(visited));
 		if(dfs(u) == n)

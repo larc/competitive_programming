@@ -25,7 +25,7 @@ int main()
 		while(n--)
 		{
 			scanf("%d", &p);
-			for(int i = 2; i <= p; i++)
+			for(int i = 2; i <= p; ++i)
 				switch(i)
 				{
 					case 4: counter[2] += 2; break;
@@ -39,7 +39,7 @@ int main()
 		while(m--)
 		{
 			scanf("%d", &p);
-			for(int i = 2; i <= p; i++)
+			for(int i = 2; i <= p; ++i)
 				switch(i)
 				{
 					case 4: counter[2] -= 2; break;

@@ -49,11 +49,11 @@ int main()
 		ix = min_base(X);
 		iy = min_base(Y);
 
-		for(i = ix; i <= N; i++)
+		for(i = ix; i <= N; ++i)
 		{
 			n = to_base_10(X, i);
 
-			for(j = iy; j <= N; j++)
+			for(j = iy; j <= N; ++j)
 				if(n == to_base_10(Y, j))
 					break;
 

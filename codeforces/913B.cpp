@@ -19,7 +19,7 @@ bool bfs(int u)
 		q.pop();
 		
 		n = 0;
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			int & v = G[u][i];
 			q.push(v);
@@ -39,7 +39,7 @@ int main()
 	scanf("%d", &n);
 
 	memset(size, 0, sizeof(size));
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d", &u);
 		G[u][size[u]++] = i + 1;

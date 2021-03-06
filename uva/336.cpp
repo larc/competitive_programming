@@ -18,7 +18,7 @@ void bfs(int start, map <int, vector<int> > & graph)
 		top = s.front();
 		s.pop();
 		size = graph[top].size();
-		for(i = 0; i < size; i++)
+		for(i = 0; i < size; ++i)
 		{
 			n = graph[top][i]; 
 			if(!visited.count(n))

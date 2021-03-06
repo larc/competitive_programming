@@ -37,7 +37,7 @@ const int & bfs(point s, const point & d)
 
 		if(s.x == d.x && s.y == d.y) break;
 
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 4; ++i)
 		{
 			p.x = s.x + moves[i].x;
 			p.y = s.y + moves[i].y;

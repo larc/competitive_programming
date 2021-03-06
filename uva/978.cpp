@@ -28,7 +28,7 @@ int main()
 		
 		while(!soldiers[0].empty() && !soldiers[1].empty())
 		{
-			for(i = 0; i < f && !soldiers[0].empty() && !soldiers[1].empty(); i++)
+			for(i = 0; i < f && !soldiers[0].empty() && !soldiers[1].empty(); ++i)
 			{
 				winners[i] = soldiers[0].top() - soldiers[1].top();
 				soldiers[0].pop(); soldiers[1].pop();

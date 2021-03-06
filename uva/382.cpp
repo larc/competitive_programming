@@ -9,7 +9,7 @@ int perfect_number(const int & n)
 	if(sq == 1) return 0;
 
 	int sum = 1;
-	for(int i = 2; i < sq; i++)
+	for(int i = 2; i < sq; ++i)
 		if(!(n % i)) sum += i + n / i; 
 	
 	if(sq * sq == n) sum += sq;

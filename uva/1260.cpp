@@ -13,12 +13,12 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", A + i);
 
 		sum = 0;
-		for(int i = 1; i < n; i++)
-		for(int k = 0; k < i; k++)
+		for(int i = 1; i < n; ++i)
+		for(int k = 0; k < i; ++k)
 			sum += A[k] <= A[i];
 
 		printf("%d\n", sum);

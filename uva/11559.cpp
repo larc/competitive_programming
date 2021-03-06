@@ -11,7 +11,7 @@ int main()
 		while(h--)
 		{
 			scanf("%d", &p);
-			for(i = 0; i < w; i++)
+			for(i = 0; i < w; ++i)
 			{
 				scanf("%d", &a);
 				if(a >= n)

@@ -12,7 +12,7 @@ struct union_find
 	
 	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			set[i] = i;
 	}
 
@@ -92,7 +92,7 @@ int main()
 		scanf("%d", &m);
 
 		max_cost = 1;
-		for(int i = 0; i < m; i++)
+		for(int i = 0; i < m; ++i)
 		{
 			scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
 			max_cost += G[i].w;

@@ -12,7 +12,7 @@ int main()
 	scanf("%d %d %d", &n, &m, &k);
 
 	max_1 = max_2 = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%d", &a);
 		if(a > max_1)

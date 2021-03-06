@@ -9,7 +9,7 @@ int main()
 	scanf("%s", str);
 
 	a = d = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		if(str[i] == 'A') a++;
 		else d++;
 	

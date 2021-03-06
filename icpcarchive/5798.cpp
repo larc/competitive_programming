@@ -53,7 +53,7 @@ int main()
 		memset(ft, 0, sizeof(ft));
 
 		B[0] = 1;
-		for(int i = 1; i < l; i++)
+		for(int i = 1; i < l; ++i)
 			B[i] = (b * B[i - 1]) % p;
 
 		while(n--)

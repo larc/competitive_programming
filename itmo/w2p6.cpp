@@ -20,7 +20,7 @@ int main()
 	clone[0] = top[0] = mass[0] = 0;
 
 	scanf("%d", &n);
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		scanf("%d %d\n", &t, &m);
 		if(!top[t]) t = clone[t];

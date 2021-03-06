@@ -12,7 +12,7 @@ int main()
 	int n, w, s = 0;
 
 	scanf("%d", &n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%d", &w);
 		if(w) s++;

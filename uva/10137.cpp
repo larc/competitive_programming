@@ -13,7 +13,7 @@ int main()
 	while(scanf("%d", &n), n)
 	{
 		net = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%lf", spent + i);
 			net += spent[i];
@@ -22,7 +22,7 @@ int main()
 		net /= n;
 
 		pdiff = ndiff = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			d = (double) (long) ((spent[i] - net) * 100) / 100;
 			if(d < 0) ndiff -= d;

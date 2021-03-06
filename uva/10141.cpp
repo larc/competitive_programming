@@ -16,7 +16,7 @@ int main()
 	{
 		ip++;
 		getline(cin, s);
-		for(i = 0; i < n; i++)
+		for(i = 0; i < n; ++i)
 			getline(cin, s);
 		maxcp = 0;
 		mind = INF;

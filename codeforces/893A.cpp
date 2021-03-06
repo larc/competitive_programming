@@ -12,7 +12,7 @@ bool log_possible(const int & n)
 	p[0] = 1;
 	p[1] = 1;
 
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		if(!p[game[i] - 1]) return false;
 		
@@ -28,7 +28,7 @@ int main()
 	int n;
 	while(scanf("%d", &n) != EOF)
 	{
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			scanf("%d", game + i);
 		
 		if(log_possible(n)) printf("YES\n");

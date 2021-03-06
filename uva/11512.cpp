@@ -31,6 +31,7 @@ int index(const char & c)
 	if(c == 'C') return 1;
 	if(c == 'G') return 2;
 	if(c == 'T') return 3;
+	return -1;
 }
 
 void insert(char * word)
@@ -57,7 +58,7 @@ int lrs(trie * t)
 	if(!t || t->count <= 1) return 0;
 
 	int l, m = 0;
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 4; ++i)
 		if((l = lrs(t->sons[i])) > m)
 		{
 			m = l;
@@ -93,7 +94,7 @@ int main()
 		while(*c != '\0') insert(c++);
 		
 		m = 0;
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < 4; ++i)
 			if((l = lrs(&tree[i])) > m)
 			{
 				m = l;

@@ -78,7 +78,7 @@ int bfs(point p, char dir, const point & q)
 			queue.push({p, d});
 		}
 
-		for(int s = 1; s <= 3; s++) // go {1, 2, 3}
+		for(int s = 1; s <= 3; ++s) // go {1, 2, 3}
 		{
 			if(!go(dir, s, p, r)) break;
 			if(time(r, dir) < 0)
@@ -101,8 +101,8 @@ int main()
 	while(scanf("%d %d", &m, &n), n || m)
 	{
 		memset(grid, 0, sizeof(grid));
-		for(int i = 0; i < m; i++)
-		for(int j = 0; j < n; j++)
+		for(int i = 0; i < m; ++i)
+		for(int j = 0; j < n; ++j)
 		{
 			scanf("%d", &b);
 			if(b) grid[i][j] = 1;

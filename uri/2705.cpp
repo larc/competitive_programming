@@ -20,7 +20,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 	visited[u] = 1;
 	
 	int v;
-	for(int i = 0; i < size[u]; i++)
+	for(int i = 0; i < size[u]; ++i)
 	{
 		v = G[u][i];
 		if(match[v] == -1 || augmenting_path(match[v]))
@@ -56,12 +56,12 @@ int main()
 	{
 		memset(size, 0, sizeof(size));
 
-		for(int i = 0; i < r; i++)
+		for(int i = 0; i < r; ++i)
 			scanf("%s", cell[i]);
 		
 		n = 0;
-		for(int i = 0; i < r; i++)
-		for(int j = 0; j < c; j++)
+		for(int i = 0; i < r; ++i)
+		for(int j = 0; j < c; ++j)
 		{
 			n += cell[i][j] != 'o' ? 2 : 1;
 
@@ -90,8 +90,8 @@ int main()
 			memset(match, -1, sizeof(match));
 			
 			mcbm = 0;
-			for(int i = 0; i < r; i++)
-			for(int j = 0; j < c; j++)
+			for(int i = 0; i < r; ++i)
+			for(int j = 0; j < c; ++j)
 			{
 				if((i + j) & 1)
 				{

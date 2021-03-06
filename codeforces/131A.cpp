@@ -16,7 +16,7 @@ int main()
 	
 	if(switched(word))
 	{
-		for(int i = 0; word[i] != '\0'; i++)
+		for(int i = 0; word[i] != '\0'; ++i)
 			if('A' <= word[i] && word[i] <= 'Z')
 				word[i] = word[i] - 'A' + 'a';
 			else

@@ -11,7 +11,7 @@ int main()
 	scanf("%d", &n_cases);
 	fgets(line, sizeof(line), stdin);
 	fgets(line, sizeof(line), stdin);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		printf("Case #%d:\n", c);
 

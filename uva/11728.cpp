@@ -9,7 +9,7 @@ int sum_divisors(const int & n)
 	int sum = 1 + (1 != n ? n : 0);
 	int _sqrt = sqrt(n);
 
-	for(int x = 2; x <= _sqrt; x++)
+	for(int x = 2; x <= _sqrt; ++x)
 	{
 		if(!(n % x))
 		{
@@ -28,7 +28,7 @@ int main()
 	
 	int sum_factors[N];
 	memset(sum_factors, 255, sizeof(sum_factors));
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; ++i)
 	{
 		s = sum_divisors(i);
 		if(s < N) sum_factors[s] = i;

@@ -113,10 +113,10 @@ int main()
 	int n, q, u, v;
 
 	scanf("%d %d", &n, &q);
-	for(int i = 0; i <= n; i++)
+	for(int i = 0; i <= n; ++i)
 		ftl[i] = ftr[i] = N;
 	
-	for(int i = 1; i < n; i++)
+	for(int i = 1; i < n; ++i)
 	{
 		scanf("%d %d", &u, &v);
 		G[u].push_back(v);

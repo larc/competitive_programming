@@ -30,7 +30,7 @@ int find_primes()
 int divisors(int n)
 {
 	int d = 1, c, p;
-	for(int i = 0; i < P && primes[i] * primes[i] <= n; i++)
+	for(int i = 0; i < P && primes[i] * primes[i] <= n; ++i)
 	{
 		p = primes[i];
 		c = 0;
@@ -60,7 +60,7 @@ int main()
 		scanf("%d %d", &l, &u);
 
 		max_d = 0;
-		for(int i = l; i <= u; i++)
+		for(int i = l; i <= u; ++i)
 		{
 			d = divisors(i);
 			if(d > max_d)

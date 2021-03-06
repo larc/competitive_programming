@@ -8,7 +8,7 @@ int comp[N << 1];
 
 void init(const int & n)
 {
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		comp[i] = i;
 }
 
@@ -34,16 +34,16 @@ int main()
 	scanf("%d %d", &n, &m);
 
 	init(n + m);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%s", str[i]);
-		for(int j = 0; j < m; j++)
+		for(int j = 0; j < m; ++j)
 			if(str[i][j] == '=')
 				join(i, j + n);
 	}
 	
-	for(int i = 0; i < n; i++)
-	for(int j = 0; j < m; j++)
+	for(int i = 0; i < n; ++i)
+	for(int j = 0; j < m; ++j)
 		if(str[i][j] == '<')
 		{
 			in_degree[find(j + n)]++;
@@ -61,7 +61,7 @@ int main()
 	int k = 0;
 	std::queue<int> q;
 
-	for(int i = 0; i < m; i++)
+	for(int i = 0; i < m; ++i)
 		if(comp[i] == i)
 		{
 			k++;
@@ -95,11 +95,11 @@ int main()
 
 	printf("Yes\n");
 
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 		printf("%d ", value[find(i)]);
 	putchar('\n');
 	
-	for(int i = n; i < m; i++)
+	for(int i = n; i < m; ++i)
 		printf("%d ", value[find(i)]);
 	putchar('\n');
 

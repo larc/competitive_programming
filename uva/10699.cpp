@@ -24,7 +24,7 @@ int main()
 	while(scanf("%d", &n), n)
 	{
 		p = 0; m = n;
-		for(int i = 0; i < n_primes && primes[i] <= n; i++)
+		for(int i = 0; i < n_primes && primes[i] <= n; ++i)
 			if(n % primes[i] == 0)
 			{
 				p++;

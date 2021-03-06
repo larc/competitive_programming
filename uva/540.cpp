@@ -17,7 +17,7 @@ int main()
 	while(scanf("%d", &n) && n)
 	{
 		printf("Scenario #%d\n", k++);
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d", &m);
 			while(m-- && scanf("%d", &x))

@@ -12,7 +12,7 @@ struct union_find
 
 	void init(const int & n)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			comp[i] = i;
 	}
 
@@ -35,7 +35,7 @@ struct union_find
 	int n_comp(const int & n)
 	{
 		int nc = 0;
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			nc += i == comp[i];
 
 		return nc;
@@ -103,7 +103,7 @@ int main()
 	}
 
 	printf("YES\n");
-	for(int i = 0; i < d; i++)
+	for(int i = 0; i < d; ++i)
 	{
 		v = q.front(); q.pop();
 		printf("1 %d\n", v);

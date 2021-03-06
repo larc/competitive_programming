@@ -32,7 +32,7 @@ void prim(int n)
 	std::priority_queue<edge_t> q;
 
 	int i, j;
-	for(i = 0; i < sG[n]; i++)
+	for(i = 0; i < sG[n]; ++i)
 	{
 		j = G[n][i];
 		if(!visited[j])
@@ -53,7 +53,7 @@ void prim(int n)
 			T[i][sT[i]++] = j;
 			T[j][sT[j]++] = i;
 
-			for(i = 0; i < sG[n]; i++)
+			for(i = 0; i < sG[n]; ++i)
 			{
 				j = G[n][i];
 				if(!visited[j])
@@ -69,7 +69,7 @@ void dfs(const int & n, int * d)
 	visited[n] = 1;
 	
 	int j;
-	for(int i = 0; i < sT[n]; i++)
+	for(int i = 0; i < sT[n]; ++i)
 	{
 		j = T[n][i];
 		if(!visited[j])
@@ -102,11 +102,11 @@ int main()
 		}
 
 		memset(visited, 0, sizeof(visited));
-		for(i = 1; i <= n; i++)
+		for(i = 1; i <= n; ++i)
 			prim(i);
 		
 		memset(D, -1, sizeof(D));
-		for(i = 1; i <= n; i++)
+		for(i = 1; i <= n; ++i)
 		{
 			memset(visited, 0, sizeof(visited));
 			dfs(i, D[i]);

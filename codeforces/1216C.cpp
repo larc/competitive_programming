@@ -26,7 +26,7 @@ bool cover(const int & i)
 
 int main()
 {
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < 6; ++i)
 		scanf("%d %d", x + i, y + i);
 	
 	if(cover(2)) return 0;

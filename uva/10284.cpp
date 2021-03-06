@@ -94,14 +94,14 @@ void king(const int & i, const int & j, const bool & black)
 
 int not_attacked()
 {
-	for(int i = 0; i < 8; i++)
-	for(int j = 0; j < 8; j++)
+	for(int i = 0; i < 8; ++i)
+	for(int j = 0; j < 8; ++j)
 		if(board[i][j] > 0)
 			attack[piece(board[i][j])](i, j, board[i][j] >= 'a');
 	
 	int count = 0;
-	for(int i = 0; i < 8; i++)
-	for(int j = 0; j < 8; j++)
+	for(int i = 0; i < 8; ++i)
+	for(int j = 0; j < 8; ++j)
 		if(!board[i][j]) count++;
 	
 	return count;

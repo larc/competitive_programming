@@ -69,14 +69,14 @@ int main()
 		memset(tree, 0, sizeof(trie) * 26);
 		s = 26;
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%s", words[i]);
 			insert(words[i]);
 		}
 		
 		c = 0;
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 			c += keystrokes(words[i]);
 
 		printf("%.2f\n", (float) c / n);

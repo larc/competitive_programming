@@ -36,7 +36,7 @@ int main()
 	bool prime;
 	while(scanf("%d", &n) && n)
 	{
-		for(a = 0; primes[a] < n; a++)
+		for(a = 0; primes[a] < n; ++a)
 		{	
 			b = n - primes[a];
 			if(b % 2 && !not_prime[b]) break;

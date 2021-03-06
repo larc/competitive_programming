@@ -10,7 +10,7 @@ int edges[N];
 
 void init(const int & n)
 {
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		component[i] = i;
 		nodes[i] = 1;
@@ -66,7 +66,7 @@ int main()
 		join(v, u);
 	}
 	
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		v = find_comp(i);
 		if(edges[v] == nodes[v] && degree[i] != 2)
@@ -74,7 +74,7 @@ int main()
 	}
 
 	m = 0;
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 		if(component[i] == i && edges[i] == nodes[i]) m++;
 
 	printf("%d\n", m);

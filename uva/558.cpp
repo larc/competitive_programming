@@ -16,7 +16,7 @@ bool relax_edges(const int & m)
 {
 	int d;
 	bool relax = false;
-	for(int e = 0; e < m; e++)
+	for(int e = 0; e < m; ++e)
 	{
 		edge_t & edge = edges[e];
 
@@ -39,7 +39,7 @@ int main()
 	while(c--)
 	{
 		scanf("%d %d", &n, &m);
-		for(int e = 0; e < m; e++)
+		for(int e = 0; e < m; ++e)
 			scanf("%d %d %d", &edges[e].u, &edges[e].v, &edges[e].t);
 
 		// Bellman Ford's algorithm

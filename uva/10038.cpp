@@ -20,7 +20,7 @@ int main()
 		memset(seq, 0, sizeof(bool) * n);
 		
 		scanf("%d", &a);
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d", &b);
 			a = std::abs(a - b);

@@ -46,8 +46,10 @@ struct date_t
 		}
 		
 		bool leap = is_leap(y);
-		for(m = 0; d > month[m] + (m >= 2 ? leap : 0); m++);
+		for(m = 0; d > month[m] + (m >= 2 ? leap : 0); ++m);
 		if(m > 1) d %= month[m - 1] + ((m > 2) ? leap : 0);
+
+		return *this;
 	}
 };
 
@@ -75,12 +77,12 @@ const char * get_sign(date_t & d)
 int main()
 {
 	date_t d;
-	for(int i = 1; i <= 12; i++)
+	for(int i = 1; i <= 12; ++i)
 		month[i] += month[i - 1];
 	
 	int date, cases;
 	scanf("%d", &cases);
-	for(int c = 1; c <= cases; c++)
+	for(int c = 1; c <= cases; ++c)
 	{
 		scanf("%d", &date);
 		d.init(date);

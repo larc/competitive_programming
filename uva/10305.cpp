@@ -20,7 +20,7 @@ int main()
 		}
 
 		queue<int> q;
-		for(i = 1; i <= n; i++)
+		for(i = 1; i <= n; ++i)
 			if(!g[0][i]) q.push(i);
 
 		while(n--)
@@ -29,7 +29,7 @@ int main()
 			printf("%d", i);
 			if(n) printf(" ");
 			q.pop();
-			for(j = 1; j <= g[i][0]; j++)
+			for(j = 1; j <= g[i][0]; ++j)
 				if(!(--g[0][g[i][j]]))
 					q.push(g[i][j]);
 		}

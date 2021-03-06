@@ -10,7 +10,7 @@ int ugly_1500()
 	i = j = k = 0;
 
 	ugly[0] = 1;
-	for(int n = 1; n < 1500; n++)
+	for(int n = 1; n < 1500; ++n)
 	{
 		while(ugly[i] * 2 <= ugly[n - 1]) i++;
 		while(ugly[j] * 3 <= ugly[n - 1]) j++;

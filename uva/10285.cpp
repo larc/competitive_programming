@@ -96,16 +96,16 @@ int main()
 	{
 		scanf("%s %d %d", name, &r, &c);
 		
-		for(int i = 0; i < r; i++)
-		for(int j = 0; j < c; j++)
+		for(int i = 0; i < r; ++i)
+		for(int j = 0; j < c; ++j)
 		{
 			scanf("%d", &heights[i][j]);
 			lpath[i][j] = 1;	
 		}
 		
 		length = 0;
-		for(int i = 0; i < r; i++)
-		for(int j = 0; j < c; j++)
+		for(int i = 0; i < r; ++i)
+		for(int j = 0; j < c; ++j)
 		{
 			l = dfs({i, j});
 			if(l > length) length = l;

@@ -13,7 +13,7 @@ int main()
 	while(T--)
 	{
 		scanf("%d", &D);
-		for(int i = 0; i < D; i++)
+		for(int i = 0; i < D; ++i)
 			scanf("%s %d %d", M[i], L + i, H + i);
 		
 		scanf("%d", &Q);
@@ -22,7 +22,7 @@ int main()
 			n = 0;
 			scanf("%d", &P);
 
-			for(int i = 0; i < D; i++)
+			for(int i = 0; i < D; ++i)
 				if(L[i] <= P && P <= H[i])
 				{
 					n++;

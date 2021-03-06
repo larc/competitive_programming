@@ -9,8 +9,8 @@ int main()
 	scanf("%s", str);
 
 	int count = 0;
-	for(int i = 0; i < n; i++)
-	for(int j = 1; i + j <= n; j++)
+	for(int i = 0; i < n; ++i)
+	for(int j = 1; i + j <= n; ++j)
 		if(str[i] == str[i + j]) count++;
 		else
 		{

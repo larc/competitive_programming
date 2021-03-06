@@ -22,10 +22,10 @@ int main()
 	F[1][0] = 1;
 	size[0] = size[1] = 1;
 
-	for(int i = 2; i < N; i++)
+	for(int i = 2; i < N; ++i)
 	{
 		int a = 0;
-		for(int k = 0; k < size[i - 1]; k++)
+		for(int k = 0; k < size[i - 1]; ++k)
 		{
 			F[i][k] = F[i - 1][k] + F[i - 2][k] + a;
 			
@@ -37,7 +37,7 @@ int main()
 		if(a) F[i][size[i]++] = a;
 	}
 	
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i < N; ++i)
 		to_char(F[i], size[i]);
 	
 	int n;

@@ -18,14 +18,14 @@ int main()
 	{
 		fgets(str, N, stdin);
 
-		for(n = 0; str[n] != '\n'; n++)
+		for(n = 0; str[n] != '\n'; ++n)
 		{
 			len[n][n] = 1;
 			len[n][n + 1] = 1 + (str[n] == str[n + 1]);
 		}
 		
-		for(int k = 2; k < n; k++)
-		for(int i = 0; i + k < n; i++)
+		for(int k = 2; k < n; ++k)
+		for(int i = 0; i + k < n; ++i)
 		{
 			j = i + k;
 			if(str[i] == str[j]) len[i][j] = 2 + len[i + 1][j - 1];

@@ -44,10 +44,10 @@ int main()
 {
 	scanf("%d %d %d", &B, &L, &D);
 
-	for(int i = 0; i < B; i++)
+	for(int i = 0; i < B; ++i)
 		scanf("%d", S + i);
 
-	for(int i = 0; i < L; i++)
+	for(int i = 0; i < L; ++i)
 	{
 		ids[i] = i;
 		library_t & lib = libraries[i];
@@ -57,7 +57,7 @@ int main()
 		lib.books = new int[lib.N];
 		lib.value = 0;
 
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 		{
 			scanf("%d", lib.books + j);
 			lib.value += S[lib[j]] * lib.M;
@@ -85,7 +85,7 @@ int main()
 		time += lib.T;
 		
 		books.clear();
-		for(int t = 0, i = 0; i < lib.N && t + time < D; i++)
+		for(int t = 0, i = 0; i < lib.N && t + time < D; ++i)
 		{
 			b = false;
 			if(!send[lib[i]])
@@ -111,12 +111,12 @@ int main()
 	}
 
 	printf("%d\n", L);
-	for(int i = 0; i < L; i++)
+	for(int i = 0; i < L; ++i)
 	{
 		library_t & lib = libraries[ids[i]];
 
 		printf("%d %d\n", ids[i], lib.N);
-		for(int j = 0; j < lib.N; j++)
+		for(int j = 0; j < lib.N; ++j)
 			printf("%d ", lib[j]);
 		putchar('\n');
 	}

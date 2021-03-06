@@ -27,7 +27,7 @@ int main()
 		while(m--)
 		{
 			fgets((char *) line, 10001, stdin);
-			for(int i = 0; line[i] != '\0'; i++)
+			for(int i = 0; line[i] != '\0'; ++i)
 				pay += p[line[i]];
 		}
 		printf("%.2lf$\n", pay / 100);

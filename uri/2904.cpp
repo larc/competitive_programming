@@ -13,7 +13,7 @@ int main()
 	scanf("%d", &n);
 
 	T[0] = 0;
-	for(int i = 1; i <= n; i++)
+	for(int i = 1; i <= n; ++i)
 	{
 		scanf("%d", &t);
 		T[i] = T[i - 1] + t;
@@ -28,7 +28,7 @@ int main()
 	t = T[n] >> 1;
 
 	c = 0;
-	for(int i = 0; i < n && T[i] < t; i++)
+	for(int i = 0; i < n && T[i] < t; ++i)
 		c += std::binary_search(T, T + n, (T[i] + t) % T[n]);
 
 	if(c > 1) printf("Y\n");

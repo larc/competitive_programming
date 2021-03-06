@@ -11,7 +11,7 @@ int main()
 	scanf("%d %d %d", &n, &m, &k);
 	
 	vector<pair<int, int> > A(n);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%d", &a);
 		A[i] = {a, i};
@@ -31,7 +31,7 @@ int main()
 	printf("%lld\n", sum);
 
 	p = 0; k--;
-	for(int i = 0; i < n && k; i++)
+	for(int i = 0; i < n && k; ++i)
 	{
 		p += V[i];
 		if(V[i] && p % m == 0)

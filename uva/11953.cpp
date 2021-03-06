@@ -27,18 +27,18 @@ int main()
 	int n_cases, n, alive, x, h;
 
 	scanf("%d", &n_cases);
-	for(int c = 1; c <= n_cases; c++)
+	for(int c = 1; c <= n_cases; ++c)
 	{
 		memset(grid, 0, sizeof(grid));
 		memset(visited, 0, sizeof(visited));
 
 		scanf("%d", &n);
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			scanf("%s", grid[i] + 1);
 
 		alive = 0;
-		for(int i = 1; i <= n; i++)
-		for(int j = 1; j <= n; j++)
+		for(int i = 1; i <= n; ++i)
+		for(int j = 1; j <= n; ++j)
 			if(!visited[i][j])
 			{
 				x = h = 0;

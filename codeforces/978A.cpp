@@ -9,7 +9,7 @@ int main()
 	scanf("%d", &n);
 
 	m = 0;
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		scanf("%d", seq + i);
 		freq[seq[i]]++;
@@ -17,7 +17,7 @@ int main()
 	}
 
 	printf("%d\n", m);
-	for(int i = 0; i < n; i++)
+	for(int i = 0; i < n; ++i)
 	{
 		if(freq[seq[i]] == 1)
 			printf("%d ", seq[i]);

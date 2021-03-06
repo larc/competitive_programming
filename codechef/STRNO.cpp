@@ -24,7 +24,7 @@ int factors(int n)
 {
 	int r = 0;
 	
-	for(int i = 0; i < np && primes[i] * primes[i] <= n; i++)
+	for(int i = 0; i < np && primes[i] * primes[i] <= n; ++i)
 		while(!(n % primes[i]))
 		{
 			r++;

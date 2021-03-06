@@ -25,7 +25,7 @@ float bfs(int u)
 		u = q.front();
 		q.pop();
 		
-		for(int i = 0; i < size[u]; i++)
+		for(int i = 0; i < size[u]; ++i)
 		{
 			v = G[u][i];
 			if(visited[v] < 0)
@@ -55,7 +55,7 @@ int main()
 		while(scanf("%d %d", &a, &b), a && b);
 		
 		sum = 0; m = 0;
-		for(int i = 1; i <= 100; i++)
+		for(int i = 1; i <= 100; ++i)
 		{
 			if(size[i])
 			{

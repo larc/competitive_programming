@@ -18,8 +18,8 @@ int main()
 		memset(col, 0, sizeof(col));
 		diag[0] = diag[1] = 0;
 
-		for(int i = 0; i < 5; i++)
-		for(int j = 0; j < 5; j++)
+		for(int i = 0; i < 5; ++i)
+		for(int j = 0; j < 5; ++j)
 			if(i != 2 || j != 2)
 			{
 				scanf("%d", &num);
@@ -28,7 +28,7 @@ int main()
 
 		
 		b = 0;
-		for(int i = 1; i < N; i++)
+		for(int i = 1; i < N; ++i)
 		{
 			scanf("%d", &num);
 

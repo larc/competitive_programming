@@ -7,7 +7,7 @@ int main()
 	int T, X, Y, D, dist, time;
 
 	scanf("%d", &T);
-	for(int t = 1; t <= T; t++)
+	for(int t = 1; t <= T; ++t)
 	{
 		scanf("%d %d %s", &X, &Y, M);
 

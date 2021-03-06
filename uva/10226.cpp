@@ -22,7 +22,7 @@ int main()
 			t++;
 		}
 		map<string, int>::iterator i = sp.begin();
-		for(; i != sp.end(); i++)
+		for(; i != sp.end(); ++i)
 		{
 			cout<<i->first;
 			printf(" %.4lf\n", i->second*100.0f/t);

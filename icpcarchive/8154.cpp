@@ -12,13 +12,13 @@ int main()
 		A[0] = A[1] = A[2] = 0;
 		B[0] = B[1] = B[2] = 0;
 
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d", &cm);
 			A[i % 3] += cm;
 		}
 		
-		for(int i = 0; i < n; i++)
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d", &cm);
 			B[i % 3] += cm;

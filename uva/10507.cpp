@@ -43,7 +43,7 @@ int main()
 			m = q.front(); q.pop();
 			time = wake_time[m];
 
-			for(int i = 0; i < size[m]; i++)
+			for(int i = 0; i < size[m]; ++i)
 			{
 				const int & u = G[m][i];
 				if(wake_time[u] < 0)

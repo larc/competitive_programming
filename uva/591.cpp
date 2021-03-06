@@ -12,7 +12,7 @@ int main()
 	{
 		i++;
 		s = 0;
-		for(j = 0; j < n; j++)
+		for(j = 0; j < n; ++j)
 		{
 			scanf("%d", b + j);
 			s += b[j];
@@ -20,7 +20,7 @@ int main()
 
 		s /= n;
 		k = 0;
-		for(j = 0; j < n; j++)
+		for(j = 0; j < n; ++j)
 			k += abs(b[j] - s);
 		k >>= 1;
 		printf("Set #%d\nThe minimum number of moves is %d.\n\n", i, k);

@@ -46,7 +46,7 @@ int main()
 		else
 		{
 			b = 1;
-			for(int i = 0; primes[i] * primes[i] <= c; i++)
+			for(int i = 0; primes[i] * primes[i] <= c; ++i)
 			{
 				fa = fc = 0;
 				const int & p = primes[i];

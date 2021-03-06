@@ -62,7 +62,7 @@ int main()
 	
 	while(scanf("%d %d", &n, &k) != EOF)
 	{
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%d", &b);
 			seq[i] = val(b);

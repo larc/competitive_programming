@@ -29,7 +29,7 @@ int main()
 	{
 		scanf("%s %s", s, d);
 
-		for(unsigned i = 0; i < n; i++)
+		for(unsigned i = 0; i < n; ++i)
 		{
 			scanf("%s %s %s", cu, cv, w);
 			languages[cu].push_back(i);
@@ -40,8 +40,8 @@ int main()
 		for(auto & psv: languages)
 		{
 			vector<unsigned> & v = psv.second;
-			for(unsigned i = 0; i < v.size(); i++)
-			for(unsigned j = i + 1; j < v.size(); j++)
+			for(unsigned i = 0; i < v.size(); ++i)
+			for(unsigned j = i + 1; j < v.size(); ++j)
 				if(words[v[i]][0] != words[v[j]][0])
 				{
 					G[v[i]].push_back(v[j]);
@@ -85,7 +85,7 @@ int main()
 		else printf("impossivel\n");
 
 		languages.clear();
-		for(unsigned i = 0; i < n; i++)
+		for(unsigned i = 0; i < n; ++i)
 			G[i].clear();
 	}
 

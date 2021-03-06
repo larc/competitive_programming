@@ -136,7 +136,7 @@ int main()
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		for(int i = 1; i < n; i++)
+		for(int i = 1; i < n; ++i)
 		{
 			scanf("%d %d %d", &u, &v, &w);
 			G[u].push_back({i, v, w});
@@ -154,7 +154,7 @@ int main()
 			else printf("%d\n", query(u, v, n));
 		}
 
-		for(int i = 1; i <= n; i++)
+		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}
 

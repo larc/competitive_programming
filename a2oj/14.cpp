@@ -14,15 +14,15 @@ int main()
 		scanf("%d %d", &c, &v);
 		memset(g, 0, sizeof(g));
 
-		for(i = 0; i < v; i++)
+		for(i = 0; i < v; ++i)
 		{
 			scanf("%d", &p[i][0]);
 			g[p[i][0]]++;
-			for(j = 1; j < c; j++)
+			for(j = 1; j < c; ++j)
 				scanf("%d", &p[i][j]);
 		}
 		a = b = 0;
-		for(j = 1; j <= c; j++)
+		for(j = 1; j <= c; ++j)
 		{
 			if(g[j] > g[a])
 			{
@@ -37,8 +37,8 @@ int main()
 		else
 		{
 			g[a] = g[b] = 0;
-			for(i = 0; i < v; i++)
-				for(j = 0; j < c; j++)
+			for(i = 0; i < v; ++i)
+				for(j = 0; j < c; ++j)
 					if(p[i][j] == a || p[i][j] == b)
 					{
 						g[p[i][j]]++;
