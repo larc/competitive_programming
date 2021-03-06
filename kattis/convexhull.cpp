@@ -55,8 +55,6 @@ int convex_hull_andrew(int n_points)
 		CH[k++] = points[i];
 	}
 	
-	if(n_points == 1) return 1;
-	
 	int t = k;
 	for(int i = n_points - 2; i > 0; --i)
 	{
