@@ -57,7 +57,7 @@ int main()
 				printf("%d\n", rsq(x2, y2) - rsq(x1 - 1, y2) - rsq(x2, y1 - 1) + rsq(x1 - 1, y1 - 1));
 			}
 		}
-		
+
 		putchar('\n');
 	}
 

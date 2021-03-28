@@ -23,8 +23,8 @@ int str_comp(char * a, char * b)
 
 int main()
 {
-	char str_a[101]; 
-	char str_b[101]; 
+	char str_a[101];
+	char str_b[101];
 
 	scanf("%s", str_a);
 	scanf("%s", str_b);

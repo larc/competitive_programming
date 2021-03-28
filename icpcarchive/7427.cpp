@@ -17,7 +17,7 @@ char op[N];
 bool augmenting_path(const int & u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
-		
+
 		visited[u] = 1;
 
 		for(int i = 0; i < size[u]; ++i)
@@ -30,14 +30,14 @@ bool augmenting_path(const int & u) // dfs: mcbm
 				return 1;
 			}
 		}
-		
+
 		return 0;
 }
 
 int main()
 {
 	int n, m, nm;
-	
+
 	long long res[M];
 	std::map<long long, int> map;
 
@@ -59,15 +59,15 @@ int main()
 		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d %d", A + i, B + i);
-			
+
 			add(i, '+', A[i] + B[i]);
 			add(i, '-', A[i] - B[i]);
 			add(i, '*', (long long) A[i] * B[i]);
 		}
-		
+
 		memset(match, -1, sizeof(match));
 		nm = 0;
-		
+
 		for(int u = 1; u <= m; ++u)
 		{
 			memset(visited, 0, sizeof(visited));

@@ -15,7 +15,7 @@ int ext_euclides(const int & a, const int & b, int & x, int & y)
 	int d = ext_euclides(b, a % b, x, y);
 	int ax = y;
 	int ay = x - (a / b) * y;
-	
+
 	x = ax;
 	y = ay;
 

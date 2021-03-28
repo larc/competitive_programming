@@ -48,7 +48,7 @@ int dfs_hieroglyphs(const int & i, const int & j)
 	b = dfs_hieroglyphs(i, j + 1);
 	if(a < 0) a = b;
 	else if(b >= 0) a = a == b ? a : 0;
-	
+
 	return a;
 }
 
@@ -57,7 +57,7 @@ int main()
 	char str[N * N + 1];
 	int messages[N * N + 1];
 	int c, n;
-	
+
 	int ncase = 1;
 	while(scanf("%d %d", &h, &w), h && w)
 	{

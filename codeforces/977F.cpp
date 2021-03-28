@@ -13,11 +13,11 @@ int main()
 
 	int n;
 	scanf("%d", &n);
-	
+
 	for(int i = 1; i <= n; ++i)
 	{
 		scanf("%d", seq + i);
-		
+
 		idx[seq[i]] = i;
 		lenght[i] = 1;
 

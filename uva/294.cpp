@@ -12,7 +12,7 @@ int find_primes()
 
 	bool is_prime[L];
 	memset(is_prime, 0, sizeof(is_prime));
-	
+
 	primes[n_primes++] = 2;
 	for(int i = 3; i < L; i += 2)
 	{
@@ -42,7 +42,7 @@ int divisors(int n)
 
 		d *= c + 1;
 	}
-	
+
 	if(n > 1) d <<= 1;
 	return d;
 }

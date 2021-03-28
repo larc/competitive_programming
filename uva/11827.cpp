@@ -17,14 +17,14 @@ int main()
 	int num[N];
 	int n, m, max, offset, o;
 
-	
+
 	scanf("%d", &n);
 	fgets(line, 1024, stdin);
 
 	while(n--)
 	{
 		fgets(line, 1024, stdin);
-		
+
 		m = 0;
 		offset = 0;
 		while(sscanf(line + offset, "%d%n", &num[m], &o) != EOF) { offset += o; m++; }

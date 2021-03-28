@@ -23,10 +23,10 @@ int main()
 			if(k <= G[v].size()) printf("%d\n", G[v][k - 1]);
 			else printf("0\n");
 		}
-		
+
 		G.clear();
 	}
-		
+
 	return 0;
 }
 

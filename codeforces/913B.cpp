@@ -17,7 +17,7 @@ bool bfs(int u)
 	{
 		u = q.front();
 		q.pop();
-		
+
 		n = 0;
 		for(int i = 0; i < size[u]; ++i)
 		{

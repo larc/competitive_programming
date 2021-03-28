@@ -13,7 +13,7 @@ int gcd(const int & a, const int & b)
 int main()
 {
 	int n, div[N], m, d;
-	
+
 	div[0] = 1;
 	while(scanf("%d", &n), n)
 	{

@@ -12,7 +12,7 @@ bool visited[N];
 int dfs(const int & u)
 {
 	if(visited[u]) return 0;
-	
+
 	visited[u] = 1;
 
 	int n, next = 0, max_n = 0;
@@ -34,10 +34,10 @@ int main()
 {
 	int n;
 	scanf("%d", &n);
-	
+
 	for(int i = 1; i <= n; ++i)
 		scanf("%llu", nodes + i);
-	
+
 	for(int u = 1; u <= n; ++u)
 	for(int v = 1; v <= n; ++v)
 		if(	nodes[u] != nodes[v] &&

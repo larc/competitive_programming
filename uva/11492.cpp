@@ -18,7 +18,7 @@ int main()
 	bool visited[N];
 	unsigned dist[N];
 	bool dest[N];
-	
+
 	char cu[S], cv[S], w[S], s[S], d[S];
 	string words[N];
 
@@ -62,7 +62,7 @@ int main()
 			dist[u] = words[u].size();
 			q.push({dist[u], u});
 		}
-		
+
 		for(unsigned & u: languages[d])
 			dest[u] = 1;
 
@@ -80,7 +80,7 @@ int main()
 					q.push({dist[v], v});
 				}
 		}
-	
+
 		if(dest[u] && dist[u] != -1) printf("%u\n", dist[u]);
 		else printf("impossivel\n");
 

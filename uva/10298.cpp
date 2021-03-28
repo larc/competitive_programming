@@ -20,7 +20,7 @@ int main()
 			i++; j++;
 			b[i] = j;
 		}
-		
+
 		if(i % (i - j)) printf("1\n");
 		else printf("%d\n", i / (i - j));
 	}

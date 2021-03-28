@@ -1,4 +1,4 @@
-// 72. Ahmed Aly 
+// 72. Ahmed Aly
 
 #include <cstdio>
 

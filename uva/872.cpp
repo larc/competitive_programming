@@ -29,10 +29,10 @@ void top_sort(const int & k, const int & n)
 			S[i] = 1;
 			for(int j = 0; j < N; ++j)
 				if(G[i][j]) degree[j]--;
-			
+
 			sort[k] = i;
 			top_sort(k + 1, n);
-			
+
 			S[i] = 0;
 			for(int j = 0; j < N; ++j)
 				if(G[i][j]) degree[j]++;
@@ -47,7 +47,7 @@ int main()
 
 	scanf("%d", &n_cases);
 	fgets(str, sizeof(str), stdin);
-	
+
 	while(n_cases--)
 	{
 		memset(G, 0, sizeof(G));
@@ -59,9 +59,9 @@ int main()
 		fgets(str, sizeof(str), stdin);
 		for(n = 0; str[n << 1]; ++n)
 			V[str[n << 1] - 'A'] = 1;
-		
+
 		memset(str, 0, sizeof(str));
-		fgets(str, sizeof(str), stdin);	
+		fgets(str, sizeof(str), stdin);
 		for(int i = 0; str[i]; i += 4)
 		{
 			u = str[i] - 'A';

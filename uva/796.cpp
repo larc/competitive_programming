@@ -9,7 +9,7 @@ using namespace std;
 
 int G[N][N]; // adj list
 int size[N];
-int dfs_low[N]; 
+int dfs_low[N];
 int dfs_num[N];
 int dfs_parent[N];
 int dfs_counter;
@@ -39,7 +39,7 @@ void dfs_bridge(const int & u)
 
 			if(dfs_low[v] > dfs_num[u]) // bridge (>= articulation)
 				links.insert({min(u,v), max(u,v)});
-		
+
 			dfs_low[u] = min(dfs_low[u], dfs_low[v]);
 		}
 		else if(v != dfs_parent[u])
@@ -54,7 +54,7 @@ int main()
 	{
 		memset(size, 0, sizeof(size));
 
-		for(int i = 0; i < n; ++i)	
+		for(int i = 0; i < n; ++i)
 		{
 			scanf("%d (%d)", &s, &nc);
 			while(nc--)

@@ -36,7 +36,7 @@ int main()
 			idx = 0;
 
 			scanf("%d", &k);
-			while(k--) 
+			while(k--)
 			{
 				scanf("%d", &j);
 				idx |= 1 << (j - 1);
@@ -60,7 +60,7 @@ int main()
 					pow_set[i] += pow_set[idx & (-idx)];
 					idx -= idx & (-idx);
 				}
-				
+
 				j = 0;
 				while(j < m)
 				{
@@ -73,7 +73,7 @@ int main()
 			}
 			if(ones(i) == b && pow_set[i] > pow_set[k]) k = i;
 		}
-		
+
 
 		printf("Case Number  %d\n", n_cases++);
 		printf("Number of Customers: %d\n", pow_set[k]);
@@ -89,7 +89,7 @@ int main()
 
 		printf("\n\n");
 	}
-	
+
 	delete [] pow_set;
 
 	return 0;

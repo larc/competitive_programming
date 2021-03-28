@@ -14,7 +14,7 @@ void sieve()
 
 	n_primes = 0;
 	primes[n_primes++] = 2;
-	
+
 	for(int i = 3; i < N; i += 2)
 		if(!not_prime[i])
 		{
@@ -55,7 +55,7 @@ int main()
 
 				if(fc > fa) b *= pow(p, fc);
 			}
-			
+
 			if(c > 1 && a == 1) b *= c;
 			printf("%d\n", b);
 		}

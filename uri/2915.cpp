@@ -3,7 +3,7 @@
 #include <cstdio>
 
 int main()
-{	
+{
 	int n, a, b, c = 1;
 
 	scanf("%d %d", &n, &a);

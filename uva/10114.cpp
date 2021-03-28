@@ -8,12 +8,12 @@ int main()
 	while(scanf("%d %lf %lf %d", &d, &p, &a, &r) != EOF && d > 0)
 	{
 		scanf("%d %lf", &ma, &ia);
-		pt = a;	
+		pt = a;
 		a += p;
 		rp = d;
 		p = pt/d;
 		while(--r)
-		{	
+		{
 			scanf("%d %lf", &m, &i);
 			for(j = ma; j < m; ++j)
 			{
@@ -33,7 +33,7 @@ int main()
 			if(a >= pt && j <= rp) rp = j;
 			pt -= p;
 		}
-		
+
 		if(rp != 1) printf("%d months\n", rp);
 		else printf("1 month\n");
 	}

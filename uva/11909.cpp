@@ -11,9 +11,9 @@ int main()
 		theta *= M_PI / 180;
 		hh = l * tan(theta);
 
-		if(hh > h) 
+		if(hh > h)
 			printf("%.3lf mL\n", w * h * h * tan(M_PI / 2 - theta) / 2);
-		else 
+		else
 			printf("%.3lf mL\n", l * w * ( h - hh / 2));
 	}
 

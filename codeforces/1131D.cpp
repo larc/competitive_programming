@@ -41,7 +41,7 @@ int main()
 			if(str[i][j] == '=')
 				join(i, j + n);
 	}
-	
+
 	for(int i = 0; i < n; ++i)
 	for(int j = 0; j < m; ++j)
 		if(str[i][j] == '<')
@@ -54,8 +54,8 @@ int main()
 			in_degree[find(i)]++;
 			G[find(j + n)].push_back(find(i));
 		}
-	
-	
+
+
 	m += n;
 
 	int k = 0;
@@ -71,7 +71,7 @@ int main()
 				q.push(i);
 			}
 		}
-	
+
 	while(!q.empty())
 	{
 		const int & u = q.front();
@@ -86,7 +86,7 @@ int main()
 
 		q.pop(); k--;
 	}
-	
+
 	if(k)
 	{
 		printf("No\n");
@@ -98,7 +98,7 @@ int main()
 	for(int i = 0; i < n; ++i)
 		printf("%d ", value[find(i)]);
 	putchar('\n');
-	
+
 	for(int i = n; i < m; ++i)
 		printf("%d ", value[find(i)]);
 	putchar('\n');

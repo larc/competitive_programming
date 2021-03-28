@@ -23,12 +23,12 @@ int main()
 		else if(a > max_2)
 			max_2 = a;
 	}
-	
+
 	n = m / (k + 1);
 	a = m % (k + 1);
 
 	printf("%llu\n", (ull_t) n * k * max_1 + (ull_t) n * max_2 + (ull_t) a * max_1);
-	
+
 	return 0;
 }
 

@@ -24,7 +24,7 @@ int kmp()
 	{
 		while(j >= 0 && T[i] != P[j]) j = b[j];
 		i++; j++;
-		
+
 		if(!P[j]) // match
 		{
 			idx[s++] = i - j + 1;

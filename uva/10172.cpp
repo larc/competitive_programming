@@ -36,7 +36,7 @@ int main()
 			// unloading
 			while(!carrier.empty())
 			{
-				if(carrier.top() == m)			// platform A 
+				if(carrier.top() == m)			// platform A
 				{
 					carrier.pop();
 					time++;

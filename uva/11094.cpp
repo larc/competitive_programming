@@ -24,7 +24,7 @@ int main()
 				scanf("%c", &c);
 				G[i][j] = c;
 			}
-				
+
 		scanf("%d %d", &x, &y);
 		x++, y++;
 		land = G[x][y];
@@ -36,7 +36,7 @@ int main()
 				aux = move(i, j);
 				if(aux > max) max = aux;
 			}
-		
+
 		printf("%d\n", max);
 	}
 	return 0;

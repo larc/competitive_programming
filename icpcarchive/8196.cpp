@@ -31,7 +31,7 @@ vector<pair<int, int> > T[N];		// mst
 struct union_find
 {
 	int set[N];
-	
+
 	void init(const int & n)
 	{
 		for(int i = 1; i <= n; ++i)
@@ -117,7 +117,7 @@ void hld(const int & u, const int & h)
 	pos[u] = current_pos++;
 
 	if(heavy[u]) hld(heavy[u], h);
-	
+
 	for(auto & p: T[u])
 	{
 		const int & v = p.first;
@@ -132,7 +132,7 @@ void init_st(const int & n)
 {
 	for(int i = 0; i < n; ++i)
 		st[0][i] = i;
-	
+
 	int k, u, v;
 	for(int i = 1; (1 << i) <= n; ++i)
 	{
@@ -149,7 +149,7 @@ void init_st(const int & n)
 int rmq(int a, int b)
 {
 	if(b < a) return rmq(b, a);
-	
+
 	int k = log2(b - a + 1);
 
 	a = st[k][a];
@@ -167,15 +167,15 @@ int query(int a, int b)
 
 		qmax = rmq(pos[head[b]], pos[b]);
 		rmax = max(rmax, qmax);
-		
+
 		b = parent[head[b]];
 	}
-	
+
 	if(a == b) return rmax;
 
 	if(level[b] < level[a])
 		swap(a, b);
-	
+
 	qmax = rmq(pos[a] + 1, pos[b]);
 	return max(rmax, qmax);
 }
@@ -184,7 +184,7 @@ int main()
 {
 	int n, m, q, u, v, w;
 	int cost;
-	
+
 	level[1] = parent[1] = road[1] = 0;
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
@@ -214,7 +214,7 @@ int main()
 			G[i].clear();
 		}
 	}
-	
+
 	return 0;
 }
 

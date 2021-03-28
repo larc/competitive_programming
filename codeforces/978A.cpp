@@ -24,7 +24,7 @@ int main()
 
 		freq[seq[i]]--;
 	}
-	
+
 	printf("\n");
 
 	return 0;

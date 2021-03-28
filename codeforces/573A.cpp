@@ -26,11 +26,11 @@ int main()
 	int d = gcd(num[0], num[1]);
 	for(int i = 2; i < n; ++i)
 		d = gcd(d, num[i]);
-	
+
 	int d23 = 0;
 	for(int i = 0; i < n; ++i)
 		d23 += is_div_two_tree(num[i] / d);
-	
+
 	if(d23 == n) printf("Yes\n");
 	else printf("No\n");
 

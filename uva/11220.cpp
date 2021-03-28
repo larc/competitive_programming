@@ -7,7 +7,7 @@ int main()
 	int n_cases, n, i, j;
 	char line[1024];
 	char word[32];
-	
+
 	scanf("%d", &n_cases);
 	fgets(line, sizeof(line), stdin);
 	fgets(line, sizeof(line), stdin);
@@ -22,7 +22,7 @@ int main()
 			{
 				j = 0;
 				while(line[i + j] != ' ' && line[i + j] != '\n') j++;
-				
+
 				if(n < j) word[n++] = line[i + n];
 				i += j + 1;
 			}
@@ -30,7 +30,7 @@ int main()
 			word[n] = 0;
 			printf("%s\n", word);
 		}
-		
+
 		if(c < n_cases) putchar('\n');
 	}
 

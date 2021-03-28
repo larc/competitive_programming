@@ -19,11 +19,11 @@ std::vector<int> G[N];
 bomb_t bombs[N]; int nb;
 
 int n_comp[N];
-int parent[N], dfs_num[N], dfs_low[N], dfs_count; 
+int parent[N], dfs_num[N], dfs_low[N], dfs_count;
 void articulations(const int & u, const int & n)
 {
 	dfs_num[u] = dfs_low[u] = dfs_count++;
-	
+
 	for(int & v: G[u])
 	{
 		if(dfs_num[v] == -1)	// unvisited
@@ -54,7 +54,7 @@ int main()
 			G[x].push_back(y);
 			G[y].push_back(x);
 		}
-			
+
 		memset(dfs_num, -1, sizeof(dfs_num));
 
 		n_comp[0] = 0;
@@ -64,13 +64,13 @@ int main()
 
 		for(int i = 0; i < m; ++i)
 			printf("%d %d\n", bombs[i].s, bombs[i].p);
-		
+
 		putchar('\n');
 
 		for(int i = 0; i < n; ++i)
 			G[i].clear();
 	}
-	
+
 	return 0;
 }
 

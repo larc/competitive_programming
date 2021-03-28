@@ -27,11 +27,11 @@ int main()
 
 			i++;
 		}
-		
+
 		while(email[i] != '@') i++;
 
 		while(email[i]) user[s++] = email[i++];
-		
+
 		user[s] = 0;
 		db.insert(user);
 	}

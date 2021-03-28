@@ -60,7 +60,7 @@ int main()
 	while(scanf("%d %d", &R, &C), R && C)
 	{
 		memset(grid, -1, sizeof(grid));
-		
+
 		scanf("%d", &n);
 		while(n--)
 		{

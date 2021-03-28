@@ -1,12 +1,12 @@
 #include <cstdio>
- 
+
 #define N 1000001
- 
+
 int main()
 {
 	int i, j;
 	int b[N];
- 
+
 	char str[N];
 	while(scanf("%s", str), str[0] != '*')
 	{
@@ -18,10 +18,10 @@ int main()
 			i++; j++;
 			b[i] = j;
 		}
-		
+
 		if(i % (i - j)) printf("1\n");
 		else printf("%d\n", i / (i - j));
 	}
- 
+
 	return 0;
-} 
+}

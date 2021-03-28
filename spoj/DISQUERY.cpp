@@ -48,7 +48,7 @@ void hld(const int & u, const int & h)
 	pos[u] = current_pos++;
 
 	if(heavy[u]) hld(heavy[u], h);
-	
+
 	for(auto & p: G[u])
 	{
 		const int & v = p.first;
@@ -66,7 +66,7 @@ void init_st(const int & n)
 		min_st[0][i] = i;
 		max_st[0][i] = i;
 	}
-	
+
 	int k, u, v;
 	for(int i = 1; (1 << i) <= n; ++i)
 	{
@@ -76,7 +76,7 @@ void init_st(const int & n)
 			u = min_st[i - 1][j];
 			v = min_st[i - 1][j + k];
 			min_st[i][j] = road[ipos[u]] < road[ipos[v]] ? u : v;
-			
+
 			u = max_st[i - 1][j];
 			v = max_st[i - 1][j + k];
 			max_st[i][j] = road[ipos[u]] > road[ipos[v]] ? u : v;
@@ -88,7 +88,7 @@ int qmax, qmin;
 void rmq(const int & a, const int & b)
 {
 	if(b < a) rmq(b, a);
-	
+
 	int i, j, k = log2(b - a + 1);
 
 	i = min_st[k][a];
@@ -112,15 +112,15 @@ void query(int a, int b)
 		rmq(pos[head[b]], pos[b]);
 		rmin = std::min(rmin, qmin);
 		rmax = std::max(rmax, qmax);
-		
+
 		b = parent[head[b]];
 	}
-	
+
 	if(a == b) return;
 
 	if(level[b] < level[a])
 		std::swap(a, b);
-	
+
 	rmq(pos[a] + 1, pos[b]);
 	rmin = std::min(rmin, qmin);
 	rmax = std::max(rmax, qmax);
@@ -129,7 +129,7 @@ void query(int a, int b)
 int main()
 {
 	int n, q, u, v, w;
-	
+
 	level[1] = parent[1] = road[1] = 0;
 	while(scanf("%d", &n) != EOF)
 	{
@@ -139,7 +139,7 @@ int main()
 			G[u].push_back({v, w});
 			G[v].push_back({u, w});
 		}
-		
+
 		current_pos = 0;
 		dfs(1); hld(1, 1);
 		init_st(n + 1);

@@ -13,7 +13,7 @@ int match[N];
 bool augmenting_path(const int & u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
-		
+
 		visited[u] = 1;
 
 		for(int i = 0; i < size[u]; ++i)
@@ -25,14 +25,14 @@ bool augmenting_path(const int & u) // dfs: mcbm
 				return 1;
 			}
 		}
-		
+
 		return 0;
 }
 
 int main()
 {
 	int n, m, u, v;
-	
+
 	scanf("%d %d", &n, &m);
 
 	memset(size, 0, sizeof(size));

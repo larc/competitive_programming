@@ -17,12 +17,12 @@ unsigned int reverse(unsigned int n)
 int main()
 {
 	unsigned int n_cases, n, p, c;
-	
+
 	scanf("%u", &n_cases);
 	while(n_cases--)
 	{
 		scanf("%d", &n);
-		
+
 		c = 0;
 		p = reverse(n);
 		do
@@ -32,7 +32,7 @@ int main()
 			p = reverse(n);
 		}
 		while(n != p);
-		
+
 		printf("%u %u\n", c, n);
 	}
 

@@ -37,7 +37,7 @@ struct decimal_t
 
 		neg = decpt = digits[0] == '-';
 		while(digits[decpt] && digits[decpt] != '.') decpt++;
-		
+
 		memcpy(integer, digits + neg, decpt - neg);
 		if(decpt + 1 < N)
 			memcpy(decimal, digits + decpt + 1, N - decpt - 1);
@@ -60,7 +60,7 @@ struct decimal_t
 		reverse(integer, decpt);
 		for(i = 0; i < decpt; ++i)
 			integer[i] += '0';
-		
+
 		if(decpt == 1 && !decimal[0] && integer[0] == '0')
 		{
 			printf("0\n");
@@ -83,7 +83,7 @@ struct decimal_t
 			decimal[i] = a % 10;
 			a /= 10;
 		}
-		
+
 		decpt = decpt < in.decpt ? in.decpt : decpt;
 		for(int i = 0; i < decpt; ++i)
 		{
@@ -114,7 +114,7 @@ struct decimal_t
 			if(a) x += 10;
 			decimal[i] = x - y;
 		}
-		
+
 		if(m) decpt = in.decpt;
 		for(int i = 0; i < decpt; ++i)
 		{
@@ -135,7 +135,7 @@ struct decimal_t
 	bool is_less(const decimal_t & in)
 	{
 		if(decpt != in.decpt) return decpt < in.decpt;
-		
+
 		for(int i = decpt - 1; i >= 0; i--)
 			if(integer[i] != in.integer[i])
 				return integer[i] < in.integer[i];
@@ -158,16 +158,16 @@ int main()
 	while(n--)
 	{
 		sum.zero();
-		
+
 		memset(digits, 0, sizeof(digits));
 		while(scanf("%s", digits) && !(!digits[1] && digits[0] == '0'))
 		{
 			num.init(digits);
-			
+
 			if(num.neg == sum.neg)
 				sum.add(num);
 			else sum.subtract(num);
-			
+
 			memset(digits, 0, sizeof(digits));
 		}
 

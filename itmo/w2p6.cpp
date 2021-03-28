@@ -29,7 +29,7 @@ int main()
 		clone[i] = t;
 		top[i] = m;
 		mass[i] = mass[t] + m;
-		
+
 		total += mass[i];
 	}
 

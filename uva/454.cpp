@@ -28,22 +28,22 @@ int main()
 	{
 		m = 0;
 		while(getline(std::cin, phrase[m]) && phrase[m].size()) m++;
-		
+
 		std::sort(phrase, phrase + m);
 		memset(freq, 0, sizeof(freq));
 
 		for(int i = 0; i < m; ++i)
 		for(char & c: phrase[i])
 			if(c != ' ') freq[i][c]++;
-		
+
 		for(int i = 0; i < m; ++i)
 		for(int j = i + 1; j < m; ++j)
 			if(is_anagram(i, j))
 				std::cout << phrase[i] << " = " << phrase[j] << '\n';
-		
+
 		if(n) putchar('\n');
 	}
-	
+
 	return 0;
 }
 

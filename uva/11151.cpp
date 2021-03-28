@@ -23,7 +23,7 @@ int main()
 			len[n][n] = 1;
 			len[n][n + 1] = 1 + (str[n] == str[n + 1]);
 		}
-		
+
 		for(int k = 2; k < n; ++k)
 		for(int i = 0; i + k < n; ++i)
 		{

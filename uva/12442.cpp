@@ -35,7 +35,7 @@ int main()
 			scanf("%d %d", &u, &v);
 			send[u] = v;
 		}
-		
+
 		u = 0; v = 0;
 
 		for(int i = 1; i <= n; ++i)

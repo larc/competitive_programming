@@ -9,7 +9,7 @@ int main()
 	{
 		a = b = 0;
 		c = 1;
-		
+
 		for(unsigned int i = 1; i <= n; i <<= 1)
 		{
 			if(n & i)

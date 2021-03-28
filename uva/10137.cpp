@@ -18,7 +18,7 @@ int main()
 			scanf("%lf", spent + i);
 			net += spent[i];
 		}
-		
+
 		net /= n;
 
 		pdiff = ndiff = 0;
@@ -28,7 +28,7 @@ int main()
 			if(d < 0) ndiff -= d;
 			else pdiff += d;
 		}
-		
+
 		printf("$%.2lf\n", ndiff > pdiff ? ndiff : pdiff);
 	}
 

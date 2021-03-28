@@ -40,7 +40,7 @@ int main()
 {
 	int a, b, c;
 	memset(C, 0, sizeof(C));
-	
+
 	while(scanf("%d %d", &a, &b) != EOF)
 	{
 		if(a < b) c = max_cycle(a, b);

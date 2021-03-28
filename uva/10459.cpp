@@ -14,7 +14,7 @@ int bfs(int u)
 {
 	memset(nivel, -1, sizeof(nivel));
 	std::queue<int> q;
-	
+
 		nivel[u] = 0;
 		q.push(u);
 
@@ -25,7 +25,7 @@ int bfs(int u)
 	{
 		u = q.front();
 		q.pop();
-		
+
 		if(nivel[u] != n)
 		{
 			k = s;
@@ -72,24 +72,24 @@ int main()
 			scanf("%d", &k);
 			size[u] = k;
 			G[u] = G[0] + i;
-			
+
 			while(k--)
 				scanf("%d", &G[0][i++]);
 		}
-		
+
 		memset(center, 0, sizeof(center));
-		
+
 		k = bfs(sort[bfs(1)]);
 		v = sort[k];
-		i = nivel[v];	
-		
+		i = nivel[v];
+
 		mark_center(i, n);
-		while(k < n) center[sort[k++]] = -2;		
-		
+		while(k < n) center[sort[k++]] = -2;
+
 		k = bfs(v);
 		mark_center(i, n);
-		while(k < n) center[sort[k++]] = -2;		
-		
+		while(k < n) center[sort[k++]] = -2;
+
 		printf("Best Roots  :");
 		for(u = 1; u <= n; ++u)
 			if(center[u] == 2) printf(" %d", u);

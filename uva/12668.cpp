@@ -14,7 +14,7 @@ int match[M];
 bool augmenting_path(const int & u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
-		
+
 		visited[u] = 1;
 
 		int v;
@@ -28,7 +28,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 				return 1;
 			}
 		}
-		
+
 		return 0;
 }
 
@@ -38,7 +38,7 @@ int main()
 	int row[N];
 	int col[N];
 	int n, r, c;
-	
+
 	while(scanf("%d", &n) != EOF)
 	{
 		memset(row, -1, sizeof(row));
@@ -61,12 +61,12 @@ int main()
 				{
 					if(row[i] == -1) row[i] = r++;
 					if(col[j] == -1) col[j] = c++;
-					
+
 					G[row[i]][size[row[i]]++] = col[j];
 				}
 			}
 		}
-		
+
 		memset(match, -1, sizeof(match));
 		n = 0;
 
@@ -75,8 +75,8 @@ int main()
 			{
 				memset(visited, 0, sizeof(bool) * r);
 				n += augmenting_path(u);
-			} 
-		
+			}
+
 		printf("%d\n", n);
 	}
 

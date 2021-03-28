@@ -35,7 +35,7 @@ void init_st(const int & m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
-	
+
 	int k;
 	for(int i = 1; (1 << i) <= m; ++i)
 	{
@@ -52,13 +52,13 @@ void init_st(const int & m)
 int lca(const int & a, const int & b)
 {
 	if(b < a) return lca(b, a);
-	
+
 	int k = log2(b - a + 1);
 
 	const int & i = st[k][a];
 	const int & j = st[k][b - (1 << k) + 1];
 
-	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];	
+	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];
 }
 
 int main()
@@ -75,7 +75,7 @@ int main()
 			G[u].push_back(v);
 			G[v].push_back(u);
 		}
-		
+
 		dfs(1, m = 0);
 		init_st(m);
 
@@ -83,13 +83,13 @@ int main()
 		while(q--)
 		{
 			scanf("%d %d", &u, &v);
-			
+
 			dist = level[u] + level[v] - (level[lca(idx[u], idx[v])] << 1);
 			u = level[u] > level[v] ? u : v;
 			v = dist >> 1;
-			
+
 			while(v--) u = parent[u];
-			
+
 			if(dist & 1)
 			{
 				v = parent[u];

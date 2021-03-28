@@ -8,7 +8,7 @@ int main()
 	int n, m;
 	int d[N][N], p[M], v[M];
 	char line[N];
-	
+
 	scanf("%d", &n);
 	for(int i = 1; i <= n; ++i)
 	{
@@ -25,7 +25,7 @@ int main()
 	for(int j = 1; j <= n; ++j)
 		if(d[i][j] > d[i][k] + d[k][j])
 			d[i][j] = d[i][k] + d[k][j];
-	
+
 	scanf("%d", &m);
 	for(int i = 0; i < m; ++i)
 		scanf("%d", p + i);
@@ -38,15 +38,15 @@ int main()
 	int c = 2;
 	while(c < m)
 	{
-		const int & i = p[a];	
-		const int & k = p[b];	
-		const int & j = p[c];	
+		const int & i = p[a];
+		const int & k = p[b];
+		const int & j = p[c];
 		if(d[i][j] != d[i][k] + d[k][j] || i == j)
 		{
 			a = b;
 			v[n++] = k;
 		}
-		
+
 		b++; c++;
 	}
 

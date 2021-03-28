@@ -17,7 +17,7 @@ void dfs(const int & u, const bool & ts = 0) // disable top_sort;
 
 	for(int & v: G[u])
 		if(!visited[v]) dfs(v, ts);
-	
+
 	if(ts) top_sort.push_back(u);
 }
 
@@ -40,7 +40,7 @@ int main()
 		top_sort.reserve(n);
 		for(int i = 1; i <= n; ++i)
 			if(!visited[i]) dfs(i, 1);
-		
+
 		memset(visited, 0, sizeof(visited));
 
 		m = 0;
@@ -48,8 +48,8 @@ int main()
 			if(!visited[top_sort[i]]) { dfs(top_sort[i]); m++; }
 
 		printf("%d\n", m);
-		
-		
+
+
 		top_sort.clear();
 		for(int i = 1; i <= n; ++i)
 			G[i].clear();

@@ -21,10 +21,10 @@ int main()
 	{
 		if(A[i] == max) l++;
 		else l = 0;
-		
+
 		if(longest < l) longest = l;
 	}
-		
+
 	printf("%d\n", longest);
 
 	return 0;

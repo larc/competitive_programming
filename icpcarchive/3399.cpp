@@ -18,7 +18,7 @@ void sieve()
 			for(long long j = i * i; j < N; j += i << 1)
 				not_prime[j] = 1;
 		}
-	
+
 	primes[np] = N;
 	for(int i = 0; i < np; ++i)
 	for(int j = primes[i]; j < primes[i + 1]; ++j)

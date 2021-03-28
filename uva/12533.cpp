@@ -57,7 +57,7 @@ int main()
 	while(scanf("%d", &n) != EOF)
 	{
 		init_p(n);
-		
+
 		m = 0;
 		for(int i = 1; i <= n; ++i)
 		{
@@ -65,7 +65,7 @@ int main()
 			if(!union_p(flight[i], i)) // loop;
 				loop[m++] = i;
 		}
-		
+
 		memset(level + 1, 0, sizeof(int) * n);
 		for(int i = 0; i < m; ++i)
 		{
@@ -80,10 +80,10 @@ int main()
 			}
 			while(a != b);
 		}
-		
+
 		for(int i = 1; i <= n; ++i)
 			update_level(i);
-		
+
 		scanf("%d", &q);
 		while(q--)
 		{
@@ -104,7 +104,7 @@ int main()
 
 					while(m--) a = flight[a];
 					m = level[a] > 0 ? level[a] : 0;
-					
+
 					// lca
 					while(m && a != b)
 					{
@@ -113,7 +113,7 @@ int main()
 						a = flight[a];
 						b = flight[b];
 					}
-					
+
 					if(m) printf("%d\n", n);
 					else printf("%d\n", n + loop_flights(a, b, s));
 				}

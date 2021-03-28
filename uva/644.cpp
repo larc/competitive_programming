@@ -27,7 +27,7 @@ int main()
 		printf("Set %d is %simmediately decodable\n", ++n_sets, m ? "not " : "");
 		n = 0;
 	}
-	
+
 	return 0;
 }
 

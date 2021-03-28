@@ -26,7 +26,7 @@ int main()
 			scanf("%s", beverages[i]);
 			idx[beverages[i]] = i;
 		}
-		
+
 		memset(in_deg, 0, sizeof(in_deg));
 		memset(out_deg, 0, sizeof(out_deg));
 
@@ -43,7 +43,7 @@ int main()
 
 		for(int i = 0; i < n; ++i)
 			if(!in_deg[i]) q.push(-i);
-	
+
 		printf("Case #%d: Dilbert should drink beverages in this order:", n_case++);
 		while(!q.empty())
 		{

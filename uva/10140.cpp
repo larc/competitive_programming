@@ -33,7 +33,7 @@ void sieve()
 bool is_prime(const size_t & n)
 {
 	if(n < N) return !n_primes[n];
-	
+
 	size_t sq = sqrt(n);
 
 	for(size_t i = 0; i < P && primes[i] < sq; ++i)
@@ -59,7 +59,7 @@ int main()
 			p = primes[i];
 			for(size_t n = L % p ? L : L - p + L % p; n <= U; n += p)
 			;
-			
+
 		}
 
 		c[0] = c[1] = -1;

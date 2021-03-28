@@ -25,7 +25,7 @@ int main()
 			scanf("%d", &p);
 			soldiers[1].push(p);
 		}
-		
+
 		while(!soldiers[0].empty() && !soldiers[1].empty())
 		{
 			for(i = 0; i < f && !soldiers[0].empty() && !soldiers[1].empty(); ++i)
@@ -33,12 +33,12 @@ int main()
 				winners[i] = soldiers[0].top() - soldiers[1].top();
 				soldiers[0].pop(); soldiers[1].pop();
 			}
-			
+
 			while(i--)
 				if(winners[i] > 0) soldiers[0].push(winners[i]);
 				else if(winners[i] < 0) soldiers[1].push(-winners[i]);
 		}
-		
+
 		if(soldiers[0].empty() && soldiers[1].empty())
 			printf("green and blue died\n");
 		else

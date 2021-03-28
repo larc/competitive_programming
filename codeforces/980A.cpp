@@ -8,7 +8,7 @@ int main()
 	int n = 0, p = 0;
 	while(str[n] != '\0')
 		if(str[n++] == 'o') p++;
-	
+
 	if(p && n % p) printf("NO\n");
 	else printf("YES\n");
 

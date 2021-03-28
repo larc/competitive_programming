@@ -15,7 +15,7 @@ int main()
 		m = 1 << n;
 		for(int i = 0; i < m; ++i)
 			scanf("%d", weight + i);
-	
+
 		for(int i = 0; i < m; ++i)
 		{
 			if(i >= N) printf("%d %d\n", n, i);
@@ -23,7 +23,7 @@ int main()
 			for(int j = 0; j < n; ++j)
 				potency[i] += weight[i ^ (1 << j)];
 		}
-		
+
 		max = 0;
 		for(int i = 0; i < m; ++i)
 		for(int j = 0; j < n; ++j)

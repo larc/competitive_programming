@@ -7,7 +7,7 @@ int main()
 
 	scanf("%d %d %d", &x, &y, &z);
 	scanf("%d %d %d", &a, &b, &c);
-	
+
 	if(a < x)
 	{
 		printf("NO\n");

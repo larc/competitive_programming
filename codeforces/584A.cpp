@@ -4,7 +4,7 @@ int main()
 {
 	int n, t;
 	scanf("%d %d", &n, &t);
-	
+
 	if(t == 10)
 	{
 		if(n != 1)

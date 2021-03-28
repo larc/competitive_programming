@@ -9,7 +9,7 @@
 struct union_find
 {
 	int set[N];
-	
+
 	void init(const int & n)
 	{
 		for(int i = 1; i <= n; ++i)
@@ -28,7 +28,7 @@ struct union_find
 		y = find(y);
 
 		if(x == y) return 0;
-		
+
 		set[y] = x;
 		return 1;
 	}
@@ -47,7 +47,7 @@ bool operator < (const edge & a, const edge & b)
 int n, m, max_cost;
 edge G[M];	// graph list of edges
 
-void dfs(const int & i, const int & na, const int & nb, 
+void dfs(const int & i, const int & na, const int & nb,
 						const int & ca, const int & cb,
 						const union_find & ufa, const union_find & ufb)
 {
@@ -58,10 +58,10 @@ void dfs(const int & i, const int & na, const int & nb,
 		max_cost = ca + cb;
 		return;
 	}
-	
+
 	if(((n << 1) - 2 - na - nb) * G[i].w >= max_cost - ca - cb) return;
 	if((n << 1) - 2 - na - nb > m - i) return;
-	
+
 	union_find uf;
 	bool select = 0;
 
@@ -71,21 +71,21 @@ void dfs(const int & i, const int & na, const int & nb,
 		select = 1;
 		dfs(i + 1, na + 1, nb, ca + G[i].w, cb, uf, ufb);
 	}
-	
+
 	uf = ufb;
 	if(uf.join(G[i].u, G[i].v))
 	{
 		select = 1;
 		dfs(i + 1, na, nb + 1, ca, cb + G[i].w, ufa, uf);
 	}
-	
+
 	if(!select) dfs(i + 1, na, nb, ca, cb, ufa, ufb);
 }
 
 int main()
 {
 	union_find ufa, ufb;
-	
+
 	int inf;
 	while(scanf("%d", &n) && n)
 	{
@@ -99,7 +99,7 @@ int main()
 		}
 
 		std::sort(G, G + m);
-		
+
 		inf = max_cost;
 		ufa.init(n);
 		ufb.init(n);

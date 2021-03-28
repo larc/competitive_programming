@@ -15,16 +15,16 @@ int main()
 	{
 		scanf("%d %lld", &n, &k);
 		scanf("%s", str);
-		
+
 		i = 0;
 		while(str[i] == '0') i++;
-		
+
 		j = i + 1;
 
 		while(k)
 		{
 			while(str[j] == '1') j++;
-			
+
 			if(j >= n) break;
 
 			if(j - i <= k)

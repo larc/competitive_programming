@@ -20,7 +20,7 @@ void sum_it_up(const int & n, const int & s, const int & p, int i)
 
 		return;
 	}
-	
+
 	while(i < n)
 		if(num[i] <= s)
 		{
@@ -37,7 +37,7 @@ int main()
 	{
 		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
-		
+
 		sum = s;
 		size = 0;
 

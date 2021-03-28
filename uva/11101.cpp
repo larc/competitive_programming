@@ -31,7 +31,7 @@ int main()
 	{
 		memset(level, -1, sizeof(level));
 		memset(target, 0, sizeof(target));
-		
+
 		std::queue<point> q;
 
 		while(n--)
@@ -48,7 +48,7 @@ int main()
 			scanf("%d %d", &i, &j);
 			target[i][j] = 1;
 		}
-		
+
 		// BFS solution
 		while(!q.empty())
 		{
@@ -57,7 +57,7 @@ int main()
 			q.pop();
 
 			if(target[i][j]) break;
-			
+
 			n = level[i][j] + 1;
 			if(add_valid(i - 1, j, q)) level[i - 1][j] = n;
 			if(add_valid(i + 1, j, q)) level[i + 1][j] = n;

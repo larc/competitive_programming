@@ -21,7 +21,7 @@ int main()
 		}
 
 		succ(s) = 0;
-		
+
 		while(b--)
 		{
 			scanf("%d %d", &l, &r);

@@ -31,5 +31,5 @@ int main()
 	while(scanf("%llu %llu", &a, &b) != EOF)
 		printf("%llu\n", A(b + 1) - A(a));
 
-	return 0;	
+	return 0;
 }

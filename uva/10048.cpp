@@ -4,7 +4,7 @@
 
 #define N 101
 
-int E[N][N];	// edges weight 
+int E[N][N];	// edges weight
 
 struct edge_t
 {
@@ -38,13 +38,13 @@ void prim(int n)
 		if(!visited[j])
 			q.push({n, j});
 	}
-	
+
 	edge_t e;
 	while(!q.empty())
 	{
 		e = q.top();
 		q.pop();
-		
+
 		i = e.a;
 		j = n = e.b;
 		if(!visited[n])
@@ -67,7 +67,7 @@ void dfs(const int & n, int * d)
 {
 	if(visited[n]) return;
 	visited[n] = 1;
-	
+
 	int j;
 	for(int i = 0; i < sT[n]; ++i)
 	{
@@ -85,7 +85,7 @@ int main()
 {
 	int n, e, q, i, j;
 	int d;
-	
+
 	int c = 1;
 	while(scanf("%d %d %d", &n, &e, &q), n, e, q)
 	{
@@ -104,14 +104,14 @@ int main()
 		memset(visited, 0, sizeof(visited));
 		for(i = 1; i <= n; ++i)
 			prim(i);
-		
+
 		memset(D, -1, sizeof(D));
 		for(i = 1; i <= n; ++i)
 		{
 			memset(visited, 0, sizeof(visited));
 			dfs(i, D[i]);
 		}
-		
+
 		if(c > 1) printf("\n");
 		printf("Case #%d\n", c++);
 		while(q--)

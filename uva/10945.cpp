@@ -16,11 +16,11 @@ inline bool is_letter(char & c)
 int main()
 {
 	bool p;
-	string str; 
+	string str;
 	while(getline(cin, str) && str != "DONE")
 	{
 		p = true;
-		
+
 		for(int i = 0, j = str.size() - 1; i < j; )
 		{
 			if(is_letter(str[i]) && is_letter(str[j]))

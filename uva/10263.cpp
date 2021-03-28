@@ -9,7 +9,7 @@ struct point_t
 	{
 		x = x_; y = y_;
 	}
-	
+
 	// dot product
 	double operator,(const point_t & p)
 	{
@@ -20,7 +20,7 @@ struct point_t
 	{
 		return point_t(x + p.x, y + p.y);
 	}
-	
+
 	point_t operator-(const point_t & p)
 	{
 		return point_t(x - p.x, y - p.y);
@@ -57,7 +57,7 @@ int main()
 			if(alpha < 0) x = b;
 			else if(alpha > 1) x = a + b;
 			else x = alpha * a + b;
-			
+
 			d = distance(x , m);
 			if(d < dist)
 			{

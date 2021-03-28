@@ -19,7 +19,7 @@ int main()
 				il = lista.end();
 			else
 				lista.insert(il, line[i]);
-				
+
 		for(il = lista.begin(); il != lista.end(); ++il)
 			cout<<*il;
 		cout<<endl;

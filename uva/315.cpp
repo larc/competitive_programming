@@ -6,7 +6,7 @@
 
 int G[N][N];
 int size[N];
-int dfs_low[N]; 
+int dfs_low[N];
 int dfs_num[N];
 int dfs_parent[N];
 int dfs_counter;
@@ -62,12 +62,12 @@ int main()
 				G[v][size[v]++] = u;
 			}
 		}
-		
+
 		dfs_counter = 0;
 		memset(dfs_num, -1, sizeof(dfs_num));
 		memset(dfs_low, 0, sizeof(dfs_low));
 		memset(dfs_parent, 0, sizeof(dfs_parent));
-		
+
 		count = 0;
 		for(u = 1; u <= n; ++u)
 			if(dfs_num[u] == -1)
@@ -77,7 +77,7 @@ int main()
 				dfs_articulation(u, count);
 				if(root_children > 1) count++;
 			}
-		
+
 		printf("%d\n", count);
 	}
 

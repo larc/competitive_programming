@@ -6,9 +6,9 @@
 #define N 101
 #define INF 1 << 31 - 1
 
-int W[N][N]; // edges weight 
+int W[N][N]; // edges weight
 int G[N][N]; // adj list
-int size[N]; 
+int size[N];
 int path[N]; // bfs tree
 
 int augment(const int & v, int min_edge)
@@ -48,7 +48,7 @@ int bfs(const int & s, const int & t)
 			}
 		}
 	}
-	
+
 	return augment(t, INF);
 }
 
@@ -80,7 +80,7 @@ int main()
 		mf = 0;
 		while((f = bfs(s, t)) < INF)
 			mf += f;
-		
+
 		printf("Network %d\n", net++);
 		printf("The bandwidth is %d.\n\n", mf);
 	}

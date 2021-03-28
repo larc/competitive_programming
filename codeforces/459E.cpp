@@ -30,14 +30,14 @@ int main()
 		scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
 
 	sort(G, G + m);
-	
+
 	pair<int, int> p;
 	stack<pair<int, int> > s;
 	for(int i = 0; i < m; ++i)
 	{
 		const edge & e = G[i];
 		s.push({e.u, max(L[e.u], L[e.v] + 1)});
-		
+
 		if(i == m - 1 || e.w != G[i + 1].w)
 		{
 			while(!s.empty())
@@ -47,7 +47,7 @@ int main()
 			}
 		}
 	}
-	
+
 	m = 0;
 	for(int i = 1; i <= n; ++i)
 		m = max(m, L[i]);

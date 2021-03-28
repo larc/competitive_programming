@@ -45,13 +45,13 @@ int main()
 			ft[i] = 0;
 			scanf("%s", str[i]);
 		}
-		
+
 		for(int i = 1; i <= n; ++i)
 		{
 			scanf("%s", *str);
 			M[*str] = i;
 		}
-		
+
 		n_inv = 0;
 		for(int i = n; i > 0; i--)
 		{

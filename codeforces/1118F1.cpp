@@ -39,15 +39,15 @@ int main()
 		G[u].push_back(v);
 		G[v].push_back(u);
 	}
-	
+
 	memset(parent, -1, sizeof(parent));
 	parent[1] = 0;
 	dfs(1);
-	
+
 	count = 0;
 	for(int i = 2; i <= n; ++i)
 		count += (!(red[1] - red[i]) && !blue[i]) || (!(blue[1] - blue[i]) && !red[i]);
-	
+
 	printf("%d\n", count);
 
 	return 0;

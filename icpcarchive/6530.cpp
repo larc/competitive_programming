@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <queue>
 
-#define N 100000 
+#define N 100000
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 	while(scanf("%d %d", &n, &g) != EOF)
 	{
 		p = 0; d = 0;
-		
+
 		while(n--)
 		{
 			scanf("%d %d", &s, &r);
@@ -37,7 +37,7 @@ int main()
 			p++; g--;
 			q.pop();
 		}
-		
+
 		printf("%d\n", p);
 	}
 

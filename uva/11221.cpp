@@ -31,9 +31,9 @@ int main()
 			if('a' <= str[i] && str[i] <= 'z')
 				str[n++] = str[i];
 		str[n] = 0;
-		
+
 		k = sqrt(n);
-		
+
 		M[0] = str;
 		for(int i = 1; i < k; ++i)
 			M[i] = M[i - 1] + k;

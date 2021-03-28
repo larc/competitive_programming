@@ -26,7 +26,7 @@ int main()
 				game[num] = i;
 			}
 
-		
+
 		b = 0;
 		for(int i = 1; i < N; ++i)
 		{
@@ -37,13 +37,13 @@ int main()
 
 			r = game[num];
 			c = (num - 1) / 15;
-			
+
 			if(++row[r] == 5 - (r == 2)) b = i;
 			if(++col[c] == 5 - (c == 2)) b = i;
 			if(c == r && ++diag[0] == 4) b = i;
 			if(c + r == 4 && ++diag[1] == 4) b = i;
 		}
-		
+
 		printf("BINGO after %d numbers announced\n", b);
 	}
 

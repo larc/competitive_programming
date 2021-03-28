@@ -43,14 +43,14 @@ void insert(char * word)
 
 		p = q;
 	}
-	
+
 	p->end = 1;
 }
 
 int keystrokes(char * word)
 {
 	int c = 1;
-	
+
 	trie * p = &tree[*word++ - 'a'];
 	while(*word != '\0')
 	{
@@ -74,13 +74,13 @@ int main()
 			scanf("%s", words[i]);
 			insert(words[i]);
 		}
-		
+
 		c = 0;
 		for(int i = 0; i < n; ++i)
 			c += keystrokes(words[i]);
 
 		printf("%.2f\n", (float) c / n);
-		
+
 	}
 
 	return 0;

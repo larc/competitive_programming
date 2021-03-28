@@ -41,7 +41,7 @@ int main()
 
 		for(int i = 0; i < n_primes && primes[i] <= n; ++i)
 			prime_factors[i] = factors(n, primes[i]);
-		
+
 		for(int a = 0; a < 27; ++a)
 		for(int i = 0; i < n_primes && primes[i] <= alpha[a]; ++i)
 			prime_factors[i] -= factors(alpha[a], primes[i]);
@@ -49,7 +49,7 @@ int main()
 		n = 1;
 		for(int i = 0; i < n_primes; ++i)
 			n *= pow(primes[i], prime_factors[i]);
-	
+
 		printf("Data set %d: %lu\n", c, n);
 	}
 

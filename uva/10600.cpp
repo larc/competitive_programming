@@ -66,7 +66,7 @@ int main()
 		scanf("%d %d", &n, &m);
 		for(int i = 0; i < m; ++i)
 			scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
-		
+
 		std::sort(G, G + m);
 		memset(mst, 0, sizeof(mst));
 
@@ -79,7 +79,7 @@ int main()
 				mst[i] = 1;
 				cost += G[i].w;
 			}
-		
+
 		printf("%d ", cost);
 
 		min_cost = cost * n;
@@ -93,7 +93,7 @@ int main()
 
 			if(uf.n_comp(n) == 1 && cost < min_cost) min_cost = cost;
 		}
-		
+
 		printf("%d\n", min_cost);
 	}
 

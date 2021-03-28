@@ -40,7 +40,7 @@ int main()
 				rs = ps;
 				mind = d;
 			}
-				
+
 		}
 		cout<<"RFP #"<<ip<<endl;
 		cout<<rs<<endl;

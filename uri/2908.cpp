@@ -11,7 +11,7 @@ typedef long long llu_t;
 
 int Z[N][M];		// zoo moves
 int current[N];		// current i-beast zoo
-int T[N][M];		// first time i-beast in j-zoo	
+int T[N][M];		// first time i-beast in j-zoo
 int C[N];			// i-beast loop size
 bool loop[N][M];	// (i,j) = 1 if j-zoo is in i-beast loop
 
@@ -27,7 +27,7 @@ llu_t extended_euclid(const llu_t & a, const llu_t & b, llu_t & x, llu_t & y)
 
 	llu_t x1, y1;
 	llu_t d = extended_euclid(b, a % b, x1, y1);
-	
+
 	x = y1;
 	y = x1 - (a / b) * y1;
 
@@ -48,12 +48,12 @@ int main()
 {
 	int n, m, z;	// numbers beasts and zoos
 	llu_t t, tmax, x, y, a, b, ta, tb, d;
-	
+
 	scanf("%d %d", &n, &m);
 	for(int i = 0; i < n; ++i)
 	for(int j = 0; j <= m; ++j)
 		scanf("%d", Z[i] + j);
-	
+
 	memset(T, -1, sizeof(T));
 	memset(loop, 0, sizeof(loop));
 
@@ -93,17 +93,17 @@ int main()
 			}
 			else if(current[i] != current[i - 1])
 				break;
-		
+
 		for(int i = 0; i < n; ++i)
 			current[i] = Z[i][current[i]];
 	}
 
 	// if they will never meet or will meet in a long time
-	z = 0; 
+	z = 0;
 	for(int j = 1; j <= m; ++j)
 	{
 		if(!loop[0][j]) continue;
-		
+
 		ta = T[0][j];
 		a = C[0];
 
@@ -114,9 +114,9 @@ int main()
 				ta = 0;
 				break;
 			}
-			
+
 			tb = T[i][j];
-			b = C[i]; 
+			b = C[i];
 
 			// solve: tb + b * x = ta + a * y
 			// solve: b * x - a * y = ta + tb
@@ -129,28 +129,28 @@ int main()
 
 			// look for a tij closed to t
 			tb += ((ta - tb) / b) * b;
-			
+
 			// solve b * x - a * y = gcd(b, -a), '-a' will affect the 'y' value
 			d = extended_euclid(b, a, x, y);
-			
+
 			// (ta -  tb) must be a multiple of gcd(b, -a)
 			if((ta - tb) % d)
 			{
 				ta = 0;
 				break;
 			}
-			
+
 			y *= (ta - tb) / d;
-			
+
 			d = b / gcd(a, b);
-			
+
 			if(y) // new meet time, check if the new meet time is in the past
 				ta += y < 0 ? a * -y : ((y / d + 1) * d - y) * a;
 
 			a = a * d;		// new loop size a = lcm(a, b)
 
 		}
-		
+
 		if(ta && (!z || ta < t))
 		{
 			z = j;

@@ -13,7 +13,7 @@ int main()
 		for(x = k + 1; x <= k << 1; ++x)
 			if(!((k * x) % (x - k)))
 				y[n++] = x;
-				
+
 		printf("%d\n", n);
 		for(int i = 0; i < n; ++i)
 		{

@@ -11,7 +11,7 @@ int friends[N];
 
 const int & find_f(const int & x)
 {
-	if(!size[x]) 
+	if(!size[x])
 	{
 		size[x] = 1;
 		return friends[x] = x;
@@ -25,7 +25,7 @@ const int & union_f(int & x, int & y)
 {
 	x = find_f(x);
 	y = find_f(y);
-	
+
 	if(x != y)
 	{
 		size[x] += size[y];
@@ -40,7 +40,7 @@ int main()
 	int c, n, x, y, id;
 	map<string, int> ids;
 	char name_a[21], name_b[21];
-	
+
 	scanf("%d", &c);
 	while(c--)
 	{
@@ -61,7 +61,7 @@ int main()
 				y = ids[name_b] = id++;
 				size[y] = 0;
 			}
-			
+
 			printf("%d\n", union_f(x, y));
 		}
 	}

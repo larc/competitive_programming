@@ -46,7 +46,7 @@ void update(const int & n, const int & L, const int & R, const char & op)
 
 	if(op == 'F') tree[n] = R - L + 1;
 	if(op == 'E') tree[n] = 0;
-	
+
 	tree_op[n] = op;
 }
 
@@ -69,23 +69,23 @@ void update(const int & n, const int & L, const int & R, const int & a, const in
 
 	update(left(n), L, M, a, b, op);
 	update(right(n), M + 1, R, a, b, op);
-	
+
 	tree[n] = tree[left(n)] + tree[right(n)];
 }
 
 int query(const int & n, const int & L, const int & R, const int & a, const int & b)
 {
 	if(a > R || b < L) return 0;
-	
+
 	if(a <= L && R <= b) return tree[n];
-	
+
 	if(tree_op[n] && L != R)
 	{
 		update(left(n), L, M, tree_op[n]);
 		update(right(n), M + 1, R, tree_op[n]);
 		tree_op[n] = 0;
 	}
-	
+
 	int l = query(left(n), L, M, a, b);
 	int r = query(right(n), M + 1, R, a, b);
 
@@ -114,7 +114,7 @@ int main()
 					land[n++] = str[i] - '0';
 			}
 		}
-		
+
 		build(1, 0, n - 1);		// build segment tree
 
 		q = 1;

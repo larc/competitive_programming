@@ -22,7 +22,7 @@ struct point_t
 int moves(char * x, char * y)
 {
 	memset(square, 0, sizeof(square));
-	
+
 	point_t a, b;
 	a.x = x[0] - 'a'; a.y = x[1] - '1';
 	b.x = y[0] - 'a'; b.y = y[1] - '1';
@@ -49,7 +49,7 @@ int moves(char * x, char * y)
 		q.pop();
 
 		if(a == b) return square[a.x][a.y];
-		
+
 		visit(-2, -1);
 		visit(-2, 1);
 		visit(-1, -2);

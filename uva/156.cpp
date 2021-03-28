@@ -24,7 +24,7 @@ int main()
 	{
 		for(char & c: word)
 			compare[n][index(c)]++;
-		
+
 		words[n++] = word;
 	}
 
@@ -37,7 +37,7 @@ int main()
 			c = 0;
 			for(int k = 0; k < 26; ++k)
 				c += compare[i][k] == compare[j][k];
-			
+
 			if(c == 26)
 			{
 				compare[i][26] = 1;
@@ -47,7 +47,7 @@ int main()
 
 		if(!compare[i][26]) words[na++] = words[i];
 	}
-	
+
 	sort(words, words + na);
 
 	for(int i = 0; i < na; ++i)

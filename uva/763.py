@@ -16,7 +16,7 @@ while True:
 	for i in range(len(r)):
 		if r[i] == '1':
 			n += fib[len(r) - i + 1]
-	
+
 	r = input()
 	for i in range(len(r)):
 		if r[i] == '1':
@@ -29,7 +29,7 @@ while True:
 			n -= fib[i]
 		elif r != '':
 			r += '0'
-	
+
 	if r == '':
 		r = '0'
 

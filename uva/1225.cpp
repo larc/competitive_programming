@@ -7,7 +7,7 @@ int main()
 {
 	int digits[10];
 	int n_sets, n, x;
-	
+
 	scanf("%d", &n_sets);
 	while(n_sets--)
 	{

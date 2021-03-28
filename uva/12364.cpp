@@ -15,17 +15,17 @@ void to_braile(const string & str)
 	for(int i = 0; i < str.size(); ++i)
 	{
 		j = str[i] - '0';
-		
+
 		k = 3 * i;
 		str_braile[k] = braile[j][0];
 		str_braile[k + 1] = braile[j][1];
 		str_braile[k + 2] = ' ';
-		
+
 		k += n;
 		str_braile[k] = braile[j][2];
 		str_braile[k + 1] = braile[j][3];
 		str_braile[k + 2] = ' ';
-		
+
 		k += n;
 		str_braile[k] = braile[j][4];
 		str_braile[k + 1] = braile[j][5];
@@ -43,7 +43,7 @@ int find(const string & str)
 {
 	for(int i = 0; i < 10; ++i)
 		if(str == braile[i]) return i;
-	
+
 	return -1;
 }
 
@@ -64,7 +64,7 @@ void to_num(string & str, const int & s)
 		k += n;
 		num += str_braile[k];
 		num += str_braile[k + 1];
-		
+
 		k += n;
 		num += str_braile[k];
 		num += str_braile[k + 1];
@@ -98,7 +98,7 @@ int main()
 			to_num(str, d);
 		}
 	}
-	
+
 	return 0;
 }
 

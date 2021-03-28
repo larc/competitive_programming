@@ -23,7 +23,7 @@ int main()
 			scanf("%d", P + i);
 			pos[P[i]] = i;
 		}
-		
+
 		p = x = 1;
 		while(p < n)
 		{
@@ -34,7 +34,7 @@ int main()
 			}
 
 			while(pos[x] < p) x++;
-		
+
 			o = pos[x];
 			for(int i = pos[x]; i > p; i--)
 			{

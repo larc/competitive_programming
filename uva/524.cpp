@@ -31,7 +31,7 @@ void prime_ring(const int & n, const int & p)
 
 		return;
 	}
-	
+
 	for(int i = 2 + !(p & 1); i <= n; i += 2)
 		if(!selected[i] && !not_prime[i + ring[p - 1]])
 		{
@@ -45,9 +45,9 @@ void prime_ring(const int & n, const int & p)
 int main()
 {
 	init_prime();
-	
+
 	int n, n_cases = 1;
-	
+
 	ring[0] = 1;
 	scanf("%d", &n);
 

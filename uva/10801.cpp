@@ -33,7 +33,7 @@ void relax(const int & e, const int & n, const int & fe, const int & fn, std::pr
 	if(fn < 0) return;
 	if(!stop(fe, fn)) return;
 	if(visited[fe][fn]) return;
-	
+
 	unsigned int d = dist[e][n];
 	if(e == fe) d += T[e] * abs(fn - n);
 	else d += 60;
@@ -49,9 +49,9 @@ unsigned int dijkstra(const int & k)
 {
 	memset(visited, 0, sizeof(visited));
 	memset(dist, -1, sizeof(dist));
-	
+
 	std::priority_queue<floor_t> q;
-	
+
 	int n, e, fe;
 	for(e = 0; e < E; ++e)
 		if(stop(e, 0))
@@ -66,12 +66,12 @@ unsigned int dijkstra(const int & k)
 		e = q.top().e;
 		n = q.top().n;
 		q.pop();
-			
+
 		if(!visited[e][n])
 		{
 			visited[e][n] = 1;
 			if(n == k) return dist[e][n];
-			
+
 			relax(e, n, e, G[e][n][0], q);
 			relax(e, n, e, G[e][n][1], q);
 
@@ -96,14 +96,14 @@ int main()
 
 		for(int i = 0; i < n; ++i)
 			scanf("%u", T + i);
-		
+
 		getchar();
 		for(int i = 0; i < n; ++i)
 		{
 			fgets(line, sizeof(line), stdin);
 			ss.clear();
 			ss << line;
-			
+
 			ss >> u;
 			while(ss >> v)
 			{

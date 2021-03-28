@@ -18,7 +18,7 @@ void build_st(const int & n, const int & i, const int & j)
 		seq[i] = n;
 		return;
 	}
-	
+
 	int m = (i + j) >> 1;
 	build_st(left(n), i, m);
 	build_st(right(n), m + 1, j);
@@ -59,7 +59,7 @@ int main()
 {
 	int n, k, a, b;
 	char c;
-	
+
 	while(scanf("%d %d", &n, &k) != EOF)
 	{
 		for(int i = 1; i <= n; ++i)
@@ -67,7 +67,7 @@ int main()
 			scanf("%d", &b);
 			seq[i] = val(b);
 		}
-		
+
 		build_st(1, 1, n);
 		while(k--)
 		{

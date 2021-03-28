@@ -18,7 +18,7 @@ int main()
 {
 	int size[N] = {};
 	char F[N][M] = {};
-	
+
 	F[1][0] = 1;
 	size[0] = size[1] = 1;
 
@@ -28,7 +28,7 @@ int main()
 		for(int k = 0; k < size[i - 1]; ++k)
 		{
 			F[i][k] = F[i - 1][k] + F[i - 2][k] + a;
-			
+
 			a = F[i][k] / 10;
 			F[i][k] %= 10;
 		}
@@ -36,14 +36,14 @@ int main()
 		size[i] = size[i - 1];
 		if(a) F[i][size[i]++] = a;
 	}
-	
+
 	for(int i = 0; i < N; ++i)
 		to_char(F[i], size[i]);
-	
+
 	int n;
 	while(scanf("%d", &n) != EOF)
 		printf("%s\n", F[n + 2]);
-	
+
 	return 0;
 }
 

@@ -11,13 +11,13 @@ int main()
 	while(n--)
 	{
 		scanf("%d %d", &a, &b);
-		
+
 		m = std::min(a, b) - std::max(x, y);
 		if(m >= 0) d += m + (x != y);
 
 		x = a; y = b;
 	}
-	
+
 	printf("%d\n", d);
 
 	return 0;

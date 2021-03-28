@@ -40,7 +40,7 @@ int main()
 			if(c == 'c') union_set(x, y);
 			else find_set(x) == find_set(y) ? s++ : u++ ;
 		}
-		
+
 		printf("%d,%d\n", s, u);
 		if(t) printf("\n");
 	}

@@ -16,17 +16,17 @@ int main()
 	while(m--)
 	{
 		scanf("%d %d", &u, &v);
-		
+
 		degree[u]++; degree[v]++;
 		G[u].push_back(v);
 		G[v].push_back(u);
 	}
-	
+
 	u = 1;
 	for(int i = 2; i <= n; ++i)
 		if(degree[i] > degree[u])
 			u = i;
-	
+
 	std::queue<int> q;
 	visited[u] = 1;
 	q.push(u);

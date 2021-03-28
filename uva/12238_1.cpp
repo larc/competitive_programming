@@ -63,7 +63,7 @@ int main()
 
 			G[u].push_back(i);
 		}
-		
+
 		scanf("%d", &q);
 		for(int i = 0; i < q; ++i)
 		{
@@ -80,7 +80,7 @@ int main()
 			printf(" %lld", query[i]);
 
 		putchar('\n');
-		
+
 		for(int i = 0; i < n; ++i)
 		{
 			G[i].clear();

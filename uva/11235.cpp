@@ -21,7 +21,7 @@ int value(const int & idx, int i, int j)
 	j = left[idx] + freq[idx] - 1 < j ? left[idx] + freq[idx] - 1 : j;
 
 	return j - i + 1;
-} 
+}
 
 void build(const int & n, const int & a, const int & b)
 {
@@ -34,11 +34,11 @@ void build(const int & n, const int & a, const int & b)
 	int m = (a + b) >> 1;
 	build(L(n), a, m);
 	build(R(n), m + 1, b);
-	
+
 	int l = tree[L(n)];
 	int r = tree[R(n)];
 	tree[n] = value(l, a, b) > value(r, a, b) ? l : r;
-	
+
 	tree[n] = value(m, a, b) > value(tree[n], a, b) ? m : tree[n];
 }
 
@@ -61,13 +61,13 @@ int rmq(const int & n, const int & a, const int & b, const int & i, const int & 
 int main()
 {
 	int n, q, i, j;
-	
+
 	while(scanf("%d", &n), n)
 	{
 		scanf("%d", &q);
 		for(int k = 1; k <= n; ++k)
 			scanf("%d", &seq[k]);
-		
+
 		freq[1] = left[1] = 1;
 		for(int k = 2; k <= n; ++k)
 			if(seq[k] == seq[k - 1])
@@ -80,11 +80,11 @@ int main()
 				left[k] = k;
 				freq[k] = 1;
 			}
-		
+
 		for(int k = n - 1; k >= 0; k--)
 			if(seq[k] == seq[k + 1])
 				freq[k] = freq[k + 1];
-		
+
 		build(0, 1, n);
 		while(q--)
 		{

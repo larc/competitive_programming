@@ -12,7 +12,7 @@ int count_divisors(const int & x)
 	int i, r = 2;
 	for(i = 2; i * i < x; ++i)
 		if(!(x % i)) r += 2;
-	
+
 	return r + (i * i == x);
 }
 

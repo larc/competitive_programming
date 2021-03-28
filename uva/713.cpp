@@ -17,7 +17,7 @@ int main()
 		memset(B, 0, sizeof(B));
 
 		scanf("%s %s", A, B);
-		
+
 		a = 0;
 		for(i = 0; A[i] || B[i]; ++i)
 		{
@@ -28,12 +28,12 @@ int main()
 
 			a /= 10;
 		}
-	
+
 		C[i++] = a ? a + '0' : 0;
 		C[i] = 0;
 
 		for(i = 0; C[i] == '0'; ++i);
-		
+
 		printf("%s\n", C + i);
 	}
 

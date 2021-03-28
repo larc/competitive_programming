@@ -36,7 +36,7 @@ void calc_all_fact()
 			}
 			k++;
 		}
-		
+
 		size[i] = size[i - 1] + k - 1 + (fact[i][size[i - 1] + k - 1] != 0);
 	}
 }

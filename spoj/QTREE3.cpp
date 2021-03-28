@@ -24,7 +24,7 @@ int dfs(const int & u)
 
 		parent[v] = u;
 		level[v] = level[u] + 1;
-		
+
 		size += s = dfs(v);
 		if(m_size < s)
 		{
@@ -138,12 +138,12 @@ int main()
 
 	level[1] = parent[1] = 0;
 	dfs(1);
-	
+
 	current = 0;
 	hld(1, 1);
-	
+
 	init_st(0, 0, n - 1);
-	
+
 	while(m--)
 	{
 		scanf("%d %d", &u, &v);

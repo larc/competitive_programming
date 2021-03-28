@@ -31,8 +31,8 @@ int main()
 
 			P[i][j][0] = i;
 		}
-		
-		for(int s = 1; s < n; ++s) // path length 
+
+		for(int s = 1; s < n; ++s) // path length
 		for(int k = 0; k < n; ++k)
 		for(int i = 0; i < n; ++i)
 		for(int j = 0; j < n; ++j)
@@ -44,9 +44,9 @@ int main()
 				P[i][j][s] = k;
 			}
 		}
-		
+
 		length = 0;
-		for(int s = 1; !length && s < n; ++s) 
+		for(int s = 1; !length && s < n; ++s)
 		for(int i = 0; !length && i < n; ++i)
 			if(G[i][i][s] > 1.01)
 			{
@@ -54,9 +54,9 @@ int main()
 				a = i;
 				break;
 			}
-	
+
 		if(length)
-		{	
+		{
 			print_path(a, P[a][a][length], length - 1);
 			printf("%d\n", a + 1);
 		}

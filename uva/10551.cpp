@@ -6,7 +6,7 @@ int to_base(int n, const int & b_in, const int & b_out)
 {
 	int r = 0;
 	int p = 1;
-	
+
 	while(n)
 	{
 		r += (n % b_out) * p;
@@ -27,14 +27,14 @@ int main()
 	{
 		scanf("%s %d", p, &m);
 		m = to_base(m, b, 10);
-		
+
 		r = 0;
 		for(int i = 0; p[i]; ++i)
 		{
 			r = (r * b) % m;
 			r = (r + p[i] - '0') % m;
 		}
-		
+
 		printf("%d\n", to_base(r, 10, b));
 	}
 

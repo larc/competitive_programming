@@ -49,15 +49,15 @@ struct big_int_t
 
 				r = prod.num[k] + p * num[j] + c;
 				prod.num[k] = r % 10;
-				
+
 				c = r / 10;
 			}
 
 			if(c) prod.num[prod.n++] = c;
-			
+
 			i++;
 		}
-		
+
 		return *this = prod;
 	}
 
@@ -76,7 +76,7 @@ struct big_int_t
 		}
 
 		int i = n;
-		
+
 		while(i--)
 		{
 			if(num[i] != x.num[i])
@@ -111,7 +111,7 @@ struct big_int_t
 		}
 		else
 			while(c--) putchar(num[c] + '0');
-		
+
 
 		putchar('\n');
 	}
@@ -121,7 +121,7 @@ int main()
 {
 	big_int_t aux, pos, neg, max;
 	int num;
-		
+
 	while(scanf("%d", &num) != EOF)
 	{
 		max = num;
@@ -131,20 +131,20 @@ int main()
 		{
 			pos *= num;
 			neg *= num;
-				
+
 			if(pos.is_negative() && !neg.is_negative())
 			{
 				aux = pos;
 				pos = neg;
 				neg = aux;
 			}
-			
+
 			if(pos > max)
 				max = pos;
-			
+
 			if(pos.is_negative())
 				pos = 1;
-			
+
 			if(!num)
 			{
 				pos = 1;
@@ -152,7 +152,7 @@ int main()
 			}
 		}
 		while(scanf("%d", &num), num != -999999);
-		
+
 		max.print();
 	}
 

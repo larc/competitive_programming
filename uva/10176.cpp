@@ -4,7 +4,7 @@ int main()
 {
 	char c[128],  * i;
 	int n;
-	
+
 	while(scanf("%s", c) != EOF)
 	{
 		i = c;

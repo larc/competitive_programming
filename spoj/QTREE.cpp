@@ -25,12 +25,12 @@ int dfs(const int & u)
 	for(const edge_t & e: G[u])
 	{
 		if(e.v == parent[u]) continue;
-		
+
 		edges[e.i] = e.v;
 		cost[e.v] = e.w;
 		parent[e.v] = u;
 		level[e.v] = level[u] + 1;
-		
+
 		size += s = dfs(e.v);
 		if(m_size < s)
 		{
@@ -129,7 +129,7 @@ int query(int a, int b, const int & n)
 int main()
 {
 	char str[8];
-	int n_cases, n, u, v, w;	
+	int n_cases, n, u, v, w;
 	level[1] = parent[1] = cost[1] = 0;
 
 	scanf("%d", &n_cases);
@@ -142,7 +142,7 @@ int main()
 			G[u].push_back({i, v, w});
 			G[v].push_back({i, u, w});
 		}
-		
+
 		current = 0;
 		dfs(1); hld(1, 1);
 		init_st(0, 0, n - 1);

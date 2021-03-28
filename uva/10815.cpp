@@ -32,7 +32,7 @@ int main()
 	set<string> dic;
 	while(cin>>str)
 		word(str, dic);
-	
+
 	set<string>::iterator i = dic.begin();
 	for(; i != dic.end(); ++i)
 		cout<<*i<<endl;

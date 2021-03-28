@@ -6,7 +6,7 @@ long long first_day(const int * Q, const int & n, const int & k)
 	for(int i = 1; i <= n; ++i)
 	{
 		r += Q[i];
-		
+
 		if(k > r)
 			return i;
 

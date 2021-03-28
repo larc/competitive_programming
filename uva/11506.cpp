@@ -8,7 +8,7 @@
 
 int W[N][N];	// cost edges
 int G[N][N];	// adj list
-int size[N];	
+int size[N];
 int path[N];
 
 int augment(const int & v, int cost_path)
@@ -19,7 +19,7 @@ int augment(const int & v, int cost_path)
 		W[path[v]][v] -= cost_path;
 		W[v][path[v]] += cost_path;
 	}
-	
+
 	return cost_path;
 }
 
@@ -100,7 +100,7 @@ int main()
 			add_edge(u, v, c, m);
 			add_edge(v, u, c, m);
 		}
-		
+
 		c = 0;
 		while((w = bfs(0, 1)) < INF)
 			c += w;

@@ -38,7 +38,7 @@ int main()
 	sieve();
 
 	unsigned pfactors[n_primes];
-	
+
 	unsigned n, m;
 	while(scanf("%u", &n), n)
 	{
@@ -49,7 +49,7 @@ int main()
 			while(m /= primes[i])
 				pfactors[i]++;
 		}
-		
+
 		pfactors[0] -= pfactors[2];
 		pfactors[2] -= pfactors[2];
 
@@ -59,7 +59,7 @@ int main()
 			m *= pow(primes[i], pfactors[i]);
 			m %= 10;
 		}
-			
+
 		printf("%u\n", m);
 	}
 

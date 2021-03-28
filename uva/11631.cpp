@@ -20,7 +20,7 @@ bool union_s(int x, int y)
 {
 	x = find_s(x);
 	y = find_s(y);
-	
+
 	if(x == y) return 0;
 
 	S[y] = x;
@@ -42,7 +42,7 @@ int main()
 	edge_t e;
 	int cost, path;
 	int m, n, x, y, z;
-	
+
 	while(scanf("%d %d", &m, &n), m && n)
 	{
 		std::priority_queue<edge_t> q;
@@ -54,10 +54,10 @@ int main()
 			q.push({x, y, z});
 			cost += z;
 		}
-		
+
 		reset_s(m);
 		m--; // we need only m - 1 edges to connect m nodes
-		
+
 		path = 0;
 		while(!q.empty() && m)
 		{

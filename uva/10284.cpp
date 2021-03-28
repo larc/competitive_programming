@@ -47,10 +47,10 @@ void bishop(const int & i, const int & j, const bool & black)
 
 	a = i; b = j;
 	while(attack_square(--a, --b));
-	
+
 	a = i; b = j;
 	while(attack_square(++a, --b));
-	
+
 	a = i; b = j;
 	while(attack_square(--a, ++b));
 }
@@ -64,10 +64,10 @@ void rook(const int & i, const int & j, const bool & black)
 
 	a = i; b = j;
 	while(attack_square(a, --b));
-	
+
 	a = i; b = j;
 	while(attack_square(++a, b));
-	
+
 	a = i; b = j;
 	while(attack_square(--a, b));
 }
@@ -83,10 +83,10 @@ void king(const int & i, const int & j, const bool & black)
 	attack_square(i - 1, j - 1);
 	attack_square(i - 1, j);
 	attack_square(i - 1, j + 1);
-	
+
 	attack_square(i, j - 1);
 	attack_square(i, j + 1);
-	
+
 	attack_square(i + 1, j - 1);
 	attack_square(i + 1, j);
 	attack_square(i + 1, j + 1);
@@ -98,12 +98,12 @@ int not_attacked()
 	for(int j = 0; j < 8; ++j)
 		if(board[i][j] > 0)
 			attack[piece(board[i][j])](i, j, board[i][j] >= 'a');
-	
+
 	int count = 0;
 	for(int i = 0; i < 8; ++i)
 	for(int j = 0; j < 8; ++j)
 		if(!board[i][j]) count++;
-	
+
 	return count;
 }
 

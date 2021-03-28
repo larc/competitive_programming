@@ -30,7 +30,7 @@ bool valid(const point & p)
 {
 	if(p.x <= 0 || p.x >= m) return 0;
 	if(p.y <= 0 || p.y >= n) return 0;
-	
+
 	if(p.x && grid[p.x - 1][p.y]) return 0;
 	if(p.y && grid[p.x][p.y - 1]) return 0;
 	if(p.x && p.y && grid[p.x - 1][p.y - 1]) return 0;
@@ -44,7 +44,7 @@ bool go(const char & dir, const int & s, const point & p, point & q)
 	q = p;
 	if(dir & 1) q.y += dir == 1 ? s : -s;
 	else q.x += dir ? s : -s;
-	
+
 	return valid(q);
 }
 
@@ -63,9 +63,9 @@ int bfs(point p, char dir, const point & q)
 		p = queue.front().first;
 		dir = queue.front().second;
 		queue.pop();
-		
+
 		if(p == q) return time(q, dir);
-		
+
 		if(time(p, d = (dir + 1) % 4) < 0) // turn right
 		{
 			time(p, d) = time(p, dir) + 1;
@@ -88,7 +88,7 @@ int bfs(point p, char dir, const point & q)
 			}
 		}
 	}
-	
+
 	return -1;
 }
 
@@ -107,7 +107,7 @@ int main()
 			scanf("%d", &b);
 			if(b) grid[i][j] = 1;
 		}
-		
+
 		scanf("%d %d %d %d %s", &p.x, &p.y, &q.x, &q.y, orientation);
 
 		if(orientation[0] == 'n') dir = 0;

@@ -55,7 +55,7 @@ int main()
 	while(m--)
 	{
 		scanf("%d %d", &u, &v);
-		
+
 		degree[u]++; degree[v]++;
 		G[u].push_back(v);
 		G[v].push_back(u);
@@ -69,7 +69,7 @@ int main()
 		printf("NO\n");
 		return 0;
 	}
-	
+
 	std::queue<int> q;
 	visited[1] = 1;
 
@@ -85,7 +85,7 @@ int main()
 		printf("NO\n");
 		return 0;
 	}
-	
+
 	for(const int & v: G[1])
 	{
 		if(q.size() == d) break;
@@ -95,7 +95,7 @@ int main()
 			visited[v] = 1;
 		}
 	}
-	
+
 	if(q.size() != d)
 	{
 		printf("NO\n");

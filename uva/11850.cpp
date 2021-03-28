@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	int x, vec[1500], n;
-	bool b;	
+	bool b;
 	while(scanf("%d", &n) != EOF && n)
 	{
 		for(x = 0; x < n; ++x)

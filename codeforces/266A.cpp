@@ -17,7 +17,7 @@ int main()
 			i += j - 1;
 			break;
 		}
-	
+
 	printf("%d\n", count);
 
 	return 0;

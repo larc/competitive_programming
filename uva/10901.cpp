@@ -51,8 +51,8 @@ int main()
 				time = std::max(time, q[j].arrival) + (i != j) * t;
 				i = j;
 			}
-		}	
-		
+		}
+
 		for(i = 0; i < m; ++i)
 			printf("%d\n", unloaded[i]);
 		if(c) putchar('\n');

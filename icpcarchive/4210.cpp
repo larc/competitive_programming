@@ -64,7 +64,7 @@ void dijkstra(uint_t s, const uint_t & d)
 void delete_node(const uint_t & u)
 {
 	if(!spath[u]) return;
-	
+
 	for(int i = 0; i < spath[u]; ++i)
 	{
 		W[path[u][i]][u] = 0;
@@ -94,7 +94,7 @@ int main()
 			delete_node(d);
 			dijkstra(s, d);
 		}
-		
+
 		printf("%d\n", dist[d]);
 	}
 

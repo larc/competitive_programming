@@ -46,7 +46,7 @@ int convex_hull_andrew(int n_points)
 			points[k++] = points[i];
 
 	n_points = k;
-	
+
 
 	k = 0;
 	for(int i = 0; i < n_points; ++i)
@@ -54,16 +54,16 @@ int convex_hull_andrew(int n_points)
 		while(k > 1 && !ccw(CH[k - 2], CH[k - 1], points[i])) --k;
 		CH[k++] = points[i];
 	}
-	
+
 	int t = k;
 	for(int i = n_points - 2; i > 0; --i)
 	{
 		while(k > t && !ccw(CH[k - 2], CH[k - 1], points[i])) --k;
 		CH[k++] = points[i];
 	}
-	
+
 	while(k > t && !ccw(CH[k - 2], CH[k - 1], points[0])) --k;
-	
+
 	return k;
 }
 
@@ -77,7 +77,7 @@ int main()
 			scanf("%d %d", &points[i].x, &points[i].y);
 
 		n = convex_hull_andrew(n);
-		
+
 		printf("%d\n", n);
 		for(int i = 0; i < n; ++i)
 			printf("%d %d\n", CH[i].x, CH[i].y);

@@ -24,7 +24,7 @@ int main()
 
 	while(scanf("%d", &s) != EOF)
 		printf("(%d, %d)\n", p[s], p[s] + 2);
-	
+
 	delete [] not_prime;
 	return 0;
 }

@@ -24,7 +24,7 @@ int main()
 			if(P[i] - i <= 0) break;
 			sum = mod(sum + P[i] - i);
 		}
-		
+
 		printf("%d\n", sum);
 	}
 

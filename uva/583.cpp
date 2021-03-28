@@ -11,7 +11,7 @@ void calc_primes()
 {
 	bool not_prime[N];
 	memset(not_prime, 0, sizeof(not_prime));
-	
+
 	n_primes = 0;
 	primes[n_primes++] = 2;
 	for(int i = 3; i < N; i += 2)
@@ -64,7 +64,7 @@ int main()
 			if(flag) printf(" x %d", n);
 			else printf(" %d", n);
 		}
-		
+
 		putchar('\n');
 	}
 

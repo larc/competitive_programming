@@ -15,7 +15,7 @@ void sieve()
 	primes = new int_t[N];
 	bool * not_prime = new bool[N];
 	memset(not_prime, 0, sizeof(bool) * N);
-	
+
 	n_primes = 0;
 	primes[n_primes++] = 2;
 
@@ -26,7 +26,7 @@ void sieve()
 			for(int_t j = i * i; j < N; j += i << 1)
 				not_prime[i] = 1;
 		}
-	
+
 	delete [] not_prime;
 }
 

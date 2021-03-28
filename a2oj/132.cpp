@@ -26,7 +26,7 @@ int main()
 		c = 0;
 		for(size_t i = 0; i < 27; ++i)
 			c += (size_t) abs((float)letras[i]);
-	
+
 		cout<<c<<endl;
 	}
 	return 0;

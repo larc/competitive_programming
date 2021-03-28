@@ -19,10 +19,10 @@ int main()
 			scanf("%d %s", &length, side);
 			q[side[0] == 'r'].push(length);
 		}
-		
+
 		n *= 100;
 		m = 0;
-		i = 0; 
+		i = 0;
 		while(1)
 		{
 			length = n;
@@ -38,8 +38,8 @@ int main()
 				i = !i;
 			}
 			else break;
-		}	
-		
+		}
+
 		printf("%d\n", m);
 	}
 

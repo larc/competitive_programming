@@ -25,7 +25,7 @@ int main()
 	char * c;
 
 	scanf("%d", &n);
-	fgets(str, 128, stdin);	
+	fgets(str, 128, stdin);
 	while(n--)
 	{
 		fgets(str, 128, stdin);
@@ -38,10 +38,10 @@ int main()
 			if(*c != ' ') freq[*c]++;
 			c++;
 		}
-		
+
 		for(auto & p: freq)
 			q.push({p.second, p.first});
-		
+
 		min_cost = 0;
 		for(int i = 0; !q.empty(); ++i)
 		{

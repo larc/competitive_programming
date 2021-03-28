@@ -14,7 +14,7 @@ int main()
 	{
 		for(int i = 0; i < n; ++i)
 			scanf("%d", A + i);
-		
+
 		printf("Case %d:\n", ++ncase);
 
 		scanf("%d", &m);

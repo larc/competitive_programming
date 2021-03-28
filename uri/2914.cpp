@@ -11,7 +11,7 @@ int primes[N], np;
 void sieve()
 {
 	bool not_prime[N] = {};
-	
+
 	np = 0;
 	primes[np++] = 2;
 
@@ -57,7 +57,7 @@ int main()
 
 	int q, k, ini;
 	int qn[N], qk[N];
-	
+
 	scanf("%d", &q);
 	std::vector<int> qi(q);
 
@@ -66,13 +66,13 @@ int main()
 		scanf("%d %d", qn + i, qk + i);
 		qi[i] = i;
 	}
-		
+
 	std::sort(qi.begin(), qi.end(), [&qk](const int & i, const int & j) { return qk[i] > qk[j]; });
 
 	ft[0] = ft[1] = 0;
 	for(int i = 2; i < N; ++i)
 		adjust(i, 1);
-	
+
 	int stop = np;
 	for(const int & i: qi)
 	{
@@ -88,7 +88,7 @@ int main()
 				}
 			k++;
 		}
-		
+
 		stop = ini;
 		qn[i] = rsq(qn[i]);
 	}

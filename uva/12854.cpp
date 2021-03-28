@@ -24,7 +24,7 @@ int main()
 			cin >> a[i];
 		for(int i = 0; i < 5; ++i)
 			cin >> b[i];
-		
+
 		cout << compatible() <<endl;
 	}
 

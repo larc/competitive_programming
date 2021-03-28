@@ -14,7 +14,7 @@ int main()
 			if((C[n] << 1) < t) t = C[n] << 1;
 			n++;
 		}
-		
+
 		for(; t <= 18000; ++t)
 		{
 			g = 0;
@@ -23,11 +23,11 @@ int main()
 
 			if(g == n) break;
 		}
-		
+
 		if(g == n) printf("%02d:%02d:%02d\n", t / 3600, t % 3600 / 60, t % 60);
 		else printf("Signals fail to synchronise in 5 hours\n");
 	}
-	
+
 	scanf("%d %d", C, C + 1);
 
 	return 0;

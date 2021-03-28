@@ -4,7 +4,7 @@
 #define N 200001
 
 int main()
-{	
+{
 	unsigned long long A[N], K[N], n, q, j;
 	A[0] = K[0] = 0;
 
@@ -15,7 +15,7 @@ int main()
 		scanf("%llu", A + i);
 		A[i] += A[i - 1];
 	}
-	
+
 	for(int i = 1; i <= q; ++i)
 	{
 		scanf("%llu", K + i);

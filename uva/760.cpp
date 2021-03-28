@@ -17,7 +17,7 @@ int main()
 	{
 		max_n = 0;
 		s = 0;
-		for(int i = 0; a[i] != '\0'; ++i)		
+		for(int i = 0; a[i] != '\0'; ++i)
 		for(int j = 0; b[j] != '\0'; ++j)
 			if(a[i] == b[j])
 			{
@@ -37,7 +37,7 @@ int main()
 
 				if(n == max_n) str[s++] = c;
 			}
-		
+
 		if(!s) printf("No common sequence.\n");
 		else
 		{

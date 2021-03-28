@@ -42,7 +42,7 @@ bool join(int x, int y)
 		edges[x] += edges[y] + 1;
 		return 1;
 	}
-	
+
 	component[x] = y;
 	nodes[y] += nodes[x];
 	edges[y] += edges[x] + 1;
@@ -55,7 +55,7 @@ int main()
 
 	int n, m, v, u;
 	scanf("%d %d", &n, &m);
-	
+
 	init(n);
 	while(m--)
 	{
@@ -65,7 +65,7 @@ int main()
 
 		join(v, u);
 	}
-	
+
 	for(int i = 1; i <= n; ++i)
 	{
 		v = find_comp(i);

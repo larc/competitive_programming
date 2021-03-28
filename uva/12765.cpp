@@ -17,7 +17,7 @@ bool check()
 int main()
 {
 	int n, m, p;
-	
+
 	while(scanf("%d %d", &n, &m), n && m)
 	{
 		memset(counter, 0, sizeof(counter));
@@ -49,7 +49,7 @@ int main()
 					default: counter[i]--;
 				}
 		}
-		
+
 		if(check()) printf("YES\n");
 		else printf("NO\n");
 	}

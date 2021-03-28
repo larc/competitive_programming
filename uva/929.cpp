@@ -39,7 +39,7 @@ void update(std::priority_queue<node> & q, const node & p, const int & x, const 
 int main()
 {
 	node p;
-	
+
 	scanf("%d", &c);
 	while(c--)
 	{
@@ -50,20 +50,20 @@ int main()
 		for(int i = 0; i < m; ++i)
 		for(int j = 0; j < n; ++j)
 			scanf("%d", &maze[i][j]);
-		
+
 		s = m * n;
 		W[0][0] = maze[0][0];
-		
+
 		std::priority_queue<node> q;
 		q.push({0, 0, W[0][0]});
-		
+
 		while(s-- && !q.empty())
 		{
 			p = q.top();
 			q.pop();
-			
+
 			visited[p.x][p.y] = 1;
-		
+
 			update(q, p, p.x - 1, p.y);
 			update(q, p, p.x + 1, p.y);
 			update(q, p, p.x, p.y - 1);

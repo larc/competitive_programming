@@ -16,7 +16,7 @@ int dfs(int u)
 	memset(level, -1, sizeof(level));
 	memset(boom_size, 0, sizeof(boom_size));
 	level[u] = 0;
-	
+
 	std::queue<int> q;
 	q.push(u);
 
@@ -36,12 +36,12 @@ int dfs(int u)
 			}
 		}
 	}
-	
+
 	u = 0; // look for boom day
 	for(int i = 1; boom_size[i]; ++i)
 		if(boom_size[i] > boom_size[u])
 			u = i;
-	
+
 	return u;
 }
 
@@ -58,7 +58,7 @@ int main()
 		for(int i = 0; i < size[u]; ++i)
 			scanf("%d", G[u] + i);
 	}
-	
+
 	scanf("%d", &n);
 	while(n--)
 	{

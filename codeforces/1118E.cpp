@@ -4,7 +4,7 @@ int main()
 {
 	long long n, m;
 	scanf("%lld %lld", &n, &m);
-	
+
 	if(n > m * (m - 1))
 	{
 		printf("NO\n");

@@ -34,7 +34,7 @@ int main()
 			if(common(d)) count++;
 			if(common(x / d)) count++;
 		}
-	
+
 	if(d * d == x && common(d)) count++;
 
 	printf("%d\n", count);

@@ -5,7 +5,7 @@ int main()
 	char line[16], str[8];
 	int c, n, i, j, p;
 	int I[101];
-	
+
 	scanf("%d", &c);
 	while(c--)
 	{
@@ -25,8 +25,8 @@ int main()
 		p = 0;
 		for(i = 1; i <= n; ++i)
 			p += I[i];
-	
-		printf("%d\n", p);	
+
+		printf("%d\n", p);
 	}
 	return 0;
 }

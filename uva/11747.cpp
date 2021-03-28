@@ -10,7 +10,7 @@
 struct union_find
 {
 	int comp[N];
-	
+
 	void init(const int & n)
 	{
 		for(int i = 0; i < n; ++i)
@@ -61,12 +61,12 @@ int main()
 	union_find uf;
 	edge G[M];
 	edge e;
-	
+
 	while(scanf("%d %d", &n, &m), n)
 	{
 		for(int i = 0; i < m; ++i)
 			scanf("%d %d %d", &G[i].u, &G[i].v, &G[i].w);
-		
+
 		nhce = 0;
 		if(m)
 		{
@@ -80,7 +80,7 @@ int main()
 					hc_edges[nhce++] = e.w;
 			}
 		}
-		
+
 		if(!nhce) printf("forest\n");
 		else
 		{

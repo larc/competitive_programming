@@ -70,9 +70,9 @@ void dfs(const int & u, int & i)
 		{
 			parent[v] = u;
 			level[v] = level[u] + 1;
-			
+
 			update_factors(v);
-			
+
 			dfs(v, i);
 			euler[i++] = u;
 		}
@@ -82,7 +82,7 @@ void init_st(const int & m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
-	
+
 	int k;
 	for(int i = 1; (1 << i) <= m; ++i)
 	{
@@ -99,7 +99,7 @@ void init_st(const int & m)
 int lca(int a, int b)
 {
 	if(idx[b] < idx[a]) return lca(b, a);
-	
+
 	a = idx[a];
 	b = idx[b];
 	int k = log2(b - a + 1);
@@ -107,7 +107,7 @@ int lca(int a, int b)
 	const int & i = st[k][a];
 	const int & j = st[k][b - (1 << k) + 1];
 
-	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];	
+	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];
 }
 
 ll query(const int & u, const int & v)
@@ -120,7 +120,7 @@ ll query(const int & u, const int & v)
 
 	for(auto & p: factors[u])
 		F[p.first] += p.second - factors[w][p.first];
-	
+
 	for(auto & p: factors[v])
 		F[p.first] += p.second - factors[pw][p.first];
 
@@ -147,7 +147,7 @@ int main()
 			G[u].push_back(v);
 			G[v].push_back(u);
 		}
-		
+
 		for(int i = 1; i <= n; ++i)
 			scanf("%lld", A + i);
 
@@ -163,7 +163,7 @@ int main()
 			scanf("%d %d", &u, &v);
 			printf("%lld\n", query(u, v));
 		}
-		
+
 		for(int i = 1; i <= n; ++i)
 			G[i].clear();
 	}

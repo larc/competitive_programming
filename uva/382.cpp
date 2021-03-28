@@ -10,11 +10,11 @@ int perfect_number(const int & n)
 
 	int sum = 1;
 	for(int i = 2; i < sq; ++i)
-		if(!(n % i)) sum += i + n / i; 
-	
+		if(!(n % i)) sum += i + n / i;
+
 	if(sq * sq == n) sum += sq;
 	else if(!(n % sq)) sum += sq + n / sq;
-	
+
 	if(sum == n) return 2;
 	return sum > n;
 }

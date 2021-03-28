@@ -14,7 +14,7 @@ int main()
 		{
 			case 'r': r = m > n ? n : m; break;
 			case 'k': r = (m * n + 1) >> 1; break;
-			case 'Q': 
+			case 'Q':
 				m = m < n ? m : n;
 				r = m > 4 ? m : Q[m];
 				break;

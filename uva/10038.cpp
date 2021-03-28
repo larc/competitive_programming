@@ -6,7 +6,7 @@ bool is_jolly(bool * seq, int n)
 {
 	while(--n)
 		if(!seq[n]) return 0;
-	
+
 	return 1;
 }
 
@@ -18,7 +18,7 @@ int main()
 	while(scanf("%d", &n) != EOF)
 	{
 		memset(seq, 0, sizeof(bool) * n);
-		
+
 		scanf("%d", &a);
 		for(int i = 1; i < n; ++i)
 		{

@@ -41,11 +41,11 @@ int main()
 		}
 
 		nx += 3;
-		
+
 		memset(str, '-', sizeof(str));
 		str[0] = '+';
 		str[nx] = 0;
-		
+
 		printf("Case #%d:\n", c);
 		for(y = maxy; y >= miny; y--)
 		{

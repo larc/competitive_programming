@@ -18,7 +18,7 @@ int main()
 			scanf("%d", &r);
 			for(int i = 0; i < r; ++i)
 				scanf("%d", idx + i);
-			
+
 			for(int i = 0; i < r; ++i)
 			{
 				scanf("%d", &val);
@@ -33,7 +33,7 @@ int main()
 			for(auto & p: matrix[i])
 				printf(" %d", p.first);
 			putchar('\n');
-			
+
 			for(auto & p: matrix[i])
 			{
 				printf("%d", p.second);

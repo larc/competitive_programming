@@ -22,7 +22,7 @@ struct pole_t
 	}
 	bool operator<(const pole_t & p)
 	{
-		if(p_sort) 
+		if(p_sort)
 		{
 			if(h == p.h)
 			{
@@ -58,7 +58,7 @@ int main()
 		}
 
 		sort(poles, poles + n);
-			
+
 		height = poles[0].z;
 		for(int i = 1; i < n; ++i)
 		{
@@ -84,7 +84,7 @@ int main()
 		else printf("All the lights are visible.\n");
 
 	}
-	
+
 	delete [] poles;
 	return 0;
 }

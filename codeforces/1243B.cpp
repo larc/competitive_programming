@@ -7,7 +7,7 @@ int diff(const char * s, const char * t, int i)
 	for(; s[i]; ++i)
 		if(s[i] != t[i])
 			break;
-	
+
 	return i;
 }
 
@@ -22,7 +22,7 @@ int main()
 		scanf("%d", &n);
 		scanf("%s", s);
 		scanf("%s", t);
-		
+
 		a = diff(s, t, 0);
 		b = diff(s, t, a + 1);
 
@@ -31,7 +31,7 @@ int main()
 		else if(s[a] == s[b] && t[a] == t[b])
 			printf("YES\n");
 		else printf("NO\n");
-				
+
 	}
 	return 0;
 }

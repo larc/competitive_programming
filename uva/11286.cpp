@@ -7,12 +7,12 @@
 struct combination
 {
 	int course[5];
-	
+
 	const int & operator[](const int & i) const
 	{
 		return course[i];
 	}
-	
+
 	int & operator[](const int & i)
 	{
 		return course[i];
@@ -28,7 +28,7 @@ bool operator < (const combination & a, const combination & b)
 {
 	for(int i = 0; i < 5; ++i)
 		if(a[i] != b[i]) return a[i] < b[i];
-	
+
 	return 0;
 }
 

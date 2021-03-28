@@ -18,7 +18,7 @@ struct edge_t
 struct union_find
 {
 	int comp[N];
-	
+
 	void init(const int & n)
 	{
 		for(int i = 1; i <= n; ++i)
@@ -65,17 +65,17 @@ int main()
 			kxyz = ixyz(x, y, z);
 			exy[i].u = mxy[kxy] ? mxy[kxy] : mxy[kxy] = ++nxy;
 			exyz[i].u = mxyz[kxyz] ? mxyz[kxyz] : mxyz[kxyz] = ++nxyz;
-			
+
 			scanf("%d %d %d", &x, &y, &z);
 			kxy = ixy(x, y);
 			kxyz = ixyz(x, y, z);
 			exy[i].v = mxy[kxy] ? mxy[kxy] : mxy[kxy] = ++nxy;
 			exyz[i].v = mxyz[kxyz] ? mxyz[kxyz] : mxyz[kxyz] = ++nxyz;
-			
+
 			if(XY[{exy[i].u, exy[i].v}]) exy[i].u = exy[i].v = 0;
 			else XY[{exy[i].u, exy[i].v}] = XY[{exy[i].v, exy[i].u}] = 1;
 		}
-		
+
 		ufxyz.init(nxyz);
 		ufxy.init(nxy);
 

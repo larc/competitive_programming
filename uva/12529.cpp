@@ -8,7 +8,7 @@
 struct union_find
 {
 	int comp[4 * N * N + 2 * N];
-	
+
 	void init(const int & m)
 	{
 		for(int i = 0; i < m; ++i)
@@ -34,7 +34,7 @@ struct union_find
 	{
 		x = find(x);
 		y = find(y);
-		
+
 		if(x == y) return 0;
 
 		comp[y] = x;
@@ -53,7 +53,7 @@ int main()
 		n <<= 1;
 		m = n + n * n;
 		uf.init(m);
-		
+
 		for(int i = 0; i + 1 < n; ++i)
 		{
 			scanf("%s", barriers);

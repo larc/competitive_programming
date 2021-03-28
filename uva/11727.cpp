@@ -12,9 +12,9 @@ int main()
 			r = x < z ? x : z;
 		else if(x <= y && x <= z)
 			r = y < z ? y : z;
-		else	
+		else
 			r = x < y ? x : y;
-	
+
 		printf("Case %d: %d\n", i, r);
 	}
 

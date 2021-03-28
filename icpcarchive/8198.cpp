@@ -18,7 +18,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 {
 	if(visited[u]) return 0;
 	visited[u] = 1;
-	
+
 	int v;
 	for(int i = 0; i < size[u]; ++i)
 	{
@@ -30,7 +30,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 			return 1;
 		}
 	}
-	
+
 	return 0;
 }
 
@@ -43,12 +43,12 @@ int main()
 	{
 		if(i < 0 || i >= r) return;
 		if(j < 0 || j >= c) return;
-		
+
 		v = pos(i, j);
 		G[u][size[u]++] = v;
-		
+
 		if(cell[i][j] == 'o') return;
-		
+
 		G[u][size[u]++] = v + 1;
 	};
 
@@ -58,7 +58,7 @@ int main()
 
 		for(int i = 0; i < r; ++i)
 			scanf("%s", cell[i]);
-		
+
 		n = 0;
 		for(int i = 0; i < r; ++i)
 		for(int j = 0; j < c; ++j)
@@ -68,27 +68,27 @@ int main()
 			if((i + j) & 1)
 			{
 				u = pos(i, j);
-				add_edge(i - 1, j);		
-				add_edge(i + 1, j);		
-				add_edge(i, j - 1);		
+				add_edge(i - 1, j);
+				add_edge(i + 1, j);
+				add_edge(i, j - 1);
 				add_edge(i, j + 1);
 
 				if(cell[i][j] != 'o')
 				{
 					u++;
-					add_edge(i - 1, j);		
-					add_edge(i + 1, j);		
-					add_edge(i, j - 1);		
-					add_edge(i, j + 1);		
+					add_edge(i - 1, j);
+					add_edge(i + 1, j);
+					add_edge(i, j - 1);
+					add_edge(i, j + 1);
 				}
 			}
 		}
-		
+
 		if(n & 1) printf("N\n");
 		else
 		{
 			memset(match, -1, sizeof(match));
-			
+
 			mcbm = 0;
 			for(int i = 0; i < r; ++i)
 			for(int j = 0; j < c; ++j)
@@ -96,10 +96,10 @@ int main()
 				if((i + j) & 1)
 				{
 					u = pos(i, j);
-					
+
 					memset(visited, 0, sizeof(visited));
 					mcbm += augmenting_path(u);
-					
+
 					if(cell[i][j] != 'o')
 					{
 						memset(visited, 0, sizeof(visited));

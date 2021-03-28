@@ -18,7 +18,7 @@ int main()
 	while(n--)
 	{
 		scanf(" %c", &c);
-		if(c == '-') 
+		if(c == '-')
 		{
 			printf("%d\n", q.front());
 			q.pop();

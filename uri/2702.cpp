@@ -7,7 +7,7 @@ int main()
 {
 	int ca, ba, pa, cr, br, pr;
 	int num;
-	
+
 	while(scanf("%d %d %d", &ca, &ba, &pa) != EOF)
 	{
 		scanf("%d %d %d", &cr, &br, &pr);

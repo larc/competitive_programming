@@ -18,11 +18,11 @@ int sum_it_up(const int & n, const int & s, const int & p, int i)
 		i = sprintf(sum, "%d", seq[0]);
 		for(int j = 1; j < p; ++j)
 			i += sprintf(sum + i, "+%d", seq[j]);
-		
+
 		if(sums.insert(sum).second) printf("%s\n", sum);
 		return 1;
 	}
-	
+
 	int count = 0;
 	for(; i < n; ++i)
 		if(num[i] <= s)
@@ -30,7 +30,7 @@ int sum_it_up(const int & n, const int & s, const int & p, int i)
 			seq[p] = num[i];
 			count += sum_it_up(n, s - seq[p], p + 1, i + 1);
 		}
-	
+
 	return count;
 }
 

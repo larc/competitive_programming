@@ -49,7 +49,7 @@ int main()
 			}
 		}
 	}
-	
+
 	printf("%lu\n", lightsabers[!c].size() + lightsabers[c].size());
 
 	n = lightsabers[!c].size();
@@ -58,7 +58,7 @@ int main()
 		printf("%d ", lightsabers[!c].front());
 		lightsabers[!c].pop_front();
 	}
-	
+
 	n = lightsabers[c].size();
 	while(n--)
 	{
@@ -67,7 +67,7 @@ int main()
 
 		if(n) printf(" ");
 	}
-	
+
 	printf("\n");
 
 	return 0;

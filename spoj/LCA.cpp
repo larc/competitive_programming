@@ -31,7 +31,7 @@ void init_st(const int & m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
-	
+
 	int k;
 	for(int i = 1; (1 << i) <= m; ++i)
 	{
@@ -49,13 +49,13 @@ int rmq(const int & a, const int & b)
 {
 	if(a == b) return euler[a];
 	if(b < a) return rmq(b, a);
-	
+
 	int k = log2(b - a + 1);
 
 	const int & i = st[k][a];
 	const int & j = st[k][b - (1 << k) + 1];
 
-	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];	
+	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];
 }
 
 int main()
@@ -78,7 +78,7 @@ int main()
 				level[G[i][size[i]++]]++;
 			}
 		}
-		
+
 		root = 1;
 		while(root <= n && level[root]) root++;
 

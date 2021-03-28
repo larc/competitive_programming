@@ -25,11 +25,11 @@ int main()
 			webs[pr][S[pr]++] = web;
 			if(pr > max) max = pr;
 		}
-		
+
 		cout << "Case #" << ++c << ":" << endl;
 		for(int i = 0; i < S[max]; ++i)
 			cout << webs[max][i] << endl;
-		
+
 	}
 
 	return 0;

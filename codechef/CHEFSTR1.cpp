@@ -10,7 +10,7 @@ int main()
 	{
 		scanf("%d", &n);
 		scanf("%d", S + i);
-		
+
 		n_str = -(--n);
 		while(n--)
 		{
@@ -18,7 +18,7 @@ int main()
 			scanf("%d", S + i);
 			n_str += std::max(S[i] - S[!i], S[!i] - S[i]);
 		}
-		
+
 		printf("%d\n", n_str);
 	}
 

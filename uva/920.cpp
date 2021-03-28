@@ -6,7 +6,7 @@ struct point_t
 {
 	double x;
 	double y;
-	
+
 	bool operator < (const point_t & p)
 	{
 		return x < p.x;
@@ -41,7 +41,7 @@ int main()
 			scanf("%lf %lf", &points[i].x, &points[i].y);
 
 		std::sort(points, points + n);
-		
+
 		sum = 0;
 		ymax = 0;
 		for(int i = n - 2; i >= 0; i -= 2)

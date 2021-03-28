@@ -19,12 +19,12 @@ float bfs(int u)
 
 	std::queue<int> q;
 	q.push(u);
-	
+
 	while(!q.empty())
 	{
 		u = q.front();
 		q.pop();
-		
+
 		for(int i = 0; i < size[u]; ++i)
 		{
 			v = G[u][i];
@@ -53,7 +53,7 @@ int main()
 			G[a][size[a]++] = b;
 		}
 		while(scanf("%d %d", &a, &b), a && b);
-		
+
 		sum = 0; m = 0;
 		for(int i = 1; i <= 100; ++i)
 		{

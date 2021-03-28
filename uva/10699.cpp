@@ -19,7 +19,7 @@ int main()
 				not_prime[j] = 1;
 		}
 
-	
+
 	int n, m, p;
 	while(scanf("%d", &n), n)
 	{

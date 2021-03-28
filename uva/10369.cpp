@@ -38,12 +38,12 @@ void prim(const int & p)
 
 	int i, j;
 	std::priority_queue<edge_t> q;
-	
+
 	i = 0;
 	visited[i] = 1;
 	for(j = 1; j < p; ++j)
 		q.push({i, j});
-	
+
 	int d = 0;
 	while(!q.empty())
 	{
@@ -54,7 +54,7 @@ void prim(const int & p)
 		if(!visited[j])
 		{
 			visited[j] = 1;
-			
+
 			dt[d++] = D[i][j];
 
 			for(i = 0; i < p; ++i)
@@ -78,7 +78,7 @@ int main_prim() // 0.090 c++11
 		for(int i = 0; i < p; ++i)
 		for(int j = i + 1; j < p; ++j)
 			D[i][j] = D[j][i] = C[i].norm(C[j]);
-		
+
 		prim(p);
 		std::sort(dt, dt + p - 1);
 		printf("%.2f\n", sqrt(dt[p - s - 1]));
@@ -131,7 +131,7 @@ float kruskal(const int & p, int e, int s)
 	edge_t edge;
 	float d = 0;
 	while(e-- && s)
-	{	
+	{
 		edge = E[e];
 		if(union_s(edge.a, edge.b))
 		{
@@ -153,7 +153,7 @@ int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue versi
 		scanf("%d %d", &s, &p);
 		for(int i = 0; i < p; ++i)
 			scanf("%f %f", &C[i].x, &C[i].y);
-		
+
 		//e = 0;
 		std::priority_queue<edge_t> q;
 		for(int i = 0; i < p; ++i)
@@ -166,7 +166,7 @@ int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue versi
 
 		for(int i = 0; i < p; ++i) // initialization union find
 			S[i] = i;
-		
+
 		//printf("%.2f\n", kruskal(p, e, p - s));
 		printf("%.2f\n", kruskal(p, q, p - s));
 	}

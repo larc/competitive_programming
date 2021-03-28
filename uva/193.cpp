@@ -23,7 +23,7 @@ void max_independent_set(const int & u, const int & idx)
 		}
 		return;
 	}
-	
+
 	if(!color[u])
 	{
 		for(int i = 0; i < size[u]; ++i)
@@ -31,10 +31,10 @@ void max_independent_set(const int & u, const int & idx)
 			const int & v = G[u][i];
 			if(!color[v]) color[v] = u;
 		}
-		
+
 		tmp_black[idx] = u;
 		max_independent_set(u - 1, idx + 1);
-		
+
 		for(int i = 0; i < size[u]; ++i)
 		{
 			const int & v = G[u][i];
@@ -61,7 +61,7 @@ int main()
 			G[u][size[u]++] = v;
 			G[v][size[v]++] = u;
 		}
-		
+
 		memset(color, 0, sizeof(color));	// 0 if can be black
 
 		n_vblack = 0;

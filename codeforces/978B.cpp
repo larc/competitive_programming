@@ -14,7 +14,7 @@ int main()
 		if(str[i] == 'x' && str[i + 1] == 'x' && str[i + 2] == 'x')
 			m++;
 	}
-	
+
 	printf("%d\n", m);
 
 	return 0;

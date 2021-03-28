@@ -5,7 +5,7 @@ int main()
 {
 	int mod[100] = {};
 	int n, k, d, max;
-	
+
 	scanf("%d %d", &n, &k);
 	while(n--)
 	{

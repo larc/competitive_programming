@@ -35,7 +35,7 @@ int from_base_10(int n, const int & b)
 
 	if(!n)
 	{
-		num[6] = '0'; 
+		num[6] = '0';
 		return 6;
 	}
 
@@ -54,7 +54,7 @@ int from_base_10(int n, const int & b)
 int main()
 {
 	int b_in, b_out, n, i;
-	
+
 	while(scanf("%s %d %d", num, &b_in, &b_out) != EOF)
 	{
 		n = to_base_10(num, b_in);

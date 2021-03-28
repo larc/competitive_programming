@@ -19,7 +19,7 @@ void dijkstra(vector<conn_t> * G, unsigned int * dist, int u)
 
 	priority_queue<conn_t, vector<conn_t>, greater<conn_t> > q;
 	q.push({0, u});
-	
+
 	while(!q.empty())
 	{
 		u = q.top().second; q.pop();
@@ -44,7 +44,7 @@ int main()
 	unsigned int sd[N], td[N];
 
 	int n_cases, n, m, s, t, p, u, v, w;
-	
+
 	scanf("%d", &n_cases);
 	while(n_cases--)
 	{
@@ -55,7 +55,7 @@ int main()
 			sG[u].push_back({w, v});
 			tG[v].push_back({w, u});
 		}
-		
+
 		memset(sd, -1, sizeof(sd));
 		memset(td, -1, sizeof(td));
 		dijkstra(sG, sd, s);
@@ -69,7 +69,7 @@ int main()
 			w = sd[u] + td[v] + c.first;
 			if(sd[u] != -1 && td[v] != -1 && w <= p && c.first > t) t = c.first;
 		}
-		
+
 		printf("%d\n", t);
 
 		for(u = 1; u <= n; ++u)

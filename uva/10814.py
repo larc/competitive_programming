@@ -13,7 +13,7 @@ while n > 0:
 	n -= 1
 
 	line = input().split()
-	
+
 	a = int(line[0])
 	b = int(line[2])
 	d = gcd(a, b)

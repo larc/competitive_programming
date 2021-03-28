@@ -19,7 +19,7 @@ int main()
 
 		std::sort(head, head + n);
 		std::sort(knight, knight + m);
-		
+
 		p = i = j = 0;
 		while(i < n && j < m)
 		{

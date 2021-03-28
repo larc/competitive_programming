@@ -20,7 +20,7 @@ void sieve_phi()
 	depth_phi[1] = 0;
 	for(int i = 2; i < N; ++i)
 		depth_phi[i] = 1 + depth_phi[phi[i]];
-	
+
 	for(int i = 2; i < N; ++i)
 		depth_phi[i] += depth_phi[i - 1];
 }
@@ -28,7 +28,7 @@ void sieve_phi()
 int main()
 {
 	sieve_phi();
-	
+
 	int c, m, n;
 	scanf("%d", &c);
 	while(c--)

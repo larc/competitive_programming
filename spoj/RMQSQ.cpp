@@ -10,7 +10,7 @@ void init_st(const int & n)
 {
 	for(int i = 0; i < n; ++i)
 		st[0][i] = i;
-	
+
 	int k;
 	for(int i = 1; (1 << i) <= n; ++i)
 	{
@@ -27,11 +27,11 @@ void init_st(const int & n)
 int rmq(const int & a, const int & b)
 {
 	if(b < a) return rmq(b, a);
-	
+
 	int k = log2(b - a + 1);
 	const int & i = st[k][a];
 	const int & j = st[k][b - (1 << k) + 1];
-	
+
 	return num[i] < num[j] ? num[i] : num[j];
 }
 
@@ -43,7 +43,7 @@ int main()
 	{
 		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
-		
+
 		init_st(n);
 
 		scanf("%d", &q);

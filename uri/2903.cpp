@@ -13,7 +13,7 @@ int main()
 {
 	int x, y;
 	scanf("%d.%d", &x, &y);
-	
+
 	x = x * 100 + y;
 	printf("%d\n", 36000 / gcd(36000, x));
 

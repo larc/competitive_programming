@@ -4,7 +4,7 @@ int main()
 {
 	int v, d, first;
 	int num[10], min;
-	
+
 	scanf("%d", &v);
 
 	min = 0;
@@ -42,7 +42,7 @@ int main()
 		}
 		else first = 1;
 	}
-	
+
 	while(d--) putchar(min + '0');
 	putchar('\n');
 

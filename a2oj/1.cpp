@@ -1,4 +1,4 @@
-// 1. Omar 
+// 1. Omar
 
 #include <cstdio>
 

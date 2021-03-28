@@ -24,7 +24,7 @@ int main()
 		for(int i = 0; i < n; ++i)
 		{
 			std::pair<int, int> & p = res[i];
-		
+
 			while(!q.empty() && p.first > -q.top() + m)
 				q.pop();
 
@@ -33,7 +33,7 @@ int main()
 				q.pop();
 			}
 			else unlcks++;
-			
+
 			q.push(-(p.first + p.second));
 		}
 

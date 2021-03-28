@@ -21,7 +21,7 @@ int main()
 	{
 		if(ways[c] > 1)
 			printf("There are %lld ways to produce %d cents change.\n", ways[c], c);
-		else 
+		else
 			printf("There is only 1 way to produce %d cents change.\n", c);
 	}
 	return 0;

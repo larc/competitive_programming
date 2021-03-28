@@ -13,7 +13,7 @@ void sieve()
 	memset(not_prime, 0, sizeof(not_prime));
 	not_prime[0] = 1;
 	not_prime[1] = 1;
-	
+
 	int p = 0;
 	primes[p++] = 2;
 
@@ -37,7 +37,7 @@ int main()
 	while(scanf("%d", &n) && n)
 	{
 		for(a = 0; primes[a] < n; ++a)
-		{	
+		{
 			b = n - primes[a];
 			if(b % 2 && !not_prime[b]) break;
 		}

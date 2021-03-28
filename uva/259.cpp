@@ -30,15 +30,15 @@ int bfs()
 	std::queue<int> q;
 	q.push(s);
 	path[s] = 0;
-	
+
 	int u, v;
 	while(!q.empty())
 	{
 		u = q.front();
 		q.pop();
-		
+
 		if(u == t) break;
-		
+
 		for(v = 0; v < N; ++v)
 		{
 			if(G[u][v] > 0 && path[v] == -1)
@@ -61,7 +61,7 @@ int main()
 	{
 		memset(G, 0, sizeof(G));
 		memset(M, '_', sizeof(M));
-		
+
 		do
 		{
 			i = line[0] - 'A' + 1;
@@ -73,9 +73,9 @@ int main()
 
 		for(i = 27; i < t; ++i)
 			G[i][t] = 1;
-		
+
 		while(bfs());
-		
+
 		mf = 0;
 		for(i = 1; i < 27; ++i)
 			mf += G[s][i];

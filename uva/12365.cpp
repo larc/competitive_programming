@@ -46,7 +46,7 @@ int main()
 	long long b;
 	int n, i, j;
 	char str[2];
-	
+
 	while(scanf("%lld %d %d %d", &b, &p, &l, &n) && b)
 	{
 		memset(f, 0, sizeof(f));

@@ -12,11 +12,11 @@ int main()
 		{
 			scanf("%d", &b);
 
-			if(s < 0) s = 0;	
+			if(s < 0) s = 0;
 			s += b;
 			if(s > max) max = s;
 		}
-		
+
 
 		if(max) printf("The maximum winning streak is %d.\n", max);
 		else printf("Losing streak.\n");

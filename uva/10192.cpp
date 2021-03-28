@@ -16,7 +16,7 @@ int main()
 		fgets(B, N, stdin);
 
 		memset(table, 0, sizeof(table));
-		
+
 		n = strlen(A) - 1;
 		m = strlen(B) - 1;
 		for(int i = 0; i < n; ++i)
@@ -28,7 +28,7 @@ int main()
 			if(table[i + 1][j + 1] < table[i + 1][j])
 				table[i + 1][j + 1] = table[i + 1][j];
 		}
-		
+
 		printf("Case #%d: you can visit at most %d cities.\n", n_cases++, table[n][m]);
 	}
 

@@ -19,7 +19,7 @@ void print_lis(const int & i)
 }
 
 int main()
-{	
+{
 	int low, l_size, l_end, n;
 	l_size = l_end = n = 0;
 
@@ -38,7 +38,7 @@ int main()
 
 		n++;
 	}
-		
+
 	printf("%d\n", l_size);
 	printf("-\n");
 	print_lis(l_end);

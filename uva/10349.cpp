@@ -56,7 +56,7 @@ int main()
 		scanf("%d %d", &h, &w);
 		for(int i = 1; i <= h; ++i)
 			scanf("%s", A[i] + 1);
-		
+
 		memset(A[h + 1], 0, W);
 
 		mcbm = 0;

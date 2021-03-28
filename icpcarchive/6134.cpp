@@ -8,7 +8,7 @@ bool d[10];
 bool repeat_digits(int n)
 {
 	memset(d, 0, sizeof(d));
-	
+
 	int r;
 	while(n)
 	{
@@ -18,7 +18,7 @@ bool repeat_digits(int n)
 		if(d[r]) return 0;
 		d[r] = 1;
 	}
-	
+
 	return 1;
 }
 

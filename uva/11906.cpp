@@ -18,7 +18,7 @@ void dfs(const int & x, const int & y)
 	dfs(x - n, y + m);
 	dfs(x + n, y - m);
 	dfs(x - n, y - m);
-	
+
 	dfs(x + m, y + n);
 	dfs(x - m, y + n);
 	dfs(x + m, y - n);
@@ -41,7 +41,7 @@ int main()
 			scanf("%d %d", &x, &y);
 			grid[x][y] = -1;
 		}
-		
+
 		dfs(0, 0); grid[0][0]--;
 
 		x = y = 0;
@@ -53,7 +53,7 @@ int main()
 				x += !(grid[i][j] & 1);
 				y += grid[i][j] & 1;
 			}
-		
+
 		if(!x && !y) x = 1;
 		printf("Case %d: %d %d\n", ic, x, y);
 	}

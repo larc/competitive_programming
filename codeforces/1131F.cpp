@@ -47,7 +47,7 @@ int main()
 		scanf("%d %d", &a, &b);
 		join(a, b);
 	}
-	
+
 	for(a = 1; a <= n; ++a)
 		if(comp[a] == a) break;
 

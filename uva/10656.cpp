@@ -17,7 +17,7 @@ int main()
 			scanf("%d", &num);
 			if(num) seq[s++] = num;
 		}
-		
+
 		s--;
 		for(int i = 0; i < s; ++i)
 			printf("%d ", seq[i]);

@@ -16,7 +16,7 @@ int main()
 		{
 			for(int i = 2; i <= n; ++i)
 				scanf("%d", &order[i]);
-			
+
 			c = 1;
 			stack<int> s;
 			for(int i = 1; i <= n; ++i)
@@ -27,7 +27,7 @@ int main()
 				if(!s.empty() && s.top() == order[i])
 					s.pop();
 			}
-			
+
 			if(s.empty()) printf("Yes\n");
 			else printf("No\n");
 		}

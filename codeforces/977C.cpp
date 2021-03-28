@@ -10,9 +10,9 @@ int main()
 	scanf("%d %d", &n, &k);
 	for(int i = 0; i < n; ++i)
 		scanf("%d", seq + i);
-	
+
 	std::sort(seq, seq + n);
-	
+
 	if(k == n) printf("%d\n", seq[n - 1]);
 	else if(k && k < n && seq[k - 1] < seq[k])
 		printf("%d\n", seq[k - 1]);

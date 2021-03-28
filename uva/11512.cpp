@@ -64,7 +64,7 @@ int lrs(trie * t)
 			m = l;
 			t->next = i;
 		}
-	
+
 	return m + 1;
 }
 
@@ -92,7 +92,7 @@ int main()
 
 		c = seq;
 		while(*c != '\0') insert(c++);
-		
+
 		m = 0;
 		for(int i = 0; i < 4; ++i)
 			if((l = lrs(&tree[i])) > m)
@@ -100,7 +100,7 @@ int main()
 				m = l;
 				k = i;
 			}
-		
+
 		if(!m) printf("No repetitions found!\n");
 		else
 		{

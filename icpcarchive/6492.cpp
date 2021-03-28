@@ -14,7 +14,7 @@ bool visited[N];
 bool aug(const int & u)
 {
 	if(visited[u]) return 0;
-	
+
 	visited[u] = 1;
 	for(int i = 0; i < size[u]; ++i)
 	{
@@ -33,7 +33,7 @@ int main()
 {
 	char name[64], lastname[64];
 	int n, u, v;
-	
+
 	while(scanf("%d", &n) && n)
 	{
 		memset(exist, 0, sizeof(exist));
@@ -43,13 +43,13 @@ int main()
 		while(n--)
 		{
 			scanf("%s %s", name, lastname);
-			
+
 			u = *name - 'A';
 			v = *lastname - 'A';
 			exist[u] = 1;
 			G[u][size[u]++] = v;
 		}
-	
+
 		n = 0;
 		for(u = 0; u < N; ++u)
 		{

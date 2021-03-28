@@ -17,7 +17,7 @@ int main()
 			for(int j = 1; j <= 3; ++j)
 				g[i][j] -= '0';
 		}
-		
+
 		r = -1;
 		while(true)
 		{
@@ -28,7 +28,7 @@ int main()
 				c += g[i][j];
 				h[i][j] = (g[i - 1][j] + g[i + 1][j] + g[i][j + 1] + g[i][j - 1]) & 1;
 			}
-			
+
 			memcpy(g, h, sizeof(g));
 
 			if(!c) break;

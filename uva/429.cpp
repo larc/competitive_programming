@@ -17,16 +17,16 @@ int level[N];
 int bfs(int u, const int & v)
 {
 	memset(level, -1, sizeof(level));
-	
+
 	level[u] = 0;
 	queue<int> q;
 	q.push(u);
-	
+
 	while(!q.empty())
 	{
 		u = q.front();
 		q.pop();
-		
+
 		if(u == v) return level[v];
 		for(int i = 0; i < size[u]; ++i)
 		{
@@ -49,7 +49,7 @@ bool compare(const string & wa, const string & wb)
 	int c = 0;
 	for(int i = 0; i < wa.size(); ++i)
 		if(wa[i] != wb[i]) c++;
-	
+
 	return c == 1;
 }
 
@@ -60,7 +60,7 @@ int main()
 
 	string words[N];
 	int n, n_cases;
-	
+
 	scanf("%d", &n_cases);
 	while(n_cases--)
 	{
@@ -81,7 +81,7 @@ int main()
 					G[n][size[n]++] = i;
 				}
 		}
-		
+
 		fgets(line, sizeof(line), stdin);
 		while(fgets(line, sizeof(line), stdin) && line[0] != '\n')
 		{

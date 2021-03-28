@@ -13,7 +13,7 @@ int main()
 		scanf("%d", a + i);
 		s[i] = i;
 	}
-	
+
 	std::sort(s + 1, s + n + 1, [&a](const int & i, const int & j) { return a[i] > a[j]; });
 
 	shots = 1;

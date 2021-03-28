@@ -17,7 +17,7 @@ int main()
 				n++;
 				letter[c] = 1;
 			}
-		
+
 		guess = 7;
 		while((c = getchar()) != '\n')
 			if(guess && n)
@@ -33,7 +33,7 @@ int main()
 					guess--;
 				}
 			}
-		
+
 		printf("Round %d\n", round);
 		if(!n) printf("You win.\n");
 		else if(!guess) printf("You lose.\n");

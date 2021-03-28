@@ -11,7 +11,7 @@ void rotate()
 	for(int i = 0; i < N; ++i)
 	for(int j = 0; j < N; ++j)
 		rgrid[N - j - 1][i] = grid[i][j];
-	
+
 	memcpy(grid, rgrid, sizeof(rgrid));
 }
 
@@ -22,12 +22,12 @@ int main()
 	for(int i = 0; i < N; ++i)
 	for(int j = 0; j < N; ++j)
 		scanf("%d", &grid[i][j]);
-	
+
 	scanf("%d", &n);
-	
+
 	for(int i = 0; i < n; ++i)
 		rotate();
-	
+
 	memset(rgrid, 0, sizeof(rgrid));
 	for(int i = 0; i < N; ++i)
 	{
@@ -36,7 +36,7 @@ int main()
 		{
 			if(grid[i][j])
 				rgrid[i][k++] = grid[i][j];
-			
+
 			grid[i][j] = 0;
 		}
 
@@ -51,11 +51,11 @@ int main()
 	n = (4 - n) % 4;
 	for(int i = 0; i < n; ++i)
 		rotate();
-	
+
 	for(int i = 0; i < N; ++i)
 	for(int j = 0; j < N; ++j)
 		printf("%d%c", grid[i][j], j == N - 1 ? '\n' : ' ');
-	
+
 	return 0;
 }
 

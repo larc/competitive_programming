@@ -61,7 +61,7 @@ int main()
 		printf("%d", card[1]);
 		for(int i = 2; i <= n; ++i)
 			printf(" %d", card[i]);
-		putchar('\n');	
+		putchar('\n');
 	}
 
 	return 0;

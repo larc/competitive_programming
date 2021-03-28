@@ -31,7 +31,7 @@ int main()
 					B[sb++][1] = j;
 				}
 		}
-		
+
 		max = 0;
 		for(int i = 0; i < sa; ++i)
 		{

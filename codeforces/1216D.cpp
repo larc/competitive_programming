@@ -21,7 +21,7 @@ int main()
 		scanf("%llu", a + i);
 		max = a[i] > max ? a[i] : max;
 	}
-	
+
 	for(int i = 0; i < n; ++i)
 		a[i] = max - a[i];
 
@@ -32,7 +32,7 @@ int main()
 	y = 0;
 	for(int i = 0; i < n; ++i)
 		y += a[i] / z;
-	
+
 	printf("%llu %llu\n", y, z);
 
 	return 0;

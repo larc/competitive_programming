@@ -6,7 +6,7 @@ using namespace std;
 int knights(int m, int n)
 {
 	if(m > n) swap(m, n);
-		
+
 	if(m == 1) return n;
 	if(m == 2) return ((n >> 2) << 2) + ((n &= 3) < 3 ? n << 1 : 4);
 	return (m * n + 1) >> 1;

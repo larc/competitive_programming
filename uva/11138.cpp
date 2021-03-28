@@ -16,7 +16,7 @@ int mcbm;
 bool aug(const int & b)
 {
 	if(visited[b]) return 0;
-	
+
 	visited[b] = 1;
 	for(int n = 0; n < nuts; ++n)
 		if(fits[b][n] && (match[n] == -1 || aug(match[n])))

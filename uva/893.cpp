@@ -16,7 +16,7 @@ int main()
 {
 	size_t p, d, m, y, dd, mm, yy, rd, rm;
 	while(scanf("%ld %ld %ld %ld", &p, &d, &m, &y) != EOF && p && d && m && y)
-	{	
+	{
 		yy = p/365;
 		p %= 365;
 		mm = p/30;

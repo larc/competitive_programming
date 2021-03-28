@@ -34,7 +34,7 @@ void init_st(const int & m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
-	
+
 	int k;
 	for(int i = 1; (1 << i) <= m; ++i)
 	{
@@ -51,13 +51,13 @@ void init_st(const int & m)
 int lca(const int & a, const int & b)
 {
 	if(b < a) return lca(b, a);
-	
+
 	int k = log2(b - a + 1);
 
 	const int & i = st[k][a];
 	const int & j = st[k][b - (1 << k) + 1];
 
-	return dist[euler[i]] < dist[euler[j]] ? euler[i] : euler[j];	
+	return dist[euler[i]] < dist[euler[j]] ? euler[i] : euler[j];
 }
 
 int main()
@@ -74,7 +74,7 @@ int main()
 
 			G[u].push_back(i);
 		}
-		
+
 		dfs(0, m = 0);
 		init_st(m);
 

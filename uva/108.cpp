@@ -6,17 +6,17 @@ int rec[101][101];
 int main()
 {
 	int n, i, j, k, max, d;
-	int dp; 
+	int dp;
 	while(scanf("%d", &n) != EOF)
 	{
 		for(i = 0; i < n; ++i)
 		for(j = 1; j <= n; ++j)
 			scanf("%d", &rec[i][j]);
-		
+
 		for(i = 0; i < n; ++i)
 		for(j = 1; j <= n; ++j)
 			rec[i][j] += rec[i][j - 1];
-		
+
 		max = rec[0][1];
 		for(i = 0; i < n; ++i)
 		for(j = i + 1; j <= n; ++j)

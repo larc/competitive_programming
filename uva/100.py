@@ -11,13 +11,13 @@ def cycle(n):
 			return 1 + cycle(3 * n + 1)
 		else:
 			return 1 + cycle(n / 2)
-	
+
 	if(C[int(n)] == 0):
 		if(n % 2):
 			C[int(n)] = 1 + cycle(3 * n + 1)
 		else:
 			C[int(n)] = 1 + cycle(n / 2)
-	
+
 	return C[int(n)]
 
 def max_cycle(i, j):
@@ -37,6 +37,6 @@ for line in sys.stdin:
 		c = max_cycle(a, b)
 	else:
 		c = max_cycle(b, a)
-	
+
 	print(a, b, c)
 

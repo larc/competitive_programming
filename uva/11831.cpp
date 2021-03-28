@@ -15,10 +15,10 @@ bool forward(int & i, int & j, const int & d)
 		return 0;
 	if(arena[i + x[d]][j + y[d]] == '#')
 		return 0;
-	
+
 	i += x[d];
 	j += y[d];
-	
+
 	if(arena[i][j] == '*')
 	{
 		arena[i][j] = '.';
@@ -32,7 +32,7 @@ int main()
 {
 	char str[50001];
 	int n, m, d, s, a, b;
-	
+
 	while(scanf("%d %d %d", &n, &m, &s) && n && m && s)
 	{
 		memset(arena, 0, sizeof(arena));

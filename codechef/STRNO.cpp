@@ -23,7 +23,7 @@ void sieve()
 int factors(int n)
 {
 	int r = 0;
-	
+
 	for(int i = 0; i < np && primes[i] * primes[i] <= n; ++i)
 		while(!(n % primes[i]))
 		{
@@ -39,7 +39,7 @@ int main()
 	sieve();
 
 	int n_cases, x, k;
-	
+
 	scanf("%d", &n_cases);
 	while(n_cases--)
 	{

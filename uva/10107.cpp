@@ -13,7 +13,7 @@ int main()
 		m = n / 2;
 		std::nth_element(vec, vec + m, vec + n);
 		if(n % 2) printf("%d\n", vec[m]);
-		else 
+		else
 		{
 			v = vec[m--];
 			std::nth_element(vec, vec + m, vec + n);

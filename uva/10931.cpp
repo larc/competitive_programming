@@ -19,7 +19,7 @@ int main()
 			if(n & 1) parity++;
 			n >>= 1;
 		}
-		
+
 		num[i] = 0;
 		std::reverse(num, num + i);
 		printf("The parity of %s is %d (mod 2).\n", num, parity);

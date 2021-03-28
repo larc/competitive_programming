@@ -18,7 +18,7 @@ void init()
 		S[i] = S[0] * i;
 		S[0] *= 10;
 	}
-	
+
 	P[16] = P[15] * 10;
 }
 
@@ -59,7 +59,7 @@ int main()
 
 	scanf("%d", &c);
 	while(c--)
-	{	
+	{
 		scanf("%lld %lld", &a, &b);
 		printf("%lld\n", sum(b) - sum(a) + digits(a));
 	}

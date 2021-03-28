@@ -1,4 +1,4 @@
-// 259. R2 
+// 259. R2
 
 #include <cstdio>
 

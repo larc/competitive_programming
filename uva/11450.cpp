@@ -25,7 +25,7 @@ int main()
 			for(int i = 1; i <= size(g); ++i)
 				scanf("%d", &price[g][i]);
 		}
-		
+
 		memset(reachable, 0, sizeof(reachable));
 		for(int i = 1; i <= size(0); ++i)
 			if(money - price[0][i] >= 0)

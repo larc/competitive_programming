@@ -13,7 +13,7 @@ def to_base_10(n, b):
 	return r
 
 def to_base(n, b):
-	
+
 	r = ''
 	while n >= b:
 		r = chr(ord('0') + n % b) + r
@@ -25,7 +25,7 @@ for line in sys.stdin:
 	linput = list(map(int, line.split()))
 	if linput[0] == 0:
 		break;
-	
+
 	b, p, m = linput
 
 	if b == 10:

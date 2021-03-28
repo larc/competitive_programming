@@ -125,7 +125,7 @@ int main()
 		scanf("%d", &mat[i][j]);
 
 	init(0, 0, size - 1);
-	
+
 	char str[2];
 	int q, x1, y1, x2, y2, val;
 	pii ans;

@@ -12,7 +12,7 @@ bool is_leap(const int & y)
 struct date_t
 {
 	int m, d, y;
-	
+
 	void init(const int & n = 0)
 	{
 		m = n / 1000000;
@@ -24,7 +24,7 @@ struct date_t
 	{
 		printf("%02d/%02d/%4d", m, d, y);
 	}
-	
+
 	int day()
 	{
 		if(m > 2 && is_leap(y)) return month[m - 1] + d + 1;
@@ -44,7 +44,7 @@ struct date_t
 			d %= 365;
 			y++;
 		}
-		
+
 		bool leap = is_leap(y);
 		for(m = 0; d > month[m] + (m >= 2 ? leap : 0); ++m);
 		if(m > 1) d %= month[m - 1] + ((m > 2) ? leap : 0);
@@ -56,8 +56,8 @@ struct date_t
 int d_sign [] = {0, 21, 20, 21, 21, 22, 22, 23, 22, 24, 24, 23, 23};
 
 const char * sign [] = {"capricorn",
-						"aquarius", 
-						"pisces", 
+						"aquarius",
+						"pisces",
 						"aries",
 						"taurus",
 						"gemini",
@@ -79,7 +79,7 @@ int main()
 	date_t d;
 	for(int i = 1; i <= 12; ++i)
 		month[i] += month[i - 1];
-	
+
 	int date, cases;
 	scanf("%d", &cases);
 	for(int c = 1; c <= cases; ++c)

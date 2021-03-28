@@ -27,7 +27,7 @@ int main()
 		}
 		while(i++ < n)
 			scanf("%d", &a);
-		
+
 		printf("%s\n", b ? "YES" : "NO");
 	}
 

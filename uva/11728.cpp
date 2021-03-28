@@ -25,7 +25,7 @@ int main()
 {
 	int c = 0;
 	int s;
-	
+
 	int sum_factors[N];
 	memset(sum_factors, 255, sizeof(sum_factors));
 	for(int i = 0; i < N; ++i)

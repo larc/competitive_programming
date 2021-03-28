@@ -5,10 +5,10 @@
 int main()
 {
 	char pwd[N * 50], cmd[4], path[N];
-	
+
 	int n, idx, i;
 	scanf("%d", &n);
-	
+
 	pwd[idx = 0] = 0;
 	while(n--)
 	{
@@ -28,14 +28,14 @@ int main()
 					while(idx >= 0 && pwd[idx] != '/') idx--;
 					idx++;
 				}
-				else 
+				else
 				{
 					while(path[i] && path[i] != '/')
 						pwd[idx++] = path[i++];
-				
+
 					pwd[idx++] = '/';
 				}
-				
+
 				if(path[i] == '/') i++;
 				pwd[idx] = 0;
 			}

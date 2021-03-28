@@ -12,7 +12,7 @@ int find(const int & s, const int & x)
 {
 	for(int i = 0; i < size[s]; ++i)
 		if(stack[s][i] == x) return i;
-	
+
 	return -1;
 }
 
@@ -40,14 +40,14 @@ int main()
 			stack[i][0] = i;
 			S[i] = i;
 		}
-		
+
 		while(scanf("%s", cmd), cmd[0] != 'q')
 		{
 			scanf("%d %s %d", &a, opt, &b);
-			
+
 			sa = S[a];
 			sb = S[b];
-			
+
 			if(a == b || sa == sb) continue;
 
 			ia = find(sa, a);
@@ -64,7 +64,7 @@ int main()
 				reset(ia, sa);
 				size[sa] = ia + 1;
 			}
-			
+
 
 			for(int j = ia; j < size[sa]; ++j)
 			{
@@ -75,7 +75,7 @@ int main()
 
 			size[sa] = ia;
 		}
-		
+
 		for(int i = 0; i < n; ++i)
 		{
 			printf("%d:", i);

@@ -45,12 +45,12 @@ void calc_all_fact()
 			}
 			k++;
 		}
-		
+
 		size[i] = size[i - 1] + k - 1 + (fact[i][size[i - 1] + k - 1] != 0);
 
 		to_char(fact[i - 1], size[i - 1]);
 	}
-	
+
 	to_char(fact[N - 1], size[N - 1]);
 }
 

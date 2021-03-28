@@ -12,10 +12,10 @@ int main()
 	while(q--)
 	{
 		scanf("%d %d %d %d", &a, &b, &n, &S);
-		
+
 		if(S / n <= a) S -= (S / n) * n;
 		else S -= a * n;
-		
+
 		if(S <= b) printf("YES\n");
 		else printf("NO\n");
 	}

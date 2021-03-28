@@ -8,8 +8,8 @@ int main()
 	scanf("%d", &n);
 	for(int i = 0; i < n; ++i)
 		scanf("%d", A + i);
-	
-	std::sort(A, A + n);	
+
+	std::sort(A, A + n);
 	m = n >> 1;
 
 	if(n & 1)  S[m] = A[n - 1];
@@ -18,7 +18,7 @@ int main()
 		S[i] = A[i << 1];
 		S[n - i - 1] = A[(i << 1) + 1];
 	}
-	
+
 	for(int i = 0; i < n; ++i)
 		printf("%d ", S[i]);
 	putchar('\n');

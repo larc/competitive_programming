@@ -10,7 +10,7 @@ inline bool is_eulerian()
 {
 	for(int i = 0; i < N; ++i)
 		if(size[i] & 1) return 0;
-	
+
 	return 1;
 }
 
@@ -31,7 +31,7 @@ void dfs(const int & u)
 int main()
 {
 	int t, n, u, v;
-	
+
 	int c = 0;
 	scanf("%d", &t);
 	while(t--)
@@ -48,11 +48,11 @@ int main()
 			size[u]++;
 			size[v]++;
 		}
-		
+
 		printf("Case #%d\n", ++c);
 		if(!is_eulerian()) printf("some beads may be lost\n");
 		else dfs(u);
-		
+
 		if(t) printf("\n");
 	}
 

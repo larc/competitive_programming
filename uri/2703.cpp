@@ -61,7 +61,7 @@ int kruskal(int n, const int & m)
 {
 	uf.init(n--);
 	std::priority_queue<edge_t> q(roads, roads + m);
-	
+
 	edge_t e;
 	int cost = 0;
 	while(!q.empty() && n)
@@ -105,7 +105,7 @@ struct RMQ_LCA
 	{
 		int k = log2(j - i + 1);
 		if(A[ST[i][k]] < A[ST[j - (1 << k) + 1][k]])
-			return ST[i][k]; 
+			return ST[i][k];
 
 		return ST[j - (1 << k) + 1][k];
 	}
@@ -121,7 +121,7 @@ void dfs(const int & u, const int & level)
 	H[u] = idx;
 	E[idx] = u;
 	L[idx++] = level;
-	
+
 	heavy[u] = -1;
 	for(const pii & p: T[u])
 	{
@@ -131,7 +131,7 @@ void dfs(const int & u, const int & level)
 			dfs(v, level + 1);
 			if(heavy[u] == -1 || size_tree[heavy[u]] < size_tree[v])
 				heavy[u] = v;
-		
+
 			E[idx] = u;
 			L[idx++] = level;
 		}
@@ -151,7 +151,7 @@ void dfs(const int & u)
 
 int lca(const int & u, const int & v)
 {
-	return H[u] < H[v] ? E[rmq.query(H[u], H[v])] : E[rmq.query(H[v], H[u])]; 
+	return H[u] < H[v] ? E[rmq.query(H[u], H[v])] : E[rmq.query(H[v], H[u])];
 }
 
 struct path_t
@@ -159,7 +159,7 @@ struct path_t
 	int * P;
 	int size;
 	int root;
-	
+
 	void init(int * p, int r)
 	{
 		P = p;
@@ -233,7 +233,7 @@ struct RMQ
 	{
 		int k = log2(j - i + 1);
 		if(A[ST[i + d][k] + d] > A[ST[j - (1 << k) + 1 + d][k] + d])
-			return A[ST[i + d][k] + d]; 
+			return A[ST[i + d][k] + d];
 
 		return A[ST[j - (1 << k) + 1 + d][k] + d];
 	}
@@ -245,10 +245,10 @@ const int * RMQ::A = pedges;
 int max_edge_path(const int & v, const int & u)
 {
 	if(v == u) return 0;
-	
+
 	int & p = pbase[v];
 	if(p == pbase[u]) return prmq.query(pindex[u] + 1, pindex[v], paths[p].P - pedges);
-	
+
 	return std::max(prmq.query(0, pindex[v], paths[p].P - pedges), max_edge_path(paths[p].root, u));
 }
 
@@ -272,17 +272,17 @@ int main()
 		}
 
 		cost = kruskal(n, m);
-		
+
 		// find the longest path
 		dfs(1);
-		
+
 		u = 0;
 		for(int i = 1; i < n_leaves; ++i)
 			if(L[H[leaves[u]]] < L[H[leaves[i]]]) u = i;
-		
+
 		u = leaves[u];
 		dfs(u);
-		
+
 		// init RMQ for LCA
 		rmq.init(L, idx);
 
@@ -303,7 +303,7 @@ int main()
 			printf("%d\n", cost + G[u][v] - std::max(max_edge_path(u, w), max_edge_path(v, w)));
 		}
 	}
-	
+
 	return 0;
 }
 

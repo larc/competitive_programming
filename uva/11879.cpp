@@ -10,7 +10,7 @@ bool mult_17(char * num, int n)
 
 	char s = (num[--n] - '0') * 5;
 	char d, r = 0;
-	
+
 	for(int i = n - 1; i >= 0; i--)
 	{
 		if(!s && !r) break;
@@ -28,7 +28,7 @@ bool mult_17(char * num, int n)
 		num[i] -= d - '0';
 		s /= 10;
 	}
-		
+
 	d = num[0] == '0';
 	num[n] = 0;
 	return mult_17(num + d, n - d);

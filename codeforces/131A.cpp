@@ -5,7 +5,7 @@ bool switched(char * c)
 	while(*++c != '\0')
 		if('a' <= *c && *c <= 'z')
 			return 0;
-	
+
 	return 1;
 }
 
@@ -13,7 +13,7 @@ int main()
 {
 	char word[101];
 	scanf("%s", word);
-	
+
 	if(switched(word))
 	{
 		for(int i = 0; word[i] != '\0'; ++i)

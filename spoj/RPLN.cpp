@@ -12,7 +12,7 @@ void init_st(int n)
 {
 	for(int j = 1; j <= n; ++j)
 		st[0][j] = scores[j];
-	
+
 	for(int i = 1, k = 2; k <= n; i++, k = 1 << i)
 	for(int j = 1; j + k - 1 <= n; ++j)
 		st[i][j] = std::min(st[i - 1][j], st[i - 1][j + (k >> 1)]);

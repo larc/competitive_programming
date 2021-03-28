@@ -5,11 +5,11 @@ int main()
 {
 	std::vector<int> four; four.reserve(100);
 	std::vector<int> two; two.reserve(20);
-	
+
 	int M[20][20] = {};
 	int count[1001] = {};
 	int n, m, a;
-	
+
 	scanf("%d", &n);
 	for(int i = 0; i < n * n; ++i)
 	{
@@ -36,7 +36,7 @@ int main()
 				printf("NO\n");
 				return 0;
 			}
-			else M[m][m] = i; 
+			else M[m][m] = i;
 	}
 
 	if(four.size() != m * m || ((n & 1) && (two.size() != m << 1 || !M[m][m])))
@@ -44,7 +44,7 @@ int main()
 		printf("NO\n");
 		return 0;
 	}
-	
+
 	printf("YES\n");
 
 	a = 0;
@@ -57,7 +57,7 @@ int main()
 		M[n - i - 1][n - j - 1] = four[a];
 		a++;
 	}
-	
+
 	if(n & 1)
 	{
 		a = 0;
@@ -67,7 +67,7 @@ int main()
 			M[i][m] = M[n - i - 1][m] = two[a++];
 		}
 	}
-	
+
 	for(int i = 0; i < n; ++i)
 	{
 		for(int j = 0; j < n; ++j)

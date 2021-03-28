@@ -20,7 +20,7 @@ void bfs(int start, map <int, vector<int> > & graph)
 		size = graph[top].size();
 		for(i = 0; i < size; ++i)
 		{
-			n = graph[top][i]; 
+			n = graph[top][i];
 			if(!visited.count(n))
 			{
 				visited[n] = visited[top] + 1;
@@ -37,7 +37,7 @@ int main()
 
 	while(scanf("%d", &nods) && nods)
 	{
-		map <int,vector<int> > graph; 
+		map <int,vector<int> > graph;
 		while(nods--)
 		{
 			scanf("%d %d", &a, &b);
@@ -50,15 +50,15 @@ int main()
 			visited.clear();
 			bfs(start, graph);
 			result = 0;
-	
+
 			for(auto itr: visited)
 				if( itr.second > ttl) ++result;
 
 			result += graph.size() - visited.size();
 
-			printf("Case %d: %d nodes not reachable from node %d with TTL = %d.\n", cases, result, start, ttl); 
-			cases++; 
-		}					 
+			printf("Case %d: %d nodes not reachable from node %d with TTL = %d.\n", cases, result, start, ttl);
+			cases++;
+		}
 	}
 
 	return 0;

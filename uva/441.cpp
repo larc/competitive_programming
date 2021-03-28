@@ -24,7 +24,7 @@ int main()
 	{
 		for(int i = k - 1; i >= 0; i--)
 			scanf("%d", S + i);
-		
+
 		n = 63 << (k - 6);
 		while(n >= 63)
 		{

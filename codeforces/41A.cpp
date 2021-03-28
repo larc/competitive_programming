@@ -7,7 +7,7 @@ int main()
 {
 	string sword, tword;
 	cin >> sword >> tword;
-	
+
 	bool ok = sword.size() == tword.size();
 
 	if(ok)
@@ -19,7 +19,7 @@ int main()
 				break;
 			}
 	}
-	
+
 	if(ok) printf("YES\n");
 	else printf("NO\n");
 

@@ -13,18 +13,18 @@ int main()
 	int size[N];
 	int wake_time[N];
 	int waked_conn[N];
-	
+
 	int n, m, time;
 	char str[4];
-	
+
 	while(scanf("%d %d", &n, &m) != EOF)
 	{
 		memset(wake_time, -1, sizeof(wake_time));
 		memset(waked_conn, 0, sizeof(waked_conn));
 		memset(size, 0, sizeof(size));
-		
+
 		std::queue<int> q;
-		
+
 		scanf("%s", str);
 		wake_time[idx(0)] = 0; q.push(idx(0));
 		wake_time[idx(1)] = 0; q.push(idx(1));
@@ -36,7 +36,7 @@ int main()
 			G[idx(0)][size[idx(0)]++] = idx(1);
 			G[idx(1)][size[idx(1)]++] = idx(0);
 		}
-	
+
 		time = 0; n -= 3;
 		while(!q.empty())
 		{
@@ -58,7 +58,7 @@ int main()
 				}
 			}
 		}
-		
+
 		if(!n) printf("WAKE UP IN, %d, YEARS\n", time);
 		else printf("THIS BRAIN NEVER WAKES UP\n");
 	}

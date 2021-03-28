@@ -24,7 +24,7 @@ int main()
 
 		for(int i = 2; i < n; ++i)
 			m = gcd(m, num[i] - num[i - 1]);
-		
+
 		printf("%d\n", m < 0 ? -m : m);
 	}
 

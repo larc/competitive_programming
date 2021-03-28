@@ -5,7 +5,7 @@ int main()
 {
 	int q;
 	long long n, a, b, m;
-	
+
 	scanf("%d", &q);
 	while(q--)
 	{

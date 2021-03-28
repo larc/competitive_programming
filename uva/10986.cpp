@@ -24,7 +24,7 @@ int main()
 	unsigned int d[S]; // distances
 	bool visited[S]; // distances
 	vector<cable_t> W[S];
-	
+
 	scanf("%u", &N);
 	for(int c = 1; c <= N; ++c)
 	{
@@ -52,10 +52,10 @@ int main()
 		{
 			s = q.top().c;
 			q.pop();
-			
+
 			visited[s] = 1;
 			if(s == t) break;
-			
+
 			for(cable_t & cable: W[s])
 			{
 				w = d[s] + cable.w;
@@ -66,7 +66,7 @@ int main()
 				}
 			}
 		}
-		
+
 		if(visited[t]) printf("Case #%u: %u\n", c, d[t]);
 		else printf("Case #%u: unreachable\n", c);
 	}

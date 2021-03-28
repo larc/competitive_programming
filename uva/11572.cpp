@@ -29,7 +29,7 @@ int main()
 				m = i - idx;
 			}
 			else m++;
-			
+
 			last_idx[sf] = i;
 			if(m > max) max = m;
 		}
@@ -37,7 +37,7 @@ int main()
 		printf("%d\n", max);
 		last_idx.clear();
 	}
-	
+
 	return 0;
 }
 

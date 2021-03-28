@@ -18,7 +18,7 @@ int main()
 			b = n / i;
 			r += (a - b) * (i - 1) + b;
 			m += (a - b) + 1;
-	
+
 			a = b;
 		}
 

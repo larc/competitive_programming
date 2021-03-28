@@ -3,8 +3,8 @@
 #include <cstdio>
 #include <algorithm>
 
-#define N 1000 
-#define M 499500 
+#define N 1000
+#define M 499500
 
 struct route_t
 {

@@ -14,7 +14,7 @@ int match[M];
 bool augmenting_path(const int & u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
-		
+
 		visited[u] = 1;
 
 		int v;
@@ -28,7 +28,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 				return 1;
 			}
 		}
-		
+
 		return 0;
 }
 
@@ -42,7 +42,7 @@ int main()
 		if(i < 0 || i >= r) return;
 		if(j < 0 || j >= c) return;
 		if(board[i][j] != '.') return;
-		
+
 		v = i * c + j;
 		G[u][size[u]++] = v;
 	};
@@ -51,7 +51,7 @@ int main()
 	{
 		for(int i = 0; i < r; ++i)
 			scanf("%s", board[i]);
-		
+
 		memset(size, 0, sizeof(size));
 
 		n = 0;
@@ -62,7 +62,7 @@ int main()
 			if(board[i][j] == '.')
 			{
 				n++;
-				if((i + j) & 1) // bipartite graph edges: black -> white cells 
+				if((i + j) & 1) // bipartite graph edges: black -> white cells
 				{
 					add_edge(i - 1, j);
 					add_edge(i + 1, j);
@@ -89,7 +89,7 @@ int main()
 					mcbm += augmenting_path(u);
 				}
 			}
-			
+
 			n >>= 1;
 			if(mcbm == n) printf("2\n"); // perfect matching
 			else printf("1\n");

@@ -15,7 +15,7 @@ int main()
 		L--;
 		p = 'x';
 		s = '+';
-		
+
 		while(L--)
 		{
 			cin>>d;

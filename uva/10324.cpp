@@ -20,7 +20,7 @@ int main()
 			sum[n] = sum[n - 1] + line[n] - '0';
 			n++;
 		}
-		
+
 		printf("Case %d:\n", c++);
 
 		scanf("%d", &n);

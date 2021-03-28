@@ -10,7 +10,7 @@
 struct union_find
 {
 	int comp[N];
-	
+
 	void init(const int & n)
 	{
 		for(int i = 0; i < n; ++i)
@@ -81,7 +81,7 @@ int main()
 		scanf("%d %d", &n, &r);
 		for(int i = 0; i < n; ++i)
 			scanf("%d %d", &P[i].x, &P[i].y);
-		
+
 		m = 0;
 		for(int i = 0; i < n; ++i)
 		for(int j = i + 1; j < n; ++j)
@@ -94,7 +94,7 @@ int main()
 
 		std::priority_queue<edge> q(G, G + m);
 		uf.init(n); n--;
-		
+
 		r *= r;
 		n_states = 1;
 		road = railroad = 0;
@@ -112,7 +112,7 @@ int main()
 				}
 			}
 		}
-		
+
 		printf("Case #%d: %d %d %d\n", c, n_states, (int) (road + 0.5), (int) (railroad + 0.5));
 	}
 

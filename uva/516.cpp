@@ -41,7 +41,7 @@ int main()
 			offset += o;
 			num *= pow(b, n);
 		}
-		
+
 		num--;
 
 		b = 0;
@@ -60,7 +60,7 @@ int main()
 				base[b++] = primes[i];
 			}
 		}
-		
+
 		printf("%d", base[--b]);
 		while(b--) printf(" %d", base[b]);
 		putchar('\n');

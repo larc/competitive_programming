@@ -5,7 +5,7 @@
 struct frac_t
 {
 	unsigned long long a, b;
-	
+
 	frac_t & operator += (const frac_t & f)
 	{
 		a += f.a; b += f.b;
@@ -36,7 +36,7 @@ int main()
 
 		printf("%llu/%llu\n", R.a, R.b);
 	}
-	
+
 	return 0;
 }
 

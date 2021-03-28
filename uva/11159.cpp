@@ -45,21 +45,21 @@ int main()
 		scanf("%d", &n);
 		for(a = 0; a < n; ++a)
 			scanf("%d", &S[a]);
-		
+
 		scanf("%d", &m);
 		m += n;
 		for(b = n; b < m; ++b)
 			scanf("%d", &S[b]);
-		
+
 		// graph: adjacent list A to B only
 		for(a = 0; a < m; ++a)
 			size(a) = 0;
 
 		for(b = n; b < m; ++b)
 		for(a = 0; a < n; ++a)
-			if(!S[b] || (S[a] && !(S[b] % S[a])))	
+			if(!S[b] || (S[a] && !(S[b] % S[a])))
 				A[a][size(a)++] = b;
-		
+
 		memset(match, -1, sizeof(match));
 
 		mcbm = 0;

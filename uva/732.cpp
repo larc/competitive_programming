@@ -20,7 +20,7 @@ void dfs_seq(const int & n, const int & i, const int & j)
 		seq[n - 1] = ' ';
 		return;
 	}
-	
+
 	// in
 	if(source[i])
 	{

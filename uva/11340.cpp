@@ -20,7 +20,7 @@ int main()
 			scanf(" %c %d", &c, &v);
 			p[c] = v;
 		}
-		
+
 		pay = 0;
 		scanf("%d", &m);
 		c = getchar();

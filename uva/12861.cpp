@@ -24,7 +24,7 @@ int main()
 			scanf("%d", &t);
 			hr[t + 11]++;
 		}
-		
+
 		t = 0;
 		for(i = 0; i < 24; ++i)
 			if(hr[i] & 1) T[t++] = i;
@@ -40,7 +40,7 @@ int main()
 			a += dif[i];
 			b += dif[i + 1];
 		}
-		
+
 		printf("%d\n", a < b ? a : b);
 	}
 	return 0;

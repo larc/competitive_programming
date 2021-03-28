@@ -33,11 +33,11 @@ int main()
 	{
 		memset(times, 0, sizeof(times));
 		memset(solved, 0, sizeof(solved));
-		
+
 		while(fgets(line, N, stdin) && line[0] != '\n' )
 		{
 			sscanf(line, "%d %d %d %c", &c, &p, &t, &l);
-			
+
 			times[c][0]++; //submisions
 			if(!solved[c][p])
 			{
@@ -62,7 +62,7 @@ int main()
 
 				for(p = 1; p <= 9; ++p)
 					if(solved[i][p])
-					{	
+					{
 						rank[c].p++;
 						rank[c].t += times[i][p];
 					}

@@ -36,7 +36,7 @@ int check(const int & n)
 		guards[0] = guards[1] = 0;
 		if(visited[u] == -1 && !dfs(u, 0))
 			return -1;
-		
+
 		if(!guards[0]) min += guards[1];
 		else if(!guards[1]) min += guards[0];
 		else min += guards[0] < guards[1] ? guards[0] : guards[1];
@@ -53,7 +53,7 @@ int main()
 	while(n_cases--)
 	{
 		memset(size, 0, sizeof(size));
-		
+
 		scanf("%d %d", &n, &m);
 		while(m--)
 		{
@@ -61,7 +61,7 @@ int main()
 			G[u][size[u]++] = v;
 			G[v][size[v]++] = u;
 		}
-		
+
 		printf("%d\n", check(n));
 	}
 

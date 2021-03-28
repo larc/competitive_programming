@@ -8,14 +8,14 @@ int main()
 {
 	int T, D, L[N], H[N], Q, P, n, s;
 	char M[N][21];
-	
+
 	scanf("%d", &T);
 	while(T--)
 	{
 		scanf("%d", &D);
 		for(int i = 0; i < D; ++i)
 			scanf("%s %d %d", M[i], L + i, H + i);
-		
+
 		scanf("%d", &Q);
 		while(Q--)
 		{
@@ -36,7 +36,7 @@ int main()
 
 		if(T) putchar('\n');
 	}
-	
+
 	return 0;
 }
 

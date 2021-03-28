@@ -7,16 +7,16 @@ int main()
 
 	scanf("%d %d %d", &n, &m, &d);
 	for(int i = 1; i <= m; ++i)
-	{	
+	{
 		scanf("%d", C + i);
 		S += C[i];
 	}
-	
+
 	p = 0;
 	for(int i = 1; i <= m; ++i)
 	{
 		int & c = C[i];
-	
+
 		if(S <= n + 1 - p - d) p += d;
 		else p = n + 1 - S;
 
@@ -33,12 +33,12 @@ int main()
 		printf("NO\n");
 		return 0;
 	}
-	
+
 	printf("YES\n");
 	for(int i = 1; i <= n; ++i)
 		printf("%d ", R[i]);
 	putchar('\n');
-	
+
 	return 0;
 }
 
