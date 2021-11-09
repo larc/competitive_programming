@@ -17,14 +17,12 @@ bool augmenting_path(const int & u) // dfs: mcbm
 
 		visited[u] = 1;
 
-		int v;
 		for(int i = 0; i < size[u]; ++i)
 		{
-			v = G[u][i];
+			const int & v = G[u][i];
 			if(match[v] == -1 || augmenting_path(match[v]))
 			{
 				match[v] = u;
-				match[u] = v;
 				return 1;
 			}
 		}
@@ -91,8 +89,7 @@ int main()
 			}
 
 			n >>= 1;
-			if(mcbm == n) printf("2\n"); // perfect matching
-			else printf("1\n");
+			printf("%d\n", mcbm == n ? 2 : 1);
 		}
 	}
 
