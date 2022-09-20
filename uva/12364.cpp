@@ -3,46 +3,52 @@
 #include <iostream>
 #include <string>
 
+#define MAX_N 300
+
 using namespace std;
 
-char str_braile[900];
+char str_braile[3][MAX_N];
 
-string braile[10] = {".***..", "*.....", "*.*...", "**....", "**.*..", "*..*..", "***...", "****..", "*.**..", ".**..."};
+string braile[10] = {	".***..",	// 0
+						"*.....",	// 1
+						"*.*...",	// 2
+						"**....",	// 3
+						"**.*..",	// 4
+						"*..*..",	// 5
+						"***...",	// 6
+						"****..",	// 7
+						"*.**..",	// 8
+						".**..."	// 9
+						};
 
 void to_braile(const string & str)
 {
-	int j, k, n = str.size() * 3;
-	for(int i = 0; i < str.size(); ++i)
+	for(unsigned int i = 0; i < str.size(); ++i)
 	{
-		j = str[i] - '0';
+		const string & num = braile[str[i] - '0'];
 
-		k = 3 * i;
-		str_braile[k] = braile[j][0];
-		str_braile[k + 1] = braile[j][1];
-		str_braile[k + 2] = ' ';
-
-		k += n;
-		str_braile[k] = braile[j][2];
-		str_braile[k + 1] = braile[j][3];
-		str_braile[k + 2] = ' ';
-
-		k += n;
-		str_braile[k] = braile[j][4];
-		str_braile[k + 1] = braile[j][5];
-		str_braile[k + 2] = ' ';
+		const int k = 3 * i;
+		for(int j = 0; j < 3; ++j)
+		{
+			str_braile[j][k    ] = num[2 * j];
+			str_braile[j][k + 1] = num[2 * j + 1];
+			str_braile[j][k + 2] = ' ';
+		}
 	}
 
-	str_braile[n - 1] = '\n';
-	str_braile[2 * n - 1] = '\n';
-	str_braile[3 * n - 1] = '\0';
-
-	cout << str_braile << endl;
+	int n = str.size() * 3;
+	for(int j = 0; j < 3; ++j)
+	{
+		str_braile[j][n - 1] = '\0';
+		cout << str_braile[j] << endl;
+	}
 }
 
 int find(const string & str)
 {
 	for(int i = 0; i < 10; ++i)
-		if(str == braile[i]) return i;
+		if(str == braile[i])
+			return i;
 
 	return -1;
 }
@@ -52,22 +58,16 @@ void to_num(string & str, const int & s)
 	str = "";
 	string num;
 
-	int k, n = s * 3;
 	for(int i = 0; i < s; ++i)
 	{
 		num = "";
 
-		k = 3 * i;
-		num += str_braile[k];
-		num += str_braile[k + 1];
-
-		k += n;
-		num += str_braile[k];
-		num += str_braile[k + 1];
-
-		k += n;
-		num += str_braile[k];
-		num += str_braile[k + 1];
+		const int k = 3 * i;
+		for(int j = 0; j < 3; ++j)
+		{
+			num += str_braile[j][k];
+			num += str_braile[j][k + 1];
+		}
 
 		str += find(num) + '0';
 	}
@@ -81,7 +81,7 @@ int main()
 	char c;
 	string str;
 
-	while(cin >> d, d)
+	while(cin >> d && d)
 	{
 		cin >> c;
 		if(c == 'S')
@@ -91,10 +91,9 @@ int main()
 		}
 		else
 		{
-			cin.getline(str_braile, 300);
-			cin.getline(str_braile, 300);
-			cin.getline(str_braile + d * 3, 300);
-			cin.getline(str_braile + 2 * d * 3, 300);
+			cin.getline(str_braile[0], MAX_N);
+			for(int j = 0; j < 3; ++j)
+				cin.getline(str_braile[j], MAX_N);
 			to_num(str, d);
 		}
 	}
