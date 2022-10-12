@@ -1,51 +1,34 @@
+// 466 - Mirror, Mirror
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+
 bool preservation(string * a, string * b, int n)
 {
 	for(int i = 0; i < n; ++i)
-		if(a[i] != b[i]) return 0;
+		if(a[i] != b[i])
+			return 0;
+
 	return 1;
 }
 
-string * rotate90(string * a, int n)
+string * rotate90(string * a, string * s, int n)
 {
-	string * s = new string[n];
 	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
+
 	for(int i = 0; i < n; ++i)
-		for(int j = 0; j < n; ++j)
-			s[j][n - i - 1] = a[i][j];
+	for(int j = 0; j < n; ++j)
+		s[j][n - i - 1] = a[i][j];
+
 	return s;
 }
 
-string * rotate180(string * a, int n)
+string * vreflection(string * a, string * s, int n)
 {
-	string * s = new string[n];
-	for(int i = 0; i < n; ++i)
-		s[i] = a[i];
-	for(int i = 0; i < n; ++i)
-		for(int j = 0; j < n; ++j)
-			s[n - i - 1][n - j - 1] = a[i][j];
-	return s;
-}
-
-string * rotate270(string * a, int n)
-{
-	string * s = new string[n];
-	for(int i = 0; i < n; ++i)
-		s[i] = a[i];
-	for(int i = 0; i < n; ++i)
-		for(int j = 0; j < n; ++j)
-			s[n - j - 1][i] = a[i][j];
-	return s;
-}
-
-string * vreflection(string * a, int n)
-{
-	string * s = new string[n];
 	for(int i = 0; i < n; ++i)
 		s[i] = a[i];
 	for(int i = 0; i < n; ++i)
@@ -56,41 +39,81 @@ string * vreflection(string * a, int n)
 void print(string * s, int n)
 {
 	for(int i = 0; i < n; ++i)
-		cout<<s[i]<<endl;
-	cout<<endl;
+		cout << s[i] << endl;
+	cout << endl;
+}
+
+
+enum transform_t { PP, R90, R180, R270, VP, VR90, VR180, VR270, IP };
+
+transform_t solve(string * a, string * b, int n)
+{
+	static string s[10];
+	if(preservation(a, b, n))
+		return PP;
+	if(preservation(rotate90(a, s, n), b, n))
+		return R90;
+	if(preservation(rotate90(s, a, n), b, n))
+		return R180;
+	if(preservation(rotate90(a, s, n), b, n))
+		return R270;
+
+	rotate90(s, a, n);
+	if(preservation(vreflection(a, s, n), b, n))
+		return VP;
+	if(preservation(rotate90(s, a, n), b, n))
+		return VR90;
+	if(preservation(rotate90(a, s, n), b, n))
+		return VR180;
+	if(preservation(rotate90(s, a, n), b, n))
+		return VR270;
+
+	return IP;
 }
 
 int main()
 {
-	int n, i, p;
-	string a[10], b[10], * s;
-	p = 1;
-	while(cin>>n)
-	{
-		for(i = 0; i < n; ++i)
-			cin>>a[i]>>b[i];
+	string a[10], b[10];
 
-//		print(a, n);
-//		print(vreflection(a, n), n);
-		if(preservation(a, b, n))
-			cout<<"Pattern "<<p++<<" was preserved."<<endl;
-		else if(preservation(rotate90(a, n), b, n))
-			cout<<"Pattern "<<p++<<" was rotated 90 degrees."<<endl;
-		else if(preservation(rotate180(a, n), b, n))
-			cout<<"Pattern "<<p++<<" was rotated 180 degrees."<<endl;
-		else if(preservation(rotate270(a, n), b, n))
-			cout<<"Pattern "<<p++<<" was rotated 270 degrees."<<endl;
-		else if(preservation(s = vreflection(a, n), b, n))
-			cout<<"Pattern "<<p++<<" was reflected vertically."<<endl;
-		else if(preservation(rotate90(s, n), b, n))
-			cout<<"Pattern "<<p++<<" was reflected vertically and rotated 90 degrees."<<endl;
-		else if(preservation(rotate180(s, n), b, n))
-			cout<<"Pattern "<<p++<<" was reflected vertically and rotated 180 degrees."<<endl;
-		else if(preservation(rotate270(s, n), b, n))
-			cout<<"Pattern "<<p++<<" was reflected vertically and rotated 270 degrees."<<endl;
-		else
-			cout<<"Pattern "<<p++<<" was improperly transformed."<<endl;
+	int n, p = 0;
+	while(cin >> n)
+	{
+		for(int i = 0; i < n; ++i)
+			cin >> a[i] >> b[i];
+
+		cout << "Pattern " << ++p;
+		switch(solve(a, b, n))
+		{
+			case PP:
+				cout << " was preserved." << endl;
+				break;
+			case R90:
+				cout << " was rotated 90 degrees." << endl;
+				break;
+			case R180:
+				cout << " was rotated 180 degrees." << endl;
+				break;
+			case R270:
+				cout << " was rotated 270 degrees." << endl;
+				break;
+			case VP:
+				cout << " was reflected vertically." << endl;
+				break;
+			case VR90:
+				cout << " was reflected vertically and rotated 90 degrees." << endl;
+				break;
+			case VR180:
+				cout << " was reflected vertically and rotated 180 degrees." << endl;
+				break;
+			case VR270:
+				cout << " was reflected vertically and rotated 270 degrees." << endl;
+				break;
+			default:
+				cout << " was improperly transformed." << endl;
+				break;
+		}
 	}
 
 	return 0;
 }
+
