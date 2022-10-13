@@ -1,6 +1,6 @@
 // 10685 - Nature
 
-#include <iostream>
+#include <cstdio>
 #include <string>
 #include <map>
 
@@ -45,22 +45,20 @@ int main()
 	map<string, int> creatures;
 
 	int nc, nr;
-	string xstr, ystr;
+	char xstr[32], ystr[32];
 
-	while(cin >> nc >> nr)
+	while(scanf("%d %d", &nc, &nr) && nc)
 	{
-		if(!nc && !nr) break;
-
 		for(int i = 0; i < nc; ++i)
 		{
-			cin >> xstr;
+			scanf("%s", xstr);
 			creatures[xstr] = i;
 		}
 
 		uf.init(nc);
 		while(nr--)
 		{
-			cin >> xstr >> ystr;
+			scanf("%s %s", xstr, ystr);
 			uf.join(creatures[xstr], creatures[ystr]);
 		}
 
@@ -69,7 +67,7 @@ int main()
 			if(nr < uf.S[i])
 				nr = uf.S[i];
 
-		cout << nr << '\n';
+		printf("%d\n", nr);
 		creatures.clear();
 	}
 
