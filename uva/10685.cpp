@@ -2,7 +2,7 @@
 
 #include <cstdio>
 #include <string>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -42,7 +42,7 @@ struct union_find
 int main()
 {
 	union_find uf;
-	map<string, int> creatures;
+	unordered_map<string, int> creatures;
 
 	int nc, nr;
 	char xstr[32], ystr[32];
