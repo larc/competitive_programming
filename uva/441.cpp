@@ -9,7 +9,7 @@ int ones(int n)
 	int r = 0;
 	while(n)
 	{
-		if(n & 1) r++;
+		if(n & 1) ++r;
 		n >>= 1;
 	}
 	return r;
@@ -22,7 +22,7 @@ int main()
 	scanf("%d", &k);
 	while(k)
 	{
-		for(int i = k - 1; i >= 0; i--)
+		for(int i = k - 1; i >= 0; --i)
 			scanf("%d", S + i);
 
 		n = 63 << (k - 6);
@@ -31,7 +31,7 @@ int main()
 			if(ones(n) == 6)
 			{
 				c = 6;
-				for(int i = k - 1; i >= 0; i--)
+				for(int i = k - 1; i >= 0; --i)
 					if(n & (1 << i))
 					{
 						printf("%d", S[i]);
@@ -39,8 +39,9 @@ int main()
 					}
 				printf("\n");
 			}
-			n--;
+			--n;
 		}
+
 		scanf("%d", &k);
 		if(k) printf("\n");
 	}
