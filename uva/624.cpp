@@ -1,33 +1,24 @@
 // 624 - CD
 
 #include <cstdio>
-#include <cstring>
 
 int num[20];
-int seq[20];
-int sum, tracks[20], size;
+int rseq, rest;
 
-void sum_it_up(const int & n, const int & s, const int & p, int i)
+void tracks(const int & n, const int & r, const int & seq, const int & i)
 {
-	if(n == i)
-	{
-		if(s < sum || (s == sum && p > size))
-		{
-			sum = s;
-			size = p;
-			memcpy(tracks, seq, sizeof(int) * size);
-		}
+	if(r < 0) return;
 
-		return;
+	if(r < rest)
+	{
+		rest = r;
+		rseq = seq;
 	}
 
-	while(i < n)
-		if(num[i] <= s)
-		{
-			seq[p] = num[i];
-			sum_it_up(n, s - seq[p], p + 1, ++i);
-		}
-		else sum_it_up(n, s, p, ++i);
+	if(n == i) return;
+
+	tracks(n, r - num[i], seq | (1 << i), i + 1);
+	tracks(n, r, seq, i + 1);
 }
 
 int main()
@@ -38,13 +29,13 @@ int main()
 		for(int i = 0; i < n; ++i)
 			scanf("%d", num + i);
 
-		sum = s;
-		size = 0;
+		rest = s;
+		tracks(n, s, 0, 0);
 
-		sum_it_up(n, s, 0, 0);
-		for(int i = 0; i < size; ++i)
-			printf("%d ", tracks[i]);
-		printf("sum:%d\n", s - sum);
+		for(int i = 0; i < n; ++i)
+			if(rseq &  (1 << i))
+				printf("%d ", num[i]);
+		printf("sum:%d\n", s - rest);
 	}
 
 	return 0;
