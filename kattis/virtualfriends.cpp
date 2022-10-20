@@ -1,5 +1,3 @@
-// 11503 - Virtual Friends
-
 #include <cstdio>
 #include <string>
 #include <unordered_map>
@@ -34,7 +32,7 @@ int main()
 {
 	int c, n, id;
 	unordered_map<string, int> ids;
-	char name_a[21], name_b[21];
+	char name_a[7], name_b[7];
 
 	scanf("%d", &c);
 	while(c--)
