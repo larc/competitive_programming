@@ -12,9 +12,15 @@ int main()
 							};
 
 	char wff[101];
-	int n, m, a, b;
+	int n, a, b;
 	int vars[256];
 	std::stack<int> op;
+
+	auto get = [&](int & x)
+	{
+		x = op.top();
+		op.pop();
+	};
 
 	while(scanf("%s", wff) != EOF)
 	{
@@ -23,37 +29,31 @@ int main()
 
 		memset(vars, -1, sizeof(vars));
 
-		m = 0;
+		a = 0;
 		for(n = 0; wff[n]; ++n)
 		{
 			int c = wff[n];
 			if('a' <= c && c <= 'z' && vars[c] == -1)
-				vars[c] = m++;
+				vars[c] = a++;
 		}
 
 		for(int j = n - 1; j >= 0; --j)
 		{
 			int c = wff[j];
-			if('a' <= c && c <= 'z')
+			switch(c)
 			{
-				op.push(values[vars[c]]);
-			}
-			else
-			{
-				a = op.top(); op.pop();
-				switch(c)
-				{
-					case 'K': b = op.top(); op.pop(); op.push(a & b);
-						break;
-					case 'A': b = op.top(); op.pop(); op.push(a | b);
-						break;
-					case 'N': op.push(~a);
-						break;
-					case 'C': b = op.top(); op.pop(); op.push((~a) | b);
-						break;
-					case 'E': b = op.top(); op.pop(); op.push(~(a ^ b));
-						break;
-				}
+				case 'K': get(a); get(b); op.push(a & b);
+					break;
+				case 'A': get(a); get(b); op.push(a | b);
+					break;
+				case 'N': get(a); op.push(~a);
+					break;
+				case 'C': get(a); get(b); op.push((~a) | b);
+					break;
+				case 'E': get(a); get(b); op.push(~(a ^ b));
+					break;
+				default: op.push(values[vars[c]]);
+					break;
 			}
 		}
 
