@@ -23,27 +23,27 @@ struct bst
 		delete root;
 	}
 
-	bool find(node **& n, const int & val)
+	node ** find(const int & val)
 	{
-		n = &root;
+		node ** n = &root;
 		while(*n)
 		{
 			if((*n)->value == val)
-				return true;
+				break;
 
 			n = &(*n)->child[(*n)->value < val];
 		}
 
-		return false;
+		return n;
 	}
 
 	bool insert(const int & val)
 	{
-		node ** n;
-		if(find(n, val))
-			return false;
+		node ** n = find(val);
+		if(*n) return false;
 
 		*n = new node(val);
+
 		return true;
 	}
 
