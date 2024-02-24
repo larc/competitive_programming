@@ -8,7 +8,7 @@
 int array[N];
 int aux[N];
 
-void merge(const int & i, const int & m, const int & j)
+void merge(const int i, const int m, const int j)
 {
 	int a = i;
 	int b = m + 1;
@@ -25,7 +25,7 @@ void merge(const int & i, const int & m, const int & j)
 	memcpy(array + i, aux + i, sizeof(int) * (j - i + 1));
 }
 
-void merge_sort(const int & i, const int & j)
+void merge_sort(const int i, const int j)
 {
 	if(i == j) return;
 

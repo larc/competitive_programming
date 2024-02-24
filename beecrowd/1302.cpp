@@ -12,13 +12,13 @@ int loop[N];
 int size[N];
 int level[N];
 
-void init_p(const int & n)
+void init_p(const int n)
 {
 	for(int i = 1; i <= n; ++i)
 		parent[i] = i;
 }
 
-int find_p(const int & x)
+int find_p(const int x)
 {
 	if(parent[x] == x) return x;
 	return parent[x] = find_p(parent[x]);
@@ -35,13 +35,13 @@ bool union_p(int x, int y)
 	return 1;
 }
 
-int update_level(const int & i)
+int update_level(const int i)
 {
 	if(level[i]) return level[i] < 0 ? 0 : level[i];
 	return level[i] = 1 + update_level(flight[i]);
 }
 
-int loop_flights(int & a, int & b, const int & s)
+int loop_flights(int & a, int & b, const int s)
 {
 	a = s + level[a];
 	b = s + level[b];

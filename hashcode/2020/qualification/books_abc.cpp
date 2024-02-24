@@ -20,7 +20,7 @@ struct library_t
 		if(books) delete [] books;
 	}
 
-	const int & operator[](const int & i)
+	const int operator[](const int i)
 	{
 		return books[i];
 	}
@@ -34,7 +34,7 @@ struct library_t
 
 struct compare
 {
-	bool operator()(const int & i, const int & j)
+	bool operator()(const int i, const int j)
 	{
 		return libraries[i].ratio() > libraries[j].ratio();
 	};
@@ -63,7 +63,7 @@ int main()
 			lib.value += S[lib[j]] * lib.M;
 		}
 
-		std::sort(lib.books, lib.books + lib.N, [&](const int & i, const int & j)
+		std::sort(lib.books, lib.books + lib.N, [&](const int i, const int j)
 												{
 													return S[i] > S[j];
 												});

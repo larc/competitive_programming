@@ -5,7 +5,7 @@
 
 int card[N], ft[N], n;
 
-void adjust(int i, const int & v)
+void adjust(int i, const int v)
 {
 	while(i <= n)
 	{
@@ -25,7 +25,7 @@ int rsq(int i)
 	return r;
 }
 
-int next_pos(const int & x, const int & i, const int & j)
+int next_pos(const int x, const int i, const int j)
 {
 	if(j < i) return i;
 	int m = (i + j) >> 1;

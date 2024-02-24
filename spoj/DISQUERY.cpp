@@ -13,15 +13,15 @@ int level[N], parent[N], road[N], heavy[N];
 int head[N], pos[N], ipos[N], current_pos;
 int max_st[M][N], min_st[M][N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	heavy[u] = 0;
 
 	int max_size = 0, size = 0, v_size;
 	for(auto & p: G[u])
 	{
-		const int & v = p.first;
-		const int & w = p.second;
+		const int v = p.first;
+		const int w = p.second;
 
 		if(v != parent[u])
 		{
@@ -41,7 +41,7 @@ int dfs(const int & u)
 	return size + 1;
 }
 
-void hld(const int & u, const int & h)
+void hld(const int u, const int h)
 {
 	head[u] = h;
 	ipos[current_pos] = u;
@@ -51,15 +51,15 @@ void hld(const int & u, const int & h)
 
 	for(auto & p: G[u])
 	{
-		const int & v = p.first;
-		const int & w = p.second;
+		const int v = p.first;
+		const int w = p.second;
 
 		if(v != parent[u] && v != heavy[u])
 			hld(v, v);
 	}
 }
 
-void init_st(const int & n)
+void init_st(const int n)
 {
 	for(int i = 0; i < n; ++i)
 	{
@@ -85,7 +85,7 @@ void init_st(const int & n)
 }
 
 int qmax, qmin;
-void rmq(const int & a, const int & b)
+void rmq(const int a, const int b)
 {
 	if(b < a) rmq(b, a);
 

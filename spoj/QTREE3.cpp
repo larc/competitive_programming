@@ -11,14 +11,14 @@ std::vector<int> G[N];
 
 int heavy[N], level[N], parent[N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	heavy[u] = 0;
 
 	int m_size, size, s;
 
 	m_size = size = 0;
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		if(v == parent[u]) continue;
 
@@ -38,7 +38,7 @@ int dfs(const int & u)
 
 int head[N], pos[N], ipos[N], current;
 
-void hld(const int & u, const int & h)
+void hld(const int u, const int h)
 {
 	head[u] = h;
 	ipos[current] = u;
@@ -46,7 +46,7 @@ void hld(const int & u, const int & h)
 
 	if(heavy[u]) hld(heavy[u], h);
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		if(v == parent[u] || v == heavy[u])
 			continue;
@@ -58,7 +58,7 @@ void hld(const int & u, const int & h)
 bool color[N];
 int st[N << 2], idx[N];
 
-int init_st(const int & n, const int & i, const int & j)
+int init_st(const int n, const int i, const int j)
 {
 	if(i == j)
 	{
@@ -83,14 +83,14 @@ void update(int i)
 	{
 		i = P(i);
 
-		const int & l = st[L(i)];
-		const int & r = st[R(i)];
+		const int l = st[L(i)];
+		const int r = st[R(i)];
 		st[i] = color[l] >= color[r] ? l : r;
 	}
 	while(i);
 }
 
-int rmq(const int & n, const int & i, const int & j, const int & a, const int & b)
+int rmq(const int n, const int i, const int j, const int a, const int b)
 {
 	if(a <= i && j <= b) return st[n];
 	if(j < a || b < i) return -1;
@@ -105,7 +105,7 @@ int rmq(const int & n, const int & i, const int & j, const int & a, const int & 
 	return color[l] >= color[r] ? l : r;
 }
 
-int query(const int & a, const int & n)
+int query(const int a, const int n)
 {
 	if(head[a] == 1)
 	{

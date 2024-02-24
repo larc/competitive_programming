@@ -32,13 +32,13 @@ struct union_find
 {
 	int set[N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 1; i <= n; ++i)
 			set[i] = i;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		if(set[x] == x) return x;
 		return set[x] = find(set[x]);
@@ -56,7 +56,7 @@ struct union_find
 	}
 } uf;
 
-int kruskal(int n, const int & m)
+int kruskal(int n, const int m)
 {
 	uf.init(n--);
 	sort(E, E + m);
@@ -82,15 +82,15 @@ int level[N], parent[N], road[N], heavy[N];
 int head[N], pos[N], ipos[N], current_pos;
 int st[M][N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	heavy[u] = 0;
 
 	int max_size = 0, size = 0, v_size;
 	for(auto & p: T[u])
 	{
-		const int & v = p.first;
-		const int & w = p.second;
+		const int v = p.first;
+		const int w = p.second;
 
 		if(v != parent[u])
 		{
@@ -110,7 +110,7 @@ int dfs(const int & u)
 	return size + 1;
 }
 
-void hld(const int & u, const int & h)
+void hld(const int u, const int h)
 {
 	head[u] = h;
 	ipos[current_pos] = u;
@@ -120,15 +120,15 @@ void hld(const int & u, const int & h)
 
 	for(auto & p: T[u])
 	{
-		const int & v = p.first;
-		const int & w = p.second;
+		const int v = p.first;
+		const int w = p.second;
 
 		if(v != parent[u] && v != heavy[u])
 			hld(v, v);
 	}
 }
 
-void init_st(const int & n)
+void init_st(const int n)
 {
 	for(int i = 0; i < n; ++i)
 		st[0][i] = i;

@@ -20,7 +20,7 @@ struct union_find
 {
 	int comp[M];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 0; i < n; ++i)
 			comp[i] = i;
@@ -47,7 +47,7 @@ struct union_find
 route_t G[M];
 union_find uf;
 
-int kruskal(int n, const int & m)
+int kruskal(int n, const int m)
 {
 	std::sort(G, G + m);
 	uf.init(n);

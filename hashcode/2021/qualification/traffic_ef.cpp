@@ -96,14 +96,14 @@ int main()
 			printf("%d\n", i);
 			printf("%lu\n", vint.size() * 3 / 4 + 1);
 
-			sort(vint.begin(), vint.end(), [](const int & i, const int & j)
+			sort(vint.begin(), vint.end(), [](const int i, const int j)
 			{
 				return streets[i].traffic > streets[j].traffic;
 			});
 
 			/*
 			sum = 0;
-			for(const int & s: vint)
+			for(const int s: vint)
 				sum += streets[s].traffic;
 			*/
 			

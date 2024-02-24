@@ -6,7 +6,7 @@ int main()
 	int n_cases, x, y, cost[2][2], n;
 	char S[1001], CJ[2] = {'C', 'J'};
 
-	auto cj = [&x, &y](const char & a, const char & b) -> int
+	auto cj = [&x, &y](const char a, const char b) -> int
 	{
 		if(a == b) return 0;
 		return b == 'J' ? x : y;

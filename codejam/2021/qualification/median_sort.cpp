@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <vector>
 
-int query(const int & a, const int & b, const int & c)
+int query(const int a, const int b, const int c)
 {
 	int m;
 	printf("%d %d %d\n", a, b, c);
@@ -30,7 +30,7 @@ void sort(std::vector<int> & X)
 
 	X.clear();
 	
-	auto join = [&](const std::vector<int> & vi, const bool & reverse)
+	auto join = [&](const std::vector<int> & vi, const bool reverse)
 	{
 		if(reverse)
 			X.insert(X.end(), vi.rbegin(), vi.rend());
@@ -58,7 +58,7 @@ int main()
 			X.push_back(i + 1);
 		
 		sort(X);
-		for(const int & i: X)
+		for(const int i: X)
 			printf("%d ", i);
 		putchar('\n'); fflush(stdout);
 		

@@ -15,7 +15,7 @@ int edges[N], cost[N];
 
 int heavy[N], level[N], parent[N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	heavy[u] = 0;
 
@@ -44,7 +44,7 @@ int dfs(const int & u)
 
 int head[N], pos[N], ipos[N], current;
 
-void hld(const int & u, const int & h)
+void hld(const int u, const int h)
 {
 	head[u] = h;
 	ipos[current] = u;
@@ -63,7 +63,7 @@ void hld(const int & u, const int & h)
 
 int st[N << 2], idx[N];
 
-int init_st(const int & n, const int & i, const int & j)
+int init_st(const int n, const int i, const int j)
 {
 	if(i == j)
 	{
@@ -79,7 +79,7 @@ int init_st(const int & n, const int & i, const int & j)
 	return st[n] = cost[l] > cost[r] ? l : r;
 }
 
-void update(int i, const int & value)
+void update(int i, const int value)
 {
 	cost[i] = value;
 	i = idx[pos[i]];
@@ -87,14 +87,14 @@ void update(int i, const int & value)
 	do
 	{
 		i = P(i);
-		const int & l = st[L(i)];
-		const int & r = st[R(i)];
+		const int l = st[L(i)];
+		const int r = st[R(i)];
 		st[i] = cost[l] > cost[r] ? l : r;
 	}
 	while(i);
 }
 
-int rmq(const int & n, const int & i, const int & j, const int & a, const int & b)
+int rmq(const int n, const int i, const int j, const int a, const int b)
 {
 	if(a <= i && j <= b) return cost[st[n]];
 	if(j < a || b < i) return 0;
@@ -106,7 +106,7 @@ int rmq(const int & n, const int & i, const int & j, const int & a, const int & 
 	return std::max(cl, cr);
 }
 
-int query(int a, int b, const int & n)
+int query(int a, int b, const int n)
 {
 	int max = 0;
 	while(head[a] != head[b])

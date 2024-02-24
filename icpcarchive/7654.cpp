@@ -19,13 +19,13 @@ struct union_find
 {
 	int comp[N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 1; i <= n; ++i)
 			comp[i] = i;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		if(x == comp[x]) return x;
 		return comp[x] = find(comp[x]);

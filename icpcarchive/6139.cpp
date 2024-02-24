@@ -10,7 +10,7 @@
 int seq[N];
 int prod[N << 2];
 
-void build_st(const int & n, const int & i, const int & j)
+void build_st(const int n, const int i, const int j)
 {
 	if(i == j)
 	{
@@ -26,7 +26,7 @@ void build_st(const int & n, const int & i, const int & j)
 	prod[n] = (prod[left(n)] * prod[right(n)]);
 }
 
-void update_st(const int & n)
+void update_st(const int n)
 {
 	if(!n) return;
 
@@ -34,13 +34,13 @@ void update_st(const int & n)
 	update_st(n >> 1);
 }
 
-void update_st(const int & i, const int & v)
+void update_st(const int i, const int v)
 {
 	prod[seq[i]] = v;
 	update_st(seq[i] >> 1);
 }
 
-int rmq(const int & n, const int & L, const int & R, const int & i, const int & j)
+int rmq(const int n, const int L, const int R, const int i, const int j)
 {
 	if(i > R || j < L) return 1;
 	if(L >= i && R <= j) return prod[n];
@@ -49,7 +49,7 @@ int rmq(const int & n, const int & L, const int & R, const int & i, const int & 
 	return (rmq(left(n), L, m, i, j) * rmq(right(n), m + 1, R, i, j));
 }
 
-char rmq(const int & a, const int & b, const int & n)
+char rmq(const int a, const int b, const int n)
 {
 	int r = rmq(1, 1, n, a, b);
 	return r ? (r < 0 ? '-' : '+') : '0';

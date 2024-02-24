@@ -22,7 +22,7 @@ void init()
 	P[16] = P[15] * 10;
 }
 
-lld_t sum(const lld_t & n, const int & d)
+lld_t sum(const lld_t n, const int d)
 {
 	if(!d) return A[n];
 
@@ -31,7 +31,7 @@ lld_t sum(const lld_t & n, const int & d)
 	return sum(j, d - 1) + (S[d] + j + 1) * i + A[i - 1] * P[d];
 }
 
-lld_t sum(const lld_t & n)
+lld_t sum(const lld_t n)
 {
 	int d = 0;
 	while(n >= P[++d]);

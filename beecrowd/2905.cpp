@@ -14,7 +14,7 @@ struct trip_t
 {
 	float c;
 	int u, i, d;
-	operator const int & ()
+	operator const int ()
 	{
 		return u;
 	}
@@ -25,7 +25,7 @@ bool operator < (const trip_t & a, const trip_t & b)
 	return a.c > b.c;
 }
 
-float dijkstra(const int & t)
+float dijkstra(const int t)
 {
 	bool visited[N] = {};
 

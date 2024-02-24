@@ -3,7 +3,7 @@
 
 using ull = unsigned long long;
 
-ull next(const ull & d, const ull & y)
+ull next(const ull d, const ull y)
 {
 	ull x = d, ny = 0;
 	int n, nd = 0;

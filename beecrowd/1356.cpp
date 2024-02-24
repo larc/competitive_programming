@@ -8,7 +8,7 @@
 int p, l;
 int B[L], f[L], ft[L];
 
-void adjust(int i, const int & v)
+void adjust(int i, const int v)
 {
 	f[i] = (1ll * f[i] + v) % p;
 
@@ -32,7 +32,7 @@ long long rsq(int i)
 	return r;
 }
 
-int pow(const int & b, const int & x)
+int pow(const int b, const int x)
 {
 	if(!x) return 1;
 

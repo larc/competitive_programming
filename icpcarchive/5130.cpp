@@ -9,13 +9,13 @@ const char * hieroglyphs = "WAKJSD";
 int image[N][N];
 int h, w;
 
-int hexa_to_int(const char & c)
+int hexa_to_int(const char c)
 {
 	if(c <= '9' && c >= '0') return c - '0';
 	return  c - 'a' + 10;
 }
 
-void dfs_message(const int & i, const int & j, const int & idx)
+void dfs_message(const int i, const int j, const int idx)
 {
 	if(i < 0 || i >= h) return;
 	if(j < 0 || j >= w) return;
@@ -28,7 +28,7 @@ void dfs_message(const int & i, const int & j, const int & idx)
 	dfs_message(i, j + 1, idx);
 }
 
-int dfs_hieroglyphs(const int & i, const int & j)
+int dfs_hieroglyphs(const int i, const int j)
 {
 	if(i < 0 || i >= h) return 0;
 	if(j < 0 || j >= w) return 0;

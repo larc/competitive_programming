@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-int pow_mod(const int & x, const int & y, const int & n)
+int pow_mod(const int x, const int y, const int n)
 {
 	if(!y) return 1;
 

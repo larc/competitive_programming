@@ -20,7 +20,7 @@ void init()
 	P[10] = P[9] * 10;
 }
 
-long long sum(int n, const int & d)
+long long sum(int n, const int d)
 {
 	if(!d) return A[n];
 
@@ -29,7 +29,7 @@ long long sum(int n, const int & d)
 	return sum(j, d - 1) + (S[d] + j + 1) * i + A[i - 1] * P[d];
 }
 
-long long sum(const int & n)
+long long sum(const int n)
 {
 	int d = 0;
 	while(n >= P[++d]);

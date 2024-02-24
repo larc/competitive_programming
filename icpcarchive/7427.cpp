@@ -14,7 +14,7 @@ bool visited[M];
 int match[N];
 char op[N];
 
-bool augmenting_path(const int & u) // dfs: mcbm
+bool augmenting_path(const int u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
 
@@ -22,7 +22,7 @@ bool augmenting_path(const int & u) // dfs: mcbm
 
 		for(int i = 0; i < size[u]; ++i)
 		{
-			const int & v = G[u][i].first;
+			const int v = G[u][i].first;
 			if(match[v] == -1 || augmenting_path(match[v]))
 			{
 				match[v] = u;
@@ -43,7 +43,7 @@ int main()
 
 	int A[N], B[N];
 
-	auto add = [&m, &res, &map](const int & v, const char & c, const long long & r)
+	auto add = [&m, &res, &map](const int v, const char c, const long long r)
 	{
 		int & u = map[r];
 		if(!u) res[u = ++m] = r;

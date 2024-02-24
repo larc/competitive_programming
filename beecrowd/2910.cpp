@@ -14,7 +14,7 @@ struct conn_t
 	int u;
 	llu_t l, c;
 
-	operator const int & () const
+	operator const int () const
 	{
 		return u;
 	}
@@ -31,7 +31,7 @@ bool operator < (const conn_t & a, const conn_t & b)
 int begin[N], end[N], next[M];
 conn_t G[M]; int current;
 
-void add(const int & u, const conn_t & conn)
+void add(const int u, const conn_t & conn)
 {
 	if(begin[u] < 0) begin[u] = end[u] = current;
 	else end[u] = next[end[u]] = current;

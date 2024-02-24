@@ -1,11 +1,11 @@
 #include <cstdio>
 
-int gcd(const int & a, const int & b)
+int gcd(const int a, const int b)
 {
 	return !b ? a : gcd(b, a % b);
 }
 
-int count_divisors(const int & x)
+int count_divisors(const int x)
 {
 	if(x == 1) return 1;
 

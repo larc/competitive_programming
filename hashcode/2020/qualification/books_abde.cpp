@@ -21,12 +21,12 @@ struct library_t
 		if(books) delete [] books;
 	}
 
-	const int & operator[](const int & i)
+	const int operator[](const int i)
 	{
 		return books[i];
 	}
 
-	void update(const int & t)
+	void update(const int t)
 	{
 		int n = 0;
 		for(int i = 0; i < N; ++i)
@@ -50,7 +50,7 @@ struct library_t
 } libraries[MAX];
 
 
-int select_lib(const int & t)
+int select_lib(const int t)
 {
 	int l = -1, max = 0;
 	for(int i = 0; i < L; ++i)
@@ -93,7 +93,7 @@ int main()
 		for(int j = 0; j < lib.N; ++j)
 			scanf("%d", lib.books + j);
 
-		std::sort(lib.books, lib.books + lib.N, [&](const int & i, const int & j)
+		std::sort(lib.books, lib.books + lib.N, [&](const int i, const int j)
 												{
 													return S[i] > S[j];
 												});

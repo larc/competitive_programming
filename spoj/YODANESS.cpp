@@ -6,7 +6,7 @@
 
 int ft[N], n;
 
-void adjust(int i, const int & val)
+void adjust(int i, const int val)
 {
 	while(i <= n)
 	{

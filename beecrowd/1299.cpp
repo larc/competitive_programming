@@ -11,7 +11,7 @@ int size[M];
 bool visited[M];
 int match[M];
 
-bool augmenting_path(const int & u) // dfs: mcbm
+bool augmenting_path(const int u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
 
@@ -37,7 +37,7 @@ int main()
 	int r, c, n, u, v, mcbm;
 	char board[N][N];
 
-	auto add_edge = [&](const int & i, const int & j)
+	auto add_edge = [&](const int i, const int j)
 	{
 		if(i < 0 || i >= r) return;
 		if(j < 0 || j >= c) return;

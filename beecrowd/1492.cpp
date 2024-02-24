@@ -12,12 +12,12 @@ inline ulong_t lg(ulong_t n)
 	return l;
 }
 
-inline ulong_t S(const ulong_t & n)
+inline ulong_t S(const ulong_t n)
 {
 	return (n * lg(n)) >> 1;
 }
 
-ulong_t A(const ulong_t & n)
+ulong_t A(const ulong_t n)
 {
 	if(!n) return 0;
 

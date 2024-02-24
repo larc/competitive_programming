@@ -11,14 +11,14 @@ bool exist[N];
 int match[N];
 bool visited[N];
 
-bool aug(const int & u)
+bool aug(const int u)
 {
 	if(visited[u]) return 0;
 
 	visited[u] = 1;
 	for(int i = 0; i < size[u]; ++i)
 	{
-		const int & v = G[u][i];
+		const int v = G[u][i];
 		if(match[v] == -1 || aug(match[v]))
 		{
 			match[v] = u;

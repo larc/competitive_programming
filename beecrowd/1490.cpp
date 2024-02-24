@@ -11,13 +11,13 @@ std::vector<int> G[M];
 bool visited[M];
 int match[M];
 
-bool augmenting_path(const int & u) // dfs: mcbm
+bool augmenting_path(const int u) // dfs: mcbm
 {
 	if(visited[u]) return 0;
 
 	visited[u] = 1;
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 		if(match[v] == -1 || augmenting_path(match[v]))
 		{
 			match[v] = u;

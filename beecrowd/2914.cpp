@@ -28,7 +28,7 @@ void sieve()
 
 int ft[N];	// Fenwick Tree (BIT)
 
-void adjust(int i, const int & v)
+void adjust(int i, const int v)
 {
 	while(i < N)
 	{
@@ -67,14 +67,14 @@ int main()
 		qi[i] = i;
 	}
 
-	std::sort(qi.begin(), qi.end(), [&qk](const int & i, const int & j) { return qk[i] > qk[j]; });
+	std::sort(qi.begin(), qi.end(), [&qk](const int i, const int j) { return qk[i] > qk[j]; });
 
 	ft[0] = ft[1] = 0;
 	for(int i = 2; i < N; ++i)
 		adjust(i, 1);
 
 	int stop = np;
-	for(const int & i: qi)
+	for(const int i: qi)
 	{
 		k = qk[i];
 		ini = k = std::upper_bound(primes, primes + np, k) - primes;

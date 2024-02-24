@@ -6,7 +6,7 @@
 
 int num[N], st[M][N];
 
-void init_st(const int & n)
+void init_st(const int n)
 {
 	for(int i = 0; i < n; ++i)
 		st[0][i] = i;
@@ -17,20 +17,20 @@ void init_st(const int & n)
 		k = 1 << (i - 1);
 		for(int j = 0; j + (1 << i) - 1 < n; ++j)
 		{
-			const int & a = st[i - 1][j];
-			const int & b = st[i - 1][j + k];
+			const int a = st[i - 1][j];
+			const int b = st[i - 1][j + k];
 			st[i][j] = num[a] < num[b] ? a : b;
 		}
 	}
 }
 
-int rmq(const int & a, const int & b)
+int rmq(const int a, const int b)
 {
 	if(b < a) return rmq(b, a);
 
 	int k = log2(b - a + 1);
-	const int & i = st[k][a];
-	const int & j = st[k][b - (1 << k) + 1];
+	const int i = st[k][a];
+	const int j = st[k][b - (1 << k) + 1];
 
 	return num[i] < num[j] ? num[i] : num[j];
 }

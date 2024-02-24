@@ -9,7 +9,7 @@ int S[N];
 std::map<int, int> dp[N];
 std::map<int, int> sum[N];
 
-int dfs(const int & m, int n)
+int dfs(const int m, int n)
 {
 	if(n < 0) return 0;
 

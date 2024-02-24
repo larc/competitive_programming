@@ -18,7 +18,7 @@ uint_t path[N][N];
 uint_t spath[N];
 bool visited[N];
 
-void dijkstra(uint_t s, const uint_t & d)
+void dijkstra(uint_t s, const uint_t d)
 {
 	memset(dist, INF, sizeof(dist));
 	memset(path, INF, sizeof(dist));
@@ -43,7 +43,7 @@ void dijkstra(uint_t s, const uint_t & d)
 			visited[u] = 1;
 			for(int i = 0; i < size[u]; ++i)
 			{
-				const uint_t & v = G[u][i];
+				const uint_t v = G[u][i];
 				if(!visited[v] && W[u][v] > 0)
 				{
 					if(dist[u] + W[u][v] < dist[v])
@@ -61,7 +61,7 @@ void dijkstra(uint_t s, const uint_t & d)
 	}
 }
 
-void delete_node(const uint_t & u)
+void delete_node(const uint_t u)
 {
 	if(!spath[u]) return;
 

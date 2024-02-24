@@ -11,7 +11,7 @@ int array[N];
 int aux[N];
 
 // return the number of inversions in merge step
-ull merge(const int & i, const int & m, const int & j)
+ull merge(const int i, const int m, const int j)
 {
 	ull inv = 0;
 
@@ -35,7 +35,7 @@ ull merge(const int & i, const int & m, const int & j)
 	return inv;
 }
 
-ull merge_sort(const int & i, const int & j)
+ull merge_sort(const int i, const int j)
 {
 	if(i == j) return 0;
 

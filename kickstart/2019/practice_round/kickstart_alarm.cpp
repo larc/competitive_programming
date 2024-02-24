@@ -3,7 +3,7 @@
 #define N 1000000
 #define M 1000000007
 
-long long pow(const long long & b, const long long & n)
+long long pow(const long long b, const long long n)
 {
 	if(!n) return 1;
 

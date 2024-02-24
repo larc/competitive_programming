@@ -16,12 +16,12 @@ long long dist[N];
 int idx[N], euler[N << 1];	// euler tour
 int st[M][N << 1];			// sparse table
 
-void dfs(const int & u, int & m)
+void dfs(const int u, int & m)
 {
 	idx[u] = m;
 	euler[m++] = u;
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		dist[v] = dist[u] + length[v];
 
@@ -30,7 +30,7 @@ void dfs(const int & u, int & m)
 	}
 }
 
-void init_st(const int & m)
+void init_st(const int m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
@@ -41,21 +41,21 @@ void init_st(const int & m)
 		k = 1 << (i - 1);
 		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
-			const int & u = st[i - 1][j];
-			const int & v = st[i - 1][j + k];
+			const int u = st[i - 1][j];
+			const int v = st[i - 1][j + k];
 			st[i][j] = dist[euler[u]] < dist[euler[v]] ? u : v;
 		}
 	}
 }
 
-int lca(const int & a, const int & b)
+int lca(const int a, const int b)
 {
 	if(b < a) return lca(b, a);
 
 	int k = log2(b - a + 1);
 
-	const int & i = st[k][a];
-	const int & j = st[k][b - (1 << k) + 1];
+	const int i = st[k][a];
+	const int j = st[k][b - (1 << k) + 1];
 
 	return dist[euler[i]] < dist[euler[j]] ? euler[i] : euler[j];
 }

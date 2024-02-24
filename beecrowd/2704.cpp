@@ -12,7 +12,7 @@ int rooks[N];
 char str[N];		// input string
 int n_div, D[M];	// divisors array
 
-bool jump(const int & k, const int & n, const int & s)
+bool jump(const int k, const int n, const int s)
 {
 	for(int i = s; i < n; i += k)
 		if(str[i] == 'P') return 0;
@@ -20,7 +20,7 @@ bool jump(const int & k, const int & n, const int & s)
 	return 1;
 }
 
-bool jump(const int & k, const int & n)
+bool jump(const int k, const int n)
 {
 	for(int i = 0; i < n && rooks[i] < k; ++i)
 		if(jump(k, n, rooks[i]))
@@ -29,7 +29,7 @@ bool jump(const int & k, const int & n)
 	return 0;
 }
 
-void divisors(const int & n)
+void divisors(const int n)
 {
 	n_div = 0;
 

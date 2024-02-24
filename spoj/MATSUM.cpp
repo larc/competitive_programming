@@ -5,7 +5,7 @@
 
 int mat[N][N], ft[N][N], n;
 
-void adjust(int i, const int & y, const int & v)
+void adjust(int i, const int y, const int v)
 {
 	while(i <= n)
 	{
@@ -15,7 +15,7 @@ void adjust(int i, const int & y, const int & v)
 	}
 }
 
-int rsq(int i, const int & y)
+int rsq(int i, const int y)
 {
 	int r = 0;
 	while(i)

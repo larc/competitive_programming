@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-int candles_rita(const int & RT, const int & D)
+int candles_rita(const int RT, const int D)
 {
 	int eR, eT = 3, cR, cT;
 	do

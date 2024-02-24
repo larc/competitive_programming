@@ -47,7 +47,7 @@ int find(const string & str)
 	return -1;
 }
 
-void to_num(string & str, const int & s)
+void to_num(string & str, const int s)
 {
 	str = "";
 	string num;

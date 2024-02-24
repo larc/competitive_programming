@@ -11,7 +11,7 @@ int size[M];
 bool visited[M];
 int match[M];
 
-bool augmenting_path(const int & u) // dfs: mcbm
+bool augmenting_path(const int u) // dfs: mcbm
 {
 		if(visited[u]) return 0;
 

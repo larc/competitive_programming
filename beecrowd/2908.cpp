@@ -16,7 +16,7 @@ int C[N];			// i-beast loop size
 bool loop[N][M];	// (i,j) = 1 if j-zoo is in i-beast loop
 
 // solve ax + bx = gcd(a, b);
-llu_t extended_euclid(const llu_t & a, const llu_t & b, llu_t & x, llu_t & y)
+llu_t extended_euclid(const llu_t a, const llu_t b, llu_t & x, llu_t & y)
 {
 	if(!b)
 	{
@@ -34,12 +34,12 @@ llu_t extended_euclid(const llu_t & a, const llu_t & b, llu_t & x, llu_t & y)
 	return d;
 }
 
-llu_t gcd(const llu_t & a, const llu_t & b)
+llu_t gcd(const llu_t a, const llu_t b)
 {
 	return !b ? a : gcd(b, a % b);
 }
 
-llu_t lcm(const llu_t & a, const llu_t & b)
+llu_t lcm(const llu_t a, const llu_t b)
 {
 	return b * (a / gcd(a, b));
 }
