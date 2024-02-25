@@ -3,7 +3,7 @@
 
 int x[6], y[6];
 
-bool cover(const int & i)
+bool cover(const int i)
 {
 	if(x[i] <= x[0] && y[i] <= y[0] &&
 		x[i + 1] >= x[1] && y[i + 1] >= y[1])

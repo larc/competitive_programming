@@ -38,9 +38,9 @@ int main()
 	int c = 2;
 	while(c < m)
 	{
-		const int & i = p[a];
-		const int & k = p[b];
-		const int & j = p[c];
+		const int i = p[a];
+		const int k = p[b];
+		const int j = p[c];
 		if(d[i][j] != d[i][k] + d[k][j] || i == j)
 		{
 			a = b;

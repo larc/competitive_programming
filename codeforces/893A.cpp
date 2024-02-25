@@ -5,7 +5,7 @@
 
 int game[100];
 
-bool log_possible(const int & n)
+bool log_possible(const int n)
 {
 	bool p[3] = {};
 

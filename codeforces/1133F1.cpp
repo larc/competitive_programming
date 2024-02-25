@@ -34,7 +34,7 @@ int main()
 	while(!q.empty())
 	{
 		u = q.front(); q.pop();
-		for(const int & v: G[u])
+		for(const int v: G[u])
 			if(!visited[v])
 			{
 				printf("%d %d\n", u, v);

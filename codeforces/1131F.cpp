@@ -5,23 +5,23 @@
 
 std::vector<int> T[N];
 
-void dfs(const int & u)
+void dfs(const int u)
 {
 	printf("%d ", u);
 
-	for(const int & v: T[u])
+	for(const int v: T[u])
 		dfs(v);
 }
 
 int comp[N];
 
-void init(const int & n)
+void init(const int n)
 {
 	for(int i = 1; i <= n; ++i)
 		comp[i] = i;
 }
 
-int find(const int & x)
+int find(const int x)
 {
 	return comp[x] == x ? x : comp[x] = find(comp[x]);
 }

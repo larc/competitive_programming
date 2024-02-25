@@ -1,6 +1,6 @@
 #include <cstdio>
 
-long long first_day(const int * Q, const int & n, const int & k)
+long long first_day(const int * Q, const int n, const int k)
 {
 	long long r = 0;
 	for(int i = 1; i <= n; ++i)

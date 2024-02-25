@@ -7,7 +7,7 @@
 
 int ftl[N], ftr[N];		// min Fenweick Tree (min BIT): min l-range [1:i], min r-range [i:h_size]
 
-void update_ft(int i, int val, int * ft, const int & n)
+void update_ft(int i, int val, int * ft, const int n)
 {
 	while(i <= n)
 	{
@@ -37,14 +37,14 @@ std::vector<int> G[N];
 
 int heavy[N], parent[N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	heavy[u] = 0;
 
 	int m_size, size, s;
 
 	m_size = size = 0;
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		if(v == parent[u]) continue;
 
@@ -62,7 +62,7 @@ int dfs(const int & u)
 
 int head[N], pos[N], h_size[N], current;
 
-void hld(const int & u, const int & h)
+void hld(const int u, const int h)
 {
 	head[u] = h;
 	h_size[h]++;
@@ -70,7 +70,7 @@ void hld(const int & u, const int & h)
 
 	if(heavy[u]) hld(heavy[u], h);
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		if(v == parent[u] || v == heavy[u])
 			continue;
@@ -80,15 +80,15 @@ void hld(const int & u, const int & h)
 	}
 }
 
-inline int ft_i(const int & u)
+inline int ft_i(const int u)
 {
 	return pos[u] - pos[head[u]] + 1;
 }
 
-void change_color(const int & u, const int & val)
+void change_color(const int u, const int val)
 {
-	const int & h = head[u];
-	const int & p = parent[h];
+	const int h = head[u];
+	const int p = parent[h];
 
 	update_ft(ft_i(u), val, ftl + pos[h] - 1, h_size[h]);
 	update_ft(h_size[h] - ft_i(u) + 1, val, ftr + pos[h] - 1, h_size[h]);
@@ -98,7 +98,7 @@ void change_color(const int & u, const int & val)
 	change_color(p, min_ft(h_size[h], ftr + pos[h] - 1) + 1);
 }
 
-int min_dist(const int & u)
+int min_dist(const int u)
 {
 	if(!u) return N;
 

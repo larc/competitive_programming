@@ -3,7 +3,7 @@
 
 #define N 5002
 
-int rsq(const int & a, const int & b, int * ac)
+int rsq(const int a, const int b, int * ac)
 {
 	return ac[b] - ac[a - 1];
 }

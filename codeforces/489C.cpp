@@ -7,7 +7,7 @@
 char num[MM + 1];
 int dp[MM][SS + 1];
 
-const char * get_num(const int & m)
+const char * get_num(const int m)
 {
 	if(dp[m - 1][0] < 0) return "-1";
 

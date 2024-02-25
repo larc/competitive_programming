@@ -16,12 +16,12 @@ int main()
 	charge P[N];
 	std::vector<int> order; order.reserve(N);
 
-	auto tcmp = [&P](const int & i, const int & j)
+	auto tcmp = [&P](const int i, const int j)
 	{
 		return P[i].t < P[j].t;
 	};
 
-	auto acmp = [&P](const int & i, const int & j)
+	auto acmp = [&P](const int i, const int j)
 	{
 		return P[i].a < P[j].a;
 	};
@@ -42,7 +42,7 @@ int main()
 		std::priority_queue<int, std::vector<int>, decltype(acmp)> Q(acmp);
 
 		time = 0;
-		for(const int & i: order)
+		for(const int i: order)
 		{
 			charge & p = P[i];
 
@@ -71,7 +71,7 @@ int main()
 		printf("%d\n", n);
 
 		time = 0;
-		for(const int & i: order)
+		for(const int i: order)
 		{
 			charge & p = P[i];
 			if(p.a >= 0)

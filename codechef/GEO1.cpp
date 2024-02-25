@@ -15,7 +15,7 @@ struct point
 		return {x - p.x, y - p.y};
 	}
 
-	point operator / (const double & a) const
+	point operator / (const double a) const
 	{
 		return {x / a, y / a};
 	}
@@ -36,7 +36,7 @@ point normal(const point & p)
 	return point{p.y, -p.x} / norm(p);
 }
 
-double area(const point * P, const int & n)
+double area(const point * P, const int n)
 {
 	double A = 0;
 	for(int i = 0; i < n - 1; ++i)

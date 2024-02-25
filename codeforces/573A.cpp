@@ -2,7 +2,7 @@
 
 #define N 100000
 
-int gcd(const int & a, const int & b)
+int gcd(const int a, const int b)
 {
 	return b ? gcd(b, a % b) : a;
 }

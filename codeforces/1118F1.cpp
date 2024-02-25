@@ -7,13 +7,13 @@
 std::vector<int> G[N];
 int parent[N], red[N], blue[N], color[N];
 
-void dfs(const int & u)
+void dfs(const int u)
 {
 	red[u] = blue[u] = 0;
 	if(color[u] == 1) red[u]++;
 	if(color[u] == 2) blue[u]++;
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		if(parent[v] != -1) continue;
 

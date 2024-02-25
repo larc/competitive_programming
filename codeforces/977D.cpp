@@ -9,14 +9,14 @@ unsigned long long nodes[N];
 int next_node[N];
 bool visited[N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	if(visited[u]) return 0;
 
 	visited[u] = 1;
 
 	int n, next = 0, max_n = 0;
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		n = dfs(v);
 		if(n > max_n)

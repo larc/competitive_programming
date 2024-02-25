@@ -14,7 +14,7 @@ int main()
 		s[i] = i;
 	}
 
-	std::sort(s + 1, s + n + 1, [&a](const int & i, const int & j) { return a[i] > a[j]; });
+	std::sort(s + 1, s + n + 1, [&a](const int i, const int j) { return a[i] > a[j]; });
 
 	shots = 1;
 	for(int i = 2; i <= n; ++i)

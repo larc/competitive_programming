@@ -4,7 +4,7 @@
 
 typedef unsigned long long ull;
 
-ull gcd(const ull & a, const ull & b)
+ull gcd(const ull a, const ull b)
 {
 	return !b ? a : gcd(b, a % b);
 }

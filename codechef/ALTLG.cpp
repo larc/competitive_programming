@@ -15,12 +15,12 @@ struct query_t
 	ull ans;
 };
 
-ull gcd(const ull & a, const ull & b)
+ull gcd(const ull a, const ull b)
 {
 	return !b ? a : gcd(b, a % b);
 }
 
-ull lcm(const ull & a, const ull & b)
+ull lcm(const ull a, const ull b)
 {
 	return a / gcd(a, b) * b;
 }
@@ -28,9 +28,9 @@ ull lcm(const ull & a, const ull & b)
 int A[N];
 std::pair<int, ull> mq[2][N];	// [t][r] -> (l, ans)
 
-ull (*const qfun[2]) (const ull &, const ull &) = {gcd, lcm};
+ull (*const qfun[2]) (const ull, const ull) = {gcd, lcm};
 
-ull & query(const bool & t, int l, int r)
+ull & query(const bool t, int l, int r)
 {
 	bool op = t ? ((r - l) & 1) : !((r - l) & 1);
 
@@ -79,14 +79,14 @@ int main()
 		}
 
 		std::sort(iQ.begin(), iQ.end(),
-			[&Q](const int & i, const int & j)
+			[&Q](const int i, const int j)
 			{
 				const query_t & a = Q[i];
 				const query_t & b = Q[j];
 				return a.r == b.r ? a.l > b.l : a.r > b.r;
 			});
 
-		for(const int & i: iQ)
+		for(const int i: iQ)
 		{
 			query_t & q = Q[i];
 			q.ans = query(q.t - 1, q.l, q.r); 

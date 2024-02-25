@@ -42,14 +42,14 @@ void sieve()
 	}
 }
 
-void update_factors(const int & u)
+void update_factors(const int u)
 {
 	mii & fout = factors[u] = factors[parent[u]];
 
 	ll n = A[u];
 	for(int i = 0; i < np && primes[i] * primes[i] <= n; ++i)
 	{
-		const ll & p = primes[i];
+		const ll p = primes[i];
 		while(!(n % p))
 		{
 			fout[p]++;
@@ -60,12 +60,12 @@ void update_factors(const int & u)
 	if(n > 1) fout[n]++;
 }
 
-void dfs(const int & u, int & i)
+void dfs(const int u, int & i)
 {
 	idx[u] = i;
 	euler[i++] = u;
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 		if(level[v] == -1)
 		{
 			parent[v] = u;
@@ -78,7 +78,7 @@ void dfs(const int & u, int & i)
 		}
 }
 
-void init_st(const int & m)
+void init_st(const int m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
@@ -89,8 +89,8 @@ void init_st(const int & m)
 		k = 1 << (i - 1);
 		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
-			const int & u = st[i - 1][j];
-			const int & v = st[i - 1][j + k];
+			const int u = st[i - 1][j];
+			const int v = st[i - 1][j + k];
 			st[i][j] = level[euler[u]] < level[euler[v]] ? u : v;
 		}
 	}
@@ -104,13 +104,13 @@ int lca(int a, int b)
 	b = idx[b];
 	int k = log2(b - a + 1);
 
-	const int & i = st[k][a];
-	const int & j = st[k][b - (1 << k) + 1];
+	const int i = st[k][a];
+	const int j = st[k][b - (1 << k) + 1];
 
 	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];
 }
 
-ll query(const int & u, const int & v)
+ll query(const int u, const int v)
 {
 	static mii F;
 	F.clear();

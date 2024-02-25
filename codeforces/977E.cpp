@@ -8,7 +8,7 @@ int component[N];
 int nodes[N];
 int edges[N];
 
-void init(const int & n)
+void init(const int n)
 {
 	for(int i = 1; i <= n; ++i)
 	{
@@ -18,7 +18,7 @@ void init(const int & n)
 	}
 }
 
-int find_comp(const int & x)
+int find_comp(const int x)
 {
 	if(x == component[x]) return x;
 	return component[x] = find_comp(component[x]);

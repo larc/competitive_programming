@@ -8,13 +8,13 @@ llu p10[N];
 llu B[N], S[N + 1];
 
 /*
-inline llu S(const llu & n)
+inline llu S(const llu n)
 {
 	return n * p10[n - 1] - (p10[n] - 1) / 9;
 }
 */
 
-inline llu T(const llu & n, const llu & r)
+inline llu T(const llu n, const llu r)
 {
 	return r * S[n] + n * r * (r + 1) / 2;
 }

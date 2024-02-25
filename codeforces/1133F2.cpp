@@ -10,13 +10,13 @@ struct union_find
 {
 	int comp[N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 1; i <= n; ++i)
 			comp[i] = i;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		return x == comp[x] ? x : comp[x] = find(comp[x]);
 	}
@@ -32,7 +32,7 @@ struct union_find
 		return 1;
 	}
 
-	int n_comp(const int & n)
+	int n_comp(const int n)
 	{
 		int nc = 0;
 		for(int i = 1; i <= n; ++i)
@@ -73,7 +73,7 @@ int main()
 	std::queue<int> q;
 	visited[1] = 1;
 
-	for(const int & v: G[1])
+	for(const int v: G[1])
 		if(uf.join(1, v))
 		{
 			q.push(v);
@@ -86,7 +86,7 @@ int main()
 		return 0;
 	}
 
-	for(const int & v: G[1])
+	for(const int v: G[1])
 	{
 		if(q.size() == d) break;
 		if(!visited[v])
@@ -113,7 +113,7 @@ int main()
 	while(!q.empty())
 	{
 		u = q.front(); q.pop();
-		for(const int & v: G[u])
+		for(const int v: G[u])
 			if(!visited[v])
 			{
 				printf("%d %d\n", u, v);

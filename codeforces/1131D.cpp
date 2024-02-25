@@ -6,13 +6,13 @@
 
 int comp[N << 1];
 
-void init(const int & n)
+void init(const int n)
 {
 	for(int i = 0; i < n; ++i)
 		comp[i] = i;
 }
 
-int find(const int & x)
+int find(const int x)
 {
 	return comp[x] == x ? x : comp[x] = find(comp[x]);
 }
@@ -74,8 +74,8 @@ int main()
 
 	while(!q.empty())
 	{
-		const int & u = q.front();
-		for(const int & v: G[u])
+		const int u = q.front();
+		for(const int v: G[u])
 		{
 			in_degree[v]--;
 			value[v] = std::max(value[u] + 1, value[v]);
