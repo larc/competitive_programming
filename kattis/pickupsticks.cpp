@@ -7,7 +7,7 @@ std::vector<int> G[N];
 std::vector<int> in_degree;
 std::vector<int> S;
 
-bool top_sort(const unsigned int & n)
+bool top_sort(const unsigned int n)
 {
 	S.clear();
 	for(unsigned int u = 1; u <= n; ++u)
@@ -16,8 +16,8 @@ bool top_sort(const unsigned int & n)
 
 	for(unsigned int i = 0; i < S.size(); ++i)
 	{
-		const int & u = S[i];
-		for(const int & v: G[u])
+		const int u = S[i];
+		for(const int v: G[u])
 			if(--in_degree[v] == 0)
 				S.push_back(v);
 	}
@@ -50,7 +50,7 @@ int main()
 			continue;
 		}
 
-		for(const int & u: S)
+		for(const int u: S)
 			printf("%d\n", u);
 	}
 

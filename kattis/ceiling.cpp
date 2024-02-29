@@ -8,7 +8,7 @@ struct bst
 		int value;
 		node * child[2] = {};
 
-		node(const int & val): value(val) {}
+		node(const int val): value(val) {}
 		~node()
 		{
 			delete child[0];
@@ -23,7 +23,7 @@ struct bst
 		delete root;
 	}
 
-	node ** find(const int & val)
+	node ** find(const int val)
 	{
 		node ** n = &root;
 		while(*n)
@@ -37,7 +37,7 @@ struct bst
 		return n;
 	}
 
-	bool insert(const int & val)
+	bool insert(const int val)
 	{
 		node ** n = find(val);
 		if(*n) return false;

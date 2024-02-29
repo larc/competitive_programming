@@ -20,7 +20,7 @@ match[H][W];
 
 const int N [4][2] = { {0, -1}, {0, 1}, {-1, 0}, {1, 0} };
 
-bool aug(const int & i, const int & j)
+bool aug(const int i, const int j)
 {
 	if(visited[i][j]) return 0;
 	visited[i][j] = 1;

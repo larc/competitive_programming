@@ -6,13 +6,13 @@ struct union_find
 {
 	int sets[MAX_N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 0; i < n; ++i)
 			sets[i] = i;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		return sets[x] == x ? x : sets[x] = find(sets[x]);
 	}

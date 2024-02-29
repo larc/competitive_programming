@@ -6,7 +6,7 @@
 int mem[N];
 int ft[N], n;
 
-void add(int i, const int & v)
+void add(int i, const int v)
 {
 	while(i <= n)
 	{

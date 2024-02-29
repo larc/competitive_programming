@@ -15,12 +15,12 @@ struct fenwick_tree
 		delete [] bit;
 	}
 
-	void reset(const int & n)
+	void reset(const int n)
 	{
 		memset(bit, 0, sizeof(long long) * n);
 	}
 
-	void add(int i, const int & v, const int & n)
+	void add(int i, const int v, const int n)
 	{
 		while(i <= n)
 		{

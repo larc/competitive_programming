@@ -6,12 +6,12 @@
 std::vector<int> G[N];
 bool visited[N];
 
-int count_dfs(const int & u)
+int count_dfs(const int u)
 {
 	int count = 0;
 
 	visited[u] = true;
-	for(const int & v: G[u])
+	for(const int v: G[u])
 		if(!visited[v])
 			count += count_dfs(v);
 

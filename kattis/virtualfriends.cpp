@@ -9,7 +9,7 @@ using namespace std;
 int num[N];
 int friends[N];
 
-int find_f(const int & x)
+int find_f(const int x)
 {
 	return x == friends[x] ? x : friends[x] = find_f(friends[x]);
 }

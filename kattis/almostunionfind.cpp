@@ -6,12 +6,12 @@
 int parent[N], num[N];
 long long sum[N];
 
-int find(const int & x)
+int find(const int x)
 {
 	return x == parent[x] ? x : parent[x] = find(parent[x]);
 }
 
-void init(const int & n)
+void init(const int n)
 {
 	for (int i = 1; i <= n; ++i)
 	{

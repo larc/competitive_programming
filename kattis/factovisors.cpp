@@ -20,7 +20,7 @@ void sieve()
 		}
 }
 
-int factovisors(int n, const int & p)
+int factovisors(int n, const int p)
 {
 	int count = 0;
 	while(n)
@@ -31,7 +31,7 @@ int factovisors(int n, const int & p)
 	return count;
 }
 
-int prime_pow(int & n, const int & p)
+int prime_pow(int & n, const int p)
 {
 	int count = 0;
 	while(n % p == 0)
@@ -44,7 +44,7 @@ int prime_pow(int & n, const int & p)
 
 bool divide(int m, int n)
 {
-	for(const int & p: primes)
+	for(const int p: primes)
 	{
 		if(p * p > m) break;
 		if(prime_pow(m, p) > factovisors(n, p))

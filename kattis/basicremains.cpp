@@ -1,6 +1,6 @@
 #include <cstdio>
 
-int to_base(int n, const int & b_in, const int & b_out)
+int to_base(int n, const int b_in, const int b_out)
 {
 	int r = 0;
 	int p = 1;

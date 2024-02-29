@@ -12,7 +12,7 @@ struct point
 int level[N][N];
 std::queue<point> q;
 
-void add_valid(const int & i, const int & j, const int & n)
+void add_valid(const int i, const int j, const int n)
 {
 	if(i < 0 || i >= N) return;
 	if(j < 0 || j >= N) return;

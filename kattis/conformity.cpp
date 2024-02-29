@@ -7,7 +7,7 @@ struct combination
 {
 	int num[5];
 
-	int & operator[](const int & i)
+	int & operator[](const int i)
 	{
 		return num[i];
 	}
@@ -17,7 +17,7 @@ struct combination
 		std::sort(num, num + 5);
 
 		std::string str = "";
-		for(const int & n: num)
+		for(const int n: num)
 			str += std::to_string(n);
 
 		return str;

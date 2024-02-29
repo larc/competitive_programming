@@ -3,7 +3,7 @@
 
 char map[51][51];
 
-int dfs(const int & x, const int & y)
+int dfs(const int x, const int y)
 {
 	char c = map[x][y];
 	map[x][y] = 'X';
@@ -16,9 +16,9 @@ int dfs(const int & x, const int & y)
 		return c == 'G';
 
 	int count = 0;
-	auto check_dfs = [&count](const int & i, const int & j)
+	auto check_dfs = [&count](const int i, const int j)
 	{
-		const char & c = map[i][j];
+		const char c = map[i][j];
 		if(c == '.' || c == 'G')
 			count += dfs(i, j);
 	};

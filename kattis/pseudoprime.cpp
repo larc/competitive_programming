@@ -24,11 +24,11 @@ void sieve()
 		}
 }
 
-bool is_prime(const int & n)
+bool is_prime(const int n)
 {
 	if(n < N) return !not_prime[n];
 
-	for(const int & p: primes)
+	for(const int p: primes)
 	{
 		if(p * p > n) break;
 		if(!(n % p))
@@ -38,7 +38,7 @@ bool is_prime(const int & n)
 	return true;
 }
 
-int mod_pow(const int & b, const int & n, const int & p)
+int mod_pow(const int b, const int n, const int p)
 {
 	if(!n) return 1;
 

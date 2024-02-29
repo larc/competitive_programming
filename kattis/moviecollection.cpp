@@ -8,7 +8,7 @@ struct fenwick_tree
 	int bit[2 * N];
 	int size;
 
-	void reset(const int & n)
+	void reset(const int n)
 	{
 		size = n + 1;
 		memset(bit, 0, sizeof(bit));
@@ -26,7 +26,7 @@ struct fenwick_tree
 		return sum;
 	}
 
-	void add(int i, const int & v)
+	void add(int i, const int v)
 	{
 		while(i < size)
 		{

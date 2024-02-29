@@ -8,7 +8,7 @@ std::vector<int> G[N];
 std::vector<int> top_sort;
 bool visited[N];
 
-void dfs(const int & u, const bool & ts = 0) // disable top_sort;
+void dfs(const int u, const bool ts = 0) // disable top_sort;
 {
 	visited[u] = 1;
 

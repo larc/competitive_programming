@@ -10,7 +10,7 @@ struct point
 	double x = 0;
 	double y = 0;
 
-	point(const double & ix = 0, const double & iy = 0) : x(ix), y(iy) {}
+	point(const double ix = 0, const double iy = 0) : x(ix), y(iy) {}
 
 	point operator - (const point & p)
 	{
@@ -26,7 +26,7 @@ double length(const point & p)
 point points[N];
 bool visited[N];
 
-double prim(const int & n)
+double prim(const int n)
 {
 	memset(visited, 0, sizeof(visited));
 

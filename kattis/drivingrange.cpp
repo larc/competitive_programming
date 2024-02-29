@@ -7,13 +7,13 @@ struct union_find
 {
 	int P[N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 0; i < n; ++i)
 			P[i] = i;
 	}
 
-	const int & find(const int & x)
+	const int find(const int x)
 	{
 		return P[x] = x == P[x] ? x : find(P[x]);
 	}
@@ -45,7 +45,7 @@ struct edge_t
 union_find uf;
 edge_t G[N];
 
-int kruskal(const int & n, const int & m)
+int kruskal(const int n, const int m)
 {
 	uf.init(n);
 	std::sort(G, G + m);

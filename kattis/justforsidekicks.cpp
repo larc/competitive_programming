@@ -10,7 +10,7 @@ struct fenwick_tree
 		memset(bit, 0, sizeof(bit));
 	}
 
-	void add(int i, const int & v, const int & n)
+	void add(int i, const int v, const int n)
 	{
 		while(i <= n)
 		{
