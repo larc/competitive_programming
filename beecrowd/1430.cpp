@@ -24,7 +24,7 @@ int main()
 		{
 			d = 0;
 			while(line[i] != '/')
-				d += note[line[i++]];
+				d += note[(int) line[i++]];
 
 			if(d == 1) m++;
 		}
