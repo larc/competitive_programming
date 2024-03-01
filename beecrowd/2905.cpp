@@ -29,10 +29,11 @@ float dijkstra(const int t)
 {
 	bool visited[N] = {};
 
-	std::priority_queue<trip_t> q;
-	q.push({C[1], 1, 0, D[1]});
+	trip_t u = {C[1], 1, 0, D[1]};
 
-	trip_t u;
+	std::priority_queue<trip_t> q;
+	q.push(u);
+
 	while(!q.empty())
 	{
 		u = q.top(); q.pop();

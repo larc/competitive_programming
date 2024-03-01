@@ -11,7 +11,7 @@ inline int distant(const int i, const int j)
 
 int main()
 {
-	int n, i, j, t;
+	int n, i, t;
 	int hr[24], T[24], dif[24];
 	int a, b;
 

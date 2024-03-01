@@ -4,7 +4,7 @@
 
 typedef unsigned long long ulong_t;
 
-inline ulong_t lg(ulong_t n)
+ulong_t lg(ulong_t n)
 {
 	ulong_t l = 0;
 	while(n >>= 1) l++;
@@ -12,7 +12,7 @@ inline ulong_t lg(ulong_t n)
 	return l;
 }
 
-inline ulong_t S(const ulong_t n)
+ulong_t S(const ulong_t n)
 {
 	return (n * lg(n)) >> 1;
 }
@@ -21,8 +21,9 @@ ulong_t A(const ulong_t n)
 {
 	if(!n) return 0;
 
-	ulong_t r = 1;
-	return S(r <<= lg(n)) + (n - r) + A(n - r);
+	const ulong_t r = 1ull << lg(n);
+
+	return S(r) + (n - r) + A(n - r);
 }
 
 int main()

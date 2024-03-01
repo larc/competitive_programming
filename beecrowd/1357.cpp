@@ -12,7 +12,7 @@ string braile[10] = {".***..", "*.....", "*.*...", "**....", "**.*..", "*..*..",
 void to_braile(const string & str)
 {
 	int j, k, n = str.size() * 3;
-	for(int i = 0; i < str.size(); ++i)
+	for(unsigned int i = 0; i < str.size(); ++i)
 	{
 		j = str[i] - '0';
 
