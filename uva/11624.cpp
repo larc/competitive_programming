@@ -29,12 +29,12 @@ point operator + (const point & a, const point & b)
 
 const point dirs[] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 
-bool check(const point & a, const int & rows, const int & cols)
+bool check(const point & a, const int rows, const int cols)
 {
 	return pmaze(a) == 'J' && (a[0] == rows || a[1] == cols || a[0] == 1 || a[1] == 1);
 }
 
-int bfs(const int & rows, const int & cols)
+int bfs(const int rows, const int cols)
 {
 	std::queue<point> q;
 
@@ -63,7 +63,7 @@ int bfs(const int & rows, const int & cols)
 	{
 		a = q.front(); q.pop();
 
-		const char & ma = pmaze(a);
+		const char ma = pmaze(a);
 
 		for(const point & d: dirs)
 		{

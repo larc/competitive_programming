@@ -12,7 +12,7 @@ int freq[N];		// frequency sequence
 int left[N];		// left limit of freq[i]
 int tree[N << 2];	// segment tree save i-index of freq[i]
 
-int value(const int & idx, int i, int j)
+int value(const int idx, int i, int j)
 {
 	if(left[idx] + freq[idx] - 1 < i || j < left[idx])
 		return 0;
@@ -23,7 +23,7 @@ int value(const int & idx, int i, int j)
 	return j - i + 1;
 }
 
-void build(const int & n, const int & a, const int & b)
+void build(const int n, const int a, const int b)
 {
 	if(a == b)
 	{
@@ -42,7 +42,7 @@ void build(const int & n, const int & a, const int & b)
 	tree[n] = value(m, a, b) > value(tree[n], a, b) ? m : tree[n];
 }
 
-int rmq(const int & n, const int & a, const int & b, const int & i, const int & j)
+int rmq(const int n, const int a, const int b, const int i, const int j)
 {
 	if(b < i || j < a) return -1;
 	if(i <= a && b <= j) return tree[n];

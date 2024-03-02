@@ -8,11 +8,14 @@
 
 struct coor_t
 {
-	float x, y;
+	float x = 0;
+	float y = 0;
 
 	float norm(coor_t c)
 	{
-		return (c.x -= x) * c.x + (c.y -= y) * c.y;
+		c.x -= x;
+		c.y -= y;
+		return c.x * c.x + c.y * c.y;
 	}
 };
 
@@ -32,7 +35,7 @@ bool operator<(const edge_t & u, const edge_t & v)
 	return D[u.a][u.b] > D[v.a][v.b];
 }
 
-void prim(const int & p)
+void prim(const int p)
 {
 	memset(visited, 0, sizeof(visited));
 
@@ -90,7 +93,7 @@ int main_prim() // 0.090 c++11
 edge_t E[N * (N - 1) / 2];
 int S[N];
 
-const int & find_s(const int & x)
+int find_s(const int x)
 {
 	if(S[x] == x) return x;
 	return S[x] = find_s(S[x]);
@@ -106,7 +109,7 @@ bool union_s(int x, int y)
 	return 1;
 }
 
-float kruskal(const int & p, std::priority_queue<edge_t> & q, int s)
+float kruskal(std::priority_queue<edge_t> & q, int s)
 {
 	edge_t edge;
 	float d = 0;
@@ -124,7 +127,7 @@ float kruskal(const int & p, std::priority_queue<edge_t> & q, int s)
 	return sqrt(d);
 }
 
-float kruskal(const int & p, int e, int s)
+float kruskal(int e, int s)
 {
 	std::sort(E, E + e);
 
@@ -145,7 +148,7 @@ float kruskal(const int & p, int e, int s)
 
 int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue version
 {
-	int n, p, s, e;
+	int n, p, s;// e;
 
 	scanf("%d", &n);
 	while(n--)
@@ -167,8 +170,8 @@ int main_kruskal() // 0.030 c++11 sort version, 0.000 c++11 priority queue versi
 		for(int i = 0; i < p; ++i) // initialization union find
 			S[i] = i;
 
-		//printf("%.2f\n", kruskal(p, e, p - s));
-		printf("%.2f\n", kruskal(p, q, p - s));
+		//printf("%.2f\n", kruskal(e, p - s));
+		printf("%.2f\n", kruskal(q, p - s));
 	}
 
 	return 0;

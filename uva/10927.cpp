@@ -13,7 +13,7 @@ struct pole_t
 	double d;
 	int x, y, z;
 
-	pole_t(const int & x_ = 0, const int & y_ = 0, const int & z_ = 0)
+	pole_t(const int x_ = 0, const int y_ = 0, const int z_ = 0)
 	{
 		h = 0;
 		x = x_; y = y_; z = z_;

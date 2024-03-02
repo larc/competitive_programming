@@ -24,7 +24,7 @@ struct fmat
 		return r;
 	}
 
-	fmat pow(const unsigned int & n)
+	fmat pow(const unsigned int n)
 	{
 		fmat r;
 		if(n == 1) return r;
@@ -36,7 +36,7 @@ struct fmat
 		return r;
 	}
 
-	unsigned int operator()(const unsigned int & n)
+	unsigned int operator()(const unsigned int n)
 	{
 		if(n < 2) return n % mod;
 

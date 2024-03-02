@@ -49,7 +49,7 @@ char & gflow(const point & p)
 	return G[p.x][p.y];
 }
 
-const unsigned bfs(point a, const point & b)
+unsigned bfs(point a, const point & b)
 {
 	memset(dist, -1, sizeof(dist));
 

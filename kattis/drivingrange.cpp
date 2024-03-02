@@ -13,7 +13,7 @@ struct union_find
 			P[i] = i;
 	}
 
-	const int find(const int x)
+	int find(const int x)
 	{
 		return P[x] = x == P[x] ? x : find(P[x]);
 	}

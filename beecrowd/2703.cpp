@@ -25,7 +25,7 @@ struct union_find
 			parent[i] = i;
 	}
 
-	const int find(const int x)
+	int find(const int x)
 	{
 		if(x == parent[x]) return x;
 		return parent[x] = find(parent[x]);

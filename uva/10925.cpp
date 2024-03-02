@@ -8,12 +8,12 @@ struct big_int
 {
 	char num[32] = {};
 
-	char & operator [] (const int & i)
+	char & operator [] (const int i)
 	{
 		return num[i];
 	}
 
-	const char & operator [] (const int & i) const
+	char operator [] (const int i) const
 	{
 		return num[i];
 	}
@@ -39,7 +39,7 @@ struct big_int
 		for(; num[i] || add[i]; ++i)
 		{
 			char & a = num[i];
-			const char & b = add[i];
+			const char b = add[i];
 
 			a = (a ? (a - '0') : 0) + (b ? (b - '0') : 0) + r;
 			r = a / 10;
@@ -51,7 +51,7 @@ struct big_int
 		return *this;
 	}
 
-	big_int operator / (const int & n)
+	big_int operator / (const int n)
 	{
 		int r = 0;
 		big_int ans;

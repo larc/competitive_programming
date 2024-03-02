@@ -5,7 +5,7 @@
 
 #define N 33
 
-void reverse(char * str, const int & n)
+void reverse(char * str, const int n)
 {
 	char c;
 	for(int i = 0; i < (n >> 1); ++i)
@@ -35,7 +35,7 @@ struct decimal_t
 	{
 		zero();
 
-		neg = decpt = digits[0] == '-';
+		neg = (decpt = digits[0] == '-');
 		while(digits[decpt] && digits[decpt] != '.') decpt++;
 
 		memcpy(integer, digits + neg, decpt - neg);

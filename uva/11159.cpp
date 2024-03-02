@@ -9,12 +9,12 @@ int A[N][M + 1]; // adjacent list
 bool visited[N];
 int match[N];
 
-int & size(const int & i)
+int & size(const int i)
 {
 	return A[i][M];
 }
 
-bool augmenting_path(const int & a) // dfs: mcbm
+bool augmenting_path(const int a) // dfs: mcbm
 {
 	if(visited[a]) return 0;
 	visited[a] = 1;

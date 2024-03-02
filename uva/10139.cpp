@@ -20,7 +20,7 @@ void sieve()
 		}
 }
 
-int factovisors(int n, const int & p)
+int factovisors(int n, const int p)
 {
 	int count = 0;
 	while(n)
@@ -31,7 +31,7 @@ int factovisors(int n, const int & p)
 	return count;
 }
 
-int prime_pow(int & n, const int & p)
+int prime_pow(int & n, const int p)
 {
 	int count = 0;
 

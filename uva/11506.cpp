@@ -11,7 +11,7 @@ int G[N][N];	// adj list
 int size[N];
 int path[N];
 
-int augment(const int & v, int cost_path)
+int augment(const int v, int cost_path)
 {
 	if(path[v] >= 0 && path[v] != v)
 	{
@@ -23,7 +23,7 @@ int augment(const int & v, int cost_path)
 	return cost_path;
 }
 
-int bfs(const int & s, const int & t)
+int bfs(const int s, const int t)
 {
 	memset(path, -1, sizeof(path));
 	path[s] = s;
@@ -53,21 +53,21 @@ int bfs(const int & s, const int & t)
 	return augment(t, INF);
 }
 
-int index_source(const int & u, const int & m)
+int index_source(const int u, const int m)
 {
 	if(u == 1) return 0;
 	if(u == m) return 1;
 	return (u - 1) << 1;
 }
 
-int index_target(const int & u, const int & m)
+int index_target(const int u, const int m)
 {
 	if(u == 1) return 0;
 	if(u == m) return 1;
 	return ((u - 1) << 1) + 1;
 }
 
-void add_edge(const int & x, const int & y, const int & c, const int & m)
+void add_edge(const int x, const int y, const int c, const int m)
 {
 	int u = index_target(x, m);
 	int v = index_source(y, m);

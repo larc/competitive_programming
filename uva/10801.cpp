@@ -23,12 +23,12 @@ int G[E][N][2];
 unsigned int dist[E][N];
 bool visited[E][N];
 
-bool stop(const int & e, const int & n)
+bool stop(const int e, const int n)
 {
 	return G[e][n][0] >= 0 || G[e][n][1] >= 0;
 }
 
-void relax(const int & e, const int & n, const int & fe, const int & fn, std::priority_queue<floor_t> & q)
+void relax(const int e, const int n, const int fe, const int fn, std::priority_queue<floor_t> & q)
 {
 	if(fn < 0) return;
 	if(!stop(fe, fn)) return;
@@ -45,14 +45,14 @@ void relax(const int & e, const int & n, const int & fe, const int & fn, std::pr
 	}
 }
 
-unsigned int dijkstra(const int & k)
+unsigned int dijkstra(const int k)
 {
 	memset(visited, 0, sizeof(visited));
 	memset(dist, -1, sizeof(dist));
 
 	std::priority_queue<floor_t> q;
 
-	int n, e, fe;
+	int n, e;
 	for(e = 0; e < E; ++e)
 		if(stop(e, 0))
 		{
@@ -60,7 +60,6 @@ unsigned int dijkstra(const int & k)
 			q.push({e, 0, 0});
 		}
 
-	unsigned int d;
 	while(!q.empty())
 	{
 		e = q.top().e;
@@ -114,7 +113,7 @@ int main()
 		}
 
 		d = dijkstra(k);
-		if(d < -1) printf("%u\n", d);
+		if(d < 0u - 1) printf("%u\n", d);
 		else printf("IMPOSSIBLE\n");
 	}
 

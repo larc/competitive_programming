@@ -18,7 +18,7 @@ int bfs(int u)
 		nivel[u] = 0;
 		q.push(u);
 
-	int v, k, n, s;
+	int v, k = 0, n, s;
 	n = -1;	// current nivel
 	s = 0;	// sort by nivels
 	while(!q.empty())
@@ -48,14 +48,16 @@ int bfs(int u)
 	return k; // nodes last nivel
 }
 
-void mark_center(int i, const int & n)
+void mark_center(int i, const int n)
 {
 	int j = i >> 1;
-	if(i & 1) i = j; i++;
+	if(i & 1) i = j;
+
+	++i;
 	for(int u = 1; u <= n; ++u)
 	{
-		if(nivel[u] == j) center[u]++;
-		if(nivel[u] == i) center[u]++;
+		if(nivel[u] == j) ++center[u];
+		if(nivel[u] == i) ++center[u];
 	}
 }
 

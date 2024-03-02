@@ -20,7 +20,7 @@ bomb_t bombs[N]; int nb;
 
 int n_comp[N];
 int parent[N], dfs_num[N], dfs_low[N], dfs_count;
-void articulations(const int & u, const int & n)
+void articulations(const int u, const int n)
 {
 	dfs_num[u] = dfs_low[u] = dfs_count++;
 

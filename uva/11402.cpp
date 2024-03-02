@@ -12,7 +12,7 @@ char land[N];
 int tree[N << 3];		// Buccaner count
 char tree_op[N << 3];	// lazy (0, F, E, I) operations
 
-void build(const int & n, const int & L, const int & R)
+void build(const int n, const int L, const int R)
 {
 	tree_op[n] = 0;
 
@@ -28,7 +28,7 @@ void build(const int & n, const int & L, const int & R)
 	tree[n] = tree[left(n)] + tree[right(n)];
 }
 
-void update(const int & n, const int & L, const int & R, const char & op)
+void update(const int n, const int L, const int R, const char op)
 {
 	if(op == 'I')
 	{
@@ -50,7 +50,7 @@ void update(const int & n, const int & L, const int & R, const char & op)
 	tree_op[n] = op;
 }
 
-void update(const int & n, const int & L, const int & R, const int & a, const int & b, const char & op)
+void update(const int n, const int L, const int R, const int a, const int b, const char op)
 {
 	if(a > R || b < L) return;
 
@@ -73,7 +73,7 @@ void update(const int & n, const int & L, const int & R, const int & a, const in
 	tree[n] = tree[left(n)] + tree[right(n)];
 }
 
-int query(const int & n, const int & L, const int & R, const int & a, const int & b)
+int query(const int n, const int L, const int R, const int a, const int b)
 {
 	if(a > R || b < L) return 0;
 

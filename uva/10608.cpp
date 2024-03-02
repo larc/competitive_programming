@@ -7,7 +7,7 @@ struct union_find
 	int P[30001];
 	int S[30001];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 1; i <= n; ++i)
 		{
@@ -16,7 +16,7 @@ struct union_find
 		}
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		return x == P[x] ? x : P[x] = find(P[x]);
 	}

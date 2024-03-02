@@ -10,7 +10,7 @@ void reset_s(int n)
 	while(n--) S[n] = n;
 }
 
-int find_s(const int & x)
+int find_s(const int x)
 {
 	if(S[x] == x) return x;
 	return S[x] = find_s(S[x]);

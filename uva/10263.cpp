@@ -5,7 +5,7 @@ struct point_t
 	double x;
 	double y;
 
-	point_t(const double & x_ = 0, const double & y_ = 0)
+	point_t(const double x_ = 0, const double y_ = 0)
 	{
 		x = x_; y = y_;
 	}
@@ -27,7 +27,7 @@ struct point_t
 	}
 };
 
-point_t operator*(const double & alpha, const point_t & p)
+point_t operator*(const double alpha, const point_t & p)
 {
 	return point_t(alpha * p.x, alpha * p.y);
 }

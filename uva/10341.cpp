@@ -6,12 +6,12 @@
 #define e 1e-10
 
 int p, q, r, s, t, u;
-inline double f(const double & x)
+inline double f(const double x)
 {
 	return p * exp(-x) + q * sin(x) + r * cos(x) + s * tan(x) +  t * x * x + u;
 }
 
-inline bool stop(const double & y)
+inline bool stop(const double y)
 {
 	return std::abs(y) < e;
 }

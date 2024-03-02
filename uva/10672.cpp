@@ -11,12 +11,12 @@ int n_childs[N];
 int marbles[N];
 int parent[N];
 
-int moves_dfs(const int & v)
+int moves_dfs(const int v)
 {
 	int moves = 0;
 	for(int i = 0; i < n_childs[v]; ++i)
 	{
-		const int & u = childs[v][i];
+		const int u = childs[v][i];
 		moves += moves_dfs(u);
 		marbles[v] += marbles[u];
 	}

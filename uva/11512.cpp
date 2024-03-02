@@ -25,7 +25,7 @@ trie tree[M];
 int s;
 
 char letter[4] = {'A', 'C', 'G', 'T'};
-int index(const char & c)
+int index(const char c)
 {
 	if(c == 'A') return 0;
 	if(c == 'C') return 1;

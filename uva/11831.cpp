@@ -9,7 +9,7 @@ char arena[N][N];
 int x[4] = {-1, 0, 1, 0};
 int y[4] = {0, 1, 0, -1};
 
-bool forward(int & i, int & j, const int & d)
+bool forward(int & i, int & j, const int d)
 {
 	if(!arena[i + x[d]][j + y[d]])
 		return 0;

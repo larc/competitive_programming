@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <string>
 
-bool is_simple_graph(std::string * mat, const int & m)
+bool is_simple_graph(std::string * mat, const int m)
 {
 	int nv;
 	for(int i = 0; i < m; ++i)

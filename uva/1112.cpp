@@ -11,7 +11,7 @@ int G[N][N];
 unsigned dist[N];
 bool visited[N];
 
-void dijkstra(int u, const int & n)
+void dijkstra(int u, const int n)
 {
 	memset(dist, -1, sizeof(dist));
 	memset(visited, 0, sizeof(visited));

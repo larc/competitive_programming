@@ -4,7 +4,7 @@
 
 #define N 1001
 
-int sum_divisors(const int & n)
+int sum_divisors(const int n)
 {
 	int sum = 1 + (1 != n ? n : 0);
 	int _sqrt = sqrt(n);

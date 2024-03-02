@@ -14,7 +14,7 @@ struct conn_t
 	int u;
 	llu_t l, c;
 
-	operator const int () const
+	operator int () const
 	{
 		return u;
 	}

@@ -6,9 +6,9 @@
 #define piece(i) i >= 'a' ? i - 'a' : i - 'A'
 
 char board[8][8];
-void (*attack[26]) (const int & i, const int & j, const bool & black);
+void (*attack[26]) (const int, const int, const bool);
 
-bool attack_square(const int & i, const int & j)
+bool attack_square(const int i, const int j)
 {
 	if(i < 0 || i > 7) return 0;
 	if(j < 0 || j > 7) return 0;
@@ -20,13 +20,13 @@ bool attack_square(const int & i, const int & j)
 }
 
 
-void pawn(const int & i, const int & j, const bool & black)
+void pawn(const int i, const int j, const bool black)
 {
 	attack_square(black ? i + 1 : i - 1, j - 1);
 	attack_square(black ? i + 1 : i - 1, j + 1);
 }
 
-void knight(const int & i, const int & j, const bool & black)
+void knight(const int i, const int j, const bool)
 {
 	attack_square(i - 2, j - 1);
 	attack_square(i - 2, j + 1);
@@ -38,7 +38,7 @@ void knight(const int & i, const int & j, const bool & black)
 	attack_square(i + 2, j + 1);
 }
 
-void bishop(const int & i, const int & j, const bool & black)
+void bishop(const int i, const int j, const bool)
 {
 	int a, b;
 
@@ -55,7 +55,7 @@ void bishop(const int & i, const int & j, const bool & black)
 	while(attack_square(--a, ++b));
 }
 
-void rook(const int & i, const int & j, const bool & black)
+void rook(const int i, const int j, const bool)
 {
 	int a, b;
 
@@ -72,13 +72,13 @@ void rook(const int & i, const int & j, const bool & black)
 	while(attack_square(--a, b));
 }
 
-void queen(const int & i, const int & j, const bool & black)
+void queen(const int i, const int j, const bool black)
 {
 	bishop(i, j, black);
 	rook(i, j, black);
 }
 
-void king(const int & i, const int & j, const bool & black)
+void king(const int i, const int j, const bool)
 {
 	attack_square(i - 1, j - 1);
 	attack_square(i - 1, j);

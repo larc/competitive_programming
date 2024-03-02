@@ -45,7 +45,7 @@ int main()
 
 			for(int i = 0; i < size[m]; ++i)
 			{
-				const int & u = G[m][i];
+				const int u = G[m][i];
 				if(wake_time[u] < 0)
 				{
 					waked_conn[u]++;

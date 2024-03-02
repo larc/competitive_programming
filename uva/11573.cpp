@@ -17,13 +17,13 @@ struct point
 
 	point() = default;
 
-	point(const int & i)
+	point(const int i)
 	{
 		x = i / cols + 1;
 		y = i % cols + 1;
 	}
 
-	point(const int & ax, const int & ay): x(ax), y(ay) {};
+	point(const int ax, const int ay): x(ax), y(ay) {};
 
 	operator int () const
 	{
@@ -46,12 +46,12 @@ const point dir[8] = { 	{-1, 0},
 						{-1, -1}
 						};
 
-char & gflow(const point & p)
+inline char & gflow(const point & p)
 {
 	return G[p.x][p.y];
 }
 
-const unsigned & bfs(point a, const point & b)
+unsigned bfs(point a, const point & b)
 {
 	memset(dist, -1, sizeof(dist));
 
@@ -64,13 +64,13 @@ const unsigned & bfs(point a, const point & b)
 		a = q.front();
 		q.pop_front();
 
-		const char & flow = gflow(a);
+		const char flow = gflow(a);
 		for(int i = 0; i < 8; ++i)
 		{
 			const point & c = a + dir[i];
 			if(!gflow(c)) continue;
 
-			const bool & current = i != flow - '0';
+			const bool current = i != flow - '0';
 			if(dist[c] > dist[a] + current)
 			{
 				dist[c] = dist[a] + current;

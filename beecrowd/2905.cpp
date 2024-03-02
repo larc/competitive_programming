@@ -14,7 +14,7 @@ struct trip_t
 {
 	float c;
 	int u, i, d;
-	operator const int ()
+	operator int ()
 	{
 		return u;
 	}

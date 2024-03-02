@@ -8,7 +8,7 @@
 double G[N][N][N];
 int P[N][N][N];
 
-void print_path(const int & i, const int & j, const int & s)
+void print_path(const int i, const int j, const int s)
 {
 	if(s > -1) print_path(i, P[i][j][s], s - 1);
 	printf("%d ", j + 1);

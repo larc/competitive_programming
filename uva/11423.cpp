@@ -15,7 +15,7 @@ struct fenwick_tree
 		bit.resize(10000001);
 	}
 
-	void add(unsigned int i, const int & v)
+	void add(unsigned int i, const int v)
 	{
 		while(i < bit.size())
 		{
@@ -35,7 +35,7 @@ struct fenwick_tree
 		return s;
 	}
 
-	int rsq(const int & a, const int & b)
+	int rsq(const int a, const int b)
 	{
 		return rsq(b) - rsq(a - 1);
 	}
@@ -55,7 +55,7 @@ int main()
 	for(int i = 0; i < n_caches; ++i)
 		scanf("%d", cache + i);
 
-	auto update_cache = [&](const int & a)
+	auto update_cache = [&](const int a)
 	{
 		if(last_time[a])
 		{

@@ -5,7 +5,7 @@
 
 typedef unsigned long long ull;
 
-ull sides(const ull & n)
+ull sides(const ull n)
 {
 	return ceil((3 + sqrt(9 + 8 * n)) / 2);
 }

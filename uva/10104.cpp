@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <algorithm>
 
-int ext_euclides(const int & a, const int & b, int & x, int & y)
+int ext_euclides(const int a, const int b, int & x, int & y)
 {
 	if(!b)
 	{

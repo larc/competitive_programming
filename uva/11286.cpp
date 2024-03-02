@@ -8,12 +8,12 @@ struct combination
 {
 	int course[5];
 
-	const int & operator[](const int & i) const
+	int operator[](const int i) const
 	{
 		return course[i];
 	}
 
-	int & operator[](const int & i)
+	int & operator[](const int i)
 	{
 		return course[i];
 	}

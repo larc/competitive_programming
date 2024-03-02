@@ -23,7 +23,7 @@ void sieve()
 		}
 }
 
-unsigned pow(const unsigned & b, const unsigned & n)
+unsigned pow(const unsigned b, const unsigned n)
 {
 	if(!n) return 1;
 

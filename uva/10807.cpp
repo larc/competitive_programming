@@ -10,13 +10,13 @@ struct union_find
 {
 	int set[N];
 
-	void init(const int & n)
+	void init(const int n)
 	{
 		for(int i = 1; i <= n; ++i)
 			set[i] = i;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		if(set[x] == x) return x;
 		return set[x] = find(set[x]);
@@ -47,8 +47,8 @@ bool operator < (const edge & a, const edge & b)
 int n, m, max_cost;
 edge G[M];	// graph list of edges
 
-void dfs(const int & i, const int & na, const int & nb,
-						const int & ca, const int & cb,
+void dfs(const int i, const int na, const int nb,
+						const int ca, const int cb,
 						const union_find & ufa, const union_find & ufb)
 {
 	if(ca + cb >= max_cost) return;

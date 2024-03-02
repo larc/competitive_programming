@@ -13,7 +13,7 @@ bool visited[MAX_BOLTS];
 int match[MAX_NUTS];
 int mcbm;
 
-bool aug(const int & b)
+bool aug(const int b)
 {
 	if(visited[b]) return 0;
 

@@ -8,7 +8,7 @@
 int S[N], size[N];
 int stack[N][N];
 
-int find(const int & s, const int & x)
+int find(const int s, const int x)
 {
 	for(int i = 0; i < size[s]; ++i)
 		if(stack[s][i] == x) return i;
@@ -16,11 +16,11 @@ int find(const int & s, const int & x)
 	return -1;
 }
 
-void reset(int i, const int & s)
+void reset(int i, const int s)
 {
 	while(++i < size[s])
 	{
-		const int & j = stack[s][i];
+		const int j = stack[s][i];
 		size[j] = 1;
 		S[j] = j;
 		stack[j][0] = j;

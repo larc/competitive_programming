@@ -14,7 +14,7 @@ inline bool is_eulerian()
 	return 1;
 }
 
-void dfs(const int & u)
+void dfs(const int u)
 {
 	for(int v = 0; v < N; ++v)
 	{

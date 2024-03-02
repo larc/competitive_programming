@@ -22,7 +22,7 @@ int min_st[M][M];
 int max_st[M][M];
 int size;
 
-void init(const int & m, const int & r, const int & n, const int & ci, const int & cj)
+void init(const int m, const int r, const int n, const int ci, const int cj)
 {
 	if(ci == cj)
 	{
@@ -41,7 +41,7 @@ void init(const int & m, const int & r, const int & n, const int & ci, const int
 	max_st[m][n] = std::max(max_st[m][L(n)], max_st[m][R(n)]);
 }
 
-void init(const int & m, const int & ri, const int & rj)
+void init(const int m, const int ri, const int rj)
 {
 	if(ri == rj)
 	{
@@ -63,7 +63,7 @@ void init(const int & m, const int & ri, const int & rj)
 	}
 }
 
-pii rmq(const int & m, const int & n, const int & ci, const int & cj, const int & qi, const int & qj)
+pii rmq(const int m, const int n, const int ci, const int cj, const int qi, const int qj)
 {
 	if(cj < qi || ci > qj) return { INF, 0 };
 	if(qi <= ci && cj <= qj) return { min_st[m][n], max_st[m][n] };
@@ -76,7 +76,7 @@ pii rmq(const int & m, const int & n, const int & ci, const int & cj, const int 
 	return { std::min(ql.first, qr.first), std::max(ql.second, qr.second) };
 }
 
-pii rmq(const int & m, const int & ri, const int & rj, const int & qri, const int & qrj, const int & qci, const int & qcj)
+pii rmq(const int m, const int ri, const int rj, const int qri, const int qrj, const int qci, const int qcj)
 {
 	if(rj < qri || ri > qrj) return { INF, 0 };
 	if(qri <= ri && rj <= qrj) return rmq(m, 0, 0, size - 1, qci, qcj);
@@ -89,7 +89,7 @@ pii rmq(const int & m, const int & ri, const int & rj, const int & qri, const in
 	return { std::min(ql.first, qr.first), std::max(ql.second, qr.second) };
 }
 
-void update(const int & m, int n)
+void update(const int m, int n)
 {
 	do
 	{
@@ -100,7 +100,7 @@ void update(const int & m, int n)
 	while(n);
 }
 
-void update(int m, const int & n, const int & val)
+void update(int m, const int n, const int val)
 {
 	min_st[m][n] = val;
 	max_st[m][n] = val;

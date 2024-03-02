@@ -9,7 +9,7 @@ using namespace std;
 int size[N];
 int friends[N];
 
-const int & find_f(const int & x)
+int find_f(const int x)
 {
 	if(!size[x])
 	{
@@ -21,7 +21,7 @@ const int & find_f(const int & x)
 	return friends[x] = find_f(friends[x]);
 }
 
-const int & union_f(int & x, int & y)
+int union_f(int & x, int & y)
 {
 	x = find_f(x);
 	y = find_f(y);

@@ -25,7 +25,7 @@ struct fmat
 		return r;
 	}
 
-	fmat pow(const int & n)
+	fmat pow(const int n)
 	{
 		fmat r;
 		if(n == 1) return r;
@@ -37,7 +37,7 @@ struct fmat
 		return r;
 	}
 
-	int operator()(const int & n)
+	int operator()(const int n)
 	{
 		if(n < 2) return n % mod;
 

@@ -16,12 +16,12 @@ int level[N];
 int idx[N], euler[N << 1];	// euler tour
 int st[M][N << 1];			// sparse table
 
-void dfs(const int & u, int & m)
+void dfs(const int u, int & m)
 {
 	idx[u] = m;
 	euler[m++] = u;
 
-	for(const int & v: G[u]) if(parent[u] != v)
+	for(const int v: G[u]) if(parent[u] != v)
 	{
 		level[v] = level[u] + 1;
 		parent[v] = u;
@@ -31,7 +31,7 @@ void dfs(const int & u, int & m)
 	}
 }
 
-void init_st(const int & m)
+void init_st(const int m)
 {
 	for(int i = 0; i < m; ++i)
 		st[0][i] = i;
@@ -42,21 +42,21 @@ void init_st(const int & m)
 		k = 1 << (i - 1);
 		for(int j = 0; j + (1 << i) - 1 < m; ++j)
 		{
-			const int & u = st[i - 1][j];
-			const int & v = st[i - 1][j + k];
+			const int u = st[i - 1][j];
+			const int v = st[i - 1][j + k];
 			st[i][j] = level[euler[u]] < level[euler[v]] ? u : v;
 		}
 	}
 }
 
-int lca(const int & a, const int & b)
+int lca(const int a, const int b)
 {
 	if(b < a) return lca(b, a);
 
 	int k = log2(b - a + 1);
 
-	const int & i = st[k][a];
-	const int & j = st[k][b - (1 << k) + 1];
+	const int i = st[k][a];
+	const int j = st[k][b - (1 << k) + 1];
 
 	return level[euler[i]] < level[euler[j]] ? euler[i] : euler[j];
 }

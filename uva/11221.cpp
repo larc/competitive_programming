@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <cmath>
 
-bool is_matrix_pal(char ** M, const int & k)
+bool is_matrix_pal(char ** M, const int k)
 {
 	for(int i = 0; i < k; ++i)
 	for(int j = 0; j < k; ++j)

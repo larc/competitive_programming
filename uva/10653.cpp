@@ -22,7 +22,7 @@ bool valid(const point & p)
 	return 1;
 }
 
-const int & bfs(point s, const point & d)
+int bfs(point s, const point & d)
 {
 	std::queue<point> q;
 	q.push(s);

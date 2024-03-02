@@ -63,7 +63,7 @@ void prim(int n)
 	}
 }
 
-void dfs(const int & n, int * d)
+void dfs(const int n, int * d)
 {
 	if(visited[n]) return;
 	visited[n] = 1;
@@ -87,7 +87,7 @@ int main()
 	int d;
 
 	int c = 1;
-	while(scanf("%d %d %d", &n, &e, &q), n, e, q)
+	while(scanf("%d %d %d", &n, &e, &q) && n)
 	{
 		memset(sG, 0, sizeof(sG));
 		memset(sT, 0, sizeof(sT));

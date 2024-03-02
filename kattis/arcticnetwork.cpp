@@ -36,7 +36,7 @@ bool operator < (const edge_t & u, const edge_t & v)
 
 int S[N];
 
-const int find_s(const int x)
+int find_s(const int x)
 {
 	if(S[x] == x) return x;
 	return S[x] = find_s(S[x]);
@@ -53,7 +53,7 @@ bool union_s(int x, int y)
 	return 1;
 }
 
-float kruskal(const int p, std::priority_queue<edge_t> & q, int s)
+float kruskal(std::priority_queue<edge_t> & q, int s)
 {
 	edge_t edge;
 	float d = 0;
@@ -94,8 +94,7 @@ int main()
 		for(int i = 0; i < p; ++i) // initialization union find
 			S[i] = i;
 
-		//printf("%.2f\n", kruskal(p, e, p - s));
-		printf("%.2f\n", kruskal(p, q, p - s));
+		printf("%.2f\n", kruskal(q, p - s));
 	}
 
 	return 0;
