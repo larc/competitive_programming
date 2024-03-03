@@ -4,14 +4,14 @@
 using namespace std;
 
 inline
-int letter(const char & c)
+int letter(const char c)
 {
 	if(c >= 'A' && c <= 'Z')
 		return c - 'A';
 	return c - 'a';
 }
 
-bool compare(const char & a, const char & b)
+bool compare(const char a, const char b)
 {
 	if(letter(a) == letter(b))
 		return a < b;

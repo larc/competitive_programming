@@ -9,7 +9,7 @@
 int level[N];
 int buttons[10];
 
-int bfs(int u, const int & v, const int & n)
+int bfs(int u, const int v, const int n)
 {
 	memset(level, -1, sizeof(level));
 

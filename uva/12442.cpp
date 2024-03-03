@@ -8,7 +8,7 @@
 bool visited[N];
 int send[N], path[N];
 
-int dfs(const int & u)
+int dfs(const int u)
 {
 	if(visited[u]) return 0;
 

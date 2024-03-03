@@ -7,7 +7,7 @@
 
 int grid[N][N], r, c, m, n;
 
-void dfs(const int & x, const int & y)
+void dfs(const int x, const int y)
 {
 	if(x < 0 || y < 0) return;
 	if(x >= r || y >= c) return;

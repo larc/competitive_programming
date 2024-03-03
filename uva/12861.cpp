@@ -4,14 +4,14 @@
 #include <cstring>
 #include <algorithm>
 
-inline int distant(const int & i, const int & j)
+inline int distant(const int i, const int j)
 {
 	return std::min(abs(i - j), 24 - abs(i - j));
 }
 
 int main()
 {
-	int n, i, j, t;
+	int n, i, t;
 	int hr[24], T[24], dif[24];
 	int a, b;
 

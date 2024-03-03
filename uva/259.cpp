@@ -10,7 +10,7 @@ int G[N][N]; // adj matrix
 int path[N]; // bfs tree
 char M[N];
 
-int augment(const int & v)
+int augment(const int v)
 {
 	if(path[v] >= 0 && v != path[v])
 	{

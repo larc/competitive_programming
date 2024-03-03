@@ -17,7 +17,7 @@ long long query[N];
 bool visited[N];
 int set[N];
 
-int find_set(const int & x)
+int find_set(const int x)
 {
 	if(set[x] == x) return x;
 	return set[x] = find_set(set[x]);
@@ -31,11 +31,11 @@ void union_set(int x, int y)
 	if(x != y) set[y] = x;
 }
 
-void lca(const int & u)
+void lca(const int u)
 {
 	set[u] = u;
 
-	for(const int & v: G[u])
+	for(const int v: G[u])
 	{
 		dist[v] = dist[u] + length[v];
 		lca(v);
@@ -51,7 +51,7 @@ void lca(const int & u)
 
 int main()
 {
-	int n, m, q, u, v;
+	int n, q, u, v;
 
 	dist[0] = length[0] = 0;
 	while(scanf("%d", &n) && n)

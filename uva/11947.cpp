@@ -4,7 +4,7 @@
 
 int month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-bool is_leap(const int & y)
+bool is_leap(const int y)
 {
 	return (!(y & 3) && (y % 100)) || !(y % 400);
 }
@@ -13,7 +13,7 @@ struct date_t
 {
 	int m, d, y;
 
-	void init(const int & n = 0)
+	void init(const int n = 0)
 	{
 		m = n / 1000000;
 		d = (n / 10000) % 100;
@@ -31,7 +31,7 @@ struct date_t
 		return month[m - 1] + d;
 	}
 
-	date_t & operator += (const int & days)
+	date_t & operator += (const int days)
 	{
 		d = days + day();
 		if(is_leap(y) && d > 366)

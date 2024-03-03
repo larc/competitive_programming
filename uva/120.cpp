@@ -15,7 +15,7 @@ void flip(int i, int j)
 		swap(flapjacks[i], flapjacks[j]);
 }
 
-int max(int i, const int & n)
+int max(int i, const int n)
 {
 	int m = i;
 	for(; i < n; ++i)

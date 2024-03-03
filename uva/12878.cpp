@@ -28,8 +28,8 @@ void dijkstra(int u)
 
 		for(auto & p: G[u])
 		{
-			const int & v = p.first;
-			const int & w = p.second;
+			const int v = p.first;
+			const int w = p.second;
 
 			d = w + dist[u];
 			if(d > dist[v]) continue;
@@ -48,7 +48,7 @@ void dijkstra(int u)
 	}
 }
 
-int sum_dfs(const int & u)
+int sum_dfs(const int u)
 {
 	int sum = 0;
 	visited[u] = true;

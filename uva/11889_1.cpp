@@ -24,7 +24,7 @@ void sieve()
 		}
 }
 
-int pow(const int & b, const int & n)
+int pow(const int b, const int n)
 {
 	if(!n) return 1;
 
@@ -49,7 +49,7 @@ int main()
 			for(int i = 0; primes[i] * primes[i] <= c; ++i)
 			{
 				fa = fc = 0;
-				const int & p = primes[i];
+				const int p = primes[i];
 				while(a % p == 0) { fa++; a /= p; }
 				while(c % p == 0) { fc++; c /= p; }
 

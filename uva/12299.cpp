@@ -21,7 +21,7 @@ struct segment_tree
 			values[i] = N;
 	}
 
-	const int & build(const int & n, const int & l, const int & r)
+	int build(const int n, const int l, const int r)
 	{
 		if(l == r)
 		{
@@ -29,20 +29,20 @@ struct segment_tree
 			return values[n] = A[l];
 		}
 
-		const int & m = (l + r) >> 1;
+		const int m = (l + r) >> 1;
 		return values[n] = std::min(build(left(n), l, m), build(right(n), m + 1, r));
 	}
 
-	int rmq(const int & n, const int & l, const int & r, const int & a, const int & b)
+	int rmq(const int n, const int l, const int r, const int a, const int b)
 	{
 		if(r < a || b < l) return N;
 		if(a <= l && r <= b) return values[n];
 
-		const int & m = (l + r) >> 1;
+		const int m = (l + r) >> 1;
 		return std::min(rmq(left(n), l, m, a, b), rmq(right(n), m + 1, r, a, b));
 	}
 
-	void update(int n, const int & v)
+	void update(int n, const int v)
 	{
 		if(!n) return;
 
@@ -73,7 +73,7 @@ int main()
 		scanf("%s", str);
 		if(str[0] == 'q')
 		{
-			b = 0;
+			a = b = 0;
 			for(int i = 6; str[i] != ')'; ++i)
 				if(str[i] != ',')
 					b = b * 10 + str[i] - '0';

@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-int gcd(const int & a, const int & b)
+int gcd(const int a, const int b)
 {
 	if(!b) return a;
 	return gcd(b, a % b);

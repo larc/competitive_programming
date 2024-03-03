@@ -5,7 +5,7 @@
 using namespace std;
 
 inline
-int index(const char & c)
+int index(const char c)
 {
 	if(c >= 'A' && c <= 'Z')
 		return c - 'A';

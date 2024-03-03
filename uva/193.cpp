@@ -12,7 +12,7 @@ char color[N];
 int vblack[N], n_vblack;	// answer
 int tmp_black[N];
 
-void max_independent_set(const int & u, const int & idx)
+void max_independent_set(const int u, const int idx)
 {
 	if(!u)
 	{
@@ -28,7 +28,7 @@ void max_independent_set(const int & u, const int & idx)
 	{
 		for(int i = 0; i < size[u]; ++i)
 		{
-			const int & v = G[u][i];
+			const int v = G[u][i];
 			if(!color[v]) color[v] = u;
 		}
 
@@ -37,7 +37,7 @@ void max_independent_set(const int & u, const int & idx)
 
 		for(int i = 0; i < size[u]; ++i)
 		{
-			const int & v = G[u][i];
+			const int v = G[u][i];
 			if(color[v] == u) color[v] = 0;
 		}
 	}

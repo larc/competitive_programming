@@ -8,7 +8,7 @@ bool G[27][27] = {};
 bool visited[27] = {};
 bool input[27] = {};
 
-std::string top_sort(const int & i)
+std::string top_sort(const int i)
 {
 	std::string tp = "";
 

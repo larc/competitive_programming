@@ -2,7 +2,7 @@
 
 #include <cstdio>
 
-int pow_mod(const int & x, const int & y, const int & n)
+int pow_mod(const int x, const int y, const int n)
 {
 	if(!y) return 1;
 
@@ -16,7 +16,7 @@ int pow_mod(const int & x, const int & y, const int & n)
 
 int main()
 {
-	int c, x, y, z, n;
+	int c, x, y, n;
 
 	scanf("%d", &c);
 	while(c--)

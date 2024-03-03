@@ -9,13 +9,13 @@ struct union_find
 {
 	int comp[4 * N * N + 2 * N];
 
-	void init(const int & m)
+	void init(const int m)
 	{
 		for(int i = 0; i < m; ++i)
 			comp[i] = i;
 	}
 
-	int n_comp(const int & m)
+	int n_comp(const int m)
 	{
 		int count = 0;
 		for(int i = 0; i < m; ++i)
@@ -24,7 +24,7 @@ struct union_find
 		return count;
 	}
 
-	int find(const int & x)
+	int find(const int x)
 	{
 		if(comp[x] == x) return x;
 		return comp[x] = find(comp[x]);

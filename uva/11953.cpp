@@ -8,7 +8,7 @@
 char grid[N][N];
 bool visited[N][N];
 
-void dfs(const int & i, const int & j, int & x, int & h)
+void dfs(const int i, const int j, int & x, int & h)
 {
 	if(visited[i][j]) return;
 	if(!grid[i][j] || grid[i][j] == '.') return;
