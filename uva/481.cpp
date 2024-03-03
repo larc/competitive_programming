@@ -10,7 +10,7 @@ int lis[N];
 int lis_i[N];
 int parent[N];
 
-void print_lis(const int & i)
+void print_lis(const int i)
 {
 	if(i < 0) return;
 

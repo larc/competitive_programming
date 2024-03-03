@@ -9,7 +9,7 @@ bool G[N][N];
 int degree[N], sort[N];
 bool V[N], S[N], b;
 
-void top_sort(const int & k, const int & n)
+void top_sort(const int k, const int n)
 {
 	if(k == n)
 	{

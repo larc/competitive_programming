@@ -4,19 +4,19 @@
 
 int set[N];
 
-void init_set(const int & n)
+void init_set(const int n)
 {
 	for(int i = 1; i <= n; ++i)
 		set[i] = i;
 }
 
-int find_set(const int & x)
+int find_set(const int x)
 {
 	if(set[x] == x) return x;
 	return set[x] = find_set(set[x]);
 }
 
-void union_set(const int & x, const int & y)
+void union_set(const int x, const int y)
 {
 	set[find_set(x)] = find_set(y);
 }

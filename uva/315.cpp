@@ -14,7 +14,7 @@ int dfs_root;
 int root_children;
 bool articulation[N];
 
-void dfs_articulation(const int & u, int & count)
+void dfs_articulation(const int u, int & count)
 {
 	dfs_low[u] = dfs_num[u] = dfs_counter++;
 	for(int v, i = 0; i < size[u]; ++i)

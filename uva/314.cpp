@@ -21,7 +21,7 @@ struct point
 };
 
 int _time[N][N][N];
-int & time(const point & p, const int & d)
+int & time(const point & p, const int d)
 {
 	return _time[p.x][p.y][d];
 }
@@ -39,7 +39,7 @@ bool valid(const point & p)
 	return 1;
 }
 
-bool go(const char & dir, const int & s, const point & p, point & q)
+bool go(const char dir, const int s, const point & p, point & q)
 {
 	q = p;
 	if(dir & 1) q.y += dir == 1 ? s : -s;
@@ -96,7 +96,7 @@ int main()
 {
 	point p, q;
 	int b;
-	char orientation[6], dir;
+	char orientation[6], dir = 0;
 
 	while(scanf("%d %d", &m, &n), n || m)
 	{

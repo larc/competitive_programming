@@ -5,7 +5,7 @@
 int num[20];
 int rseq, rest;
 
-void tracks(const int & n, const int & r, const int & seq, const int & i)
+void tracks(const int n, const int r, const int seq, const int i)
 {
 	if(r < 0) return;
 

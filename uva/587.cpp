@@ -14,7 +14,7 @@ struct point
 		return *this;
 	}
 
-	point & operator *= (const float & d)
+	point & operator *= (const float d)
 	{
 		x *= d;
 		y *= d;
@@ -39,7 +39,7 @@ int main()
 		d = 0;
 		for(int i = 0; line[i]; ++i)
 		{
-			const char & c = line[i];
+			const char c = line[i];
 			if(c >= '0' && c <= '9')
 				d = 10 * d + c - '0';
 			else if(c == ',' || c == '.')

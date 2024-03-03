@@ -4,7 +4,7 @@
 
 #define N 36
 
-int value(const char & c)
+int value(const char c)
 {
 	if('0' <= c && c <= '9')
 		return c - '0';
@@ -12,7 +12,7 @@ int value(const char & c)
 	return c - 'A' + 10;
 }
 
-int to_base_10(char * str, const int & b)
+int to_base_10(char * str, const int b)
 {
 	int n = 0;
 

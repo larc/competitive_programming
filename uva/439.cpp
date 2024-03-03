@@ -30,7 +30,7 @@ int moves(char * x, char * y)
 	queue<point_t> q;
 	q.push(a);
 
-	auto visit = [&](const int & i, const int & j)
+	auto visit = [&](const int i, const int j)
 	{
 		point_t p = a;
 		p.x += i;

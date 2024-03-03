@@ -27,7 +27,7 @@ int dfs(int u)
 
 		for(int i = 0; i < size[u]; ++i)
 		{
-			const int & v = G[u][i];
+			const int v = G[u][i];
 			if(level[v] < 0)
 			{
 				q.push(v);

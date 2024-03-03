@@ -2,20 +2,20 @@
 
 #include <cstdio>
 
-char digit(const int & i)
+char digit(const int i)
 {
 	if(i < 10) return i + '0';
 	return i - 10 + 'A';
 }
 
-int value(const char & c)
+int value(const char c)
 {
 	if('0' <= c && c <= '9')
 		return c - '0';
 	return c - 'A' + 10;
 }
 
-int to_base_10(char * str, const int & b)
+int to_base_10(char * str, const int b)
 {
 	int n = 0;
 	while(*str)
@@ -29,7 +29,7 @@ int to_base_10(char * str, const int & b)
 }
 
 char num[8];
-int from_base_10(int n, const int & b)
+int from_base_10(int n, const int b)
 {
 	num[7] = 0;
 

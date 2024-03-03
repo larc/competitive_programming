@@ -1,6 +1,6 @@
 #include <cstdio>
 
-int big_mod(const int & b, const int & p, const int & m)
+int big_mod(const int b, const int p, const int m)
 {
 	if(!p) return 1;
 	if(p % 2) return (b * big_mod((b * b) % m, p >> 1, m)) % m;

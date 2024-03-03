@@ -11,7 +11,7 @@ char target[N];
 char seq[N << 2];
 
 std::stack<int> s;
-void dfs_seq(const int & n, const int & i, const int & j)
+void dfs_seq(const int n, const int i, const int j)
 {
 	if(!source[i] && !target[j])
 	{

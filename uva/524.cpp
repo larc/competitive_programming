@@ -20,7 +20,7 @@ void init_prime()
 				not_prime[j] = 1;
 }
 
-void prime_ring(const int & n, const int & p)
+void prime_ring(const int n, const int p)
 {
 	if(n == p && !not_prime[ring[p - 1] + ring[0]])
 	{

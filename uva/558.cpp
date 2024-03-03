@@ -12,7 +12,7 @@ struct edge_t
 edge_t edges[M];
 int dist[N];
 
-bool relax_edges(const int & m)
+bool relax_edges(const int m)
 {
 	int d;
 	bool relax = false;

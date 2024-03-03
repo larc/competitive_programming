@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cmath>
 
-int perfect_number(const int & n)
+int perfect_number(const int n)
 {
 	if(n == 1) return 0;
 

@@ -10,7 +10,7 @@ int num[12];
 int seq[12];
 
 std::set<std::string> sums;
-int sum_it_up(const int & n, const int & s, const int & p, int i)
+int sum_it_up(const int n, const int s, const int p, int i)
 {
 	if(p == n && s) return 0;
 	if(!s)

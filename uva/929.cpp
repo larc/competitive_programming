@@ -20,7 +20,7 @@ bool operator<(const node & a, const node & b)
 	return a.w > b.w;
 }
 
-void update(std::priority_queue<node> & q, const node & p, const int & x, const int & y)
+void update(std::priority_queue<node> & q, const node & p, const int x, const int y)
 {
 	if(x >= 0 && x < m && y >= 0 && y < n)
 	{
