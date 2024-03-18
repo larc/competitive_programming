@@ -39,7 +39,7 @@ int bfs(const int rows, const int cols)
 	std::queue<point> q;
 
 	point a;
-	for(int i = 1; i <= rows; ++i) 
+	for(int i = 1; i <= rows; ++i)
 	for(int j = 1; j <= cols; ++j)
 	{
 		if(maze[i][j] == 'F')

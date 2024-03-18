@@ -21,7 +21,7 @@ struct uf
 		}
 	}
 
-	int find(const int & n)
+	int find(const int n)
 	{
 		if(comp[n] == n) return n;
 		return comp[n] = find(comp[n]);
@@ -45,7 +45,7 @@ struct uf
 		return 1;
 	}
 
-	int is_tree(const int & n)
+	int is_tree(const int n)
 	{
 		if(comp[n] == n && nodes[n] == edges[n] + 1)
 			return nodes[n];
@@ -58,7 +58,7 @@ int main()
 {
 	uf forest;
 	bool nodes[N];
-	char u, v, line[64];
+	char line[64];
 	int n_cases, n_trees, n_acorns;
 
 	scanf("%d", &n_cases);
@@ -76,9 +76,12 @@ int main()
 				nodes[line[i] - 'A'] = 1;
 
 		n_trees = n_acorns = 0;
-		for(int i = 0; i < N; ++i) if(nodes[i])
-			if(forest.is_tree(i) == 1) n_acorns++;
-			else if(forest.is_tree(i)) n_trees++;
+		for(int i = 0; i < N; ++i)
+			if(nodes[i])
+			{
+				if(forest.is_tree(i) == 1) ++n_acorns;
+				else if(forest.is_tree(i)) ++n_trees;
+			}
 
 		printf("There are %d tree(s) and %d acorn(s).\n", n_trees, n_acorns);
 	}

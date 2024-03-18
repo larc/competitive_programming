@@ -4,14 +4,14 @@
 #include <queue>
 
 #define N 101
-#define INF 1 << 31 - 1
+#define INF (int((1u << 31) - 1))
 
 int W[N][N]; // edges weight
 int G[N][N]; // adj list
 int size[N];
 int path[N]; // bfs tree
 
-int augment(const int & v, int min_edge)
+int augment(const int v, int min_edge)
 {
 	if(path[v] > 0)
 	{
@@ -23,7 +23,7 @@ int augment(const int & v, int min_edge)
 	return min_edge;
 }
 
-int bfs(const int & s, const int & t)
+int bfs(const int s, const int t)
 {
 	memset(path, -1, sizeof(path));
 	std::queue<int> q;

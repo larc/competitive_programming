@@ -79,7 +79,7 @@ unsigned bfs(point a, const point & b)
 		}
 	}
 
-	return dist[b]; 
+	return dist[b];
 }
 
 int main()

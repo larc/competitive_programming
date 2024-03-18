@@ -9,7 +9,7 @@
 
 int freq[N][128];
 
-bool is_anagram(const int & i, const int & j)
+bool is_anagram(const int i, const int j)
 {
 	for(int k = 0; k < 128; ++k)
 		if(freq[i][k] != freq[j][k])
@@ -33,8 +33,8 @@ int main()
 		memset(freq, 0, sizeof(freq));
 
 		for(int i = 0; i < m; ++i)
-		for(char & c: phrase[i])
-			if(c != ' ') freq[i][c]++;
+		for(char c: phrase[i])
+			if(c != ' ') ++freq[i][int(c)];
 
 		for(int i = 0; i < m; ++i)
 		for(int j = i + 1; j < m; ++j)

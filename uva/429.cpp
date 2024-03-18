@@ -14,7 +14,7 @@ int G[N][N];
 int size[N];
 int level[N];
 
-int bfs(int u, const int & v)
+int bfs(int u, const int v)
 {
 	memset(level, -1, sizeof(level));
 
@@ -47,7 +47,7 @@ bool compare(const string & wa, const string & wb)
 	if(wa.size() != wb.size()) return 0;
 
 	int c = 0;
-	for(int i = 0; i < wa.size(); ++i)
+	for(unsigned int i = 0; i < wa.size(); ++i)
 		if(wa[i] != wb[i]) c++;
 
 	return c == 1;

@@ -26,7 +26,7 @@ bool operator<(const link_t & a, const link_t & b)
 }
 
 set<link_t> links; // critical links
-void dfs_bridge(const int & u)
+void dfs_bridge(const int u)
 {
 	dfs_low[u] = dfs_num[u] = dfs_counter++;
 	for(int v, i = 0; i < size[u]; ++i)
