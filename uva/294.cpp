@@ -50,7 +50,7 @@ int divisors(int n)
 int main()
 {
 	int n, l, u, d, max_d, p;
-	int n_primes = find_primes();
+	find_primes();
 
 	//printf("%d\n", divisors(1000));
 

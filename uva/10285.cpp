@@ -86,10 +86,9 @@ void relax(const point_t & p, const point_t & q, std::queue<point_t> & qq)
 
 int main()
 {
-	int n, x, y;
+	int n;
 	int length, l;
 	char name[32];
-	int p;
 
 	scanf("%d", &n);
 	while(n--)

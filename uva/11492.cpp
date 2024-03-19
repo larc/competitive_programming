@@ -22,7 +22,7 @@ int main()
 	char cu[S], cv[S], w[S], s[S], d[S];
 	string words[N];
 
-	unsigned n, u, v;
+	unsigned n, u;
 
 	map<string, vector<unsigned> > languages;
 	while(scanf("%d", &n) && n)

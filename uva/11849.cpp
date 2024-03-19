@@ -4,7 +4,7 @@
 
 int main()
 {
-	int n, m, cd, b, i, j;
+	int n, m, b, i, j;
 	int A[N], B[N];
 
 	while(scanf("%d %d", &n, &m), n, m)

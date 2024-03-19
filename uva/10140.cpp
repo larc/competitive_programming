@@ -21,7 +21,7 @@ void sieve()
 	{
 		if(!n_primes[i])
 		{
-			p++;
+			++p;
 		//	primes[p++] = i;
 			for(size_t j = i * i; j < N; j += i)
 				n_primes[j] = 1;

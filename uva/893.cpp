@@ -14,7 +14,7 @@ inline size_t month(size_t m, size_t y)
 
 int main()
 {
-	size_t p, d, m, y, dd, mm, yy, rd, rm;
+	size_t p, d, m, y, dd, mm, yy;
 	while(scanf("%ld %ld %ld %ld", &p, &d, &m, &y) != EOF && p && d && m && y)
 	{
 		yy = p/365;

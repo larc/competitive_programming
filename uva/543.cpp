@@ -32,8 +32,7 @@ int main()
 {
 	sieve();
 
-	int n, a, b, sq;
-	bool prime;
+	int n, a, b;
 	while(scanf("%d", &n) && n)
 	{
 		for(a = 0; primes[a] < n; ++a)
