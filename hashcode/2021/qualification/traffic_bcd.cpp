@@ -17,7 +17,7 @@ struct street
 
 } streets[100000];						// input: street values
 
-map<string, int> id_street;				// input: street name -> id	
+map<string, int> id_street;				// input: street name -> id
 vector<int> cars[1000];					// input: car's path
 
 vector<int> intersections[100000];		// step 1: fill with in streets in some path
@@ -42,7 +42,7 @@ int main()
 
 		vector<int> & vcar = cars[i];
 		vcar.reserve(P);
-	
+
 		while(P--)
 		{
 			scanf("%s", stname);
@@ -53,7 +53,7 @@ int main()
 	size_t car_time[1000];
 	size_t sigma, sum, mean, time, max_path_time = 0;
 	size_t max_stops = 0;
-	
+
 	sum = 0;
 	for(int i = 0; i < V; ++i)
 	{
@@ -76,7 +76,7 @@ int main()
 		max_path_time = max(max_path_time, time);
 		max_stops = max(max_stops, vcar.size() - 1);
 	}
-	
+
 	mean = sum / V;
 
 	sigma = 0;
@@ -96,7 +96,7 @@ int main()
 	int A = 0;
 	for(int i = 0; i < I; ++i)
 		A += intersections[i].size() > 0;
-	
+
 	printf("%d\n", A);
 
 	// adding traffic solution
@@ -118,7 +118,7 @@ int main()
 			for(const int s: vint)
 				sum += streets[s].traffic;
 			*/
-			
+
 			for(const int s: vint)
 				printf("%s %lu\n", streets[s].name, max(streets[s].traffic * time / sum, 1lu));
 		}

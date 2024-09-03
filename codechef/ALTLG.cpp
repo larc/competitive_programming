@@ -89,7 +89,7 @@ int main()
 		for(const int i: iQ)
 		{
 			query_t & q = Q[i];
-			q.ans = query(q.t - 1, q.l, q.r); 
+			q.ans = query(q.t - 1, q.l, q.r);
 		}
 
 		for(int i = 0; i < nq; ++i)

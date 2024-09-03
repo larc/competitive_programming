@@ -14,12 +14,12 @@ int main()
 		for(int i = 0; S[i]; ++i)
 			if(S[i] != '?')
 				S[n++] = S[i];
-		
+
 		cost = 0;
 		for(int i = 1; i < n; ++i)
 			if(S[i - 1] != S[i])
 				cost += S[i] == 'J' ? x : y;
-		
+
 		printf("Case #%d: %d\n", c, cost);
 	}
 

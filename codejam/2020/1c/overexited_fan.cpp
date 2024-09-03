@@ -19,7 +19,7 @@ int main()
 			D = std::abs(X) + std::abs(Y);
 			if(D <= time && time < dist)
 				dist = time;
-			
+
 			switch(M[time])
 			{
 				case 'E': X++; break;

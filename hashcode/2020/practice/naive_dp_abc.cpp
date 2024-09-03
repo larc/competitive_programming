@@ -16,7 +16,7 @@ int dfs(const int m, int n)
 	int & r = dp[n][m];
 	int & s = sum[n][m];
 	if(r) return s;
-	
+
 	int u, d;
 	while(n >= 0)
 	{
@@ -28,11 +28,11 @@ int dfs(const int m, int n)
 			s = d;
 			r = n + 1;
 		}
-		
+
 		n--;
 	}
-	
-	return s;	
+
+	return s;
 }
 
 int main()
@@ -46,14 +46,14 @@ int main()
 
 	n--;
 	fprintf(stderr, "MAX: %d\n", dfs(m, n));
-	
+
 	while(n >= 0)
 	{
 		n = dp[n][m] - 1;
 		m -= S[n];
-		
-		ans.push(n);	
-		
+
+		ans.push(n);
+
 		n = std::upper_bound(S, S + n, m) - S - 1;
 	}
 

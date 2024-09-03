@@ -47,7 +47,7 @@ int main()
 				printf("%s\n", uf.find(a) == uf.find(b) ? "yes" : "no");
 			else
 				uf.join(a, b);
-		} 
+		}
 	}
 
 	return 0;

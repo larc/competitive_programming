@@ -16,11 +16,11 @@ int main()
 		for(int i = 0; i < N; ++i)
 		for(int j = 0; j < N; ++j)
 			scanf("%d", &M[i][j]);
-		
+
 		k = 0;
 		for(int i = 0; i < N; ++i)
 			k += M[i][i];
-		
+
 		r = 0;
 		for(int i = 0; i < N; ++i)
 		{
@@ -33,7 +33,7 @@ int main()
 				}
 				else rep[M[i][j]] = true;
 		}
-		
+
 		c = 0;
 		for(int j = 0; j < N; ++j)
 		{
@@ -46,7 +46,7 @@ int main()
 				}
 				else rep[M[i][j]] = true;
 		}
-		
+
 		printf("Case #%d: %d %d %d\n", x, k, r, c);
 	}
 

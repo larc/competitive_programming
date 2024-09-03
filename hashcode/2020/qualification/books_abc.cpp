@@ -53,7 +53,7 @@ int main()
 		library_t & lib = libraries[i];
 
 		scanf("%d %d %d", &lib.N, &lib.T, &lib.M);
-		
+
 		lib.books = new int[lib.N];
 		lib.value = 0;
 
@@ -73,7 +73,7 @@ int main()
 
 	std::vector<int> books;
 	books.reserve(MAX);
-	
+
 	int id, time = 0; bool b;
 
 	L = 0;
@@ -83,7 +83,7 @@ int main()
 		library_t & lib = libraries[id];
 
 		time += lib.T;
-		
+
 		books.clear();
 		for(int t = 0, i = 0; i < lib.N && t + time < D; ++i)
 		{
@@ -100,7 +100,7 @@ int main()
 				if(books.size() % lib.M == 0) t++;
 			}
 		}
-		
+
 		if(books.size())
 		{
 			ids[L++] = id;

@@ -12,17 +12,17 @@ int main()
 	{
 		scanf("%d", &n);
 		scanf("%s", str);
-		
+
 		m = n >> 1;
 		m += n & 1;
-		
+
 		for(int i = 0; i < n; ++i)
 			str[i] -= '0';
 
 		b = 0;
 		for(int i = 0; i < m; ++i)
 			b += str[i];
-		
+
 		a = b;
 		for(int i = 0; i + m < n; ++i)
 		{

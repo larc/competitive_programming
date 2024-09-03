@@ -5,7 +5,7 @@ int sum(char * T)
 	int s = 0;
 	for(int i = 0; T[i]; ++i)
 		s += T[i] - '0';
-	
+
 	return s;
 }
 

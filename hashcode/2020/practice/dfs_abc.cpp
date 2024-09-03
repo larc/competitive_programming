@@ -10,7 +10,7 @@ void dfs(int m, int n, int k)
 	if(n >= 0 && m >= A[n])
 	{
 		m -= A[n];
-		while(n >= 0)	
+		while(n >= 0)
 			rev[k++] = n--;
 	}
 
@@ -22,7 +22,7 @@ void dfs(int m, int n, int k)
 		for(int i = 0; i < k; ++i)
 			ans[i] = rev[k - i - 1];
 	}
-	
+
 	int u;
 	while(n >= 0 && m - S[n] >= 0)
 	{
@@ -30,7 +30,7 @@ void dfs(int m, int n, int k)
 		u = std::upper_bound(S, S + n, m - S[n]) - S;
 
 		dfs(m - S[n], u - 1, k + 1);
-		
+
 		n--;
 	}
 }
@@ -42,11 +42,11 @@ int main()
 	scanf("%d %d", &m, &n);
 	for(int i = 0; i < n; ++i)
 		scanf("%d", S + i);
-	
+
 	A[0] = S[0];
 	for(int i = 1; i < n; ++i)
 		A[i] = A[i - 1] + S[i];
-	
+
 	min = m + 1;
 	dfs(m, n - 1, 0);
 

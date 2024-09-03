@@ -4,13 +4,13 @@ int main()
 {
 	char str[10];
 	int t, n, a, b, p;
-	
+
 	scanf("%d", &t);
 	while(t--)
 	{
 		scanf("%d %d", &a, &b);
 		scanf("%d", &n);
-		
+
 		a++;
 		while(n--)
 		{

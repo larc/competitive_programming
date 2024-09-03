@@ -16,7 +16,7 @@ int main()
 
 		int i = 0;
 		while(word[i] && word[i] == '0') ++i;
-	
+
 		code = word[i] ? word[i++] : '\0';
 		for(; word[i]; ++i)
 		{

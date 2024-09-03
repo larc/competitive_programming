@@ -39,7 +39,7 @@ struct library_t
 		n = std::min(N, (D - (T + t)) * M);
 
 		value = float(n + M - 1) / M;
-		
+
 		/*
 		value = 0;
 		for(int i = 0; i < n; ++i)
@@ -81,13 +81,13 @@ int main()
 
 	for(int i = 0; i < B; ++i)
 		scanf("%d", S + i);
-	
+
 	for(int i = 0; i < L; ++i)
 	{
 		library_t & lib = libraries[i];
 
 		scanf("%d %d %d", &lib.N, &lib.T, &lib.M);
-		
+
 		lib.books = new int[lib.N];
 
 		for(int j = 0; j < lib.N; ++j)
@@ -97,9 +97,9 @@ int main()
 												{
 													return S[i] > S[j];
 												});
-		
+
 		for(int j = 0; j < lib.N; ++j)
-			send[lib[j]] = !S[lib[j]];		
+			send[lib[j]] = !S[lib[j]];
 	}
 
 	while(true)
@@ -113,7 +113,7 @@ int main()
 		library_t & lib = libraries[id];
 
 		time += lib.T;
-			
+
 		for(int j = 0; j < lib.N; ++j)
 			send[lib[j]] = true;
 	}

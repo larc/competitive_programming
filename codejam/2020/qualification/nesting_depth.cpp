@@ -11,25 +11,25 @@ int main()
 	for(int x = 1; x <= T; ++x)
 	{
 		scanf("%s", S);
-		
+
 		y = "";
 		p = 0;
 		for(int i = 0; S[i]; ++i)
 		{
 			n = S[i] - '0';
-			
+
 			while(p > n)
 			{
 				y += ')';
 				p--;
 			}
-			
+
 			while(p < n)
 			{
 				y += '(';
 				p++;
 			}
-				
+
 			y += S[i];
 		}
 

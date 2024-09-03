@@ -33,7 +33,7 @@ int main()
 		{
 			A[i] = (x + y) % F;
 			sum = (sum + A[i] * (n - i) * k) % M;
-		
+
 			x_new = ((C * x) % F + (D * y) % F + E1) % F;
 			y_new = ((D * x) % F + (C * y) % F + E2) % F;
 
@@ -43,16 +43,16 @@ int main()
 
 		for(int i = 2; i <= n; ++i)
 			sum_pow[i] = ((pow(i, k + 1) - 1) * pow(i - 1, M - 2)) % M - 1;
-		
+
 		for(int i = 1; i < n; ++i)
 			A[i] = (A[i] * (n - i)) % M;
-		
+
 		for(int i = n - 2; i > 0; i--)
 			A[i] = (A[i] + A[i + 1]) % M;
 
 		for(int i = 1; i < n; ++i)
 			sum = (sum + (A[i] * sum_pow[i + 1]) % M) % M;
-		
+
 		printf("Case #%d: %lld\n", c, sum);
 	}
 

@@ -11,7 +11,7 @@ int main()
 		scanf("%d %d", &n, &cost);
 		for(int i = 0; i < n; ++i)
 			L[i] = i + 1;
-		
+
 		for(int j, i = n - 2; cost > i && i >= 0; --i)
 		{
 			j = i + std::min(n - 1 - i, cost - i - 1);
@@ -19,7 +19,7 @@ int main()
 			for(int a = i, b = j; a < b; ++a, --b)
 				std::swap(L[a], L[b]);
 		}
-		
+
 		if(cost)
 			printf("Case #%d: IMPOSSIBLE\n", c);
 		else

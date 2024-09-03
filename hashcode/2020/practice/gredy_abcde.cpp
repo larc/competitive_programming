@@ -20,7 +20,7 @@ int main()
 			m -= S[i];
 			order.push(i);
 		}
-	
+
 	printf("%lu\n", order.size());
 	while(!order.empty())
 	{

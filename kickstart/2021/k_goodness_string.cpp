@@ -16,7 +16,7 @@ int main()
 		score = 0;
 		for(int i = 0; i < (n >> 1); ++i)
 			score += str[i] != str[n - i - 1];
-		
+
 		printf("Case #%d: %d\n", c, score < k ? k - score : score - k);
 	}
 
