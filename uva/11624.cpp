@@ -3,102 +3,92 @@
 #include <cstdio>
 #include <cstring>
 #include <queue>
-#include <array>
+#include <vector>
 
 #define N 1002
 
-char maze[N][N] = {};
-int dist[N][N] = {};
 
-using point = std::array<int, 2>;
-
-char & pmaze(const point & p)
+struct pos
 {
-	return maze[p[0]][p[1]];
-}
+	int x, y;
 
-int & pdist(const point & p)
-{
-	return dist[p[0]][p[1]];
-}
-
-point operator + (const point & a, const point & b)
-{
-	return {a[0] + b[0], a[1] + b[1]};
-}
-
-const point dirs[] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-
-bool check(const point & a, const int rows, const int cols)
-{
-	return pmaze(a) == 'J' && (a[0] == rows || a[1] == cols || a[0] == 1 || a[1] == 1);
-}
-
-int bfs(const int rows, const int cols)
-{
-	std::queue<point> q;
-
-	point a;
-	for(int i = 1; i <= rows; ++i)
-	for(int j = 1; j <= cols; ++j)
+	pos operator + (const pos & p) const
 	{
-		if(maze[i][j] == 'F')
-		{
-			q.push({i, j});
-			dist[i][j] = 0;
-		}
+		return {x + p.x, y + p.y};
+	}
+};
 
-		if(maze[i][j] == 'J')
-		{
-			a = {i, j};
-			dist[i][j] = 0;
-		}
+
+char B[N][N] = {};
+unsigned int dist[N][N];
+
+int bfs(const std::vector<pos> & sources, const bool stop)
+{
+	std::queue<pos> q;
+	for(auto & p: sources)
+	{
+		q.push(p);
+		dist[p.x][p.y] = 0;
 	}
 
-	if(check(a, rows, cols))
-		return pdist(a) + 1;
-
-	q.push(a);
+	static const pos neigs[] = { {-1, 0}, {1, 0}, {0, -1}, {0, 1} };
 	while(!q.empty())
 	{
-		a = q.front(); q.pop();
+		const pos u = q.front();
+		q.pop();
 
-		const char ma = pmaze(a);
-
-		for(const point & d: dirs)
+		if(!B[u.x][u.y])
 		{
-			const point & b = a + d;
-			char & mb = pmaze(b);
+			if(stop) return dist[u.x][u.y];
+			else continue;
+		}
 
-			if(mb != '.') continue;
+		const unsigned int d = dist[u.x][u.y] + 1;
+		for(const auto & n: neigs)
+		{
+			const pos v = u + n;
+			if(B[v.x][v.y] && B[v.x][v.y] != '.')
+				continue;
 
-			mb = ma;
-			pdist(b) = pdist(a) + 1;
-			if(check(b, rows, cols))
-				return pdist(b) + 1;
-
-			q.push(b);
+			if(d < dist[v.x][v.y])
+			{
+				dist[v.x][v.y] = d;
+				q.push(v);
+			}
 		}
 	}
 
-	return -1;
+	return 0;
 }
 
 int main()
 {
-	int n_cases, rows, cols, time;
+	int n, r, c;
+	std::vector<pos> fire;
+	pos p;
 
-	scanf("%d", &n_cases);
-	while(n_cases--)
+	scanf("%d", &n);
+	while(n--)
 	{
-		scanf("%d %d", &rows, &cols);
-		for(int i = 1; i <= rows; ++i)
-			scanf("%s", maze[i] + 1);
+		scanf("%d %d", &r, &c);
+		for(int i = 1; i <= r; ++i)
+			scanf("%s", B[i] + 1);
+		memset(B[r + 1], 0, N);
+		
+		fire.clear();
+		for(int i = 1; i <= r; ++i)
+		for(int j = 1; j <= c; ++j)
+		{
+			if(B[i][j] == 'F') fire.push_back({i, j});
+			if(B[i][j] == 'J') p = {i, j};
+		}
 
-		memset(maze[rows + 1], 0, N);
+		memset(dist, -1, sizeof(dist));
+		B[p.x][p.y] = '.';
 
-		time = bfs(rows, cols);
-		time == -1 ? printf("IMPOSSIBLE\n") : printf("%d\n", time);
+		bfs(fire, false);
+		r = bfs({p}, true);
+		r ? printf("%d\n", r) : printf("IMPOSSIBLE\n");
 	}
 
 	return 0;
