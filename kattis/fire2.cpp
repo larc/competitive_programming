@@ -1,5 +1,3 @@
-// 11624 - Fire!
-
 #include <cstdio>
 #include <cstring>
 #include <queue>
@@ -63,32 +61,35 @@ int bfs(const std::vector<pos> & sources, const bool stop)
 
 int main()
 {
-	int n, r, c;
+	int n, w, h;
 	std::vector<pos> fire;
+	fire.reserve(N);
+
 	pos p;
 
 	scanf("%d", &n);
 	while(n--)
 	{
-		scanf("%d %d", &r, &c);
-		for(int i = 1; i <= r; ++i)
+		scanf("%d %d", &w, &h);
+		for(int i = 1; i <= h; ++i)
 			scanf("%s", B[i] + 1);
-		memset(B[r + 1], 0, N);
+		memset(B[h + 1], 0, N);
 
 		fire.clear();
-		for(int i = 1; i <= r; ++i)
-		for(int j = 1; j <= c; ++j)
+		for(int i = 1; i <= h; ++i)
+		for(int j = 1; j <= w; ++j)
 		{
-			if(B[i][j] == 'F') fire.push_back({i, j});
-			if(B[i][j] == 'J') p = {i, j};
+			if(B[i][j] == '*') fire.push_back({i, j});
+			if(B[i][j] == '@') p = {i, j};
 		}
 
 		memset(dist, -1, sizeof(dist));
 		B[p.x][p.y] = '.';
 
 		bfs(fire, false);
-		r = bfs({p}, true);
-		r ? printf("%d\n", r) : printf("IMPOSSIBLE\n");
+
+		h = bfs({p}, true);
+		h ? printf("%u\n", h) : printf("IMPOSSIBLE\n");
 	}
 
 	return 0;
