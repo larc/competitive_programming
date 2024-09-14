@@ -23,7 +23,7 @@ int bfs(const int t)
 	{
 		const int u = q.front();
 		q.pop();
-		
+
 		if(u == t) return u;
 		if(u > t && u < t_min)
 			t_min = u;
