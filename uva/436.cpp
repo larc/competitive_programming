@@ -1,9 +1,11 @@
+// 436 - Arbitrage (II)
+
 #include <cstdio>
 #include <cstring>
 #include <string>
 #include <unordered_map>
 
-#define N 200
+#define N 30
 
 
 float G[N][N];
@@ -24,30 +26,32 @@ bool arbitrage(const int n)
 
 int main()
 {
-	int n, m, a, b;
+	int n, m;
+	float r;
 
-	char sa[4], sb[4];
+	char a[32], b[32];
 	std::unordered_map<std::string, int> C;
 
+	int n_cases = 0;
 	while(scanf("%d", &n), n)
 	{
 		memset(G, 0, sizeof(G));
 		for(int i = 0; i < n; ++i)
 		{
-			scanf("%s", sa);
+			scanf("%s", a);
 
-			C[sa] = i;
+			C[a] = i;
 			G[i][i] = 1;
 		}
 
 		scanf("%d", &m);
 		while(m--)
 		{
-			scanf("%s %s %d:%d", sa, sb, &a, &b);
-			G[C[sa]][C[sb]] = float(b) / a;
+			scanf("%s %f %s", a, &r, b);
+			G[C[a]][C[b]] = r;
 		}
 
-		arbitrage(n) ? printf("Arbitrage\n") : printf("Ok\n");
+		printf("Case %d: %s\n", ++n_cases, arbitrage(n) ? "Yes" : "No");
 	}
 
 	return 0;
