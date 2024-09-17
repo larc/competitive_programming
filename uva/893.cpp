@@ -17,9 +17,25 @@ int month(const int m, const int y)
 
 int main()
 {
+	const int y4 = 365 * 3 + 366;
+	const int y100 = y4 * 24 + 365 * 4;
+	const int y400 = y100 * 4 + 1;
+
 	int x, d, m, y, r;
 	while(scanf("%d %d %d %d", &x, &d, &m, &y), y)
 	{
+		r = x / y400;
+		x %= y400;
+		y += 400 * r;
+
+		r = x / y100;
+		x %= y100;
+		y += 100 * r;
+
+		r = x / y4;
+		x %= y4;
+		y += 4 * r;
+
 		r = month(m, y) - d;
 		d = x > r ? 0 : d;
 		while(x > r)
