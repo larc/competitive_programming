@@ -1,11 +1,14 @@
+// 893 - Y3K Problem
+
 #include <cstdio>
 
-inline bool leap(size_t y)
+
+bool leap(const int y)
 {
 	return !(y % 400) || (!(y % 4) && (y % 100));
 }
 
-inline size_t month(size_t m, size_t y)
+int month(const int m, const int y)
 {
 	if(m == 2) return leap(y) ? 29 : 28;
 	if(m == 4 || m == 6 || m == 9 || m == 11) return 30;
@@ -14,15 +17,32 @@ inline size_t month(size_t m, size_t y)
 
 int main()
 {
-	size_t p, d, m, y, dd, mm, yy;
-	while(scanf("%ld %ld %ld %ld", &p, &d, &m, &y) != EOF && p && d && m && y)
+	int x, d, m, y, r;
+	while(scanf("%d %d %d %d", &x, &d, &m, &y), y)
 	{
-		yy = p/365;
-		p %= 365;
-		mm = p/30;
-		p %= 30;
-		dd = p;
-		printf("%ld %ld %ld\n", dd, mm + m, yy + y);
+		r = month(m, y) - d;
+		d = x > r ? 0 : d;
+		while(x > r)
+		{
+			x -= r;
+			r = month(++m, y);
+			if(m == 13)
+			{
+				m = 1;
+
+				r = leap(++y) ? 366 : 365;
+				while(x > r)
+				{
+					x -= r;
+					r = leap(++y) ? 366 : 365;
+				}
+				r = 31;
+			}
+		}
+
+		printf("%d %d %d\n", d + x, m, y);
 	}
+
 	return 0;
 }
+
