@@ -21,8 +21,11 @@ inline int neig(const int u, const int e)
 	return E[e][E[e][0] == u];
 }
 
-void dfs(const int u)
+int dfs(const int u)
 {
+	int fu, fv;
+
+	fu = u;
 	for(const int e: G[u])
 	{
 		if(disable[e])
@@ -33,31 +36,29 @@ void dfs(const int u)
 		{
 			parent[v] = e;
 			level[v] = level[u] + 1;
-			dfs(v);
+
+			fv = dfs(v);
+			if(level[fv] > level[fu])
+				fu = fv;
 		}
 	}
+
+	return fu;
 }
 
-int farthest(const int n, int u = 1)
+int farthest(int u = 1)
 {
 	memset(level, -1, sizeof(level));
-
 	parent[u] = level[u] = 0;
-	dfs(u);
 
-	u = 1;
-	for(int i = 2; i <= n; ++i)
-		if(level[i] > level[u])
-			u = i;
-
-	return u;
+	return dfs(u);
 }
 
-int center(int n, int & u)
+int center(int & u)
 {
-	u = farthest(n, farthest(n, u));
-	n = level[u];
+	u = farthest(farthest(u));
 
+	int n = level[u];
 	for(int i = n >> 1; i; --i)
 		u = neig(u, parent[u]);
 
@@ -92,7 +93,7 @@ int main()
 			G[v].push_back(i);
 		}
 
-		u = farthest(n, farthest(n));
+		u = farthest(farthest());
 		mf = level[u];
 
 		diameter.clear();
@@ -110,8 +111,8 @@ int main()
 
 			disable[i] = true;
 
-			mu = center(n, u);
-			mv = center(n, v);
+			mu = center(u);
+			mv = center(v);
 			E[n][0] = u; 
 			E[n][1] = v;
 
