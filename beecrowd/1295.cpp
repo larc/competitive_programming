@@ -1,4 +1,4 @@
-// 10245 - The Closest Pair Problem
+// 1295 - The Closest Pair Problem
 
 #include <cstdio>
 #include <cmath>
