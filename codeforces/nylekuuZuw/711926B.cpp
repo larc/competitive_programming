@@ -1,6 +1,7 @@
 #include <cstdio>
 
 #define N 1'000'001
+
 int main()
 {
 	int freq[N] = {};
