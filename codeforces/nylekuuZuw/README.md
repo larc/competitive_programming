@@ -3,9 +3,9 @@
 
 ## Solutions [Práctica de Laboratorio 2 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/713855)
 
-#### [A. Eliminar nodo](713855A.cpp)
-#### [B. Impares y pares](713855B.cpp)
-#### [C. Uniendo cadenas.](713855C.cpp)
+#### [A. Nodo medio](713855A.cpp)
+#### [B. Eliminar el valor](713855B.cpp)
+#### [C. Intersectando Listas](713855C.cpp)
 
 ## Solutions [Práctica de Laboratorio 1 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/711926)
 
@@ -16,9 +16,9 @@
 
 ## Solutions [Ejercicios de arreglos y vectores - Semana 2](https://codeforces.com/group/nylekuuZuw/contest/711412)
 
-#### [¡Vectores!](711412A.cpp)
-#### [Buena secuencia](711412B.cpp)
-#### [Subsecuencia](711412C.cpp)
-#### [Minimizando](711412D.cpp)
-#### [Máxima subsecuencia](711412E.cpp)
+#### [A. ¡Vectores!](711412A.cpp)
+#### [B. Buena secuencia](711412B.cpp)
+#### [C. Subsecuencia](711412C.cpp)
+#### [D. Minimizando](711412D.cpp)
+#### [E. Máxima subsecuencia](711412E.cpp)
 
