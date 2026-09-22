@@ -18,7 +18,7 @@ int main()
 				A[i] = A[i - 1];
 			scanf("%d", A + p);
 			++n;
-		}	
+		}
 		else if(*op == 'D')
 		{
 			if(p == n) continue;
