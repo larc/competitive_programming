@@ -1,5 +1,10 @@
 # [CS2023 Algoritmos y Estructuras de Datos 2s2026](https://codeforces.com/group/nylekuuZuw)
 
+## Solutions [Práctica de Laboratorio 4 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/724855)
+
+#### [A. Reparto de Caramelos](724855A.cpp)
+#### [B. Bloques de Entradas](724855B.cpp)
+#### [C. Mudanza](724855C.cpp)
 
 ## Solutions [Práctica de Laboratorio 3 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/717359)
 
