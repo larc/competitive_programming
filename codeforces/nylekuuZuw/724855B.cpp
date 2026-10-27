@@ -1,10 +1,10 @@
 #include <cstdio>
-#include <unordered_map>
+#include <vector>
 
 int main()
 {
 	int n, a, n_blocks = 0;
-	std::unordered_map<int, bool> S;
+	std::vector<bool> S(1'000'000'002);
 
 	scanf("%d", &n);
 	for(int i = 0; i < n; ++i)
