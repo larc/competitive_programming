@@ -1,6 +1,12 @@
 # [CS2023 Algoritmos y Estructuras de Datos 2s2026](https://codeforces.com/group/nylekuuZuw)
 
 
+## Solutions [Práctica de Laboratorio 3 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/717359)
+
+#### [A. Todos los duplicados](717359A.cpp)
+#### [B. Sudoku Válido](717359B.cpp)
+#### [C. Vecinos Cercanos](717359C.cpp)
+
 ## Solutions [Práctica de Laboratorio 2 - Sección 2](https://codeforces.com/group/nylekuuZuw/contest/713855)
 
 #### [A. Nodo medio](713855A.cpp)
